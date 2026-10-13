@@ -1,0 +1,481 @@
+{
+  "trajectory_id": "traj_3f6bba152c7d4af3998f0f9c3deead65",
+  "task_id": "task_a1_000028",
+  "model": {
+    "name": "DeepSeek-V4.1-Flash"
+  },
+  "task": {
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；整理成可编辑的文本；判断题目内容是否完整并指出缺失部分；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0010",
+      "fixture_path": "raw/assets/10.png"
+    }
+  },
+  "steps": [
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I'll start by registering the uploaded image and examining its contents.",
+        "tool_calls": [
+          {
+            "id": "call_726a79173c924188b003c359",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "upload_artifact",
+              "arguments": "{\"user_id\": \"student_task_user\", \"fixture_path\": \"raw/assets/10.png\"}"
+            }
+          },
+          {
+            "id": "call_54fd1564ff414e73af35f635",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "get_artifact",
+              "arguments": "{\"artifact_id\": \"art_0010\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1240,
+        "total_tokens": 1349,
+        "completion_tokens": 109,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1842.3738999990746,
+      "request_id": "32455eec33564b238c32b4870889cfeb",
+      "step_id": "step_0001"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_726a79173c924188b003c359",
+      "tool": "upload_artifact",
+      "arguments": {
+        "user_id": "student_task_user",
+        "fixture_path": "raw/assets/10.png"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0010",
+        "user_id": null,
+        "file_name": "10.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/10.png",
+        "content_hash": "sha256:f531495558e90e89c3a2292f02e4a55906c81c1128449de0af846113f509fd02",
+        "size_bytes": 94172,
+        "width": 728,
+        "height": 231,
+        "status": "uploaded"
+      },
+      "step_id": "step_0002"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_54fd1564ff414e73af35f635",
+      "tool": "get_artifact",
+      "arguments": {
+        "artifact_id": "art_0010"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0010",
+        "user_id": null,
+        "file_name": "10.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/10.png",
+        "content_hash": "sha256:f531495558e90e89c3a2292f02e4a55906c81c1128449de0af846113f509fd02",
+        "size_bytes": 94172,
+        "width": 728,
+        "height": 231,
+        "status": "uploaded"
+      },
+      "step_id": "step_0003"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I'll now list the problem regions in the image.",
+        "tool_calls": [
+          {
+            "id": "call_c47166ee32624589a42fb786",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "list_artifact_regions",
+              "arguments": "{\"artifact_id\": \"art_0010\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1592,
+        "total_tokens": 1647,
+        "completion_tokens": 55,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1004.7770999954082,
+      "request_id": "6ff5bb06a4bb45e2ad40b195651ff709",
+      "step_id": "step_0004"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_c47166ee32624589a42fb786",
+      "tool": "list_artifact_regions",
+      "arguments": {
+        "artifact_id": "art_0010"
+      },
+      "status": "completed",
+      "observation": [
+        {
+          "region_id": "region_art_0010_01",
+          "artifact_id": "art_0010",
+          "region_index": 1,
+          "region_type": "question",
+          "bbox_json": null,
+          "bbox_status": "not_annotated",
+          "confidence": null,
+          "status": "confirmed"
+        }
+      ],
+      "step_id": "step_0005"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "There's one region. Let me get its content and context.",
+        "tool_calls": [
+          {
+            "id": "call_49c15641ae064cf9916b3994",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "recognize_content",
+              "arguments": "{\"region_id\": \"region_art_0010_01\", \"modality\": \"ocr\"}"
+            }
+          },
+          {
+            "id": "call_29bb0bb8b9ab45ffa4b01a3c",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "extract_editable_text",
+              "arguments": "{\"region_id\": \"region_art_0010_01\", \"include_latex\": true}"
+            }
+          },
+          {
+            "id": "call_5ae219b04c8740fa9f78a90a",
+            "index": 2,
+            "type": "function",
+            "function": {
+              "name": "get_problem_context",
+              "arguments": "{\"region_id\": \"region_art_0010_01\"}"
+            }
+          },
+          {
+            "id": "call_e1d01a4a14a84b7f8f26aad1",
+            "index": 3,
+            "type": "function",
+            "function": {
+              "name": "assess_content_completeness",
+              "arguments": "{\"region_id\": \"region_art_0010_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1724,
+        "total_tokens": 1937,
+        "completion_tokens": 213,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 3344.420799985528,
+      "request_id": "11b74faf1be24a15ae0dd1ba0c8cce55",
+      "step_id": "step_0006"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_49c15641ae064cf9916b3994",
+      "tool": "recognize_content",
+      "arguments": {
+        "region_id": "region_art_0010_01",
+        "modality": "ocr"
+      },
+      "status": "completed",
+      "observation": {
+        "recognition_id": "recognition_82a5441ccc41",
+        "region_id": "region_art_0010_01",
+        "modality": "ocr",
+        "engine": "fixture_ocr_v1",
+        "raw_output": "13. 设非负函数 \\(f(x)\\) 在 \\([0,+\\infty)\\) 上具有有界导数，给出以下四个命题：\n\n① 若\n\\[\n\\int_0^{+\\infty}f^2(x)\\,dx\n\\]\n收敛，则\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛；\n\n② 若\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛，则\n\\[\n\\int_0^{+\\infty}f^2(x)\\,dx\n\\]\n收敛；\n\n③ 若\n\\[\n\\lim_{x\\to+\\infty}x^2f(x)\n\\]\n存在，则\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛；\n\n④ 若\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛，则\n\\[\n\\lim_{x\\to+\\infty}x^2f(x)\n\\]\n存在。\n\n其中，真命题的个数为（ ）。\n\n（A）1　（B）2　（C）3　（D）4",
+        "normalized_output": "13. 设非负函数 \\(f(x)\\) 在 \\([0,+\\infty)\\) 上具有有界导数，给出以下四个命题：\n\n① 若\n\\[\n\\int_0^{+\\infty}f^2(x)\\,dx\n\\]\n收敛，则\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛；\n\n② 若\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛，则\n\\[\n\\int_0^{+\\infty}f^2(x)\\,dx\n\\]\n收敛；\n\n③ 若\n\\[\n\\lim_{x\\to+\\infty}x^2f(x)\n\\]\n存在，则\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛；\n\n④ 若\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛，则\n\\[\n\\lim_{x\\to+\\infty}x^2f(x)\n\\]\n存在。\n\n其中，真命题的个数为（ ）。\n\n（A）1　（B）2　（C）3　（D）4",
+        "confidence": 1.0,
+        "status": "completed"
+      },
+      "step_id": "step_0007"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_29bb0bb8b9ab45ffa4b01a3c",
+      "tool": "extract_editable_text",
+      "arguments": {
+        "region_id": "region_art_0010_01",
+        "include_latex": true
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0010_01",
+        "text": "13. 设非负函数 \\(f(x)\\) 在 \\([0,+\\infty)\\) 上具有有界导数，给出以下四个命题：\n\n① 若\n\\[\n\\int_0^{+\\infty}f^2(x)\\,dx\n\\]\n收敛，则\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛；\n\n② 若\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛，则\n\\[\n\\int_0^{+\\infty}f^2(x)\\,dx\n\\]\n收敛；\n\n③ 若\n\\[\n\\lim_{x\\to+\\infty}x^2f(x)\n\\]\n存在，则\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛；\n\n④ 若\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛，则\n\\[\n\\lim_{x\\to+\\infty}x^2f(x)\n\\]\n存在。\n\n其中，真命题的个数为（ ）。\n\n（A）1　（B）2　（C）3　（D）4",
+        "format": "markdown",
+        "latex": "f(x)\\ge0;\\quad f'\\text{ bounded on }[0,+\\infty);\\quad \\int_0^{+\\infty}f(x)\\,dx;\\quad \\int_0^{+\\infty}f^2(x)\\,dx;\\quad \\lim_{x\\to+\\infty}x^2f(x)"
+      },
+      "step_id": "step_0008"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_5ae219b04c8740fa9f78a90a",
+      "tool": "get_problem_context",
+      "arguments": {
+        "region_id": "region_art_0010_01"
+      },
+      "status": "completed",
+      "observation": {
+        "problem_id": "problem_0010_01",
+        "subject": "math",
+        "grade_band": "postgraduate",
+        "statement": "13. 设非负函数 \\(f(x)\\) 在 \\([0,+\\infty)\\) 上具有有界导数，给出以下四个命题：\n\n① 若\n\\[\n\\int_0^{+\\infty}f^2(x)\\,dx\n\\]\n收敛，则\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛；\n\n② 若\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛，则\n\\[\n\\int_0^{+\\infty}f^2(x)\\,dx\n\\]\n收敛；\n\n③ 若\n\\[\n\\lim_{x\\to+\\infty}x^2f(x)\n\\]\n存在，则\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛；\n\n④ 若\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛，则\n\\[\n\\lim_{x\\to+\\infty}x^2f(x)\n\\]\n存在。\n\n其中，真命题的个数为（ ）。\n\n（A）1　（B）2　（C）3　（D）4",
+        "latex": "f(x)\\ge0;\\quad f'\\text{ bounded on }[0,+\\infty);\\quad \\int_0^{+\\infty}f(x)\\,dx;\\quad \\int_0^{+\\infty}f^2(x)\\,dx;\\quad \\lim_{x\\to+\\infty}x^2f(x)",
+        "topic": "calculus.improper_integrals",
+        "question_type": "multiple_choice",
+        "has_diagram": 0,
+        "question_no": "13",
+        "region_id": "region_art_0010_01"
+      },
+      "step_id": "step_0009"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_e1d01a4a14a84b7f8f26aad1",
+      "tool": "assess_content_completeness",
+      "arguments": {
+        "region_id": "region_art_0010_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0010_01",
+        "is_complete": true,
+        "missing_parts": [],
+        "confidence": 1.0,
+        "needs_user_action": false
+      },
+      "step_id": "step_0010"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "The content is complete. Let me analyze the knowledge points and diagram info.",
+        "tool_calls": [
+          {
+            "id": "call_13e636eed17c44e9a6f794d3",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "analyze_problem_knowledge",
+              "arguments": "{\"region_id\": \"region_art_0010_01\"}"
+            }
+          },
+          {
+            "id": "call_88cf9eca9e344f1a9af7e5ce",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "analyze_diagram",
+              "arguments": "{\"region_id\": \"region_art_0010_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3485,
+        "total_tokens": 3589,
+        "completion_tokens": 104,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1754.270599980373,
+      "request_id": "b05d36f0a5c7474e9d8c3c818a352600",
+      "step_id": "step_0011"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_13e636eed17c44e9a6f794d3",
+      "tool": "analyze_problem_knowledge",
+      "arguments": {
+        "region_id": "region_art_0010_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0010_01",
+        "problem_id": "problem_0010_01",
+        "subject": "math",
+        "grade_band": "postgraduate",
+        "question_type": "multiple_choice",
+        "knowledge_points": [
+          "calculus.improper_integrals",
+          "反例构造",
+          "广义积分比较判别"
+        ],
+        "has_diagram": false,
+        "analysis_basis": "normalized_metadata"
+      },
+      "step_id": "step_0012"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_88cf9eca9e344f1a9af7e5ce",
+      "tool": "analyze_diagram",
+      "arguments": {
+        "region_id": "region_art_0010_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0010_01",
+        "has_diagram": false,
+        "diagram_type": null,
+        "entities": [],
+        "relations": [],
+        "description": "",
+        "status": "no_diagram"
+      },
+      "step_id": "step_0013"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Now let me work through the mathematics carefully.\n\n**Setup:** $f \\ge 0$ on $[0,+\\infty)$, $f'$ bounded (so $|f'| \\le M$), hence $f$ is Lipschitz.\n\n**① If $\\int_0^\\infty f^2$ converges, does $\\int_0^\\infty f$ converge?**\n\nCounterexample: $f(x) = \\frac{1}{\\sqrt{x+1}}$. Then $f^2 = \\frac{1}{x+1}$, $\\int_0^\\infty \\frac{dx}{x+1}$ diverges. Not good. Try $f(x)=\\frac{1}{x+1}$: $f^2 = \\frac{1}{(x+1)^2}$ converges, but $\\int \\frac{dx}{x+1}$ diverges. But $f' = -\\frac{1}{(x+1)^2}$ is bounded. So ① is **false**.\n\n**② If $\\int_0^\\infty f$ converges, does $\\int_0^\\infty f^2$ converge?**\n\nSince $f \\ge 0$ and $\\int f$ converges, $f(x) \\to 0$ as $x\\to\\infty$ (necessary condition). So eventually $f(x) \\le 1$, hence $f^2 \\le f$ for large $x$, and by comparison $\\int f^2$ converges. So ② is **true**.\n\n**③ If $\\lim_{x\\to+\\infty} x^2 f(x)$ exists, does $\\int_0^\\infty f$ converge?**\n\nLet the limit be $L$. Since $f \\ge 0$, $x^2 f(x) \\ge 0$, so $L \\ge 0$. If $L$ is finite, then $f(x) \\sim L/x^2$ for large $x$, and $\\int^\\infty \\frac{dx}{x^2}$ converges, so $\\int f$ converges. So ③ is **true**.\n\n**④ If $\\int_0^\\infty f$ converges, does $\\lim_{x\\to+\\infty} x^2 f(x)$ exist?**\n\nCounterexample: $f(x) = \\frac{1}{x^2}\\cdot g(x)$ where $g$ oscillates. We need $f'$ bounded. Take $f(x) = \\frac{1+\\sin(\\ln x)}{x^2}$ for $x \\ge 1$. Then $x^2 f(x) = 1+\\sin(\\ln x)$ has no limit. Check $\\int_1^\\infty \\frac{1+\\sin(\\ln x)}{x^2}dx$ converges (since $\\frac{1+\\sin(\\ln x)}{x^2} \\le \\frac{2}{x^2}$). Check $f'$ bounded: $f' = \\frac{\\cos(\\ln x)\\cdot\\frac1x \\cdot x^2 - (1+\\sin(\\ln x))\\cdot 2x}{x^4} = \\frac{x\\cos(\\ln x) - 2x(1+\\sin(\\ln x))}{x^4} = \\frac{\\cos(\\ln x) - 2(1+\\sin(\\ln x))}{x^3}$, which is bounded. So ④ is **false**.\n\nSo true propositions: ② and ③ → **2 true**. Answer **(B)**.",
+        "tool_calls": [
+          {
+            "id": "call_b32b9e1bfa4d40edb24c4547",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "submit_solution",
+              "arguments": "{\"region_id\": \"region_art_0010_01\", \"final_answer\": \"（B）2。真命题为 ② 和 ③，共 2 个。\", \"reasoning\": \"条件：f(x)≥0 在 [0,+∞) 上，且 f' 有界（即 f 满足 Lipschitz 条件）。\\n\\n① 假。反例 f(x)=1/(x+1)：∫₀^∞ f²=∫₀^∞ 1/(x+1)² dx 收敛，但 ∫₀^∞ 1/(x+1) dx 发散；且 f'=-1/(x+1)² 有界，满足条件。故 ① 不成立。\\n\\n② 真。因 f≥0 且 ∫₀^∞ f 收敛，由收敛的必要条件得 f(x)→0 (x→+∞)。于是存在 X，当 x>X 时 0≤f(x)≤1，从而 f²(x)≤f(x)。由比较判别法，∫₀^∞ f² 收敛。\\n\\n③ 真。设 lim_{x→+∞} x²f(x)=L。因 f≥0，有 x²f(x)≥0，故 L≥0 且有限。于是当 x 充分大时 f(x)≤(L+1)/x²，而 ∫^∞ dx/x² 收敛，由比较判别法 ∫₀^∞ f 收敛。\\n\\n④ 假。反例 f(x)=(1+sin(ln x))/x² (x≥1)。此时 x²f(x)=1+sin(ln x) 无极限；但 ∫₁^∞ (1+sin(ln x))/x² dx 收敛（被 2/x² 控制）；又 f'(x)=[cos(ln x)-2(1+sin(ln x))]/x³ 有界，满足条件。故 ④ 不成立。\\n\\n综上，真命题为 ②③，共 2 个，选（B）。\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3752,
+        "total_tokens": 4972,
+        "completion_tokens": 1220,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 18275.53759998409,
+      "request_id": "026c3f8ad2ad4f5e81512e8a329cb1b8",
+      "step_id": "step_0014"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_b32b9e1bfa4d40edb24c4547",
+      "tool": "submit_solution",
+      "arguments": {
+        "region_id": "region_art_0010_01",
+        "final_answer": "（B）2。真命题为 ② 和 ③，共 2 个。",
+        "reasoning": "条件：f(x)≥0 在 [0,+∞) 上，且 f' 有界（即 f 满足 Lipschitz 条件）。\n\n① 假。反例 f(x)=1/(x+1)：∫₀^∞ f²=∫₀^∞ 1/(x+1)² dx 收敛，但 ∫₀^∞ 1/(x+1) dx 发散；且 f'=-1/(x+1)² 有界，满足条件。故 ① 不成立。\n\n② 真。因 f≥0 且 ∫₀^∞ f 收敛，由收敛的必要条件得 f(x)→0 (x→+∞)。于是存在 X，当 x>X 时 0≤f(x)≤1，从而 f²(x)≤f(x)。由比较判别法，∫₀^∞ f² 收敛。\n\n③ 真。设 lim_{x→+∞} x²f(x)=L。因 f≥0，有 x²f(x)≥0，故 L≥0 且有限。于是当 x 充分大时 f(x)≤(L+1)/x²，而 ∫^∞ dx/x² 收敛，由比较判别法 ∫₀^∞ f 收敛。\n\n④ 假。反例 f(x)=(1+sin(ln x))/x² (x≥1)。此时 x²f(x)=1+sin(ln x) 无极限；但 ∫₁^∞ (1+sin(ln x))/x² dx 收敛（被 2/x² 控制）；又 f'(x)=[cos(ln x)-2(1+sin(ln x))]/x³ 有界，满足条件。故 ④ 不成立。\n\n综上，真命题为 ②③，共 2 个，选（B）。"
+      },
+      "status": "completed",
+      "observation": {
+        "submission_id": "submission_7de9c8137e1b",
+        "region_id": "region_art_0010_01",
+        "final_answer": "（B）2。真命题为 ② 和 ③，共 2 个。",
+        "reasoning": "条件：f(x)≥0 在 [0,+∞) 上，且 f' 有界（即 f 满足 Lipschitz 条件）。\n\n① 假。反例 f(x)=1/(x+1)：∫₀^∞ f²=∫₀^∞ 1/(x+1)² dx 收敛，但 ∫₀^∞ 1/(x+1) dx 发散；且 f'=-1/(x+1)² 有界，满足条件。故 ① 不成立。\n\n② 真。因 f≥0 且 ∫₀^∞ f 收敛，由收敛的必要条件得 f(x)→0 (x→+∞)。于是存在 X，当 x>X 时 0≤f(x)≤1，从而 f²(x)≤f(x)。由比较判别法，∫₀^∞ f² 收敛。\n\n③ 真。设 lim_{x→+∞} x²f(x)=L。因 f≥0，有 x²f(x)≥0，故 L≥0 且有限。于是当 x 充分大时 f(x)≤(L+1)/x²，而 ∫^∞ dx/x² 收敛，由比较判别法 ∫₀^∞ f 收敛。\n\n④ 假。反例 f(x)=(1+sin(ln x))/x² (x≥1)。此时 x²f(x)=1+sin(ln x) 无极限；但 ∫₁^∞ (1+sin(ln x))/x² dx 收敛（被 2/x² 控制）；又 f'(x)=[cos(ln x)-2(1+sin(ln x))]/x³ 有界，满足条件。故 ④ 不成立。\n\n综上，真命题为 ②③，共 2 个，选（B）。",
+        "status": "submitted"
+      },
+      "step_id": "step_0015"
+    }
+  ],
+  "final_submission": {
+    "region_art_0010_01": {
+      "submission_id": "submission_7de9c8137e1b",
+      "region_id": "region_art_0010_01",
+      "final_answer": "（B）2。真命题为 ② 和 ③，共 2 个。",
+      "reasoning": "条件：f(x)≥0 在 [0,+∞) 上，且 f' 有界（即 f 满足 Lipschitz 条件）。\n\n① 假。反例 f(x)=1/(x+1)：∫₀^∞ f²=∫₀^∞ 1/(x+1)² dx 收敛，但 ∫₀^∞ 1/(x+1) dx 发散；且 f'=-1/(x+1)² 有界，满足条件。故 ① 不成立。\n\n② 真。因 f≥0 且 ∫₀^∞ f 收敛，由收敛的必要条件得 f(x)→0 (x→+∞)。于是存在 X，当 x>X 时 0≤f(x)≤1，从而 f²(x)≤f(x)。由比较判别法，∫₀^∞ f² 收敛。\n\n③ 真。设 lim_{x→+∞} x²f(x)=L。因 f≥0，有 x²f(x)≥0，故 L≥0 且有限。于是当 x 充分大时 f(x)≤(L+1)/x²，而 ∫^∞ dx/x² 收敛，由比较判别法 ∫₀^∞ f 收敛。\n\n④ 假。反例 f(x)=(1+sin(ln x))/x² (x≥1)。此时 x²f(x)=1+sin(ln x) 无极限；但 ∫₁^∞ (1+sin(ln x))/x² dx 收敛（被 2/x² 控制）；又 f'(x)=[cos(ln x)-2(1+sin(ln x))]/x³ 有界，满足条件。故 ④ 不成立。\n\n综上，真命题为 ②③，共 2 个，选（B）。",
+      "status": "submitted"
+    }
+  },
+  "evaluation": {
+    "type": "submission",
+    "expected_regions": 1,
+    "submitted_regions": 1,
+    "all_answers_correct": true,
+    "results": [
+      {
+        "submission_id": "submission_7de9c8137e1b",
+        "region_id": "region_art_0010_01",
+        "problem_id": "problem_0010_01",
+        "answer_correct": true,
+        "verification_status": "correct",
+        "verification_method": "legacy_rules",
+        "verification": {
+          "status": "correct",
+          "score": 1.0,
+          "match_method": "legacy_rules",
+          "needs_review": false,
+          "part_results": [],
+          "missing_parts": [],
+          "diagnostics": []
+        },
+        "needs_review": false,
+        "reasoning_present": true,
+        "task_completed": true,
+        "reward": 1.0
+      }
+    ],
+    "rubric_check": {
+      "required_tools_complete": true,
+      "missing_tools": [],
+      "missing_regions": {},
+      "submission_required": true,
+      "submission_complete": true,
+      "submission_policy": "required",
+      "submission_policy_compliant": true,
+      "all_answers_correct": true,
+      "answer_needs_review": false,
+      "answer_incorrect": false,
+      "invalid_reference": false,
+      "duplicate_regions": [],
+      "forbidden_submission": false,
+      "acceptable_tool_path_matched": true,
+      "acceptable_tool_path_index": 0,
+      "reward_breakdown": {
+        "answer_reward": 1.0,
+        "reasoning_reward": 1.0,
+        "tool_path_reward": 1.0,
+        "submission_policy_penalty": 0.0,
+        "duplicate_submission_penalty": 0.0,
+        "acceptable_path_penalty": 0.0,
+        "total_reward": 3.0
+      },
+      "passed": true
+    }
+  },
+  "usage": {
+    "total_tokens": 13494,
+    "prompt_tokens": 11793,
+    "completion_tokens": 1701,
+    "reasoning_tokens": 0
+  },
+  "status": "completed",
+  "termination_reason": "required_submissions_completed",
+  "errors": []
+}

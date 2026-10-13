@@ -1,0 +1,482 @@
+{
+  "trajectory_id": "traj_1c2d8d893ac94370bdb9dff936baf5d8",
+  "task_id": "task_a1_000005",
+  "model": {
+    "name": "DeepSeek-V4.1-Flash"
+  },
+  "task": {
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；整理成可编辑的文本；结合题目类型和上下文进行理解；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0029",
+      "fixture_path": "raw/assets/29.png"
+    }
+  },
+  "steps": [
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I'll start by registering the uploaded image and retrieving its basic information.",
+        "tool_calls": [
+          {
+            "id": "call_4cf3523d09804867a312f4e4",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "upload_artifact",
+              "arguments": "{\"user_id\": \"student_task_user\", \"fixture_path\": \"raw/assets/29.png\"}"
+            }
+          },
+          {
+            "id": "call_050ebb27f7d4459aba81d23a",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "get_artifact",
+              "arguments": "{\"artifact_id\": \"art_0029\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1225,
+        "total_tokens": 1335,
+        "completion_tokens": 110,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 2649.729900062084,
+      "request_id": "d560540c0a6e428f88f16a8ccf07604b",
+      "step_id": "step_0001"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_4cf3523d09804867a312f4e4",
+      "tool": "upload_artifact",
+      "arguments": {
+        "user_id": "student_task_user",
+        "fixture_path": "raw/assets/29.png"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0029",
+        "user_id": null,
+        "file_name": "29.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/29.png",
+        "content_hash": "sha256:a9d9039156e34b5ae09bc83df45bf9e39bc3f7acc192af769ef06b592d372283",
+        "size_bytes": 20510,
+        "width": 664,
+        "height": 225,
+        "status": "uploaded"
+      },
+      "step_id": "step_0002"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_050ebb27f7d4459aba81d23a",
+      "tool": "get_artifact",
+      "arguments": {
+        "artifact_id": "art_0029"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0029",
+        "user_id": null,
+        "file_name": "29.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/29.png",
+        "content_hash": "sha256:a9d9039156e34b5ae09bc83df45bf9e39bc3f7acc192af769ef06b592d372283",
+        "size_bytes": 20510,
+        "width": 664,
+        "height": 225,
+        "status": "uploaded"
+      },
+      "step_id": "step_0003"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Now let me list the problem regions in the image.",
+        "tool_calls": [
+          {
+            "id": "call_3543fe607f67466b887599dd",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "list_artifact_regions",
+              "arguments": "{\"artifact_id\": \"art_0029\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1578,
+        "total_tokens": 1633,
+        "completion_tokens": 55,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1386.8425000691786,
+      "request_id": "39b4ac667beb4884a3809a819458cf09",
+      "step_id": "step_0004"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_3543fe607f67466b887599dd",
+      "tool": "list_artifact_regions",
+      "arguments": {
+        "artifact_id": "art_0029"
+      },
+      "status": "completed",
+      "observation": [
+        {
+          "region_id": "region_art_0029_01",
+          "artifact_id": "art_0029",
+          "region_index": 1,
+          "region_type": "question",
+          "bbox_json": null,
+          "bbox_status": "not_annotated",
+          "confidence": null,
+          "status": "confirmed"
+        }
+      ],
+      "step_id": "step_0005"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "There's one question region. Let me examine its content and context.",
+        "tool_calls": [
+          {
+            "id": "call_2a92a80461d34b37ba614bff",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "recognize_content",
+              "arguments": "{\"region_id\": \"region_art_0029_01\", \"modality\": \"ocr\"}"
+            }
+          },
+          {
+            "id": "call_f5640bd1724847d1a5912843",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "extract_editable_text",
+              "arguments": "{\"region_id\": \"region_art_0029_01\", \"include_latex\": true}"
+            }
+          },
+          {
+            "id": "call_b3fa0dc7a238454e800b96cf",
+            "index": 2,
+            "type": "function",
+            "function": {
+              "name": "get_problem_context",
+              "arguments": "{\"region_id\": \"region_art_0029_01\"}"
+            }
+          },
+          {
+            "id": "call_ad6f9a1aea824626b57e2c76",
+            "index": 3,
+            "type": "function",
+            "function": {
+              "name": "assess_content_completeness",
+              "arguments": "{\"region_id\": \"region_art_0029_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1710,
+        "total_tokens": 1924,
+        "completion_tokens": 214,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 4244.444999960251,
+      "request_id": "fa728282a33c4fffbb50c85f8459ef69",
+      "step_id": "step_0006"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_2a92a80461d34b37ba614bff",
+      "tool": "recognize_content",
+      "arguments": {
+        "region_id": "region_art_0029_01",
+        "modality": "ocr"
+      },
+      "status": "completed",
+      "observation": {
+        "recognition_id": "recognition_9a0b6c1c2a8f",
+        "region_id": "region_art_0029_01",
+        "modality": "ocr",
+        "engine": "vision_model_ocr",
+        "raw_output": "{\"provider\": \"vision_model\", \"model\": \"DeepSeek-V4.1-Flash\", \"text\": \"24. （12 分）（2025•上海）在平面直角坐标系$xOy$中，抛物线$y=x^2+bx+c$经过点$A(1,1)$和$B(3,1)$，顶点为点$P$，抛物线于$y$轴交于点$C$。\\n（1）求$b$和$c$的值。\\n（2）另一条抛物线$y=ax^2+mx+n$（$a\\\\neq1$）也经过点$A(1,1)$和$B(3,1)$，顶点为点$Q$，与$y$轴交于点$D$。\\n①求$\\\\frac{CD}{PQ}$的值；\\n②当四边形$CDPQ$是直角梯形，求其最小内角的正弦值。\"}",
+        "normalized_output": "24. （12 分）（2025•上海）在平面直角坐标系$xOy$中，抛物线$y=x^2+bx+c$经过点$A(1,1)$和$B(3,1)$，顶点为点$P$，抛物线于$y$轴交于点$C$。\n（1）求$b$和$c$的值。\n（2）另一条抛物线$y=ax^2+mx+n$（$a\\neq1$）也经过点$A(1,1)$和$B(3,1)$，顶点为点$Q$，与$y$轴交于点$D$。\n①求$\\frac{CD}{PQ}$的值；\n②当四边形$CDPQ$是直角梯形，求其最小内角的正弦值。",
+        "confidence": null,
+        "status": "completed"
+      },
+      "step_id": "step_0007"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_f5640bd1724847d1a5912843",
+      "tool": "extract_editable_text",
+      "arguments": {
+        "region_id": "region_art_0029_01",
+        "include_latex": true
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0029_01",
+        "text": "24. （12 分）（2025•上海）在平面直角坐标系$xOy$中，抛物线$y=x^2+bx+c$经过点$A(1,1)$和$B(3,1)$，顶点为点$P$，抛物线于$y$轴交于点$C$。\n（1）求$b$和$c$的值。\n（2）另一条抛物线$y=ax^2+mx+n$（$a\\neq1$）也经过点$A(1,1)$和$B(3,1)$，顶点为点$Q$，与$y$轴交于点$D$。\n①求$\\frac{CD}{PQ}$的值；\n②当四边形$CDPQ$是直角梯形，求其最小内角的正弦值。",
+        "format": "markdown"
+      },
+      "step_id": "step_0008"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_b3fa0dc7a238454e800b96cf",
+      "tool": "get_problem_context",
+      "arguments": {
+        "region_id": "region_art_0029_01"
+      },
+      "status": "completed",
+      "observation": {
+        "problem_id": "problem_0029_01",
+        "subject": "math",
+        "grade_band": "junior_high",
+        "statement": "24. （12 分）（2025•上海）在平面直角坐标系$xOy$中，抛物线$y=x^2+bx+c$经过点$A(1,1)$和$B(3,1)$，顶点为点$P$，抛物线于$y$轴交于点$C$。\n（1）求$b$和$c$的值。\n（2）另一条抛物线$y=ax^2+mx+n$（$a\\neq1$）也经过点$A(1,1)$和$B(3,1)$，顶点为点$Q$，与$y$轴交于点$D$。\n①求$\\frac{CD}{PQ}$的值；\n②当四边形$CDPQ$是直角梯形，求其最小内角的正弦值。",
+        "latex": null,
+        "topic": null,
+        "question_type": null,
+        "has_diagram": null,
+        "question_no": "24",
+        "region_id": "region_art_0029_01"
+      },
+      "step_id": "step_0009"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_ad6f9a1aea824626b57e2c76",
+      "tool": "assess_content_completeness",
+      "arguments": {
+        "region_id": "region_art_0029_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0029_01",
+        "is_complete": null,
+        "missing_parts": [],
+        "confidence": null,
+        "needs_user_action": false,
+        "status": "requires_visual_review"
+      },
+      "step_id": "step_0010"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Let me check for any diagram and analyze the knowledge points.",
+        "tool_calls": [
+          {
+            "id": "call_364546c565274123b3107c9e",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "analyze_diagram",
+              "arguments": "{\"region_id\": \"region_art_0029_01\"}"
+            }
+          },
+          {
+            "id": "call_09976e41dd9342a4a3121bf6",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "analyze_problem_knowledge",
+              "arguments": "{\"region_id\": \"region_art_0029_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 2945,
+        "total_tokens": 3046,
+        "completion_tokens": 101,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 2251.0391999967396,
+      "request_id": "8e78b096753841789883489fc9337a02",
+      "step_id": "step_0011"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_364546c565274123b3107c9e",
+      "tool": "analyze_diagram",
+      "arguments": {
+        "region_id": "region_art_0029_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0029_01",
+        "has_diagram": null,
+        "diagram_type": null,
+        "entities": [],
+        "relations": [],
+        "description": "",
+        "status": "visual_analysis_unavailable"
+      },
+      "step_id": "step_0012"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_09976e41dd9342a4a3121bf6",
+      "tool": "analyze_problem_knowledge",
+      "arguments": {
+        "region_id": "region_art_0029_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0029_01",
+        "problem_id": "problem_0029_01",
+        "subject": "math",
+        "grade_band": "junior_high",
+        "question_type": null,
+        "knowledge_points": [],
+        "has_diagram": null,
+        "analysis_basis": "ocr_text_only_no_verified_metadata"
+      },
+      "step_id": "step_0013"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I have all the information I need. Let me solve the problem.\n\n**Problem analysis:**\n\n**(1)** Parabola $y=x^2+bx+c$ passes through $A(1,1)$ and $B(3,1)$. Since both have $y=1$, the axis of symmetry is $x=2$, so $-\\frac{b}{2}=2 \\Rightarrow b=-4$. Substituting $A(1,1)$: $1=1-4+c \\Rightarrow c=4$.\n\n**(2)** The second parabola $y=ax^2+mx+n$ also passes through $A(1,1)$, $B(3,1)$, so its axis of symmetry is also $x=2$, giving $m=-4a$. Then $y=ax^2-4ax+n$. Substituting $A(1,1)$: $1=a-4a+n \\Rightarrow n=3a+1$. So $y=ax^2-4ax+3a+1=a(x-2)^2+(1-a)$.\n\n- Vertex $Q(2, 1-a)$; $y$-intercept $D(0, 3a+1)$.\n- First parabola: $y=x^2-4x+4=(x-2)^2$, vertex $P(2,0)$, $y$-intercept $C(0,4)$.\n\n**①** $CD = |4-(3a+1)| = |3-3a| = 3|1-a|$. $PQ = |0-(1-a)| = |1-a|$. So $\\frac{CD}{PQ} = 3$.\n\n**②** $C(0,4)$, $D(0,3a+1)$, $P(2,0)$, $Q(2,1-a)$. Both $CD$ and $PQ$ are vertical segments (on $x=0$ and $x=2$), so $CD \\parallel PQ$. Quadrilateral $CDPQ$ is a trapezoid with the two parallel sides being $CD$ and $PQ$. For it to be a right trapezoid, one leg ($CP$ or $DQ$) must be perpendicular to the bases, i.e., horizontal.\n\n- $CP$ horizontal: $C(0,4)$, $P(2,0)$ — not horizontal. \n- $DQ$ horizontal: $D(0,3a+1)$, $Q(2,1-a)$ — requires $3a+1=1-a \\Rightarrow 4a=0 \\Rightarrow a=0$. But $a\\neq 1$ is the only restriction; $a=0$ gives $D(0,1)$, $Q(2,1)$, so $DQ$ horizontal. ✓\n\nWith $a=0$: $C(0,4)$, $D(0,1)$, $P(2,0)$, $Q(2,1)$. Sides: $CD=3$ (vertical), $PQ=1$ (vertical), $DQ=2$ (horizontal), $CP=\\sqrt{4+16}=2\\sqrt5$. Right angles at $D$ and $Q$. Interior angles: at $C$: between $CD$ (down) and $CP$; at $P$: between $PQ$ (up) and $PC$. The smallest interior angle is at $C$ (or $P$). $\\sin\\angle C = \\frac{\\text{horizontal distance}}{\\text{length } CP} = \\frac{2}{2\\sqrt5}=\\frac{1}{\\sqrt5}=\\frac{\\sqrt5}{5}$.\n\nLet me verify: at $C$, vectors $CD=(0,-3)$, $CP=(2,-4)$. Angle between: $\\cos = \\frac{12}{3\\cdot 2\\sqrt5}=\\frac{2}{\\sqrt5}$, $\\sin=\\frac{|0\\cdot(-4)-(-3)\\cdot2|}{3\\cdot2\\sqrt5}=\\frac{6}{6\\sqrt5}=\\frac{1}{\\sqrt5}$. ✓",
+        "tool_calls": [
+          {
+            "id": "call_f4ba3baf3dc6463b99c7ac43",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "submit_solution",
+              "arguments": "{\"region_id\": \"region_art_0029_01\", \"final_answer\": \"（1）$b=-4$，$c=4$（即 $y=x^2-4x+4$）。\\n（2）① $\\\\dfrac{CD}{PQ}=3$。\\n② 最小内角的正弦值为 $\\\\dfrac{\\\\sqrt5}{5}$。\", \"reasoning\": \"【第(1)问】抛物线 $y=x^2+bx+c$ 过 $A(1,1)$、$B(3,1)$，两点纵坐标相同，故对称轴为 $x=\\\\dfrac{1+3}{2}=2$，即 $-\\\\dfrac{b}{2}=2$，得 $b=-4$。代入 $A(1,1)$：$1=1-4+c$，得 $c=4$。所以 $y=x^2-4x+4=(x-2)^2$，顶点 $P(2,0)$，与 $y$ 轴交点 $C(0,4)$。\\n\\n【第(2)问】第二条抛物线 $y=ax^2+mx+n$ 也过 $A(1,1)$、$B(3,1)$，故对称轴同为 $x=2$，得 $m=-4a$；代入 $A(1,1)$：$1=a-4a+n$，得 $n=3a+1$。于是 $y=ax^2-4ax+3a+1=a(x-2)^2+(1-a)$，顶点 $Q(2,1-a)$，与 $y$ 轴交点 $D(0,3a+1)$。\\n\\n① $CD=|4-(3a+1)|=|3-3a|=3|1-a|$，$PQ=|0-(1-a)|=|1-a|$，故 $\\\\dfrac{CD}{PQ}=3$。\\n\\n② $C(0,4)$、$D(0,3a+1)$ 都在直线 $x=0$ 上，$P(2,0)$、$Q(2,1-a)$ 都在直线 $x=2$ 上，所以 $CD\\\\parallel PQ$，四边形 $CDPQ$ 是以 $CD$、$PQ$ 为底的梯形。要成为直角梯形，需一腰与底垂直（即该腰水平）。$CP$ 由 $(0,4)$ 到 $(2,0)$ 不水平；$DQ$ 由 $(0,3a+1)$ 到 $(2,1-a)$ 水平需 $3a+1=1-a$，解得 $a=0$（满足 $a\\\\neq1$）。此时 $C(0,4)$、$D(0,1)$、$P(2,0)$、$Q(2,1)$，$CD=3$、$PQ=1$、$DQ=2$、$CP=\\\\sqrt{2^2+4^2}=2\\\\sqrt5$，在 $D$、$Q$ 处为直角。最小内角在 $C$（或 $P$）处，$\\\\sin\\\\angle C=\\\\dfrac{\\\\text{对边}}{\\\\text{斜边}}=\\\\dfrac{2}{2\\\\sqrt5}=\\\\dfrac{1}{\\\\sqrt5}=\\\\dfrac{\\\\sqrt5}{5}$。\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3193,
+        "total_tokens": 4817,
+        "completion_tokens": 1624,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 30922.76830004994,
+      "request_id": "5b309f17ba6d45ff98c44c8f555a5ade",
+      "step_id": "step_0014"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_f4ba3baf3dc6463b99c7ac43",
+      "tool": "submit_solution",
+      "arguments": {
+        "region_id": "region_art_0029_01",
+        "final_answer": "（1）$b=-4$，$c=4$（即 $y=x^2-4x+4$）。\n（2）① $\\dfrac{CD}{PQ}=3$。\n② 最小内角的正弦值为 $\\dfrac{\\sqrt5}{5}$。",
+        "reasoning": "【第(1)问】抛物线 $y=x^2+bx+c$ 过 $A(1,1)$、$B(3,1)$，两点纵坐标相同，故对称轴为 $x=\\dfrac{1+3}{2}=2$，即 $-\\dfrac{b}{2}=2$，得 $b=-4$。代入 $A(1,1)$：$1=1-4+c$，得 $c=4$。所以 $y=x^2-4x+4=(x-2)^2$，顶点 $P(2,0)$，与 $y$ 轴交点 $C(0,4)$。\n\n【第(2)问】第二条抛物线 $y=ax^2+mx+n$ 也过 $A(1,1)$、$B(3,1)$，故对称轴同为 $x=2$，得 $m=-4a$；代入 $A(1,1)$：$1=a-4a+n$，得 $n=3a+1$。于是 $y=ax^2-4ax+3a+1=a(x-2)^2+(1-a)$，顶点 $Q(2,1-a)$，与 $y$ 轴交点 $D(0,3a+1)$。\n\n① $CD=|4-(3a+1)|=|3-3a|=3|1-a|$，$PQ=|0-(1-a)|=|1-a|$，故 $\\dfrac{CD}{PQ}=3$。\n\n② $C(0,4)$、$D(0,3a+1)$ 都在直线 $x=0$ 上，$P(2,0)$、$Q(2,1-a)$ 都在直线 $x=2$ 上，所以 $CD\\parallel PQ$，四边形 $CDPQ$ 是以 $CD$、$PQ$ 为底的梯形。要成为直角梯形，需一腰与底垂直（即该腰水平）。$CP$ 由 $(0,4)$ 到 $(2,0)$ 不水平；$DQ$ 由 $(0,3a+1)$ 到 $(2,1-a)$ 水平需 $3a+1=1-a$，解得 $a=0$（满足 $a\\neq1$）。此时 $C(0,4)$、$D(0,1)$、$P(2,0)$、$Q(2,1)$，$CD=3$、$PQ=1$、$DQ=2$、$CP=\\sqrt{2^2+4^2}=2\\sqrt5$，在 $D$、$Q$ 处为直角。最小内角在 $C$（或 $P$）处，$\\sin\\angle C=\\dfrac{\\text{对边}}{\\text{斜边}}=\\dfrac{2}{2\\sqrt5}=\\dfrac{1}{\\sqrt5}=\\dfrac{\\sqrt5}{5}$。"
+      },
+      "status": "completed",
+      "observation": {
+        "submission_id": "submission_9d8016bbbc12",
+        "region_id": "region_art_0029_01",
+        "final_answer": "（1）$b=-4$，$c=4$（即 $y=x^2-4x+4$）。\n（2）① $\\dfrac{CD}{PQ}=3$。\n② 最小内角的正弦值为 $\\dfrac{\\sqrt5}{5}$。",
+        "reasoning": "【第(1)问】抛物线 $y=x^2+bx+c$ 过 $A(1,1)$、$B(3,1)$，两点纵坐标相同，故对称轴为 $x=\\dfrac{1+3}{2}=2$，即 $-\\dfrac{b}{2}=2$，得 $b=-4$。代入 $A(1,1)$：$1=1-4+c$，得 $c=4$。所以 $y=x^2-4x+4=(x-2)^2$，顶点 $P(2,0)$，与 $y$ 轴交点 $C(0,4)$。\n\n【第(2)问】第二条抛物线 $y=ax^2+mx+n$ 也过 $A(1,1)$、$B(3,1)$，故对称轴同为 $x=2$，得 $m=-4a$；代入 $A(1,1)$：$1=a-4a+n$，得 $n=3a+1$。于是 $y=ax^2-4ax+3a+1=a(x-2)^2+(1-a)$，顶点 $Q(2,1-a)$，与 $y$ 轴交点 $D(0,3a+1)$。\n\n① $CD=|4-(3a+1)|=|3-3a|=3|1-a|$，$PQ=|0-(1-a)|=|1-a|$，故 $\\dfrac{CD}{PQ}=3$。\n\n② $C(0,4)$、$D(0,3a+1)$ 都在直线 $x=0$ 上，$P(2,0)$、$Q(2,1-a)$ 都在直线 $x=2$ 上，所以 $CD\\parallel PQ$，四边形 $CDPQ$ 是以 $CD$、$PQ$ 为底的梯形。要成为直角梯形，需一腰与底垂直（即该腰水平）。$CP$ 由 $(0,4)$ 到 $(2,0)$ 不水平；$DQ$ 由 $(0,3a+1)$ 到 $(2,1-a)$ 水平需 $3a+1=1-a$，解得 $a=0$（满足 $a\\neq1$）。此时 $C(0,4)$、$D(0,1)$、$P(2,0)$、$Q(2,1)$，$CD=3$、$PQ=1$、$DQ=2$、$CP=\\sqrt{2^2+4^2}=2\\sqrt5$，在 $D$、$Q$ 处为直角。最小内角在 $C$（或 $P$）处，$\\sin\\angle C=\\dfrac{\\text{对边}}{\\text{斜边}}=\\dfrac{2}{2\\sqrt5}=\\dfrac{1}{\\sqrt5}=\\dfrac{\\sqrt5}{5}$。",
+        "status": "submitted"
+      },
+      "step_id": "step_0015"
+    }
+  ],
+  "final_submission": {
+    "region_art_0029_01": {
+      "submission_id": "submission_9d8016bbbc12",
+      "region_id": "region_art_0029_01",
+      "final_answer": "（1）$b=-4$，$c=4$（即 $y=x^2-4x+4$）。\n（2）① $\\dfrac{CD}{PQ}=3$。\n② 最小内角的正弦值为 $\\dfrac{\\sqrt5}{5}$。",
+      "reasoning": "【第(1)问】抛物线 $y=x^2+bx+c$ 过 $A(1,1)$、$B(3,1)$，两点纵坐标相同，故对称轴为 $x=\\dfrac{1+3}{2}=2$，即 $-\\dfrac{b}{2}=2$，得 $b=-4$。代入 $A(1,1)$：$1=1-4+c$，得 $c=4$。所以 $y=x^2-4x+4=(x-2)^2$，顶点 $P(2,0)$，与 $y$ 轴交点 $C(0,4)$。\n\n【第(2)问】第二条抛物线 $y=ax^2+mx+n$ 也过 $A(1,1)$、$B(3,1)$，故对称轴同为 $x=2$，得 $m=-4a$；代入 $A(1,1)$：$1=a-4a+n$，得 $n=3a+1$。于是 $y=ax^2-4ax+3a+1=a(x-2)^2+(1-a)$，顶点 $Q(2,1-a)$，与 $y$ 轴交点 $D(0,3a+1)$。\n\n① $CD=|4-(3a+1)|=|3-3a|=3|1-a|$，$PQ=|0-(1-a)|=|1-a|$，故 $\\dfrac{CD}{PQ}=3$。\n\n② $C(0,4)$、$D(0,3a+1)$ 都在直线 $x=0$ 上，$P(2,0)$、$Q(2,1-a)$ 都在直线 $x=2$ 上，所以 $CD\\parallel PQ$，四边形 $CDPQ$ 是以 $CD$、$PQ$ 为底的梯形。要成为直角梯形，需一腰与底垂直（即该腰水平）。$CP$ 由 $(0,4)$ 到 $(2,0)$ 不水平；$DQ$ 由 $(0,3a+1)$ 到 $(2,1-a)$ 水平需 $3a+1=1-a$，解得 $a=0$（满足 $a\\neq1$）。此时 $C(0,4)$、$D(0,1)$、$P(2,0)$、$Q(2,1)$，$CD=3$、$PQ=1$、$DQ=2$、$CP=\\sqrt{2^2+4^2}=2\\sqrt5$，在 $D$、$Q$ 处为直角。最小内角在 $C$（或 $P$）处，$\\sin\\angle C=\\dfrac{\\text{对边}}{\\text{斜边}}=\\dfrac{2}{2\\sqrt5}=\\dfrac{1}{\\sqrt5}=\\dfrac{\\sqrt5}{5}$。",
+      "status": "submitted"
+    }
+  },
+  "evaluation": {
+    "type": "submission",
+    "expected_regions": 1,
+    "submitted_regions": 1,
+    "all_answers_correct": false,
+    "results": [
+      {
+        "submission_id": "submission_9d8016bbbc12",
+        "region_id": "region_art_0029_01",
+        "problem_id": "problem_0029_01",
+        "answer_correct": null,
+        "verification_status": "needs_review",
+        "verification_method": "unresolved",
+        "verification": {
+          "status": "needs_review",
+          "score": null,
+          "match_method": "unresolved",
+          "needs_review": true,
+          "part_results": [],
+          "missing_parts": [],
+          "diagnostics": []
+        },
+        "needs_review": true,
+        "reasoning_present": true,
+        "task_completed": false,
+        "reward": null
+      }
+    ],
+    "rubric_check": {
+      "required_tools_complete": true,
+      "missing_tools": [],
+      "missing_regions": {},
+      "submission_required": true,
+      "submission_complete": true,
+      "submission_policy": "required",
+      "submission_policy_compliant": true,
+      "all_answers_correct": false,
+      "answer_needs_review": true,
+      "answer_incorrect": false,
+      "invalid_reference": false,
+      "duplicate_regions": [],
+      "forbidden_submission": false,
+      "acceptable_tool_path_matched": true,
+      "acceptable_tool_path_index": 0,
+      "reward_breakdown": {
+        "answer_reward": null,
+        "reasoning_reward": 1.0,
+        "tool_path_reward": 1.0,
+        "submission_policy_penalty": 0.0,
+        "duplicate_submission_penalty": 0.0,
+        "acceptable_path_penalty": 0.0,
+        "total_reward": null
+      },
+      "passed": false
+    }
+  },
+  "usage": {
+    "total_tokens": 12755,
+    "prompt_tokens": 10651,
+    "completion_tokens": 2104,
+    "reasoning_tokens": 0
+  },
+  "status": "needs_review",
+  "termination_reason": "answer_equivalence_uncertain",
+  "errors": [],
+  "ocr": {
+    "mode": "real",
+    "provider": "vision_model",
+    "model": "DeepSeek-V4.1-Flash"
+  }
+}

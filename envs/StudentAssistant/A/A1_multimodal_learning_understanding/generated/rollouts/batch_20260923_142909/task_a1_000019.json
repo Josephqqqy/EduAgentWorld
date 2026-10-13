@@ -1,0 +1,483 @@
+{
+  "trajectory_id": "traj_49039145e8ab4eefae09e844a4762a38",
+  "task_id": "task_a1_000019",
+  "model": {
+    "name": "DeepSeek-V4.1-Flash"
+  },
+  "task": {
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；确认学习材料的基本信息；区分图片中包含的各道题目；整理成可编辑的文本；判断题目内容是否完整并指出缺失部分；识别题目内容和数学表达式；结合题目类型和上下文进行理解；说明题目中数学图形的作用和已知关系；分析涉及的知识点；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0029",
+      "fixture_path": "raw/assets/29.png"
+    }
+  },
+  "steps": [
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I'll start by registering the uploaded image and examining its basic information.",
+        "tool_calls": [
+          {
+            "id": "call_53aae350aa2f4484837e0217",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "upload_artifact",
+              "arguments": "{\"user_id\": \"student_task_user\", \"fixture_path\": \"raw/assets/29.png\"}"
+            }
+          },
+          {
+            "id": "call_090594280bf54ba881c858b7",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "get_artifact",
+              "arguments": "{\"artifact_id\": \"art_0029\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1246,
+        "total_tokens": 1356,
+        "completion_tokens": 110,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1892.5497999880463,
+      "request_id": "4d7a6684f348443aae56c5b6c503ae6f",
+      "step_id": "step_0001"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_53aae350aa2f4484837e0217",
+      "tool": "upload_artifact",
+      "arguments": {
+        "user_id": "student_task_user",
+        "fixture_path": "raw/assets/29.png"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0029",
+        "user_id": null,
+        "file_name": "29.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/29.png",
+        "content_hash": "sha256:a9d9039156e34b5ae09bc83df45bf9e39bc3f7acc192af769ef06b592d372283",
+        "size_bytes": 20510,
+        "width": 664,
+        "height": 225,
+        "status": "uploaded"
+      },
+      "step_id": "step_0002"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_090594280bf54ba881c858b7",
+      "tool": "get_artifact",
+      "arguments": {
+        "artifact_id": "art_0029"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0029",
+        "user_id": null,
+        "file_name": "29.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/29.png",
+        "content_hash": "sha256:a9d9039156e34b5ae09bc83df45bf9e39bc3f7acc192af769ef06b592d372283",
+        "size_bytes": 20510,
+        "width": 664,
+        "height": 225,
+        "status": "uploaded"
+      },
+      "step_id": "step_0003"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Now let me list the problem regions in the image.",
+        "tool_calls": [
+          {
+            "id": "call_744177810ff14551b39b5957",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "list_artifact_regions",
+              "arguments": "{\"artifact_id\": \"art_0029\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1599,
+        "total_tokens": 1654,
+        "completion_tokens": 55,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1007.7238000230864,
+      "request_id": "1d1b463732f045b5ac7b6710eb3a3531",
+      "step_id": "step_0004"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_744177810ff14551b39b5957",
+      "tool": "list_artifact_regions",
+      "arguments": {
+        "artifact_id": "art_0029"
+      },
+      "status": "completed",
+      "observation": [
+        {
+          "region_id": "region_art_0029_01",
+          "artifact_id": "art_0029",
+          "region_index": 1,
+          "region_type": "question",
+          "bbox_json": null,
+          "bbox_status": "not_annotated",
+          "confidence": null,
+          "status": "confirmed"
+        }
+      ],
+      "step_id": "step_0005"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "There's one question region. Let me examine its content and context.",
+        "tool_calls": [
+          {
+            "id": "call_e948c6956e074f8f970a1f7e",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "recognize_content",
+              "arguments": "{\"region_id\": \"region_art_0029_01\", \"modality\": \"ocr\"}"
+            }
+          },
+          {
+            "id": "call_f646d958938c4c16a9fbc8fe",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "extract_editable_text",
+              "arguments": "{\"region_id\": \"region_art_0029_01\", \"include_latex\": true}"
+            }
+          },
+          {
+            "id": "call_bf6f7348fce5484680f4f0fa",
+            "index": 2,
+            "type": "function",
+            "function": {
+              "name": "get_problem_context",
+              "arguments": "{\"region_id\": \"region_art_0029_01\"}"
+            }
+          },
+          {
+            "id": "call_79ef769b74a74a268b4be805",
+            "index": 3,
+            "type": "function",
+            "function": {
+              "name": "assess_content_completeness",
+              "arguments": "{\"region_id\": \"region_art_0029_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1731,
+        "total_tokens": 1945,
+        "completion_tokens": 214,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 3369.9809999670833,
+      "request_id": "7b1a3a454e1745d78a6a08f3ebbb76f8",
+      "step_id": "step_0006"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_e948c6956e074f8f970a1f7e",
+      "tool": "recognize_content",
+      "arguments": {
+        "region_id": "region_art_0029_01",
+        "modality": "ocr"
+      },
+      "status": "completed",
+      "observation": {
+        "recognition_id": "recognition_eb0d0dd49d17",
+        "region_id": "region_art_0029_01",
+        "modality": "ocr",
+        "engine": "fixture_ocr_v1",
+        "raw_output": "24.（12分）（2025·上海）在平面直角坐标系 \\(xOy\\) 中，抛物线 \\(y=x^2+bx+c\\) 经过点 \\(A(1,1)\\) 和 \\(B(3,1)\\)，顶点为点 \\(P\\)，抛物线于 \\(y\\) 轴交于点 \\(C\\)。\n\n（1）求 \\(b\\) 和 \\(c\\) 的值；\n\n（2）另一条抛物线 \\(y=ax^2+mx+n\\ (a\\ne1)\\) 也经过点 \\(A(1,1)\\) 和 \\(B(3,1)\\)，顶点为点 \\(Q\\)，与 \\(y\\) 轴交于点 \\(D\\)。\n\n① 求 \\(\\frac{CD}{PQ}\\) 的值；\n\n② 当四边形 \\(CDPQ\\) 是直角梯形，求其最小内角的正弦值。",
+        "normalized_output": "24.（12分）（2025·上海）在平面直角坐标系 \\(xOy\\) 中，抛物线 \\(y=x^2+bx+c\\) 经过点 \\(A(1,1)\\) 和 \\(B(3,1)\\)，顶点为点 \\(P\\)，抛物线于 \\(y\\) 轴交于点 \\(C\\)。\n\n（1）求 \\(b\\) 和 \\(c\\) 的值；\n\n（2）另一条抛物线 \\(y=ax^2+mx+n\\ (a\\ne1)\\) 也经过点 \\(A(1,1)\\) 和 \\(B(3,1)\\)，顶点为点 \\(Q\\)，与 \\(y\\) 轴交于点 \\(D\\)。\n\n① 求 \\(\\frac{CD}{PQ}\\) 的值；\n\n② 当四边形 \\(CDPQ\\) 是直角梯形，求其最小内角的正弦值。",
+        "confidence": 1.0,
+        "status": "completed"
+      },
+      "step_id": "step_0007"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_f646d958938c4c16a9fbc8fe",
+      "tool": "extract_editable_text",
+      "arguments": {
+        "region_id": "region_art_0029_01",
+        "include_latex": true
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0029_01",
+        "text": "24.（12分）（2025·上海）在平面直角坐标系 \\(xOy\\) 中，抛物线 \\(y=x^2+bx+c\\) 经过点 \\(A(1,1)\\) 和 \\(B(3,1)\\)，顶点为点 \\(P\\)，抛物线于 \\(y\\) 轴交于点 \\(C\\)。\n\n（1）求 \\(b\\) 和 \\(c\\) 的值；\n\n（2）另一条抛物线 \\(y=ax^2+mx+n\\ (a\\ne1)\\) 也经过点 \\(A(1,1)\\) 和 \\(B(3,1)\\)，顶点为点 \\(Q\\)，与 \\(y\\) 轴交于点 \\(D\\)。\n\n① 求 \\(\\frac{CD}{PQ}\\) 的值；\n\n② 当四边形 \\(CDPQ\\) 是直角梯形，求其最小内角的正弦值。",
+        "format": "markdown",
+        "latex": "y=x^2+bx+c;\\quad A(1,1);\\quad B(3,1);\\quad y=ax^2+mx+n;\\quad a\\ne1;\\quad \\frac{CD}{PQ}"
+      },
+      "step_id": "step_0008"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_bf6f7348fce5484680f4f0fa",
+      "tool": "get_problem_context",
+      "arguments": {
+        "region_id": "region_art_0029_01"
+      },
+      "status": "completed",
+      "observation": {
+        "problem_id": "problem_0029_01",
+        "subject": "math",
+        "grade_band": "junior_high",
+        "statement": "24.（12分）（2025·上海）在平面直角坐标系 \\(xOy\\) 中，抛物线 \\(y=x^2+bx+c\\) 经过点 \\(A(1,1)\\) 和 \\(B(3,1)\\)，顶点为点 \\(P\\)，抛物线于 \\(y\\) 轴交于点 \\(C\\)。\n\n（1）求 \\(b\\) 和 \\(c\\) 的值；\n\n（2）另一条抛物线 \\(y=ax^2+mx+n\\ (a\\ne1)\\) 也经过点 \\(A(1,1)\\) 和 \\(B(3,1)\\)，顶点为点 \\(Q\\)，与 \\(y\\) 轴交于点 \\(D\\)。\n\n① 求 \\(\\frac{CD}{PQ}\\) 的值；\n\n② 当四边形 \\(CDPQ\\) 是直角梯形，求其最小内角的正弦值。",
+        "latex": "y=x^2+bx+c;\\quad A(1,1);\\quad B(3,1);\\quad y=ax^2+mx+n;\\quad a\\ne1;\\quad \\frac{CD}{PQ}",
+        "topic": "analytic_geometry.parabola_and_quadrilateral",
+        "question_type": "constructed_response",
+        "has_diagram": 0,
+        "question_no": "24",
+        "region_id": "region_art_0029_01"
+      },
+      "step_id": "step_0009"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_79ef769b74a74a268b4be805",
+      "tool": "assess_content_completeness",
+      "arguments": {
+        "region_id": "region_art_0029_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0029_01",
+        "is_complete": true,
+        "missing_parts": [],
+        "confidence": 1.0,
+        "needs_user_action": false
+      },
+      "step_id": "step_0010"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "The content is complete. Let me analyze the diagram situation and knowledge points.",
+        "tool_calls": [
+          {
+            "id": "call_c1be4b83b21c4a498670bd71",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "analyze_diagram",
+              "arguments": "{\"region_id\": \"region_art_0029_01\"}"
+            }
+          },
+          {
+            "id": "call_72487502c6e74fb5aefec626",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "analyze_problem_knowledge",
+              "arguments": "{\"region_id\": \"region_art_0029_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3244,
+        "total_tokens": 3348,
+        "completion_tokens": 104,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1760.4352999478579,
+      "request_id": "6985d7f2ad994140b5a9618ee154a4e1",
+      "step_id": "step_0011"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_c1be4b83b21c4a498670bd71",
+      "tool": "analyze_diagram",
+      "arguments": {
+        "region_id": "region_art_0029_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0029_01",
+        "has_diagram": false,
+        "diagram_type": null,
+        "entities": [],
+        "relations": [],
+        "description": "",
+        "status": "no_diagram"
+      },
+      "step_id": "step_0012"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_72487502c6e74fb5aefec626",
+      "tool": "analyze_problem_knowledge",
+      "arguments": {
+        "region_id": "region_art_0029_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0029_01",
+        "problem_id": "problem_0029_01",
+        "subject": "math",
+        "grade_band": "junior_high",
+        "question_type": "constructed_response",
+        "knowledge_points": [
+          "analytic_geometry.parabola_and_quadrilateral",
+          "分类讨论",
+          "抛物线顶点式",
+          "直角梯形",
+          "锐角正弦"
+        ],
+        "has_diagram": false,
+        "analysis_basis": "normalized_metadata"
+      },
+      "step_id": "step_0013"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Now let me solve the problem carefully.\n\n**Part (1):** Parabola $y=x^2+bx+c$ passes through $A(1,1)$ and $B(3,1)$.\n\nSince $A$ and $B$ have the same $y$-value, the axis of symmetry is $x=2$, so $-\\frac{b}{2}=2 \\Rightarrow b=-4$.\n\nSubstituting $A(1,1)$: $1 = 1 - 4 + c \\Rightarrow c = 4$.\n\nSo $y = x^2-4x+4 = (x-2)^2$, vertex $P(2,0)$, and $C$ (at $x=0$) is $(0,4)$.\n\n**Part (2):** Second parabola $y=ax^2+mx+n$ ($a\\ne1$) also through $A(1,1)$, $B(3,1)$.\n\nAxis of symmetry $x=2$: $-\\frac{m}{2a}=2 \\Rightarrow m=-4a$. Then $y = ax^2-4ax+n = a(x-2)^2 + (n-4a)$.\n\nThrough $A(1,1)$: $a - 4a + n = 1 \\Rightarrow n = 1+3a$.\n\nSo $y = a(x-2)^2 + 1 - a$. Vertex $Q(2, 1-a)$. At $x=0$: $D(0, 1+3a)$.\n\n**①** $CD = |(1+3a) - 4| = |3a-3| = 3|a-1|$. $PQ = |(1-a) - 0| = |1-a| = |a-1|$.\n\nSo $\\frac{CD}{PQ} = \\frac{3|a-1|}{|a-1|} = 3$.\n\n**②** $C(0,4)$, $D(0,1+3a)$, $P(2,0)$, $Q(2,1-a)$. Note $CD$ and $PQ$ are both vertical segments (on lines $x=0$ and $x=2$), so $CD \\parallel PQ$. Thus $CDPQ$ is a trapezoid with bases $CD$ and $PQ$.\n\nFor it to be a right trapezoid, one leg must be perpendicular to the bases, i.e., horizontal. Legs are $DP$ and $CQ$.\n\n- $DP$ horizontal: $y_D = y_P \\Rightarrow 1+3a = 0 \\Rightarrow a = -\\frac13$.\n- $CQ$ horizontal: $y_C = y_Q \\Rightarrow 4 = 1-a \\Rightarrow a = -3$.\n\n**Case $a=-\\frac13$:** $D(0,0)$, $Q(2,\\frac43)$. $CD=4$, $PQ=\\frac43$. Legs: $DP$ from $(0,0)$ to $(2,0)$ horizontal (length 2), $CQ$ from $(0,4)$ to $(2,\\frac43)$.\n\nAngles: at $D$: between $DC$ (up) and $DP$ (right) = $90°$. At $P$: between $PQ$ (up) and $PD$ (left) = $90°$. At $C$: between $CD$ (down) and $CQ$. At $Q$: between $QP$ (down) and $QC$.\n\n$CQ$ vector $(2, -\\frac83)$, length $\\sqrt{4+\\frac{64}{9}}=\\sqrt{\\frac{100}{9}}=\\frac{10}{3}$. Angle at $C$: $CD$ direction $(0,-1)$, $CQ$ direction $\\frac{1}{10/3}(2,-\\frac83)=(0.6,-0.8)$. $\\cos\\angle C = 0.8$, so $\\angle C \\approx 36.87°$. Angle at $Q$: $180°-36.87°=143.13°$. Smallest interior angle is $\\angle C$ with $\\sin = 0.6 = \\frac35$.\n\n**Case $a=-3$:** $D(0,-8)$, $Q(2,4)$. $CD=12$, $PQ=4$. Leg $CQ$ from $(0,4)$ to $(2,4)$ horizontal (length 2). Angles at $C$ and $Q$ are $90°$. At $D$: $DC$ direction $(0,1)$, $DP$ direction $(2,8)\\to(1,4)/\\sqrt{17}$. $\\cos\\angle D = \\frac{4}{\\sqrt{17}}$, $\\angle D\\approx 14.04°$. At $P$: $180°-14.04°=165.96°$. Smallest is $\\angle D$, $\\sin\\angle D = \\frac{1}{\\sqrt{17}}=\\frac{\\sqrt{17}}{17}$.\n\nComparing $\\frac35 = 0.6$ vs $\\frac{\\sqrt{17}}{17}\\approx 0.2425$: the minimum over both cases is $\\frac{\\sqrt{17}}{17}$.\n\nLet me verify the case $a=-3$ angle at $D$: $DP$ vector $(2, 0-(-8))=(2,8)$, $DC$ vector $(0, 4-(-8))=(0,12)$. $\\cos\\angle D = \\frac{(2)(0)+(8)(12)}{|DP|\\cdot|DC|} = \\frac{96}{\\sqrt{68}\\cdot 12} = \\frac{96}{12\\sqrt{68}}=\\frac{8}{\\sqrt{68}}=\\frac{8}{2\\sqrt{17}}=\\frac{4}{\\sqrt{17}}$. So $\\sin\\angle D = \\sqrt{1-\\frac{16}{17}}=\\frac{1}{\\sqrt{17}}=\\frac{\\sqrt{17}}{17}$. Confirmed.",
+        "tool_calls": [
+          {
+            "id": "call_b0900ca3ab0b49dd9a29a990",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "submit_solution",
+              "arguments": "{\"region_id\": \"region_art_0029_01\", \"final_answer\": \"（1）b = −4，c = 4（此时 y = (x−2)²，顶点 P(2,0)，C(0,4)）。\\n\\n（2）① CD/PQ = 3。\\n\\n② 最小内角的正弦值为 √17/17（对应 a = −3 的情形）。\", \"reasoning\": \"（1）A(1,1)、B(3,1) 纵坐标相同，故对称轴 x=2，即 −b/2=2，得 b=−4。代入 A(1,1)：1=1−4+c，得 c=4。故 y=x²−4x+4=(x−2)²，顶点 P(2,0)，与 y 轴交点 C(0,4)。\\n\\n（2）设第二条抛物线 y=ax²+mx+n（a≠1）。同样过 A、B，对称轴 x=2，故 −m/(2a)=2，m=−4a。代入 A(1,1)：a−4a+n=1，n=1+3a。于是 y=a(x−2)²+1−a，顶点 Q(2,1−a)，与 y 轴交点 D(0,1+3a)。\\n\\n① CD=|(1+3a)−4|=3|a−1|，PQ=|(1−a)−0|=|a−1|，故 CD/PQ=3。\\n\\n② C(0,4)、D(0,1+3a)、P(2,0)、Q(2,1−a)。CD 与 PQ 都在竖直线上（x=0 与 x=2），故 CD∥PQ，四边形 CDPQ 是以 CD、PQ 为底的梯形。要成为直角梯形，需一条腰水平（垂直于底）：DP 水平 ⇒ 1+3a=0 ⇒ a=−1/3；CQ 水平 ⇒ 4=1−a ⇒ a=−3。\\n\\n情形 a=−1/3：D(0,0)、Q(2,4/3)，CD=4，PQ=4/3，DP 水平长 2。∠D=∠P=90°，∠C 处 cos∠C=0.8，∠C≈36.87°，∠Q≈143.13°，最小内角为 ∠C，sin∠C=3/5。\\n\\n情形 a=−3：D(0,−8)、Q(2,4)，CD=12，PQ=4，CQ 水平长 2。∠C=∠Q=90°，∠D 处 cos∠D=4/√17，sin∠D=1/√17=√17/17≈0.2425，∠P≈165.96°，最小内角为 ∠D。\\n\\n比较两情形，最小内角正弦值取更小者 √17/17。\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3523,
+        "total_tokens": 5491,
+        "completion_tokens": 1968,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 37503.939599962905,
+      "request_id": "b4a8e90f3e5e4b158e6fff0578925746",
+      "step_id": "step_0014"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_b0900ca3ab0b49dd9a29a990",
+      "tool": "submit_solution",
+      "arguments": {
+        "region_id": "region_art_0029_01",
+        "final_answer": "（1）b = −4，c = 4（此时 y = (x−2)²，顶点 P(2,0)，C(0,4)）。\n\n（2）① CD/PQ = 3。\n\n② 最小内角的正弦值为 √17/17（对应 a = −3 的情形）。",
+        "reasoning": "（1）A(1,1)、B(3,1) 纵坐标相同，故对称轴 x=2，即 −b/2=2，得 b=−4。代入 A(1,1)：1=1−4+c，得 c=4。故 y=x²−4x+4=(x−2)²，顶点 P(2,0)，与 y 轴交点 C(0,4)。\n\n（2）设第二条抛物线 y=ax²+mx+n（a≠1）。同样过 A、B，对称轴 x=2，故 −m/(2a)=2，m=−4a。代入 A(1,1)：a−4a+n=1，n=1+3a。于是 y=a(x−2)²+1−a，顶点 Q(2,1−a)，与 y 轴交点 D(0,1+3a)。\n\n① CD=|(1+3a)−4|=3|a−1|，PQ=|(1−a)−0|=|a−1|，故 CD/PQ=3。\n\n② C(0,4)、D(0,1+3a)、P(2,0)、Q(2,1−a)。CD 与 PQ 都在竖直线上（x=0 与 x=2），故 CD∥PQ，四边形 CDPQ 是以 CD、PQ 为底的梯形。要成为直角梯形，需一条腰水平（垂直于底）：DP 水平 ⇒ 1+3a=0 ⇒ a=−1/3；CQ 水平 ⇒ 4=1−a ⇒ a=−3。\n\n情形 a=−1/3：D(0,0)、Q(2,4/3)，CD=4，PQ=4/3，DP 水平长 2。∠D=∠P=90°，∠C 处 cos∠C=0.8，∠C≈36.87°，∠Q≈143.13°，最小内角为 ∠C，sin∠C=3/5。\n\n情形 a=−3：D(0,−8)、Q(2,4)，CD=12，PQ=4，CQ 水平长 2。∠C=∠Q=90°，∠D 处 cos∠D=4/√17，sin∠D=1/√17=√17/17≈0.2425，∠P≈165.96°，最小内角为 ∠D。\n\n比较两情形，最小内角正弦值取更小者 √17/17。"
+      },
+      "status": "completed",
+      "observation": {
+        "submission_id": "submission_34bfabff40f9",
+        "region_id": "region_art_0029_01",
+        "final_answer": "（1）b = −4，c = 4（此时 y = (x−2)²，顶点 P(2,0)，C(0,4)）。\n\n（2）① CD/PQ = 3。\n\n② 最小内角的正弦值为 √17/17（对应 a = −3 的情形）。",
+        "reasoning": "（1）A(1,1)、B(3,1) 纵坐标相同，故对称轴 x=2，即 −b/2=2，得 b=−4。代入 A(1,1)：1=1−4+c，得 c=4。故 y=x²−4x+4=(x−2)²，顶点 P(2,0)，与 y 轴交点 C(0,4)。\n\n（2）设第二条抛物线 y=ax²+mx+n（a≠1）。同样过 A、B，对称轴 x=2，故 −m/(2a)=2，m=−4a。代入 A(1,1)：a−4a+n=1，n=1+3a。于是 y=a(x−2)²+1−a，顶点 Q(2,1−a)，与 y 轴交点 D(0,1+3a)。\n\n① CD=|(1+3a)−4|=3|a−1|，PQ=|(1−a)−0|=|a−1|，故 CD/PQ=3。\n\n② C(0,4)、D(0,1+3a)、P(2,0)、Q(2,1−a)。CD 与 PQ 都在竖直线上（x=0 与 x=2），故 CD∥PQ，四边形 CDPQ 是以 CD、PQ 为底的梯形。要成为直角梯形，需一条腰水平（垂直于底）：DP 水平 ⇒ 1+3a=0 ⇒ a=−1/3；CQ 水平 ⇒ 4=1−a ⇒ a=−3。\n\n情形 a=−1/3：D(0,0)、Q(2,4/3)，CD=4，PQ=4/3，DP 水平长 2。∠D=∠P=90°，∠C 处 cos∠C=0.8，∠C≈36.87°，∠Q≈143.13°，最小内角为 ∠C，sin∠C=3/5。\n\n情形 a=−3：D(0,−8)、Q(2,4)，CD=12，PQ=4，CQ 水平长 2。∠C=∠Q=90°，∠D 处 cos∠D=4/√17，sin∠D=1/√17=√17/17≈0.2425，∠P≈165.96°，最小内角为 ∠D。\n\n比较两情形，最小内角正弦值取更小者 √17/17。",
+        "status": "submitted"
+      },
+      "step_id": "step_0015"
+    }
+  ],
+  "final_submission": {
+    "region_art_0029_01": {
+      "submission_id": "submission_34bfabff40f9",
+      "region_id": "region_art_0029_01",
+      "final_answer": "（1）b = −4，c = 4（此时 y = (x−2)²，顶点 P(2,0)，C(0,4)）。\n\n（2）① CD/PQ = 3。\n\n② 最小内角的正弦值为 √17/17（对应 a = −3 的情形）。",
+      "reasoning": "（1）A(1,1)、B(3,1) 纵坐标相同，故对称轴 x=2，即 −b/2=2，得 b=−4。代入 A(1,1)：1=1−4+c，得 c=4。故 y=x²−4x+4=(x−2)²，顶点 P(2,0)，与 y 轴交点 C(0,4)。\n\n（2）设第二条抛物线 y=ax²+mx+n（a≠1）。同样过 A、B，对称轴 x=2，故 −m/(2a)=2，m=−4a。代入 A(1,1)：a−4a+n=1，n=1+3a。于是 y=a(x−2)²+1−a，顶点 Q(2,1−a)，与 y 轴交点 D(0,1+3a)。\n\n① CD=|(1+3a)−4|=3|a−1|，PQ=|(1−a)−0|=|a−1|，故 CD/PQ=3。\n\n② C(0,4)、D(0,1+3a)、P(2,0)、Q(2,1−a)。CD 与 PQ 都在竖直线上（x=0 与 x=2），故 CD∥PQ，四边形 CDPQ 是以 CD、PQ 为底的梯形。要成为直角梯形，需一条腰水平（垂直于底）：DP 水平 ⇒ 1+3a=0 ⇒ a=−1/3；CQ 水平 ⇒ 4=1−a ⇒ a=−3。\n\n情形 a=−1/3：D(0,0)、Q(2,4/3)，CD=4，PQ=4/3，DP 水平长 2。∠D=∠P=90°，∠C 处 cos∠C=0.8，∠C≈36.87°，∠Q≈143.13°，最小内角为 ∠C，sin∠C=3/5。\n\n情形 a=−3：D(0,−8)、Q(2,4)，CD=12，PQ=4，CQ 水平长 2。∠C=∠Q=90°，∠D 处 cos∠D=4/√17，sin∠D=1/√17=√17/17≈0.2425，∠P≈165.96°，最小内角为 ∠D。\n\n比较两情形，最小内角正弦值取更小者 √17/17。",
+      "status": "submitted"
+    }
+  },
+  "evaluation": {
+    "type": "submission",
+    "expected_regions": 1,
+    "submitted_regions": 1,
+    "all_answers_correct": false,
+    "results": [
+      {
+        "submission_id": "submission_34bfabff40f9",
+        "region_id": "region_art_0029_01",
+        "problem_id": "problem_0029_01",
+        "answer_correct": null,
+        "verification_status": "needs_review",
+        "verification_method": "unresolved",
+        "verification": {
+          "status": "needs_review",
+          "score": null,
+          "match_method": "unresolved",
+          "needs_review": true,
+          "part_results": [],
+          "missing_parts": [],
+          "diagnostics": []
+        },
+        "needs_review": true,
+        "reasoning_present": true,
+        "task_completed": false,
+        "reward": null
+      }
+    ],
+    "rubric_check": {
+      "required_tools_complete": true,
+      "missing_tools": [],
+      "missing_regions": {},
+      "submission_required": true,
+      "submission_complete": true,
+      "submission_policy": "required",
+      "submission_policy_compliant": true,
+      "all_answers_correct": false,
+      "answer_needs_review": true,
+      "answer_incorrect": false,
+      "invalid_reference": false,
+      "duplicate_regions": [],
+      "forbidden_submission": false,
+      "acceptable_tool_path_matched": true,
+      "acceptable_tool_path_index": 0,
+      "reward_breakdown": {
+        "answer_reward": null,
+        "reasoning_reward": 1.0,
+        "tool_path_reward": 1.0,
+        "submission_policy_penalty": 0.0,
+        "duplicate_submission_penalty": 0.0,
+        "acceptable_path_penalty": 0.0,
+        "total_reward": null
+      },
+      "passed": false
+    }
+  },
+  "usage": {
+    "total_tokens": 13794,
+    "prompt_tokens": 11343,
+    "completion_tokens": 2451,
+    "reasoning_tokens": 0
+  },
+  "status": "needs_review",
+  "termination_reason": "answer_equivalence_uncertain",
+  "errors": []
+}

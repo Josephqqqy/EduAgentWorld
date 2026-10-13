@@ -1,0 +1,195 @@
+{
+  "source": "generated/tasks_seed_42.json",
+  "run_directory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926",
+  "total": 30,
+  "counts": {
+    "completed": 13,
+    "incomplete": 4,
+    "needs_review": 8,
+    "failed": 3,
+    "error": 2,
+    "other": 0
+  },
+  "tasks": [
+    {
+      "task_id": "task_a1_000001",
+      "status": "completed",
+      "termination_reason": "required_tools_completed",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000001.json"
+    },
+    {
+      "task_id": "task_a1_000002",
+      "status": "completed",
+      "termination_reason": "required_tools_completed",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000002.json"
+    },
+    {
+      "task_id": "task_a1_000003",
+      "status": "completed",
+      "termination_reason": "required_submissions_completed",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000003.json"
+    },
+    {
+      "task_id": "task_a1_000004",
+      "status": "completed",
+      "termination_reason": "required_submissions_completed",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000004.json"
+    },
+    {
+      "task_id": "task_a1_000005",
+      "status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000005.json"
+    },
+    {
+      "task_id": "task_a1_000006",
+      "status": "completed",
+      "termination_reason": "required_submissions_completed",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000006.json"
+    },
+    {
+      "task_id": "task_a1_000007",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000007.json"
+    },
+    {
+      "task_id": "task_a1_000008",
+      "status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000008.json"
+    },
+    {
+      "task_id": "task_a1_000009",
+      "status": "completed",
+      "termination_reason": "required_tools_completed",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000009.json"
+    },
+    {
+      "task_id": "task_a1_000010",
+      "status": "completed",
+      "termination_reason": "required_submissions_completed",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000010.json"
+    },
+    {
+      "task_id": "task_a1_000011",
+      "status": "failed",
+      "termination_reason": "forbidden_submission",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000011.json"
+    },
+    {
+      "task_id": "task_a1_000012",
+      "status": "failed",
+      "termination_reason": "answer_incorrect",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000012.json"
+    },
+    {
+      "task_id": "task_a1_000013",
+      "status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000013.json"
+    },
+    {
+      "task_id": "task_a1_000014",
+      "status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000014.json"
+    },
+    {
+      "task_id": "task_a1_000015",
+      "status": "completed",
+      "termination_reason": "required_submissions_completed",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000015.json"
+    },
+    {
+      "task_id": "task_a1_000016",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000016.json"
+    },
+    {
+      "task_id": "task_a1_000017",
+      "status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000017.json"
+    },
+    {
+      "task_id": "task_a1_000018",
+      "status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000018.json"
+    },
+    {
+      "task_id": "task_a1_000019",
+      "status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000019.json"
+    },
+    {
+      "task_id": "task_a1_000020",
+      "status": "error",
+      "termination_reason": "model_error",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000020.json"
+    },
+    {
+      "task_id": "task_a1_000021",
+      "status": "completed",
+      "termination_reason": "required_submissions_completed",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000021.json"
+    },
+    {
+      "task_id": "task_a1_000022",
+      "status": "completed",
+      "termination_reason": "required_tools_completed",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000022.json"
+    },
+    {
+      "task_id": "task_a1_000023",
+      "status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000023.json"
+    },
+    {
+      "task_id": "task_a1_000024",
+      "status": "error",
+      "termination_reason": "model_error",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000024.json"
+    },
+    {
+      "task_id": "task_a1_000025",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000025.json"
+    },
+    {
+      "task_id": "task_a1_000026",
+      "status": "failed",
+      "termination_reason": "answer_incorrect",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000026.json"
+    },
+    {
+      "task_id": "task_a1_000027",
+      "status": "completed",
+      "termination_reason": "required_submissions_completed",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000027.json"
+    },
+    {
+      "task_id": "task_a1_000028",
+      "status": "completed",
+      "termination_reason": "required_submissions_completed",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000028.json"
+    },
+    {
+      "task_id": "task_a1_000029",
+      "status": "completed",
+      "termination_reason": "required_submissions_completed",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000029.json"
+    },
+    {
+      "task_id": "task_a1_000030",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\real_ocr_final_20260928\\batch_20260928_152926\\task_a1_000030.json"
+    }
+  ]
+}

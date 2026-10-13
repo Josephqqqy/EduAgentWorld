@@ -1,0 +1,488 @@
+{
+  "trajectory_id": "traj_1164c4ab2f1f45e88b113dd09a9cf2df",
+  "task_id": "task_a1_000010",
+  "model": {
+    "name": "DeepSeek-V4.1-Flash"
+  },
+  "task": {
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；确认学习材料的基本信息；区分图片中包含的各道题目；整理成可编辑的文本；判断题目内容是否完整并指出缺失部分；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0007",
+      "fixture_path": "raw/assets/7.png"
+    }
+  },
+  "steps": [
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I'll start by registering the uploaded image and examining its contents.",
+        "tool_calls": [
+          {
+            "id": "call_03c7a2fd1d9b45438b325ce9",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "upload_artifact",
+              "arguments": "{\"user_id\": \"student_task_user\", \"fixture_path\": \"raw/assets/7.png\"}"
+            }
+          },
+          {
+            "id": "call_41271897da4f40c6ba086d2d",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "get_artifact",
+              "arguments": "{\"artifact_id\": \"art_0007\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1240,
+        "total_tokens": 1349,
+        "completion_tokens": 109,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 2082.148600020446,
+      "request_id": "8f5afae15e414253b2abe140f23a9429",
+      "step_id": "step_0001"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_03c7a2fd1d9b45438b325ce9",
+      "tool": "upload_artifact",
+      "arguments": {
+        "user_id": "student_task_user",
+        "fixture_path": "raw/assets/7.png"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0007",
+        "user_id": null,
+        "file_name": "7.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/7.png",
+        "content_hash": "sha256:22219308c1648e3d6ea83e13326349d77005abb98e80fe9d31ffcc7c019fa09e",
+        "size_bytes": 57128,
+        "width": 801,
+        "height": 207,
+        "status": "uploaded"
+      },
+      "step_id": "step_0002"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_41271897da4f40c6ba086d2d",
+      "tool": "get_artifact",
+      "arguments": {
+        "artifact_id": "art_0007"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0007",
+        "user_id": null,
+        "file_name": "7.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/7.png",
+        "content_hash": "sha256:22219308c1648e3d6ea83e13326349d77005abb98e80fe9d31ffcc7c019fa09e",
+        "size_bytes": 57128,
+        "width": 801,
+        "height": 207,
+        "status": "uploaded"
+      },
+      "step_id": "step_0003"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I have the image registered. Now let me list the problem regions and get the overall context.",
+        "tool_calls": [
+          {
+            "id": "call_b3daba71d312433cbdeba2b6",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "list_artifact_regions",
+              "arguments": "{\"artifact_id\": \"art_0007\"}"
+            }
+          },
+          {
+            "id": "call_3a518803b1c34460a984cec5",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "get_artifact_problem_contexts",
+              "arguments": "{\"artifact_id\": \"art_0007\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1594,
+        "total_tokens": 1694,
+        "completion_tokens": 100,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1727.418199996464,
+      "request_id": "f1fd1db1aded49fdb6b71c5968a0d472",
+      "step_id": "step_0004"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_b3daba71d312433cbdeba2b6",
+      "tool": "list_artifact_regions",
+      "arguments": {
+        "artifact_id": "art_0007"
+      },
+      "status": "completed",
+      "observation": [
+        {
+          "region_id": "region_art_0007_01",
+          "region_index": 1,
+          "bbox_json": null
+        }
+      ],
+      "step_id": "step_0005"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_3a518803b1c34460a984cec5",
+      "tool": "get_artifact_problem_contexts",
+      "arguments": {
+        "artifact_id": "art_0007"
+      },
+      "status": "error",
+      "error": {
+        "type": "ValueError",
+        "message": "Real OCR required for region: region_art_0007_01"
+      },
+      "step_id": "step_0006"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "There's one region. Let me recognize its content and get the editable text.",
+        "tool_calls": [
+          {
+            "id": "call_2a7e976023fd44e5870d710e",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "recognize_content",
+              "arguments": "{\"region_id\": \"region_art_0007_01\", \"modality\": \"ocr\"}"
+            }
+          },
+          {
+            "id": "call_5376081989394e8abe466011",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "extract_editable_text",
+              "arguments": "{\"region_id\": \"region_art_0007_01\", \"include_latex\": true}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1769,
+        "total_tokens": 1907,
+        "completion_tokens": 138,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 2657.9181000124663,
+      "request_id": "4a1ec31685a1461a8a44c7a57f2abf94",
+      "step_id": "step_0007"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_2a7e976023fd44e5870d710e",
+      "tool": "recognize_content",
+      "arguments": {
+        "region_id": "region_art_0007_01",
+        "modality": "ocr"
+      },
+      "status": "completed",
+      "observation": {
+        "recognition_id": "recognition_ab4f511d2a69",
+        "region_id": "region_art_0007_01",
+        "modality": "ocr",
+        "engine": "vision_model_ocr",
+        "raw_output": "{\"provider\": \"vision_model\", \"model\": \"DeepSeek-V4.1-Flash\", \"text\": \"4. 设有半圆形板：$x^2 + y^2 \\\\leqslant a^2(y \\\\geqslant 0)$，它在点$P(x,y)$的密度与点$P$到原点的距离成正比，则半圆形板的重心坐标为( ).\\n(A) $\\\\left(0,\\\\frac{\\\\pi a}{3}\\\\right)$\\n(B) $\\\\left(0,\\\\frac{\\\\pi a}{2}\\\\right)$\\n(C) $\\\\left(0,\\\\frac{4a}{3\\\\pi}\\\\right)$\\n(D) $\\\\left(0,\\\\frac{3a}{2\\\\pi}\\\\right)$\"}",
+        "normalized_output": "4. 设有半圆形板：$x^2 + y^2 \\leqslant a^2(y \\geqslant 0)$，它在点$P(x,y)$的密度与点$P$到原点的距离成正比，则半圆形板的重心坐标为( ).\n(A) $\\left(0,\\frac{\\pi a}{3}\\right)$\n(B) $\\left(0,\\frac{\\pi a}{2}\\right)$\n(C) $\\left(0,\\frac{4a}{3\\pi}\\right)$\n(D) $\\left(0,\\frac{3a}{2\\pi}\\right)$",
+        "confidence": null,
+        "status": "completed"
+      },
+      "step_id": "step_0008"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_5376081989394e8abe466011",
+      "tool": "extract_editable_text",
+      "arguments": {
+        "region_id": "region_art_0007_01",
+        "include_latex": true
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0007_01",
+        "text": "4. 设有半圆形板：$x^2 + y^2 \\leqslant a^2(y \\geqslant 0)$，它在点$P(x,y)$的密度与点$P$到原点的距离成正比，则半圆形板的重心坐标为( ).\n(A) $\\left(0,\\frac{\\pi a}{3}\\right)$\n(B) $\\left(0,\\frac{\\pi a}{2}\\right)$\n(C) $\\left(0,\\frac{4a}{3\\pi}\\right)$\n(D) $\\left(0,\\frac{3a}{2\\pi}\\right)$",
+        "format": "markdown"
+      },
+      "step_id": "step_0009"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Now let me check completeness, analyze the diagram (if any), and analyze the knowledge points.",
+        "tool_calls": [
+          {
+            "id": "call_0e0c45b8e0ce4429a14192a7",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "assess_content_completeness",
+              "arguments": "{\"region_id\": \"region_art_0007_01\"}"
+            }
+          },
+          {
+            "id": "call_f919410f4ea242df887c0e86",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "analyze_diagram",
+              "arguments": "{\"region_id\": \"region_art_0007_01\"}"
+            }
+          },
+          {
+            "id": "call_c0b9d1207cfc42f8bc902472",
+            "index": 2,
+            "type": "function",
+            "function": {
+              "name": "analyze_problem_knowledge",
+              "arguments": "{\"region_id\": \"region_art_0007_01\"}"
+            }
+          },
+          {
+            "id": "call_4d7947782452428984077b79",
+            "index": 3,
+            "type": "function",
+            "function": {
+              "name": "get_problem_context",
+              "arguments": "{\"region_id\": \"region_art_0007_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 2499,
+        "total_tokens": 2685,
+        "completion_tokens": 186,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 4192.0838000951335,
+      "request_id": "174c235a88c146c4a03c9f0733bb3562",
+      "step_id": "step_0010"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_0e0c45b8e0ce4429a14192a7",
+      "tool": "assess_content_completeness",
+      "arguments": {
+        "region_id": "region_art_0007_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0007_01",
+        "is_complete": null,
+        "missing_parts": [],
+        "confidence": null,
+        "needs_user_action": false,
+        "status": "requires_visual_review"
+      },
+      "step_id": "step_0011"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_f919410f4ea242df887c0e86",
+      "tool": "analyze_diagram",
+      "arguments": {
+        "region_id": "region_art_0007_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0007_01",
+        "has_diagram": null,
+        "diagram_type": null,
+        "entities": [],
+        "relations": [],
+        "description": "",
+        "status": "visual_analysis_unavailable"
+      },
+      "step_id": "step_0012"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_c0b9d1207cfc42f8bc902472",
+      "tool": "analyze_problem_knowledge",
+      "arguments": {
+        "region_id": "region_art_0007_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0007_01",
+        "knowledge_points": [],
+        "analysis_basis": "ocr_text_only_no_verified_metadata"
+      },
+      "step_id": "step_0013"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_4d7947782452428984077b79",
+      "tool": "get_problem_context",
+      "arguments": {
+        "region_id": "region_art_0007_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0007_01",
+        "statement": "4. 设有半圆形板：$x^2 + y^2 \\leqslant a^2(y \\geqslant 0)$，它在点$P(x,y)$的密度与点$P$到原点的距离成正比，则半圆形板的重心坐标为( ).\n(A) $\\left(0,\\frac{\\pi a}{3}\\right)$\n(B) $\\left(0,\\frac{\\pi a}{2}\\right)$\n(C) $\\left(0,\\frac{4a}{3\\pi}\\right)$\n(D) $\\left(0,\\frac{3a}{2\\pi}\\right)$",
+        "latex": null
+      },
+      "step_id": "step_0014"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "The visual analysis tools are unavailable, but the OCR text is clear and complete. Let me solve the problem.\n\n**Problem analysis:** A semicircular plate $x^2+y^2 \\le a^2$, $y\\ge 0$, with density proportional to distance from origin: $\\rho(x,y) = k\\sqrt{x^2+y^2}$.\n\nBy symmetry about the $y$-axis, $\\bar{x}=0$. For $\\bar{y}$:\n\n$$\\bar{y} = \\frac{\\iint_D y\\rho\\,dA}{\\iint_D \\rho\\,dA}$$\n\nUsing polar coordinates ($x=r\\cos\\theta$, $y=r\\sin\\theta$, $dA = r\\,dr\\,d\\theta$, $0\\le r\\le a$, $0\\le\\theta\\le\\pi$):\n\n- Mass: $\\iint_D k r \\cdot r\\,dr\\,d\\theta = k\\int_0^\\pi d\\theta\\int_0^a r^2 dr = k\\pi\\cdot\\frac{a^3}{3} = \\frac{k\\pi a^3}{3}$\n- Moment: $\\iint_D (r\\sin\\theta)(kr)\\cdot r\\,dr\\,d\\theta = k\\int_0^\\pi\\sin\\theta\\,d\\theta\\int_0^a r^3 dr = k\\cdot 2\\cdot\\frac{a^4}{4} = \\frac{k a^4}{2}$\n\n$$\\bar{y} = \\frac{ka^4/2}{k\\pi a^3/3} = \\frac{3a}{2\\pi}$$\n\nThis matches option (D).",
+        "tool_calls": [
+          {
+            "id": "call_f9611bd757e94e71a6fa8937",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "submit_solution",
+              "arguments": "{\"region_id\": \"region_art_0007_01\", \"final_answer\": \"(D) $\\\\left(0,\\\\dfrac{3a}{2\\\\pi}\\\\right)$\", \"reasoning\": \"题目：半圆形板 $x^2+y^2\\\\le a^2\\\\ (y\\\\ge 0)$，密度与点到原点的距离成正比，求重心坐标。\\n\\n设密度 $\\\\rho(x,y)=k\\\\sqrt{x^2+y^2}=kr$（$k>0$ 为比例常数）。\\n\\n1) 对称性：区域关于 $y$ 轴对称，密度 $\\\\rho$ 也关于 $y$ 轴对称，故 $\\\\bar{x}=0$。\\n\\n2) 用极坐标：$x=r\\\\cos\\\\theta,\\\\ y=r\\\\sin\\\\theta,\\\\ dA=r\\\\,dr\\\\,d\\\\theta$，其中 $0\\\\le r\\\\le a,\\\\ 0\\\\le\\\\theta\\\\le\\\\pi$。\\n\\n3) 质量：\\n$M=\\\\iint_D \\\\rho\\\\,dA=\\\\int_0^\\\\pi\\\\!\\\\!\\\\int_0^a (kr)\\\\cdot r\\\\,dr\\\\,d\\\\theta=k\\\\int_0^\\\\pi d\\\\theta\\\\int_0^a r^2\\\\,dr=k\\\\pi\\\\cdot\\\\frac{a^3}{3}=\\\\frac{k\\\\pi a^3}{3}$。\\n\\n4) 对 $x$ 轴的静矩：\\n$M_x=\\\\iint_D y\\\\rho\\\\,dA=\\\\int_0^\\\\pi\\\\!\\\\!\\\\int_0^a (r\\\\sin\\\\theta)(kr)\\\\cdot r\\\\,dr\\\\,d\\\\theta=k\\\\left(\\\\int_0^\\\\pi\\\\sin\\\\theta\\\\,d\\\\theta\\\\right)\\\\left(\\\\int_0^a r^3\\\\,dr\\\\right)=k\\\\cdot 2\\\\cdot\\\\frac{a^4}{4}=\\\\frac{ka^4}{2}$。\\n\\n5) 重心纵坐标：\\n$\\\\bar{y}=\\\\dfrac{M_x}{M}=\\\\dfrac{ka^4/2}{k\\\\pi a^3/3}=\\\\dfrac{3a}{2\\\\pi}$。\\n\\n故重心为 $\\\\left(0,\\\\dfrac{3a}{2\\\\pi}\\\\right)$，选 (D)。\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3022,
+        "total_tokens": 3837,
+        "completion_tokens": 815,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 15477.055000024848,
+      "request_id": "3edb537bdda04850a0cbdcdaa9d18a21",
+      "step_id": "step_0015"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_f9611bd757e94e71a6fa8937",
+      "tool": "submit_solution",
+      "arguments": {
+        "region_id": "region_art_0007_01",
+        "final_answer": "(D) $\\left(0,\\dfrac{3a}{2\\pi}\\right)$",
+        "reasoning": "题目：半圆形板 $x^2+y^2\\le a^2\\ (y\\ge 0)$，密度与点到原点的距离成正比，求重心坐标。\n\n设密度 $\\rho(x,y)=k\\sqrt{x^2+y^2}=kr$（$k>0$ 为比例常数）。\n\n1) 对称性：区域关于 $y$ 轴对称，密度 $\\rho$ 也关于 $y$ 轴对称，故 $\\bar{x}=0$。\n\n2) 用极坐标：$x=r\\cos\\theta,\\ y=r\\sin\\theta,\\ dA=r\\,dr\\,d\\theta$，其中 $0\\le r\\le a,\\ 0\\le\\theta\\le\\pi$。\n\n3) 质量：\n$M=\\iint_D \\rho\\,dA=\\int_0^\\pi\\!\\!\\int_0^a (kr)\\cdot r\\,dr\\,d\\theta=k\\int_0^\\pi d\\theta\\int_0^a r^2\\,dr=k\\pi\\cdot\\frac{a^3}{3}=\\frac{k\\pi a^3}{3}$。\n\n4) 对 $x$ 轴的静矩：\n$M_x=\\iint_D y\\rho\\,dA=\\int_0^\\pi\\!\\!\\int_0^a (r\\sin\\theta)(kr)\\cdot r\\,dr\\,d\\theta=k\\left(\\int_0^\\pi\\sin\\theta\\,d\\theta\\right)\\left(\\int_0^a r^3\\,dr\\right)=k\\cdot 2\\cdot\\frac{a^4}{4}=\\frac{ka^4}{2}$。\n\n5) 重心纵坐标：\n$\\bar{y}=\\dfrac{M_x}{M}=\\dfrac{ka^4/2}{k\\pi a^3/3}=\\dfrac{3a}{2\\pi}$。\n\n故重心为 $\\left(0,\\dfrac{3a}{2\\pi}\\right)$，选 (D)。"
+      },
+      "status": "completed",
+      "observation": {
+        "submission_id": "submission_e7eddf2d0c97",
+        "region_id": "region_art_0007_01",
+        "final_answer": "(D) $\\left(0,\\dfrac{3a}{2\\pi}\\right)$",
+        "reasoning": "题目：半圆形板 $x^2+y^2\\le a^2\\ (y\\ge 0)$，密度与点到原点的距离成正比，求重心坐标。\n\n设密度 $\\rho(x,y)=k\\sqrt{x^2+y^2}=kr$（$k>0$ 为比例常数）。\n\n1) 对称性：区域关于 $y$ 轴对称，密度 $\\rho$ 也关于 $y$ 轴对称，故 $\\bar{x}=0$。\n\n2) 用极坐标：$x=r\\cos\\theta,\\ y=r\\sin\\theta,\\ dA=r\\,dr\\,d\\theta$，其中 $0\\le r\\le a,\\ 0\\le\\theta\\le\\pi$。\n\n3) 质量：\n$M=\\iint_D \\rho\\,dA=\\int_0^\\pi\\!\\!\\int_0^a (kr)\\cdot r\\,dr\\,d\\theta=k\\int_0^\\pi d\\theta\\int_0^a r^2\\,dr=k\\pi\\cdot\\frac{a^3}{3}=\\frac{k\\pi a^3}{3}$。\n\n4) 对 $x$ 轴的静矩：\n$M_x=\\iint_D y\\rho\\,dA=\\int_0^\\pi\\!\\!\\int_0^a (r\\sin\\theta)(kr)\\cdot r\\,dr\\,d\\theta=k\\left(\\int_0^\\pi\\sin\\theta\\,d\\theta\\right)\\left(\\int_0^a r^3\\,dr\\right)=k\\cdot 2\\cdot\\frac{a^4}{4}=\\frac{ka^4}{2}$。\n\n5) 重心纵坐标：\n$\\bar{y}=\\dfrac{M_x}{M}=\\dfrac{ka^4/2}{k\\pi a^3/3}=\\dfrac{3a}{2\\pi}$。\n\n故重心为 $\\left(0,\\dfrac{3a}{2\\pi}\\right)$，选 (D)。",
+        "status": "submitted"
+      },
+      "step_id": "step_0016"
+    }
+  ],
+  "final_submission": {
+    "region_art_0007_01": {
+      "submission_id": "submission_e7eddf2d0c97",
+      "region_id": "region_art_0007_01",
+      "final_answer": "(D) $\\left(0,\\dfrac{3a}{2\\pi}\\right)$",
+      "reasoning": "题目：半圆形板 $x^2+y^2\\le a^2\\ (y\\ge 0)$，密度与点到原点的距离成正比，求重心坐标。\n\n设密度 $\\rho(x,y)=k\\sqrt{x^2+y^2}=kr$（$k>0$ 为比例常数）。\n\n1) 对称性：区域关于 $y$ 轴对称，密度 $\\rho$ 也关于 $y$ 轴对称，故 $\\bar{x}=0$。\n\n2) 用极坐标：$x=r\\cos\\theta,\\ y=r\\sin\\theta,\\ dA=r\\,dr\\,d\\theta$，其中 $0\\le r\\le a,\\ 0\\le\\theta\\le\\pi$。\n\n3) 质量：\n$M=\\iint_D \\rho\\,dA=\\int_0^\\pi\\!\\!\\int_0^a (kr)\\cdot r\\,dr\\,d\\theta=k\\int_0^\\pi d\\theta\\int_0^a r^2\\,dr=k\\pi\\cdot\\frac{a^3}{3}=\\frac{k\\pi a^3}{3}$。\n\n4) 对 $x$ 轴的静矩：\n$M_x=\\iint_D y\\rho\\,dA=\\int_0^\\pi\\!\\!\\int_0^a (r\\sin\\theta)(kr)\\cdot r\\,dr\\,d\\theta=k\\left(\\int_0^\\pi\\sin\\theta\\,d\\theta\\right)\\left(\\int_0^a r^3\\,dr\\right)=k\\cdot 2\\cdot\\frac{a^4}{4}=\\frac{ka^4}{2}$。\n\n5) 重心纵坐标：\n$\\bar{y}=\\dfrac{M_x}{M}=\\dfrac{ka^4/2}{k\\pi a^3/3}=\\dfrac{3a}{2\\pi}$。\n\n故重心为 $\\left(0,\\dfrac{3a}{2\\pi}\\right)$，选 (D)。",
+      "status": "submitted"
+    }
+  },
+  "evaluation": {
+    "type": "submission",
+    "expected_regions": 1,
+    "submitted_regions": 1,
+    "all_answers_correct": true,
+    "results": [
+      {
+        "submission_id": "submission_e7eddf2d0c97",
+        "region_id": "region_art_0007_01",
+        "problem_id": "problem_0007_01",
+        "answer_correct": true,
+        "verification_status": "correct",
+        "verification_method": "legacy_rules",
+        "verification": {
+          "status": "correct",
+          "score": 1.0,
+          "match_method": "legacy_rules",
+          "needs_review": false,
+          "part_results": [],
+          "missing_parts": [],
+          "diagnostics": []
+        },
+        "needs_review": false,
+        "reasoning_present": true,
+        "task_completed": true,
+        "reward": 1.0
+      }
+    ],
+    "rubric_check": {
+      "required_tools_complete": true,
+      "missing_tools": [],
+      "missing_regions": {},
+      "submission_required": true,
+      "submission_complete": true,
+      "submission_policy": "required",
+      "submission_policy_compliant": true,
+      "all_answers_correct": true,
+      "answer_needs_review": false,
+      "answer_incorrect": false,
+      "invalid_reference": false,
+      "duplicate_regions": [],
+      "forbidden_submission": false,
+      "acceptable_tool_path_matched": true,
+      "acceptable_tool_path_index": 0,
+      "reward_breakdown": {
+        "answer_reward": 1.0,
+        "reasoning_reward": 1.0,
+        "tool_path_reward": 1.0,
+        "submission_policy_penalty": 0.0,
+        "duplicate_submission_penalty": 0.0,
+        "acceptable_path_penalty": 0.0,
+        "total_reward": 3.0
+      },
+      "passed": true
+    }
+  },
+  "usage": {
+    "total_tokens": 11472,
+    "prompt_tokens": 10124,
+    "completion_tokens": 1348,
+    "reasoning_tokens": 0
+  },
+  "status": "completed",
+  "termination_reason": "required_submissions_completed",
+  "errors": [],
+  "ocr": {
+    "mode": "real",
+    "provider": "vision_model",
+    "model": "DeepSeek-V4.1-Flash"
+  }
+}

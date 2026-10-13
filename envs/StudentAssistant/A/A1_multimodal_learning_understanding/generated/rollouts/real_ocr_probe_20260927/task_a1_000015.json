@@ -1,0 +1,37 @@
+{
+  "trajectory_id": "traj_e7cfa43530c34476a40804e97e7862db",
+  "task_id": "task_a1_000015",
+  "model": {
+    "name": "DeepSeek-V4.1-Flash"
+  },
+  "task": {
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0016",
+      "fixture_path": "raw/assets/16.jpg"
+    }
+  },
+  "steps": [],
+  "final_submission": {},
+  "evaluation": {},
+  "usage": {
+    "total_tokens": 0
+  },
+  "status": "error",
+  "termination_reason": "model_error",
+  "errors": [
+    {
+      "type": "ModelClientError",
+      "category": "connection",
+      "message": "Model API connection failed: URLError",
+      "details": {
+        "exception_type": "URLError"
+      }
+    }
+  ],
+  "ocr": {
+    "mode": "real",
+    "provider": "vision_model",
+    "model": "DeepSeek-V4.1-Flash"
+  }
+}

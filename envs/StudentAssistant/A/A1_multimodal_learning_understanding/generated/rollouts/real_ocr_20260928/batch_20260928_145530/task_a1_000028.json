@@ -1,0 +1,482 @@
+{
+  "trajectory_id": "traj_966089d5f3604fb086cd80b39fc0e581",
+  "task_id": "task_a1_000028",
+  "model": {
+    "name": "DeepSeek-V4.1-Flash"
+  },
+  "task": {
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；整理成可编辑的文本；判断题目内容是否完整并指出缺失部分；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0010",
+      "fixture_path": "raw/assets/10.png"
+    }
+  },
+  "steps": [
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I'll start by registering the uploaded image and examining its contents.",
+        "tool_calls": [
+          {
+            "id": "call_a400407d77514807bb51c3e8",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "upload_artifact",
+              "arguments": "{\"user_id\": \"student_task_user\", \"fixture_path\": \"raw/assets/10.png\"}"
+            }
+          },
+          {
+            "id": "call_652d2d63a8774f56a4d82768",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "get_artifact",
+              "arguments": "{\"artifact_id\": \"art_0010\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1240,
+        "total_tokens": 1349,
+        "completion_tokens": 109,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1990.889300010167,
+      "request_id": "69d2d0917e09425fbfee72ab0f44789b",
+      "step_id": "step_0001"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_a400407d77514807bb51c3e8",
+      "tool": "upload_artifact",
+      "arguments": {
+        "user_id": "student_task_user",
+        "fixture_path": "raw/assets/10.png"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0010",
+        "user_id": null,
+        "file_name": "10.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/10.png",
+        "content_hash": "sha256:f531495558e90e89c3a2292f02e4a55906c81c1128449de0af846113f509fd02",
+        "size_bytes": 94172,
+        "width": 728,
+        "height": 231,
+        "status": "uploaded"
+      },
+      "step_id": "step_0002"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_652d2d63a8774f56a4d82768",
+      "tool": "get_artifact",
+      "arguments": {
+        "artifact_id": "art_0010"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0010",
+        "user_id": null,
+        "file_name": "10.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/10.png",
+        "content_hash": "sha256:f531495558e90e89c3a2292f02e4a55906c81c1128449de0af846113f509fd02",
+        "size_bytes": 94172,
+        "width": 728,
+        "height": 231,
+        "status": "uploaded"
+      },
+      "step_id": "step_0003"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I'll now list the problem regions in the image.",
+        "tool_calls": [
+          {
+            "id": "call_9d1aa5d3417a4844acda905d",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "list_artifact_regions",
+              "arguments": "{\"artifact_id\": \"art_0010\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1592,
+        "total_tokens": 1647,
+        "completion_tokens": 55,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1036.549299955368,
+      "request_id": "03c0218f35a84656be3b5bfc966130a1",
+      "step_id": "step_0004"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_9d1aa5d3417a4844acda905d",
+      "tool": "list_artifact_regions",
+      "arguments": {
+        "artifact_id": "art_0010"
+      },
+      "status": "completed",
+      "observation": [
+        {
+          "region_id": "region_art_0010_01",
+          "artifact_id": "art_0010",
+          "region_index": 1,
+          "region_type": "question",
+          "bbox_json": null,
+          "bbox_status": "not_annotated",
+          "confidence": null,
+          "status": "confirmed"
+        }
+      ],
+      "step_id": "step_0005"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "There's one region. Let me examine its content and context.",
+        "tool_calls": [
+          {
+            "id": "call_9d60434e1e854f34bece352d",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "recognize_content",
+              "arguments": "{\"region_id\": \"region_art_0010_01\", \"modality\": \"ocr\"}"
+            }
+          },
+          {
+            "id": "call_9d9eb5891b804ad88c7c59c3",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "extract_editable_text",
+              "arguments": "{\"region_id\": \"region_art_0010_01\", \"include_latex\": true}"
+            }
+          },
+          {
+            "id": "call_6cb2f898c30b4fd0a83f4d21",
+            "index": 2,
+            "type": "function",
+            "function": {
+              "name": "get_problem_context",
+              "arguments": "{\"region_id\": \"region_art_0010_01\"}"
+            }
+          },
+          {
+            "id": "call_3dee229590f5450d834d14c9",
+            "index": 3,
+            "type": "function",
+            "function": {
+              "name": "assess_content_completeness",
+              "arguments": "{\"region_id\": \"region_art_0010_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1724,
+        "total_tokens": 1937,
+        "completion_tokens": 213,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 4202.2923999466,
+      "request_id": "2ed47770ef7c416e84016f04981ced1b",
+      "step_id": "step_0006"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_9d60434e1e854f34bece352d",
+      "tool": "recognize_content",
+      "arguments": {
+        "region_id": "region_art_0010_01",
+        "modality": "ocr"
+      },
+      "status": "completed",
+      "observation": {
+        "recognition_id": "recognition_0bb599928632",
+        "region_id": "region_art_0010_01",
+        "modality": "ocr",
+        "engine": "vision_model_ocr",
+        "raw_output": "{\"provider\": \"vision_model\", \"model\": \"DeepSeek-V4.1-Flash\", \"text\": \"13. 设非负函数$f(x)$在$[0,+\\\\infty)$上具有有界导数，给出以下四个命题：\\n①若$\\\\int_{0}^{+\\\\infty} f^2(x)\\\\mathrm{d}x$收敛，则$\\\\int_{0}^{+\\\\infty} f(x)\\\\mathrm{d}x$收敛；②若$\\\\int_{0}^{+\\\\infty} f(x)\\\\mathrm{d}x$收敛，则$\\\\int_{0}^{+\\\\infty} f^2(x)\\\\mathrm{d}x$收敛；\\n③若$\\\\lim_{x \\\\to +\\\\infty} x^2 f(x)$存在，则$\\\\int_{0}^{+\\\\infty} f(x)\\\\mathrm{d}x$收敛；④若$\\\\int_{0}^{+\\\\infty} f(x)\\\\mathrm{d}x$收敛，则$\\\\lim_{x \\\\to +\\\\infty} x^2 f(x)$存在.\\n其中，真命题的个数为( ).\\n(A) 1\\n(B) 2\\n(C) 3\\n(D) 4\"}",
+        "normalized_output": "13. 设非负函数$f(x)$在$[0,+\\infty)$上具有有界导数，给出以下四个命题：\n①若$\\int_{0}^{+\\infty} f^2(x)\\mathrm{d}x$收敛，则$\\int_{0}^{+\\infty} f(x)\\mathrm{d}x$收敛；②若$\\int_{0}^{+\\infty} f(x)\\mathrm{d}x$收敛，则$\\int_{0}^{+\\infty} f^2(x)\\mathrm{d}x$收敛；\n③若$\\lim_{x \\to +\\infty} x^2 f(x)$存在，则$\\int_{0}^{+\\infty} f(x)\\mathrm{d}x$收敛；④若$\\int_{0}^{+\\infty} f(x)\\mathrm{d}x$收敛，则$\\lim_{x \\to +\\infty} x^2 f(x)$存在.\n其中，真命题的个数为( ).\n(A) 1\n(B) 2\n(C) 3\n(D) 4",
+        "confidence": null,
+        "status": "completed"
+      },
+      "step_id": "step_0007"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_9d9eb5891b804ad88c7c59c3",
+      "tool": "extract_editable_text",
+      "arguments": {
+        "region_id": "region_art_0010_01",
+        "include_latex": true
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0010_01",
+        "text": "13. 设非负函数$f(x)$在$[0,+\\infty)$上具有有界导数，给出以下四个命题：\n①若$\\int_{0}^{+\\infty} f^2(x)\\mathrm{d}x$收敛，则$\\int_{0}^{+\\infty} f(x)\\mathrm{d}x$收敛；②若$\\int_{0}^{+\\infty} f(x)\\mathrm{d}x$收敛，则$\\int_{0}^{+\\infty} f^2(x)\\mathrm{d}x$收敛；\n③若$\\lim_{x \\to +\\infty} x^2 f(x)$存在，则$\\int_{0}^{+\\infty} f(x)\\mathrm{d}x$收敛；④若$\\int_{0}^{+\\infty} f(x)\\mathrm{d}x$收敛，则$\\lim_{x \\to +\\infty} x^2 f(x)$存在.\n其中，真命题的个数为( ).\n(A) 1\n(B) 2\n(C) 3\n(D) 4",
+        "format": "markdown"
+      },
+      "step_id": "step_0008"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_6cb2f898c30b4fd0a83f4d21",
+      "tool": "get_problem_context",
+      "arguments": {
+        "region_id": "region_art_0010_01"
+      },
+      "status": "completed",
+      "observation": {
+        "problem_id": "problem_0010_01",
+        "subject": "math",
+        "grade_band": "postgraduate",
+        "statement": "13. 设非负函数$f(x)$在$[0,+\\infty)$上具有有界导数，给出以下四个命题：\n①若$\\int_{0}^{+\\infty} f^2(x)\\mathrm{d}x$收敛，则$\\int_{0}^{+\\infty} f(x)\\mathrm{d}x$收敛；②若$\\int_{0}^{+\\infty} f(x)\\mathrm{d}x$收敛，则$\\int_{0}^{+\\infty} f^2(x)\\mathrm{d}x$收敛；\n③若$\\lim_{x \\to +\\infty} x^2 f(x)$存在，则$\\int_{0}^{+\\infty} f(x)\\mathrm{d}x$收敛；④若$\\int_{0}^{+\\infty} f(x)\\mathrm{d}x$收敛，则$\\lim_{x \\to +\\infty} x^2 f(x)$存在.\n其中，真命题的个数为( ).\n(A) 1\n(B) 2\n(C) 3\n(D) 4",
+        "latex": null,
+        "topic": null,
+        "question_type": null,
+        "has_diagram": null,
+        "question_no": "13",
+        "region_id": "region_art_0010_01"
+      },
+      "step_id": "step_0009"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_3dee229590f5450d834d14c9",
+      "tool": "assess_content_completeness",
+      "arguments": {
+        "region_id": "region_art_0010_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0010_01",
+        "is_complete": null,
+        "missing_parts": [],
+        "confidence": null,
+        "needs_user_action": false,
+        "status": "requires_visual_review"
+      },
+      "step_id": "step_0010"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Let me analyze the knowledge points and check for any diagram.",
+        "tool_calls": [
+          {
+            "id": "call_f84f70967c9f437cb5a00655",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "analyze_problem_knowledge",
+              "arguments": "{\"region_id\": \"region_art_0010_01\"}"
+            }
+          },
+          {
+            "id": "call_f0cf74e4b8c64a36a3c27487",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "analyze_diagram",
+              "arguments": "{\"region_id\": \"region_art_0010_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3147,
+        "total_tokens": 3248,
+        "completion_tokens": 101,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 2452.5978999445215,
+      "request_id": "e53ae8ef5023409bb110d61eaad013f5",
+      "step_id": "step_0011"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_f84f70967c9f437cb5a00655",
+      "tool": "analyze_problem_knowledge",
+      "arguments": {
+        "region_id": "region_art_0010_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0010_01",
+        "problem_id": "problem_0010_01",
+        "subject": "math",
+        "grade_band": "postgraduate",
+        "question_type": null,
+        "knowledge_points": [],
+        "has_diagram": null,
+        "analysis_basis": "ocr_text_only_no_verified_metadata"
+      },
+      "step_id": "step_0012"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_f0cf74e4b8c64a36a3c27487",
+      "tool": "analyze_diagram",
+      "arguments": {
+        "region_id": "region_art_0010_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0010_01",
+        "has_diagram": null,
+        "diagram_type": null,
+        "entities": [],
+        "relations": [],
+        "description": "",
+        "status": "visual_analysis_unavailable"
+      },
+      "step_id": "step_0013"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I have all the information needed. This is a single problem (problem 13) with no diagram. Let me work through the four propositions.\n\n**Analysis of each proposition** (f ≥ 0, f has bounded derivative on [0,+∞), so |f'| ≤ M):\n\n**①** If ∫f² converges, does ∫f converge? Counterexample: f(x) = 1/√(x+1) on [1,∞) (and constant on [0,1]). Then f² = 1/(x+1), ∫f² converges, but ∫f = ∫1/√(x+1) diverges. But f must have bounded derivative — f'(x) = -1/(2(x+1)^{3/2}), bounded. So ① is **false**.\n\n**②** If ∫f converges, does ∫f² converge? Since f ≥ 0 and ∫f converges, f(x) → 0. With bounded derivative, f is eventually bounded by 1, so f² ≤ f for large x, hence ∫f² converges. **True**.\n\n**③** If lim x²f(x) = L exists, does ∫f converge? If L ≠ 0, f ~ L/x², ∫f converges. If L = 0, need care: x²f(x) → 0 means f(x) = o(1/x²), so ∫f converges. **True**.\n\n**④** If ∫f converges, does lim x²f(x) exist? Counterexample: f with triangular spikes of height 1/n² and width 1/n² at x = n. Then ∫f ~ Σ(1/n²·1/n²) converges, but x²f(x) oscillates (at spike peaks x²f ≈ n²·1/n² = 1, between spikes 0), so limit doesn't exist. Need bounded derivative — spikes can be made with bounded slope. So ④ is **false**.\n\nSo true propositions: ② and ③ → 2.",
+        "tool_calls": [
+          {
+            "id": "call_b906a2e043514435b4c77b53",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "submit_solution",
+              "arguments": "{\"region_id\": \"region_art_0010_01\", \"final_answer\": \"(B) 2\", \"reasoning\": \"题设：f(x)≥0 在 [0,+∞) 上有界导数，即存在 M>0 使 |f'(x)|≤M。\\n\\n① 假。取 f(x)=1/√(x+1)（x≥1，[0,1] 上取常数并光滑过渡）。f'(x)=-1/(2(x+1)^{3/2}) 有界。∫₁^∞ f²=∫₁^∞ 1/(x+1)dx 发散？注意 f²=1/(x+1)，∫₁^∞ dx/(x+1) 发散。改用 f(x)=1/(x+1)：f²=1/(x+1)² 收敛，而 ∫f=∫1/(x+1)dx 发散，且 f'=-1/(x+1)² 有界。故 ∫f² 收敛不能推出 ∫f 收敛，① 假。\\n\\n② 真。因 ∫₀^∞ f 收敛且 f≥0，故 f(x)→0，于是存在 X 使 x≥X 时 0≤f(x)≤1，从而 f²(x)≤f(x)，由比较判别法 ∫f² 收敛。\\n\\n③ 真。设 lim_{x→+∞} x²f(x)=L。若 L≠0，则 f(x)~L/x²，∫f 收敛；若 L=0，则 x²f(x)→0，即 f(x)=o(1/x²)，同样 ∫f 收敛。故 ③ 真。\\n\\n④ 假。构造尖峰函数：在 x=n 处取高 1/n²、宽 1/n² 的三角形尖峰（用有界斜率连接，峰间为 0）。则 ∫f ~ Σ (1/n²·1/n²)=Σ1/n⁴ 收敛，但 x²f(x) 在峰顶约为 n²·1/n²=1，峰间为 0，故 lim x²f(x) 不存在。④ 假。\\n\\n综上真命题为 ②③，共 2 个，选 (B)。\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3393,
+        "total_tokens": 4363,
+        "completion_tokens": 970,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 20520.933599909768,
+      "request_id": "06d72b7fa51345e584b5e112385b799a",
+      "step_id": "step_0014"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_b906a2e043514435b4c77b53",
+      "tool": "submit_solution",
+      "arguments": {
+        "region_id": "region_art_0010_01",
+        "final_answer": "(B) 2",
+        "reasoning": "题设：f(x)≥0 在 [0,+∞) 上有界导数，即存在 M>0 使 |f'(x)|≤M。\n\n① 假。取 f(x)=1/√(x+1)（x≥1，[0,1] 上取常数并光滑过渡）。f'(x)=-1/(2(x+1)^{3/2}) 有界。∫₁^∞ f²=∫₁^∞ 1/(x+1)dx 发散？注意 f²=1/(x+1)，∫₁^∞ dx/(x+1) 发散。改用 f(x)=1/(x+1)：f²=1/(x+1)² 收敛，而 ∫f=∫1/(x+1)dx 发散，且 f'=-1/(x+1)² 有界。故 ∫f² 收敛不能推出 ∫f 收敛，① 假。\n\n② 真。因 ∫₀^∞ f 收敛且 f≥0，故 f(x)→0，于是存在 X 使 x≥X 时 0≤f(x)≤1，从而 f²(x)≤f(x)，由比较判别法 ∫f² 收敛。\n\n③ 真。设 lim_{x→+∞} x²f(x)=L。若 L≠0，则 f(x)~L/x²，∫f 收敛；若 L=0，则 x²f(x)→0，即 f(x)=o(1/x²)，同样 ∫f 收敛。故 ③ 真。\n\n④ 假。构造尖峰函数：在 x=n 处取高 1/n²、宽 1/n² 的三角形尖峰（用有界斜率连接，峰间为 0）。则 ∫f ~ Σ (1/n²·1/n²)=Σ1/n⁴ 收敛，但 x²f(x) 在峰顶约为 n²·1/n²=1，峰间为 0，故 lim x²f(x) 不存在。④ 假。\n\n综上真命题为 ②③，共 2 个，选 (B)。"
+      },
+      "status": "completed",
+      "observation": {
+        "submission_id": "submission_dddd3c50eda0",
+        "region_id": "region_art_0010_01",
+        "final_answer": "(B) 2",
+        "reasoning": "题设：f(x)≥0 在 [0,+∞) 上有界导数，即存在 M>0 使 |f'(x)|≤M。\n\n① 假。取 f(x)=1/√(x+1)（x≥1，[0,1] 上取常数并光滑过渡）。f'(x)=-1/(2(x+1)^{3/2}) 有界。∫₁^∞ f²=∫₁^∞ 1/(x+1)dx 发散？注意 f²=1/(x+1)，∫₁^∞ dx/(x+1) 发散。改用 f(x)=1/(x+1)：f²=1/(x+1)² 收敛，而 ∫f=∫1/(x+1)dx 发散，且 f'=-1/(x+1)² 有界。故 ∫f² 收敛不能推出 ∫f 收敛，① 假。\n\n② 真。因 ∫₀^∞ f 收敛且 f≥0，故 f(x)→0，于是存在 X 使 x≥X 时 0≤f(x)≤1，从而 f²(x)≤f(x)，由比较判别法 ∫f² 收敛。\n\n③ 真。设 lim_{x→+∞} x²f(x)=L。若 L≠0，则 f(x)~L/x²，∫f 收敛；若 L=0，则 x²f(x)→0，即 f(x)=o(1/x²)，同样 ∫f 收敛。故 ③ 真。\n\n④ 假。构造尖峰函数：在 x=n 处取高 1/n²、宽 1/n² 的三角形尖峰（用有界斜率连接，峰间为 0）。则 ∫f ~ Σ (1/n²·1/n²)=Σ1/n⁴ 收敛，但 x²f(x) 在峰顶约为 n²·1/n²=1，峰间为 0，故 lim x²f(x) 不存在。④ 假。\n\n综上真命题为 ②③，共 2 个，选 (B)。",
+        "status": "submitted"
+      },
+      "step_id": "step_0015"
+    }
+  ],
+  "final_submission": {
+    "region_art_0010_01": {
+      "submission_id": "submission_dddd3c50eda0",
+      "region_id": "region_art_0010_01",
+      "final_answer": "(B) 2",
+      "reasoning": "题设：f(x)≥0 在 [0,+∞) 上有界导数，即存在 M>0 使 |f'(x)|≤M。\n\n① 假。取 f(x)=1/√(x+1)（x≥1，[0,1] 上取常数并光滑过渡）。f'(x)=-1/(2(x+1)^{3/2}) 有界。∫₁^∞ f²=∫₁^∞ 1/(x+1)dx 发散？注意 f²=1/(x+1)，∫₁^∞ dx/(x+1) 发散。改用 f(x)=1/(x+1)：f²=1/(x+1)² 收敛，而 ∫f=∫1/(x+1)dx 发散，且 f'=-1/(x+1)² 有界。故 ∫f² 收敛不能推出 ∫f 收敛，① 假。\n\n② 真。因 ∫₀^∞ f 收敛且 f≥0，故 f(x)→0，于是存在 X 使 x≥X 时 0≤f(x)≤1，从而 f²(x)≤f(x)，由比较判别法 ∫f² 收敛。\n\n③ 真。设 lim_{x→+∞} x²f(x)=L。若 L≠0，则 f(x)~L/x²，∫f 收敛；若 L=0，则 x²f(x)→0，即 f(x)=o(1/x²)，同样 ∫f 收敛。故 ③ 真。\n\n④ 假。构造尖峰函数：在 x=n 处取高 1/n²、宽 1/n² 的三角形尖峰（用有界斜率连接，峰间为 0）。则 ∫f ~ Σ (1/n²·1/n²)=Σ1/n⁴ 收敛，但 x²f(x) 在峰顶约为 n²·1/n²=1，峰间为 0，故 lim x²f(x) 不存在。④ 假。\n\n综上真命题为 ②③，共 2 个，选 (B)。",
+      "status": "submitted"
+    }
+  },
+  "evaluation": {
+    "type": "submission",
+    "expected_regions": 1,
+    "submitted_regions": 1,
+    "all_answers_correct": true,
+    "results": [
+      {
+        "submission_id": "submission_dddd3c50eda0",
+        "region_id": "region_art_0010_01",
+        "problem_id": "problem_0010_01",
+        "answer_correct": true,
+        "verification_status": "correct",
+        "verification_method": "legacy_rules",
+        "verification": {
+          "status": "correct",
+          "score": 1.0,
+          "match_method": "legacy_rules",
+          "needs_review": false,
+          "part_results": [],
+          "missing_parts": [],
+          "diagnostics": []
+        },
+        "needs_review": false,
+        "reasoning_present": true,
+        "task_completed": true,
+        "reward": 1.0
+      }
+    ],
+    "rubric_check": {
+      "required_tools_complete": true,
+      "missing_tools": [],
+      "missing_regions": {},
+      "submission_required": true,
+      "submission_complete": true,
+      "submission_policy": "required",
+      "submission_policy_compliant": true,
+      "all_answers_correct": true,
+      "answer_needs_review": false,
+      "answer_incorrect": false,
+      "invalid_reference": false,
+      "duplicate_regions": [],
+      "forbidden_submission": false,
+      "acceptable_tool_path_matched": true,
+      "acceptable_tool_path_index": 0,
+      "reward_breakdown": {
+        "answer_reward": 1.0,
+        "reasoning_reward": 1.0,
+        "tool_path_reward": 1.0,
+        "submission_policy_penalty": 0.0,
+        "duplicate_submission_penalty": 0.0,
+        "acceptable_path_penalty": 0.0,
+        "total_reward": 3.0
+      },
+      "passed": true
+    }
+  },
+  "usage": {
+    "total_tokens": 12544,
+    "prompt_tokens": 11096,
+    "completion_tokens": 1448,
+    "reasoning_tokens": 0
+  },
+  "status": "completed",
+  "termination_reason": "required_submissions_completed",
+  "errors": [],
+  "ocr": {
+    "mode": "real",
+    "provider": "vision_model",
+    "model": "DeepSeek-V4.1-Flash"
+  }
+}

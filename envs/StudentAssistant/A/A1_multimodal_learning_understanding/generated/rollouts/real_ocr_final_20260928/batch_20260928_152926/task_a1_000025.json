@@ -1,0 +1,520 @@
+{
+  "trajectory_id": "traj_7d63fdb259144a30af16c0ec75633cc5",
+  "task_id": "task_a1_000025",
+  "model": {
+    "name": "DeepSeek-V4.1-Flash"
+  },
+  "task": {
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；区分图片中包含的各道题目；判断题目内容是否完整并指出缺失部分；识别题目内容和数学表达式；整理成可编辑的文本；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0017",
+      "fixture_path": "raw/assets/17.jpg"
+    }
+  },
+  "steps": [
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I'll start by registering the uploaded image and examining its contents.",
+        "tool_calls": [
+          {
+            "id": "call_1070550d162748d9b4ee9f87",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "upload_artifact",
+              "arguments": "{\"user_id\": \"student_task_user\", \"fixture_path\": \"raw/assets/17.jpg\"}"
+            }
+          },
+          {
+            "id": "call_a82ff84e2e634317a1dc9640",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "get_artifact",
+              "arguments": "{\"artifact_id\": \"art_0017\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1240,
+        "total_tokens": 1349,
+        "completion_tokens": 109,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 3061.1207999754697,
+      "request_id": "db985686d86c4c5abb7b6bfb10aa0d08",
+      "step_id": "step_0001"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_1070550d162748d9b4ee9f87",
+      "tool": "upload_artifact",
+      "arguments": {
+        "user_id": "student_task_user",
+        "fixture_path": "raw/assets/17.jpg"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0017",
+        "user_id": "student_task_user",
+        "file_name": "17.jpg",
+        "media_type": "image",
+        "storage_path": "F:\\CODE\\AgentWorld2\\envs\\StudentAssistant\\A\\A1_multimodal_learning_understanding\\raw\\assets\\17.jpg",
+        "content_hash": "sha256:0f208335acc062084e77b55931c947e1004923ba624e927d5e8d3af949bcc124",
+        "size_bytes": 1571914,
+        "width": 4013,
+        "height": 671,
+        "status": "uploaded"
+      },
+      "step_id": "step_0002"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_a82ff84e2e634317a1dc9640",
+      "tool": "get_artifact",
+      "arguments": {
+        "artifact_id": "art_0017"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0017",
+        "user_id": "student_task_user",
+        "file_name": "17.jpg",
+        "media_type": "image",
+        "storage_path": "F:\\CODE\\AgentWorld2\\envs\\StudentAssistant\\A\\A1_multimodal_learning_understanding\\raw\\assets\\17.jpg",
+        "content_hash": "sha256:0f208335acc062084e77b55931c947e1004923ba624e927d5e8d3af949bcc124",
+        "size_bytes": 1571914,
+        "width": 4013,
+        "height": 671,
+        "status": "uploaded"
+      },
+      "step_id": "step_0003"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I'll now list the problem regions in the image.",
+        "tool_calls": [
+          {
+            "id": "call_52296f6a8ccc4ad9bfc84a0f",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "list_artifact_regions",
+              "arguments": "{\"artifact_id\": \"art_0017\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1654,
+        "total_tokens": 1709,
+        "completion_tokens": 55,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1554.700899985619,
+      "request_id": "630d48e533fd4098b786782b0c4e2b02",
+      "step_id": "step_0004"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_52296f6a8ccc4ad9bfc84a0f",
+      "tool": "list_artifact_regions",
+      "arguments": {
+        "artifact_id": "art_0017"
+      },
+      "status": "completed",
+      "observation": [
+        {
+          "region_id": "region_art_0017_01",
+          "region_index": 1,
+          "bbox_json": null
+        }
+      ],
+      "step_id": "step_0005"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "call_2a9c3060c8904a82b44ac5ef",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "get_problem_context",
+              "arguments": "{\"region_id\": \"region_art_0017_01\"}"
+            }
+          },
+          {
+            "id": "call_fb21c536736e43a9ba86a009",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "assess_content_completeness",
+              "arguments": "{\"region_id\": \"region_art_0017_01\"}"
+            }
+          },
+          {
+            "id": "call_b47cfe9c98394ed19082a716",
+            "index": 2,
+            "type": "function",
+            "function": {
+              "name": "extract_editable_text",
+              "arguments": "{\"region_id\": \"region_art_0017_01\", \"include_latex\": true}"
+            }
+          },
+          {
+            "id": "call_ef08f382693d4a01bb4d4b56",
+            "index": 3,
+            "type": "function",
+            "function": {
+              "name": "recognize_content",
+              "arguments": "{\"region_id\": \"region_art_0017_01\", \"modality\": \"ocr\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1747,
+        "total_tokens": 1948,
+        "completion_tokens": 201,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 5425.420199986547,
+      "request_id": "05a808084dd94f5f93c4d05333e3a880",
+      "step_id": "step_0006"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_2a9c3060c8904a82b44ac5ef",
+      "tool": "get_problem_context",
+      "arguments": {
+        "region_id": "region_art_0017_01"
+      },
+      "status": "error",
+      "error": {
+        "type": "ValueError",
+        "message": "Real OCR required for region: region_art_0017_01"
+      },
+      "step_id": "step_0007"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_fb21c536736e43a9ba86a009",
+      "tool": "assess_content_completeness",
+      "arguments": {
+        "region_id": "region_art_0017_01"
+      },
+      "status": "error",
+      "error": {
+        "type": "ValueError",
+        "message": "Real OCR required for region: region_art_0017_01"
+      },
+      "step_id": "step_0008"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_b47cfe9c98394ed19082a716",
+      "tool": "extract_editable_text",
+      "arguments": {
+        "region_id": "region_art_0017_01",
+        "include_latex": true
+      },
+      "status": "error",
+      "error": {
+        "type": "ValueError",
+        "message": "Real OCR required for region: region_art_0017_01"
+      },
+      "step_id": "step_0009"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_ef08f382693d4a01bb4d4b56",
+      "tool": "recognize_content",
+      "arguments": {
+        "region_id": "region_art_0017_01",
+        "modality": "ocr"
+      },
+      "status": "completed",
+      "observation": {
+        "recognition_id": "recognition_d1a7073e5628",
+        "region_id": "region_art_0017_01",
+        "modality": "ocr",
+        "engine": "vision_model_ocr",
+        "raw_output": "{\"provider\": \"vision_model\", \"model\": \"DeepSeek-V4.1-Flash\", \"text\": \"8. 已知$0<\\\\alpha<\\\\pi$，$\\\\cos\\\\frac{\\\\alpha}{2}=\\\\frac{\\\\sqrt{5}}{5}$，则$\\\\sin\\\\left(\\\\alpha-\\\\frac{\\\\pi}{4}\\\\right)=$ （ ）\\nA. $\\\\frac{\\\\sqrt{2}}{10}$\\nB. $\\\\frac{\\\\sqrt{2}}{5}$\\nC. $\\\\frac{3\\\\sqrt{2}}{10}$\\nD. $\\\\frac{7\\\\sqrt{2}}{10}$\"}",
+        "normalized_output": "8. 已知$0<\\alpha<\\pi$，$\\cos\\frac{\\alpha}{2}=\\frac{\\sqrt{5}}{5}$，则$\\sin\\left(\\alpha-\\frac{\\pi}{4}\\right)=$ （ ）\nA. $\\frac{\\sqrt{2}}{10}$\nB. $\\frac{\\sqrt{2}}{5}$\nC. $\\frac{3\\sqrt{2}}{10}$\nD. $\\frac{7\\sqrt{2}}{10}$",
+        "confidence": null,
+        "status": "completed"
+      },
+      "step_id": "step_0010"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "call_f47959cc53764df48c762375",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "analyze_problem_knowledge",
+              "arguments": "{\"region_id\": \"region_art_0017_01\"}"
+            }
+          },
+          {
+            "id": "call_31f77c1546bc4e44bfcdc34e",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "analyze_diagram",
+              "arguments": "{\"region_id\": \"region_art_0017_01\"}"
+            }
+          },
+          {
+            "id": "call_f10f456e024e455586b3f74f",
+            "index": 2,
+            "type": "function",
+            "function": {
+              "name": "recognize_content",
+              "arguments": "{\"region_id\": \"region_art_0017_01\", \"modality\": \"formula\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 2418,
+        "total_tokens": 2563,
+        "completion_tokens": 145,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 3487.7257000189275,
+      "request_id": "13dfb59350e041ec8d7728ce98fbdc4c",
+      "step_id": "step_0011"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_f47959cc53764df48c762375",
+      "tool": "analyze_problem_knowledge",
+      "arguments": {
+        "region_id": "region_art_0017_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0017_01",
+        "knowledge_points": [],
+        "analysis_basis": "ocr_text_only_no_verified_metadata"
+      },
+      "step_id": "step_0012"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_31f77c1546bc4e44bfcdc34e",
+      "tool": "analyze_diagram",
+      "arguments": {
+        "region_id": "region_art_0017_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0017_01",
+        "has_diagram": null,
+        "diagram_type": null,
+        "entities": [],
+        "relations": [],
+        "description": "",
+        "status": "visual_analysis_unavailable"
+      },
+      "step_id": "step_0013"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_f10f456e024e455586b3f74f",
+      "tool": "recognize_content",
+      "arguments": {
+        "region_id": "region_art_0017_01",
+        "modality": "formula"
+      },
+      "status": "completed",
+      "observation": {
+        "recognition_id": "recognition_bb73d605274e",
+        "region_id": "region_art_0017_01",
+        "modality": "formula",
+        "engine": "vision_model_ocr",
+        "raw_output": "{\"provider\": \"vision_model\", \"model\": \"DeepSeek-V4.1-Flash\", \"text\": \"8. 已知$0<\\\\alpha<\\\\pi$，$\\\\cos\\\\frac{\\\\alpha}{2}=\\\\frac{\\\\sqrt{5}}{5}$，则$\\\\sin\\\\left(\\\\alpha-\\\\frac{\\\\pi}{4}\\\\right)=$ （ ）\\nA. $\\\\frac{\\\\sqrt{2}}{10}$\\nB. $\\\\frac{\\\\sqrt{2}}{5}$\\nC. $\\\\frac{3\\\\sqrt{2}}{10}$\\nD. $\\\\frac{7\\\\sqrt{2}}{10}$\"}",
+        "normalized_output": "8. 已知$0<\\alpha<\\pi$，$\\cos\\frac{\\alpha}{2}=\\frac{\\sqrt{5}}{5}$，则$\\sin\\left(\\alpha-\\frac{\\pi}{4}\\right)=$ （ ）\nA. $\\frac{\\sqrt{2}}{10}$\nB. $\\frac{\\sqrt{2}}{5}$\nC. $\\frac{3\\sqrt{2}}{10}$\nD. $\\frac{7\\sqrt{2}}{10}$",
+        "confidence": null,
+        "status": "completed"
+      },
+      "step_id": "step_0014"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "The image contains a single problem. Let me solve it.\n\n**Problem:** Given $0<\\alpha<\\pi$, $\\cos\\frac{\\alpha}{2}=\\frac{\\sqrt{5}}{5}$, find $\\sin\\left(\\alpha-\\frac{\\pi}{4}\\right)$.\n\n**Solution:**\n- Since $0<\\alpha<\\pi$, we have $0<\\frac{\\alpha}{2}<\\frac{\\pi}{2}$, so $\\sin\\frac{\\alpha}{2}>0$.\n- $\\sin\\frac{\\alpha}{2}=\\sqrt{1-\\cos^2\\frac{\\alpha}{2}}=\\sqrt{1-\\frac{1}{5}}=\\frac{2}{\\sqrt{5}}=\\frac{2\\sqrt{5}}{5}$.\n- $\\sin\\alpha=2\\sin\\frac{\\alpha}{2}\\cos\\frac{\\alpha}{2}=2\\cdot\\frac{2\\sqrt{5}}{5}\\cdot\\frac{\\sqrt{5}}{5}=\\frac{4}{5}$.\n- $\\cos\\alpha=2\\cos^2\\frac{\\alpha}{2}-1=2\\cdot\\frac{1}{5}-1=-\\frac{3}{5}$.\n- $\\sin\\left(\\alpha-\\frac{\\pi}{4}\\right)=\\sin\\alpha\\cos\\frac{\\pi}{4}-\\cos\\alpha\\sin\\frac{\\pi}{4}=\\frac{\\sqrt{2}}{2}\\left(\\frac{4}{5}+\\frac{3}{5}\\right)=\\frac{\\sqrt{2}}{2}\\cdot\\frac{7}{5}=\\frac{7\\sqrt{2}}{10}$.\n\nAnswer: **D**.",
+        "tool_calls": [
+          {
+            "id": "call_bd1865bccefa49518fd20d7f",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "submit_solution",
+              "arguments": "{\"region_id\": \"region_art_0017_01\", \"final_answer\": \"D. $\\\\frac{7\\\\sqrt{2}}{10}$\", \"reasoning\": \"由 $0<\\\\alpha<\\\\pi$ 得 $0<\\\\frac{\\\\alpha}{2}<\\\\frac{\\\\pi}{2}$，故 $\\\\sin\\\\frac{\\\\alpha}{2}>0$。由 $\\\\cos\\\\frac{\\\\alpha}{2}=\\\\frac{\\\\sqrt{5}}{5}$ 得 $\\\\sin\\\\frac{\\\\alpha}{2}=\\\\sqrt{1-\\\\frac{1}{5}}=\\\\frac{2\\\\sqrt{5}}{5}$。于是 $\\\\sin\\\\alpha=2\\\\sin\\\\frac{\\\\alpha}{2}\\\\cos\\\\frac{\\\\alpha}{2}=2\\\\cdot\\\\frac{2\\\\sqrt{5}}{5}\\\\cdot\\\\frac{\\\\sqrt{5}}{5}=\\\\frac{4}{5}$，$\\\\cos\\\\alpha=2\\\\cos^2\\\\frac{\\\\alpha}{2}-1=2\\\\cdot\\\\frac{1}{5}-1=-\\\\frac{3}{5}$。所以 $\\\\sin(\\\\alpha-\\\\frac{\\\\pi}{4})=\\\\sin\\\\alpha\\\\cos\\\\frac{\\\\pi}{4}-\\\\cos\\\\alpha\\\\sin\\\\frac{\\\\pi}{4}=\\\\frac{\\\\sqrt{2}}{2}(\\\\frac{4}{5}+\\\\frac{3}{5})=\\\\frac{7\\\\sqrt{2}}{10}$，选 D。\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3023,
+        "total_tokens": 3656,
+        "completion_tokens": 633,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 11755.888300016522,
+      "request_id": "faf1dbca482b44d3882f981a6523a538",
+      "step_id": "step_0015"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_bd1865bccefa49518fd20d7f",
+      "tool": "submit_solution",
+      "arguments": {
+        "region_id": "region_art_0017_01",
+        "final_answer": "D. $\\frac{7\\sqrt{2}}{10}$",
+        "reasoning": "由 $0<\\alpha<\\pi$ 得 $0<\\frac{\\alpha}{2}<\\frac{\\pi}{2}$，故 $\\sin\\frac{\\alpha}{2}>0$。由 $\\cos\\frac{\\alpha}{2}=\\frac{\\sqrt{5}}{5}$ 得 $\\sin\\frac{\\alpha}{2}=\\sqrt{1-\\frac{1}{5}}=\\frac{2\\sqrt{5}}{5}$。于是 $\\sin\\alpha=2\\sin\\frac{\\alpha}{2}\\cos\\frac{\\alpha}{2}=2\\cdot\\frac{2\\sqrt{5}}{5}\\cdot\\frac{\\sqrt{5}}{5}=\\frac{4}{5}$，$\\cos\\alpha=2\\cos^2\\frac{\\alpha}{2}-1=2\\cdot\\frac{1}{5}-1=-\\frac{3}{5}$。所以 $\\sin(\\alpha-\\frac{\\pi}{4})=\\sin\\alpha\\cos\\frac{\\pi}{4}-\\cos\\alpha\\sin\\frac{\\pi}{4}=\\frac{\\sqrt{2}}{2}(\\frac{4}{5}+\\frac{3}{5})=\\frac{7\\sqrt{2}}{10}$，选 D。"
+      },
+      "status": "completed",
+      "observation": {
+        "submission_id": "submission_5b4c5a0ab7fc",
+        "region_id": "region_art_0017_01",
+        "final_answer": "D. $\\frac{7\\sqrt{2}}{10}$",
+        "reasoning": "由 $0<\\alpha<\\pi$ 得 $0<\\frac{\\alpha}{2}<\\frac{\\pi}{2}$，故 $\\sin\\frac{\\alpha}{2}>0$。由 $\\cos\\frac{\\alpha}{2}=\\frac{\\sqrt{5}}{5}$ 得 $\\sin\\frac{\\alpha}{2}=\\sqrt{1-\\frac{1}{5}}=\\frac{2\\sqrt{5}}{5}$。于是 $\\sin\\alpha=2\\sin\\frac{\\alpha}{2}\\cos\\frac{\\alpha}{2}=2\\cdot\\frac{2\\sqrt{5}}{5}\\cdot\\frac{\\sqrt{5}}{5}=\\frac{4}{5}$，$\\cos\\alpha=2\\cos^2\\frac{\\alpha}{2}-1=2\\cdot\\frac{1}{5}-1=-\\frac{3}{5}$。所以 $\\sin(\\alpha-\\frac{\\pi}{4})=\\sin\\alpha\\cos\\frac{\\pi}{4}-\\cos\\alpha\\sin\\frac{\\pi}{4}=\\frac{\\sqrt{2}}{2}(\\frac{4}{5}+\\frac{3}{5})=\\frac{7\\sqrt{2}}{10}$，选 D。",
+        "status": "submitted"
+      },
+      "step_id": "step_0016"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "已完成图片处理，结果如下。\n\n## 一、题目整理与区分\n\n图片中**只有 1 道题**（编号 8），为一道单项选择题，无图形、无多题混排。\n\n## 二、内容完整性与缺失部分\n\n- 题干、条件、四个选项均完整，**无缺失**。\n- 唯一\"缺失\"的是答案（原图未给出），需自行求解。\n\n## 三、可编辑文本（含 LaTeX）\n\n> **8.** 已知 $0<\\alpha<\\pi$，$\\cos\\dfrac{\\alpha}{2}=\\dfrac{\\sqrt{5}}{5}$，则 $\\sin\\left(\\alpha-\\dfrac{\\pi}{4}\\right)=$ （ ）\n> A. $\\dfrac{\\sqrt{2}}{10}$  B. $\\dfrac{\\sqrt{2}}{5}$  C. $\\dfrac{3\\sqrt{2}}{10}$  D. $\\dfrac{7\\sqrt{2}}{10}$\n\n## 四、题目理解\n\n已知半角的余弦值，求 $\\alpha-\\frac{\\pi}{4}$ 的正弦值。属于\"由半角求整角，再用两角差公式\"的典型三角求值题。\n\n## 五、知识点\n\n1. 同角三角函数基本关系（平方关系）；\n2. 二倍角公式（正弦、余弦）；\n3. 两角差的正弦公式；\n4. 角的范围对三角函数符号的限定。\n\n## 六、图形说明\n\n本题**无数学图形**，不涉及几何关系，仅靠代数恒等变形即可求解。\n\n## 七、解答与推理\n\n**推理过程：**\n\n1. 由 $0<\\alpha<\\pi$ 得 $0<\\dfrac{\\alpha}{2}<\\dfrac{\\pi}{2}$，故 $\\sin\\dfrac{\\alpha}{2}>0$。\n2. 由 $\\cos\\dfrac{\\alpha}{2}=\\dfrac{\\sqrt{5}}{5}$，得\n$$\\sin\\frac{\\alpha}{2}=\\sqrt{1-\\left(\\frac{\\sqrt{5}}{5}\\right)^2}=\\sqrt{1-\\frac{1}{5}}=\\frac{2}{\\sqrt{5}}=\\frac{2\\sqrt{5}}{5}.$$\n3. 二倍角：\n$$\\sin\\alpha=2\\sin\\frac{\\alpha}{2}\\cos\\frac{\\alpha}{2}=2\\cdot\\frac{2\\sqrt{5}}{5}\\cdot\\frac{\\sqrt{5}}{5}=\\frac{4}{5},$$\n$$\\cos\\alpha=2\\cos^2\\frac{\\alpha}{2}-1=2\\cdot\\frac{1}{5}-1=-\\frac{3}{5}.$$\n4. 两角差公式：\n$$\\sin\\left(\\alpha-\\frac{\\pi}{4}\\right)=\\sin\\alpha\\cos\\frac{\\pi}{4}-\\cos\\alpha\\sin\\frac{\\pi}{4}=\\frac{\\sqrt{2}}{2}\\left(\\frac{4}{5}+\\frac{3}{5}\\right)=\\frac{\\sqrt{2}}{2}\\cdot\\frac{7}{5}=\\frac{7\\sqrt{2}}{10}.$$\n\n**最终答案：D. $\\dfrac{7\\sqrt{2}}{10}$**"
+      },
+      "usage": {
+        "prompt_tokens": 4024,
+        "total_tokens": 4680,
+        "completion_tokens": 656,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 12457.765700062737,
+      "request_id": "fbc9466ae64f40ce93956a274d6a4632",
+      "step_id": "step_0017"
+    }
+  ],
+  "final_submission": {
+    "region_art_0017_01": {
+      "submission_id": "submission_5b4c5a0ab7fc",
+      "region_id": "region_art_0017_01",
+      "final_answer": "D. $\\frac{7\\sqrt{2}}{10}$",
+      "reasoning": "由 $0<\\alpha<\\pi$ 得 $0<\\frac{\\alpha}{2}<\\frac{\\pi}{2}$，故 $\\sin\\frac{\\alpha}{2}>0$。由 $\\cos\\frac{\\alpha}{2}=\\frac{\\sqrt{5}}{5}$ 得 $\\sin\\frac{\\alpha}{2}=\\sqrt{1-\\frac{1}{5}}=\\frac{2\\sqrt{5}}{5}$。于是 $\\sin\\alpha=2\\sin\\frac{\\alpha}{2}\\cos\\frac{\\alpha}{2}=2\\cdot\\frac{2\\sqrt{5}}{5}\\cdot\\frac{\\sqrt{5}}{5}=\\frac{4}{5}$，$\\cos\\alpha=2\\cos^2\\frac{\\alpha}{2}-1=2\\cdot\\frac{1}{5}-1=-\\frac{3}{5}$。所以 $\\sin(\\alpha-\\frac{\\pi}{4})=\\sin\\alpha\\cos\\frac{\\pi}{4}-\\cos\\alpha\\sin\\frac{\\pi}{4}=\\frac{\\sqrt{2}}{2}(\\frac{4}{5}+\\frac{3}{5})=\\frac{7\\sqrt{2}}{10}$，选 D。",
+      "status": "submitted"
+    }
+  },
+  "evaluation": {
+    "type": "submission",
+    "expected_regions": 1,
+    "submitted_regions": 1,
+    "all_answers_correct": true,
+    "results": [
+      {
+        "submission_id": "submission_5b4c5a0ab7fc",
+        "region_id": "region_art_0017_01",
+        "problem_id": "problem_0017_01",
+        "answer_correct": true,
+        "verification_status": "correct",
+        "verification_method": "legacy_rules",
+        "verification": {
+          "status": "correct",
+          "score": 1.0,
+          "match_method": "legacy_rules",
+          "needs_review": false,
+          "part_results": [],
+          "missing_parts": [],
+          "diagnostics": []
+        },
+        "needs_review": false,
+        "reasoning_present": true,
+        "task_completed": true,
+        "reward": 1.0
+      }
+    ],
+    "rubric_check": {
+      "required_tools_complete": false,
+      "missing_tools": [
+        "assess_content_completeness",
+        "extract_editable_text",
+        "get_problem_context"
+      ],
+      "missing_regions": {
+        "assess_content_completeness": [
+          "region_art_0017_01"
+        ],
+        "extract_editable_text": [
+          "region_art_0017_01"
+        ],
+        "get_problem_context": [
+          "region_art_0017_01"
+        ]
+      },
+      "submission_required": true,
+      "submission_complete": true,
+      "submission_policy": "required",
+      "submission_policy_compliant": true,
+      "all_answers_correct": true,
+      "answer_needs_review": false,
+      "answer_incorrect": false,
+      "invalid_reference": false,
+      "duplicate_regions": [],
+      "forbidden_submission": false,
+      "acceptable_tool_path_matched": true,
+      "acceptable_tool_path_index": 0,
+      "reward_breakdown": {
+        "answer_reward": 1.0,
+        "reasoning_reward": 1.0,
+        "tool_path_reward": 1.0,
+        "submission_policy_penalty": 0.0,
+        "duplicate_submission_penalty": 0.0,
+        "acceptable_path_penalty": 0.0,
+        "total_reward": 3.0
+      },
+      "passed": false
+    }
+  },
+  "usage": {
+    "total_tokens": 15905,
+    "prompt_tokens": 14106,
+    "completion_tokens": 1799,
+    "reasoning_tokens": 0
+  },
+  "status": "incomplete",
+  "termination_reason": "rubric_incomplete",
+  "errors": [],
+  "ocr": {
+    "mode": "real",
+    "provider": "vision_model",
+    "model": "DeepSeek-V4.1-Flash"
+  }
+}

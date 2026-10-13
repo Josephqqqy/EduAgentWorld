@@ -1,0 +1,478 @@
+{
+  "source": "generated\\rollouts\\batch_20260923_154929",
+  "task_source": "generated\\tasks_seed_42.json",
+  "scope": "original needs_review tasks only; model steps unchanged",
+  "counts": {
+    "needs_review": 9
+  },
+  "tasks": [
+    {
+      "task_id": "task_a1_000005",
+      "source_trajectory": "task_a1_000005.json",
+      "original_status": "needs_review",
+      "reassessed_status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "evaluations": [
+        {
+          "region_id": "region_art_0029_01",
+          "problem_id": "problem_0029_01",
+          "verification": {
+            "status": "needs_review",
+            "score": null,
+            "match_method": "unresolved",
+            "needs_review": true,
+            "part_results": [],
+            "missing_parts": [],
+            "diagnostics": []
+          },
+          "verification_status": "needs_review",
+          "task_completed": false,
+          "reasoning_present": true
+        }
+      ],
+      "rubric_check": {
+        "required_tools_complete": true,
+        "missing_tools": [],
+        "missing_regions": {},
+        "submission_required": true,
+        "submission_complete": true,
+        "submission_policy": "required",
+        "submission_policy_compliant": true,
+        "all_answers_correct": false,
+        "answer_needs_review": true,
+        "answer_incorrect": false,
+        "invalid_reference": false,
+        "duplicate_regions": [],
+        "forbidden_submission": false,
+        "acceptable_tool_path_matched": true,
+        "acceptable_tool_path_index": 0,
+        "reward_breakdown": {
+          "answer_reward": null,
+          "reasoning_reward": 1.0,
+          "tool_path_reward": 1.0,
+          "submission_policy_penalty": 0.0,
+          "duplicate_submission_penalty": 0.0,
+          "acceptable_path_penalty": 0.0,
+          "total_reward": null
+        },
+        "passed": false
+      }
+    },
+    {
+      "task_id": "task_a1_000012",
+      "source_trajectory": "task_a1_000012.json",
+      "original_status": "needs_review",
+      "reassessed_status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "evaluations": [
+        {
+          "region_id": "region_art_0026_01",
+          "problem_id": "problem_0026_01",
+          "verification": {
+            "status": "needs_review",
+            "score": null,
+            "match_method": "unresolved",
+            "needs_review": true,
+            "part_results": [],
+            "missing_parts": [],
+            "diagnostics": []
+          },
+          "verification_status": "needs_review",
+          "task_completed": false,
+          "reasoning_present": true
+        }
+      ],
+      "rubric_check": {
+        "required_tools_complete": true,
+        "missing_tools": [],
+        "missing_regions": {},
+        "submission_required": true,
+        "submission_complete": true,
+        "submission_policy": "required",
+        "submission_policy_compliant": true,
+        "all_answers_correct": false,
+        "answer_needs_review": true,
+        "answer_incorrect": false,
+        "invalid_reference": false,
+        "duplicate_regions": [],
+        "forbidden_submission": false,
+        "acceptable_tool_path_matched": true,
+        "acceptable_tool_path_index": 0,
+        "reward_breakdown": {
+          "answer_reward": null,
+          "reasoning_reward": 1.0,
+          "tool_path_reward": 1.0,
+          "submission_policy_penalty": 0.0,
+          "duplicate_submission_penalty": 0.0,
+          "acceptable_path_penalty": 0.0,
+          "total_reward": null
+        },
+        "passed": false
+      }
+    },
+    {
+      "task_id": "task_a1_000013",
+      "source_trajectory": "task_a1_000013.json",
+      "original_status": "needs_review",
+      "reassessed_status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "evaluations": [
+        {
+          "region_id": "region_art_0018_01",
+          "problem_id": "problem_0018_01",
+          "verification": {
+            "status": "needs_review",
+            "score": null,
+            "match_method": "choice",
+            "needs_review": true,
+            "part_results": [],
+            "missing_parts": [],
+            "diagnostics": []
+          },
+          "verification_status": "needs_review",
+          "task_completed": false,
+          "reasoning_present": true
+        }
+      ],
+      "rubric_check": {
+        "required_tools_complete": true,
+        "missing_tools": [],
+        "missing_regions": {},
+        "submission_required": true,
+        "submission_complete": true,
+        "submission_policy": "required",
+        "submission_policy_compliant": true,
+        "all_answers_correct": false,
+        "answer_needs_review": true,
+        "answer_incorrect": false,
+        "invalid_reference": false,
+        "duplicate_regions": [],
+        "forbidden_submission": false,
+        "acceptable_tool_path_matched": true,
+        "acceptable_tool_path_index": 0,
+        "reward_breakdown": {
+          "answer_reward": null,
+          "reasoning_reward": 1.0,
+          "tool_path_reward": 1.0,
+          "submission_policy_penalty": 0.0,
+          "duplicate_submission_penalty": 0.0,
+          "acceptable_path_penalty": 0.0,
+          "total_reward": null
+        },
+        "passed": false
+      }
+    },
+    {
+      "task_id": "task_a1_000014",
+      "source_trajectory": "task_a1_000014.json",
+      "original_status": "needs_review",
+      "reassessed_status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "evaluations": [
+        {
+          "region_id": "region_art_0006_01",
+          "problem_id": "problem_0006_01",
+          "verification": {
+            "status": "needs_review",
+            "score": null,
+            "match_method": "extrema_values",
+            "needs_review": true,
+            "part_results": [],
+            "missing_parts": [],
+            "diagnostics": []
+          },
+          "verification_status": "needs_review",
+          "task_completed": false,
+          "reasoning_present": true
+        }
+      ],
+      "rubric_check": {
+        "required_tools_complete": true,
+        "missing_tools": [],
+        "missing_regions": {},
+        "submission_required": true,
+        "submission_complete": true,
+        "submission_policy": "required",
+        "submission_policy_compliant": true,
+        "all_answers_correct": false,
+        "answer_needs_review": true,
+        "answer_incorrect": false,
+        "invalid_reference": false,
+        "duplicate_regions": [],
+        "forbidden_submission": false,
+        "acceptable_tool_path_matched": true,
+        "acceptable_tool_path_index": 0,
+        "reward_breakdown": {
+          "answer_reward": null,
+          "reasoning_reward": 1.0,
+          "tool_path_reward": 1.0,
+          "submission_policy_penalty": 0.0,
+          "duplicate_submission_penalty": 0.0,
+          "acceptable_path_penalty": 0.0,
+          "total_reward": null
+        },
+        "passed": false
+      }
+    },
+    {
+      "task_id": "task_a1_000017",
+      "source_trajectory": "task_a1_000017.json",
+      "original_status": "needs_review",
+      "reassessed_status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "evaluations": [
+        {
+          "region_id": "region_art_0009_01",
+          "problem_id": "problem_0009_01",
+          "verification": {
+            "status": "needs_review",
+            "score": null,
+            "match_method": "legacy_composite",
+            "needs_review": true,
+            "part_results": [],
+            "missing_parts": [],
+            "diagnostics": []
+          },
+          "verification_status": "needs_review",
+          "task_completed": false,
+          "reasoning_present": true
+        }
+      ],
+      "rubric_check": {
+        "required_tools_complete": true,
+        "missing_tools": [],
+        "missing_regions": {},
+        "submission_required": true,
+        "submission_complete": true,
+        "submission_policy": "required",
+        "submission_policy_compliant": true,
+        "all_answers_correct": false,
+        "answer_needs_review": true,
+        "answer_incorrect": false,
+        "invalid_reference": false,
+        "duplicate_regions": [],
+        "forbidden_submission": false,
+        "acceptable_tool_path_matched": true,
+        "acceptable_tool_path_index": 0,
+        "reward_breakdown": {
+          "answer_reward": null,
+          "reasoning_reward": 1.0,
+          "tool_path_reward": 1.0,
+          "submission_policy_penalty": 0.0,
+          "duplicate_submission_penalty": 0.0,
+          "acceptable_path_penalty": 0.0,
+          "total_reward": null
+        },
+        "passed": false
+      }
+    },
+    {
+      "task_id": "task_a1_000018",
+      "source_trajectory": "task_a1_000018.json",
+      "original_status": "needs_review",
+      "reassessed_status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "evaluations": [
+        {
+          "region_id": "region_art_0029_01",
+          "problem_id": "problem_0029_01",
+          "verification": {
+            "status": "needs_review",
+            "score": null,
+            "match_method": "unresolved",
+            "needs_review": true,
+            "part_results": [],
+            "missing_parts": [],
+            "diagnostics": []
+          },
+          "verification_status": "needs_review",
+          "task_completed": false,
+          "reasoning_present": true
+        }
+      ],
+      "rubric_check": {
+        "required_tools_complete": true,
+        "missing_tools": [],
+        "missing_regions": {},
+        "submission_required": true,
+        "submission_complete": true,
+        "submission_policy": "required",
+        "submission_policy_compliant": true,
+        "all_answers_correct": false,
+        "answer_needs_review": true,
+        "answer_incorrect": false,
+        "invalid_reference": false,
+        "duplicate_regions": [],
+        "forbidden_submission": false,
+        "acceptable_tool_path_matched": true,
+        "acceptable_tool_path_index": 0,
+        "reward_breakdown": {
+          "answer_reward": null,
+          "reasoning_reward": 1.0,
+          "tool_path_reward": 1.0,
+          "submission_policy_penalty": 0.0,
+          "duplicate_submission_penalty": 0.0,
+          "acceptable_path_penalty": 0.0,
+          "total_reward": null
+        },
+        "passed": false
+      }
+    },
+    {
+      "task_id": "task_a1_000019",
+      "source_trajectory": "task_a1_000019.json",
+      "original_status": "needs_review",
+      "reassessed_status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "evaluations": [
+        {
+          "region_id": "region_art_0029_01",
+          "problem_id": "problem_0029_01",
+          "verification": {
+            "status": "needs_review",
+            "score": null,
+            "match_method": "unresolved",
+            "needs_review": true,
+            "part_results": [],
+            "missing_parts": [],
+            "diagnostics": []
+          },
+          "verification_status": "needs_review",
+          "task_completed": false,
+          "reasoning_present": true
+        }
+      ],
+      "rubric_check": {
+        "required_tools_complete": true,
+        "missing_tools": [],
+        "missing_regions": {},
+        "submission_required": true,
+        "submission_complete": true,
+        "submission_policy": "required",
+        "submission_policy_compliant": true,
+        "all_answers_correct": false,
+        "answer_needs_review": true,
+        "answer_incorrect": false,
+        "invalid_reference": false,
+        "duplicate_regions": [],
+        "forbidden_submission": false,
+        "acceptable_tool_path_matched": true,
+        "acceptable_tool_path_index": 0,
+        "reward_breakdown": {
+          "answer_reward": null,
+          "reasoning_reward": 1.0,
+          "tool_path_reward": 1.0,
+          "submission_policy_penalty": 0.0,
+          "duplicate_submission_penalty": 0.0,
+          "acceptable_path_penalty": 0.0,
+          "total_reward": null
+        },
+        "passed": false
+      }
+    },
+    {
+      "task_id": "task_a1_000023",
+      "source_trajectory": "task_a1_000023.json",
+      "original_status": "needs_review",
+      "reassessed_status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "evaluations": [
+        {
+          "region_id": "region_art_0013_01",
+          "problem_id": "problem_0013_01",
+          "verification": {
+            "status": "needs_review",
+            "score": null,
+            "match_method": "legacy_composite",
+            "needs_review": true,
+            "part_results": [],
+            "missing_parts": [],
+            "diagnostics": []
+          },
+          "verification_status": "needs_review",
+          "task_completed": false,
+          "reasoning_present": true
+        }
+      ],
+      "rubric_check": {
+        "required_tools_complete": true,
+        "missing_tools": [],
+        "missing_regions": {},
+        "submission_required": true,
+        "submission_complete": true,
+        "submission_policy": "required",
+        "submission_policy_compliant": true,
+        "all_answers_correct": false,
+        "answer_needs_review": true,
+        "answer_incorrect": false,
+        "invalid_reference": false,
+        "duplicate_regions": [],
+        "forbidden_submission": false,
+        "acceptable_tool_path_matched": true,
+        "acceptable_tool_path_index": 0,
+        "reward_breakdown": {
+          "answer_reward": null,
+          "reasoning_reward": 1.0,
+          "tool_path_reward": 1.0,
+          "submission_policy_penalty": 0.0,
+          "duplicate_submission_penalty": 0.0,
+          "acceptable_path_penalty": 0.0,
+          "total_reward": null
+        },
+        "passed": false
+      }
+    },
+    {
+      "task_id": "task_a1_000030",
+      "source_trajectory": "task_a1_000030.json",
+      "original_status": "needs_review",
+      "reassessed_status": "needs_review",
+      "termination_reason": "answer_equivalence_uncertain",
+      "evaluations": [
+        {
+          "region_id": "region_art_0018_01",
+          "problem_id": "problem_0018_01",
+          "verification": {
+            "status": "needs_review",
+            "score": null,
+            "match_method": "choice",
+            "needs_review": true,
+            "part_results": [],
+            "missing_parts": [],
+            "diagnostics": []
+          },
+          "verification_status": "needs_review",
+          "task_completed": false,
+          "reasoning_present": true
+        }
+      ],
+      "rubric_check": {
+        "required_tools_complete": true,
+        "missing_tools": [],
+        "missing_regions": {},
+        "submission_required": true,
+        "submission_complete": true,
+        "submission_policy": "required",
+        "submission_policy_compliant": true,
+        "all_answers_correct": false,
+        "answer_needs_review": true,
+        "answer_incorrect": false,
+        "invalid_reference": false,
+        "duplicate_regions": [],
+        "forbidden_submission": false,
+        "acceptable_tool_path_matched": true,
+        "acceptable_tool_path_index": 0,
+        "reward_breakdown": {
+          "answer_reward": null,
+          "reasoning_reward": 1.0,
+          "tool_path_reward": 1.0,
+          "submission_policy_penalty": 0.0,
+          "duplicate_submission_penalty": 0.0,
+          "acceptable_path_penalty": 0.0,
+          "total_reward": null
+        },
+        "passed": false
+      }
+    }
+  ]
+}

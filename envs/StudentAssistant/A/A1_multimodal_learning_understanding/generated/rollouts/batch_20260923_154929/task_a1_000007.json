@@ -1,0 +1,482 @@
+{
+  "trajectory_id": "traj_63c4d637a39749ecbfb1cc9fffb25ad6",
+  "task_id": "task_a1_000007",
+  "model": {
+    "name": "DeepSeek-V4.1-Flash"
+  },
+  "task": {
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；判断题目内容是否完整并指出缺失部分；整理成可编辑的文本；识别题目内容和数学表达式；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0024",
+      "fixture_path": "raw/assets/24.png"
+    }
+  },
+  "steps": [
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I'll start by registering the uploaded image and retrieving its basic information.",
+        "tool_calls": [
+          {
+            "id": "call_29da65f4060c4f0f97c5df94",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "upload_artifact",
+              "arguments": "{\"user_id\": \"student_task_user\", \"fixture_path\": \"raw/assets/24.png\"}"
+            }
+          },
+          {
+            "id": "call_590835271d454f2a802b0cd5",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "get_artifact",
+              "arguments": "{\"artifact_id\": \"art_0024\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1233,
+        "total_tokens": 1343,
+        "completion_tokens": 110,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1865.4335999744944,
+      "request_id": "567473b30a084dd585dc944c01dc77d7",
+      "step_id": "step_0001"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_29da65f4060c4f0f97c5df94",
+      "tool": "upload_artifact",
+      "arguments": {
+        "user_id": "student_task_user",
+        "fixture_path": "raw/assets/24.png"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0024",
+        "user_id": null,
+        "file_name": "24.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/24.png",
+        "content_hash": "sha256:e397c69e20d9ffef1bc94891ae4ed3aaee4318fd9028077cf2bfe660de94e1e3",
+        "size_bytes": 29041,
+        "width": 697,
+        "height": 195,
+        "status": "uploaded"
+      },
+      "step_id": "step_0002"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_590835271d454f2a802b0cd5",
+      "tool": "get_artifact",
+      "arguments": {
+        "artifact_id": "art_0024"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0024",
+        "user_id": null,
+        "file_name": "24.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/24.png",
+        "content_hash": "sha256:e397c69e20d9ffef1bc94891ae4ed3aaee4318fd9028077cf2bfe660de94e1e3",
+        "size_bytes": 29041,
+        "width": 697,
+        "height": 195,
+        "status": "uploaded"
+      },
+      "step_id": "step_0003"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Now let me list the problem regions in the image.",
+        "tool_calls": [
+          {
+            "id": "call_d7954edd55ed49dd8ab2bc1e",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "list_artifact_regions",
+              "arguments": "{\"artifact_id\": \"art_0024\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1590,
+        "total_tokens": 1645,
+        "completion_tokens": 55,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 999.5785999926738,
+      "request_id": "8fec3fa019464a76afa27632b8841f88",
+      "step_id": "step_0004"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_d7954edd55ed49dd8ab2bc1e",
+      "tool": "list_artifact_regions",
+      "arguments": {
+        "artifact_id": "art_0024"
+      },
+      "status": "completed",
+      "observation": [
+        {
+          "region_id": "region_art_0024_01",
+          "artifact_id": "art_0024",
+          "region_index": 1,
+          "region_type": "question",
+          "bbox_json": null,
+          "bbox_status": "not_annotated",
+          "confidence": null,
+          "status": "confirmed"
+        }
+      ],
+      "step_id": "step_0005"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Let me get the problem context and content for this region.",
+        "tool_calls": [
+          {
+            "id": "call_058ab10413aa4d55be64fa4f",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "get_problem_context",
+              "arguments": "{\"region_id\": \"region_art_0024_01\"}"
+            }
+          },
+          {
+            "id": "call_121788c31a1b47ffb87134f3",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "recognize_content",
+              "arguments": "{\"region_id\": \"region_art_0024_01\", \"modality\": \"ocr\"}"
+            }
+          },
+          {
+            "id": "call_dd9a4d7917974b3b90dac33e",
+            "index": 2,
+            "type": "function",
+            "function": {
+              "name": "extract_editable_text",
+              "arguments": "{\"region_id\": \"region_art_0024_01\", \"include_latex\": true}"
+            }
+          },
+          {
+            "id": "call_a70e900a08714792bd94c13f",
+            "index": 3,
+            "type": "function",
+            "function": {
+              "name": "assess_content_completeness",
+              "arguments": "{\"region_id\": \"region_art_0024_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1722,
+        "total_tokens": 1934,
+        "completion_tokens": 212,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 3353.4081999678165,
+      "request_id": "ab55a67bae5c472da31618a87280697b",
+      "step_id": "step_0006"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_058ab10413aa4d55be64fa4f",
+      "tool": "get_problem_context",
+      "arguments": {
+        "region_id": "region_art_0024_01"
+      },
+      "status": "completed",
+      "observation": {
+        "problem_id": "problem_0024_01",
+        "subject": "math",
+        "grade_band": "junior_high",
+        "statement": "6. 如图，在正方形 \\(ABCD\\) 中，\\(E\\) 是 \\(AB\\) 上一点（不与 \\(A、B\\) 重合），过点 \\(E\\) 作 \\(EM\\parallel BD\\)，交 \\(AD\\) 于点 \\(M\\)，作 \\(E、M\\) 关于 \\(BD\\) 的对称点 \\(F、G\\)，联结 \\(EF、MG\\) 交 \\(BD\\) 于点 \\(P、H\\)。下列说法正确的是（ ）。\n\n① 四边形 \\(EFGM\\) 周长是定值；\n\n② 四边形 \\(EPHM\\) 周长是定值。\n\nA. ①、②均正确\n\nB. ①正确②错误\n\nC. ②正确①错误\n\nD. ①、②均错误",
+        "latex": "ABCD\\text{ is a square};\\quad E\\in AB;\\quad EM\\parallel BD;\\quad F=\\operatorname{Ref}_{BD}(E);\\quad G=\\operatorname{Ref}_{BD}(M)",
+        "topic": "geometry.square_symmetry_and_perimeter",
+        "question_type": "multiple_choice",
+        "has_diagram": 1,
+        "question_no": "6",
+        "region_id": "region_art_0024_01"
+      },
+      "step_id": "step_0007"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_121788c31a1b47ffb87134f3",
+      "tool": "recognize_content",
+      "arguments": {
+        "region_id": "region_art_0024_01",
+        "modality": "ocr"
+      },
+      "status": "completed",
+      "observation": {
+        "recognition_id": "recognition_b6ad34ee6da0",
+        "region_id": "region_art_0024_01",
+        "modality": "ocr",
+        "engine": "fixture_ocr_v1",
+        "raw_output": "6. 如图，在正方形 \\(ABCD\\) 中，\\(E\\) 是 \\(AB\\) 上一点（不与 \\(A、B\\) 重合），过点 \\(E\\) 作 \\(EM\\parallel BD\\)，交 \\(AD\\) 于点 \\(M\\)，作 \\(E、M\\) 关于 \\(BD\\) 的对称点 \\(F、G\\)，联结 \\(EF、MG\\) 交 \\(BD\\) 于点 \\(P、H\\)。下列说法正确的是（ ）。\n\n① 四边形 \\(EFGM\\) 周长是定值；\n\n② 四边形 \\(EPHM\\) 周长是定值。\n\nA. ①、②均正确\n\nB. ①正确②错误\n\nC. ②正确①错误\n\nD. ①、②均错误",
+        "normalized_output": "6. 如图，在正方形 \\(ABCD\\) 中，\\(E\\) 是 \\(AB\\) 上一点（不与 \\(A、B\\) 重合），过点 \\(E\\) 作 \\(EM\\parallel BD\\)，交 \\(AD\\) 于点 \\(M\\)，作 \\(E、M\\) 关于 \\(BD\\) 的对称点 \\(F、G\\)，联结 \\(EF、MG\\) 交 \\(BD\\) 于点 \\(P、H\\)。下列说法正确的是（ ）。\n\n① 四边形 \\(EFGM\\) 周长是定值；\n\n② 四边形 \\(EPHM\\) 周长是定值。\n\nA. ①、②均正确\n\nB. ①正确②错误\n\nC. ②正确①错误\n\nD. ①、②均错误",
+        "confidence": 1.0,
+        "status": "completed"
+      },
+      "step_id": "step_0008"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_dd9a4d7917974b3b90dac33e",
+      "tool": "extract_editable_text",
+      "arguments": {
+        "region_id": "region_art_0024_01",
+        "include_latex": true
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0024_01",
+        "text": "6. 如图，在正方形 \\(ABCD\\) 中，\\(E\\) 是 \\(AB\\) 上一点（不与 \\(A、B\\) 重合），过点 \\(E\\) 作 \\(EM\\parallel BD\\)，交 \\(AD\\) 于点 \\(M\\)，作 \\(E、M\\) 关于 \\(BD\\) 的对称点 \\(F、G\\)，联结 \\(EF、MG\\) 交 \\(BD\\) 于点 \\(P、H\\)。下列说法正确的是（ ）。\n\n① 四边形 \\(EFGM\\) 周长是定值；\n\n② 四边形 \\(EPHM\\) 周长是定值。\n\nA. ①、②均正确\n\nB. ①正确②错误\n\nC. ②正确①错误\n\nD. ①、②均错误",
+        "format": "markdown",
+        "latex": "ABCD\\text{ is a square};\\quad E\\in AB;\\quad EM\\parallel BD;\\quad F=\\operatorname{Ref}_{BD}(E);\\quad G=\\operatorname{Ref}_{BD}(M)"
+      },
+      "step_id": "step_0009"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_a70e900a08714792bd94c13f",
+      "tool": "assess_content_completeness",
+      "arguments": {
+        "region_id": "region_art_0024_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0024_01",
+        "is_complete": true,
+        "missing_parts": [],
+        "confidence": 1.0,
+        "needs_user_action": false
+      },
+      "step_id": "step_0010"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Now let me analyze the diagram and knowledge points.",
+        "tool_calls": [
+          {
+            "id": "call_4bec122d1a84453b9dd68724",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "analyze_diagram",
+              "arguments": "{\"region_id\": \"region_art_0024_01\"}"
+            }
+          },
+          {
+            "id": "call_9f45950114a646fc96dc9788",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "analyze_problem_knowledge",
+              "arguments": "{\"region_id\": \"region_art_0024_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3124,
+        "total_tokens": 3223,
+        "completion_tokens": 99,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1697.5523000000976,
+      "request_id": "671dff1778734434b5426b9305b21ee3",
+      "step_id": "step_0011"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_4bec122d1a84453b9dd68724",
+      "tool": "analyze_diagram",
+      "arguments": {
+        "region_id": "region_art_0024_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0024_01",
+        "has_diagram": true,
+        "diagram_type": "geometry",
+        "entities": [],
+        "relations": [],
+        "description": "题目标注表确认存在数学图形；当前 Fixture 未提供独立的图形实体、空间关系或像素级几何测量标注。",
+        "status": "metadata_only"
+      },
+      "step_id": "step_0012"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_9f45950114a646fc96dc9788",
+      "tool": "analyze_problem_knowledge",
+      "arguments": {
+        "region_id": "region_art_0024_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0024_01",
+        "problem_id": "problem_0024_01",
+        "subject": "math",
+        "grade_band": "junior_high",
+        "question_type": "multiple_choice",
+        "knowledge_points": [
+          "geometry.square_symmetry_and_perimeter",
+          "周长定值",
+          "正方形对称性",
+          "等腰直角三角形"
+        ],
+        "has_diagram": true,
+        "analysis_basis": "normalized_metadata"
+      },
+      "step_id": "step_0013"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Let me work through the geometry carefully.\n\n**Setup:** Square $ABCD$, side length $a$. Let $AE = x$, so $EB = a - x$.\n\n**Finding M:** $EM \\parallel BD$. Since $BD$ has slope $-1$ (from $B(a,0)$ to $D(0,a)$), line through $E(x,0)$ with slope $-1$: $y = -(X - x)$. At $AD$ ($X=0$): $y = x$. So $M = (0, x)$, i.e., $AM = x = AE$. Thus $\\triangle AEM$ is right isosceles with $EM = x\\sqrt{2}$.\n\n**Reflections about BD:** The reflection across line $BD$ (the line $y = a - X$, i.e., $X + Y = a$) maps $(u,v) \\to (a-v, a-u)$.\n\n- $E(x,0) \\to F(a, a-x)$ — this is on $BC$ with $BF = a-x = EB$. ✓\n- $M(0,x) \\to G(a-x, a)$ — this is on $CD$ with $DG = a-x = AM$. ✓\n\n**① Perimeter of EFGM:** $EF$ connects $E(x,0)$ to $F(a,a-x)$: length $= \\sqrt{(a-x)^2+(a-x)^2} = (a-x)\\sqrt2$. Similarly $MG = (a-x)\\sqrt2$. And $FG$: $F(a,a-x)$ to $G(a-x,a)$: $\\sqrt{x^2+x^2} = x\\sqrt2$. Also $EM = x\\sqrt2$. So perimeter $= 2(a-x)\\sqrt2 + 2x\\sqrt2 = 2a\\sqrt2$ — **constant**. ✓ ① correct.\n\n**② Perimeter of EPHM:** $P = EF \\cap BD$, $H = MG \\cap BD$. By symmetry, $P$ and $H$ are reflections, and $EP = HP$... let me compute. $EF$ from $E(x,0)$ to $F(a,a-x)$; intersect $X+Y=a$. Parametrize $E + t(F-E) = (x + t(a-x),\\, t(a-x))$. Sum $= x + 2t(a-x) = a \\Rightarrow t = \\frac{a-x}{2(a-x)} = \\frac12$. So $P$ is midpoint of $EF$: $P = \\left(\\frac{x+a}{2}, \\frac{a-x}{2}\\right)$. Similarly $H$ midpoint of $MG$: $H = \\left(\\frac{a-x}{2}, \\frac{x+a}{2}\\right)$.\n\n$EP = \\frac12 EF = \\frac{(a-x)\\sqrt2}{2}$. $PH$: distance between $P$ and $H$: $\\sqrt{2}\\cdot\\frac{(x+a)-(a-x)}{2} = \\sqrt2 \\cdot x$. $HM = \\frac12 MG = \\frac{(a-x)\\sqrt2}{2}$. $ME = x\\sqrt2$.\n\nPerimeter $EPHM = \\frac{(a-x)\\sqrt2}{2} + x\\sqrt2 + \\frac{(a-x)\\sqrt2}{2} + x\\sqrt2 = (a-x)\\sqrt2 + 2x\\sqrt2 = (a+x)\\sqrt2$ — **depends on $x$**, not constant. ✗ ② wrong.\n\nSo answer is **B**.",
+        "tool_calls": [
+          {
+            "id": "call_e12da384dc944796b79e2a2c",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "submit_solution",
+              "arguments": "{\"region_id\": \"region_art_0024_01\", \"final_answer\": \"B（①正确，②错误）\", \"reasoning\": \"设正方形边长 AB=a，AE=x（0<x<a），则 EB=a-x。\\n\\n1) 求 M：EM∥BD，BD 斜率为 -1，过 E(x,0) 作斜率 -1 的直线交 AD（x=0）于 M(0,x)，故 AM=AE=x，△AEM 为等腰直角三角形，EM=x√2。\\n\\n2) 求对称点：关于 BD（直线 x+y=a）的对称变换为 (u,v)→(a-v,a-u)。\\n   E(x,0)→F(a,a-x)，F 在 BC 上且 BF=a-x=EB；\\n   M(0,x)→G(a-x,a)，G 在 CD 上且 DG=a-x=AM。\\n\\n3) 判断①：EF=√[(a-x)²+(a-x)²]=(a-x)√2；MG=(a-x)√2；FG=√[x²+x²]=x√2；EM=x√2。\\n   四边形 EFGM 周长 = 2(a-x)√2 + 2x√2 = 2a√2，与 x 无关，是定值。①正确。\\n\\n4) 判断②：P=EF∩BD。EF 参数式 (x+t(a-x), t(a-x))，令 x+2t(a-x)=a 得 t=1/2，故 P 为 EF 中点 P((x+a)/2,(a-x)/2)；同理 H 为 MG 中点 H((a-x)/2,(x+a)/2)。\\n   EP=(a-x)√2/2，HM=(a-x)√2/2，ME=x√2，PH=√2·x。\\n   四边形 EPHM 周长 = (a-x)√2 + 2x√2 = (a+x)√2，随 x 变化，不是定值。②错误。\\n\\n故①正确、②错误，选 B。\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3420,
+        "total_tokens": 4668,
+        "completion_tokens": 1248,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 18683.99600003613,
+      "request_id": "0dc3b599fff14c1d9a78c2118b82034d",
+      "step_id": "step_0014"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_e12da384dc944796b79e2a2c",
+      "tool": "submit_solution",
+      "arguments": {
+        "region_id": "region_art_0024_01",
+        "final_answer": "B（①正确，②错误）",
+        "reasoning": "设正方形边长 AB=a，AE=x（0<x<a），则 EB=a-x。\n\n1) 求 M：EM∥BD，BD 斜率为 -1，过 E(x,0) 作斜率 -1 的直线交 AD（x=0）于 M(0,x)，故 AM=AE=x，△AEM 为等腰直角三角形，EM=x√2。\n\n2) 求对称点：关于 BD（直线 x+y=a）的对称变换为 (u,v)→(a-v,a-u)。\n   E(x,0)→F(a,a-x)，F 在 BC 上且 BF=a-x=EB；\n   M(0,x)→G(a-x,a)，G 在 CD 上且 DG=a-x=AM。\n\n3) 判断①：EF=√[(a-x)²+(a-x)²]=(a-x)√2；MG=(a-x)√2；FG=√[x²+x²]=x√2；EM=x√2。\n   四边形 EFGM 周长 = 2(a-x)√2 + 2x√2 = 2a√2，与 x 无关，是定值。①正确。\n\n4) 判断②：P=EF∩BD。EF 参数式 (x+t(a-x), t(a-x))，令 x+2t(a-x)=a 得 t=1/2，故 P 为 EF 中点 P((x+a)/2,(a-x)/2)；同理 H 为 MG 中点 H((a-x)/2,(x+a)/2)。\n   EP=(a-x)√2/2，HM=(a-x)√2/2，ME=x√2，PH=√2·x。\n   四边形 EPHM 周长 = (a-x)√2 + 2x√2 = (a+x)√2，随 x 变化，不是定值。②错误。\n\n故①正确、②错误，选 B。"
+      },
+      "status": "completed",
+      "observation": {
+        "submission_id": "submission_2e56d188930b",
+        "region_id": "region_art_0024_01",
+        "final_answer": "B（①正确，②错误）",
+        "reasoning": "设正方形边长 AB=a，AE=x（0<x<a），则 EB=a-x。\n\n1) 求 M：EM∥BD，BD 斜率为 -1，过 E(x,0) 作斜率 -1 的直线交 AD（x=0）于 M(0,x)，故 AM=AE=x，△AEM 为等腰直角三角形，EM=x√2。\n\n2) 求对称点：关于 BD（直线 x+y=a）的对称变换为 (u,v)→(a-v,a-u)。\n   E(x,0)→F(a,a-x)，F 在 BC 上且 BF=a-x=EB；\n   M(0,x)→G(a-x,a)，G 在 CD 上且 DG=a-x=AM。\n\n3) 判断①：EF=√[(a-x)²+(a-x)²]=(a-x)√2；MG=(a-x)√2；FG=√[x²+x²]=x√2；EM=x√2。\n   四边形 EFGM 周长 = 2(a-x)√2 + 2x√2 = 2a√2，与 x 无关，是定值。①正确。\n\n4) 判断②：P=EF∩BD。EF 参数式 (x+t(a-x), t(a-x))，令 x+2t(a-x)=a 得 t=1/2，故 P 为 EF 中点 P((x+a)/2,(a-x)/2)；同理 H 为 MG 中点 H((a-x)/2,(x+a)/2)。\n   EP=(a-x)√2/2，HM=(a-x)√2/2，ME=x√2，PH=√2·x。\n   四边形 EPHM 周长 = (a-x)√2 + 2x√2 = (a+x)√2，随 x 变化，不是定值。②错误。\n\n故①正确、②错误，选 B。",
+        "status": "submitted"
+      },
+      "step_id": "step_0015"
+    }
+  ],
+  "final_submission": {
+    "region_art_0024_01": {
+      "submission_id": "submission_2e56d188930b",
+      "region_id": "region_art_0024_01",
+      "final_answer": "B（①正确，②错误）",
+      "reasoning": "设正方形边长 AB=a，AE=x（0<x<a），则 EB=a-x。\n\n1) 求 M：EM∥BD，BD 斜率为 -1，过 E(x,0) 作斜率 -1 的直线交 AD（x=0）于 M(0,x)，故 AM=AE=x，△AEM 为等腰直角三角形，EM=x√2。\n\n2) 求对称点：关于 BD（直线 x+y=a）的对称变换为 (u,v)→(a-v,a-u)。\n   E(x,0)→F(a,a-x)，F 在 BC 上且 BF=a-x=EB；\n   M(0,x)→G(a-x,a)，G 在 CD 上且 DG=a-x=AM。\n\n3) 判断①：EF=√[(a-x)²+(a-x)²]=(a-x)√2；MG=(a-x)√2；FG=√[x²+x²]=x√2；EM=x√2。\n   四边形 EFGM 周长 = 2(a-x)√2 + 2x√2 = 2a√2，与 x 无关，是定值。①正确。\n\n4) 判断②：P=EF∩BD。EF 参数式 (x+t(a-x), t(a-x))，令 x+2t(a-x)=a 得 t=1/2，故 P 为 EF 中点 P((x+a)/2,(a-x)/2)；同理 H 为 MG 中点 H((a-x)/2,(x+a)/2)。\n   EP=(a-x)√2/2，HM=(a-x)√2/2，ME=x√2，PH=√2·x。\n   四边形 EPHM 周长 = (a-x)√2 + 2x√2 = (a+x)√2，随 x 变化，不是定值。②错误。\n\n故①正确、②错误，选 B。",
+      "status": "submitted"
+    }
+  },
+  "evaluation": {
+    "type": "submission",
+    "expected_regions": 1,
+    "submitted_regions": 1,
+    "all_answers_correct": true,
+    "results": [
+      {
+        "submission_id": "submission_2e56d188930b",
+        "region_id": "region_art_0024_01",
+        "problem_id": "problem_0024_01",
+        "answer_correct": true,
+        "verification_status": "correct",
+        "verification_method": "legacy_rules",
+        "verification": {
+          "status": "correct",
+          "score": 1.0,
+          "match_method": "legacy_rules",
+          "needs_review": false,
+          "part_results": [],
+          "missing_parts": [],
+          "diagnostics": []
+        },
+        "needs_review": false,
+        "reasoning_present": true,
+        "task_completed": true,
+        "reward": 1.0
+      }
+    ],
+    "rubric_check": {
+      "required_tools_complete": true,
+      "missing_tools": [],
+      "missing_regions": {},
+      "submission_required": true,
+      "submission_complete": true,
+      "submission_policy": "required",
+      "submission_policy_compliant": true,
+      "all_answers_correct": true,
+      "answer_needs_review": false,
+      "answer_incorrect": false,
+      "invalid_reference": false,
+      "duplicate_regions": [],
+      "forbidden_submission": false,
+      "acceptable_tool_path_matched": true,
+      "acceptable_tool_path_index": 0,
+      "reward_breakdown": {
+        "answer_reward": 1.0,
+        "reasoning_reward": 1.0,
+        "tool_path_reward": 1.0,
+        "submission_policy_penalty": 0.0,
+        "duplicate_submission_penalty": 0.0,
+        "acceptable_path_penalty": 0.0,
+        "total_reward": 3.0
+      },
+      "passed": true
+    }
+  },
+  "usage": {
+    "total_tokens": 12813,
+    "prompt_tokens": 11089,
+    "completion_tokens": 1724,
+    "reasoning_tokens": 0
+  },
+  "status": "completed",
+  "termination_reason": "required_submissions_completed",
+  "errors": []
+}

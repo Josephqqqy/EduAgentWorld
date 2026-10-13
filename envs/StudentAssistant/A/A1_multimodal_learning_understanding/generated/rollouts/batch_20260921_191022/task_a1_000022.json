@@ -1,0 +1,472 @@
+{
+  "trajectory_id": "traj_7bd618096c1a4cca8e699858ed96c327",
+  "task_id": "task_a1_000022",
+  "model": {
+    "name": "DeepSeek-V4.1-Flash"
+  },
+  "task": {
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；整理成可编辑的文本；识别题目内容和数学表达式；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0028",
+      "fixture_path": "raw/assets/28.png"
+    }
+  },
+  "steps": [
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I'll start by registering the uploaded image and retrieving its basic information.",
+        "tool_calls": [
+          {
+            "id": "call_1006daffdfb94f198bf9f96f",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "upload_artifact",
+              "arguments": "{\"user_id\": \"student_task_user\", \"fixture_path\": \"raw/assets/28.png\"}"
+            }
+          },
+          {
+            "id": "call_ffc64b5204fe4cccb2b37a05",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "get_artifact",
+              "arguments": "{\"artifact_id\": \"art_0028\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1236,
+        "total_tokens": 1346,
+        "completion_tokens": 110,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 2606.0120000038296,
+      "request_id": "33a3507e3cde4812bb93f92bbfb60bd9",
+      "step_id": "step_0001"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_1006daffdfb94f198bf9f96f",
+      "tool": "upload_artifact",
+      "arguments": {
+        "user_id": "student_task_user",
+        "fixture_path": "raw/assets/28.png"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0028",
+        "user_id": null,
+        "file_name": "28.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/28.png",
+        "content_hash": "sha256:620c33cc5cc0913c71c3c5dac5d1df721256409aa5e49f84798a1ec151a12e61",
+        "size_bytes": 11393,
+        "width": 669,
+        "height": 90,
+        "status": "uploaded"
+      },
+      "step_id": "step_0002"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_ffc64b5204fe4cccb2b37a05",
+      "tool": "get_artifact",
+      "arguments": {
+        "artifact_id": "art_0028"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0028",
+        "user_id": null,
+        "file_name": "28.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/28.png",
+        "content_hash": "sha256:620c33cc5cc0913c71c3c5dac5d1df721256409aa5e49f84798a1ec151a12e61",
+        "size_bytes": 11393,
+        "width": 669,
+        "height": 90,
+        "status": "uploaded"
+      },
+      "step_id": "step_0003"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "The image is registered (669×90 px, a single narrow strip). Let me list the problem regions.",
+        "tool_calls": [
+          {
+            "id": "call_c162ef1a0b2b45f4a1feb442",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "list_artifact_regions",
+              "arguments": "{\"artifact_id\": \"art_0028\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1597,
+        "total_tokens": 1663,
+        "completion_tokens": 66,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1633.1135000218637,
+      "request_id": "ba91370d918c48ee8945c502ae88574a",
+      "step_id": "step_0004"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_c162ef1a0b2b45f4a1feb442",
+      "tool": "list_artifact_regions",
+      "arguments": {
+        "artifact_id": "art_0028"
+      },
+      "status": "completed",
+      "observation": [
+        {
+          "region_id": "region_art_0028_01",
+          "artifact_id": "art_0028",
+          "region_index": 1,
+          "region_type": "question",
+          "bbox_json": null,
+          "bbox_status": "not_annotated",
+          "confidence": null,
+          "status": "confirmed"
+        }
+      ],
+      "step_id": "step_0005"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "There's a single region. Let me get its content and context.",
+        "tool_calls": [
+          {
+            "id": "call_234f57d8e8c2499892bfb13a",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "recognize_content",
+              "arguments": "{\"region_id\": \"region_art_0028_01\", \"modality\": \"ocr\"}"
+            }
+          },
+          {
+            "id": "call_0a5550e89f06457cac747837",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "extract_editable_text",
+              "arguments": "{\"region_id\": \"region_art_0028_01\", \"include_latex\": true}"
+            }
+          },
+          {
+            "id": "call_6235e201c70b4ca1b005f0e0",
+            "index": 2,
+            "type": "function",
+            "function": {
+              "name": "get_problem_context",
+              "arguments": "{\"region_id\": \"region_art_0028_01\"}"
+            }
+          },
+          {
+            "id": "call_2dd0d6e6066c40889d3ffcde",
+            "index": 3,
+            "type": "function",
+            "function": {
+              "name": "assess_content_completeness",
+              "arguments": "{\"region_id\": \"region_art_0028_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1740,
+        "total_tokens": 1954,
+        "completion_tokens": 214,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 4357.425499998499,
+      "request_id": "6f11b2f467ba4592aa99ad2e6b6dbe72",
+      "step_id": "step_0006"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_234f57d8e8c2499892bfb13a",
+      "tool": "recognize_content",
+      "arguments": {
+        "region_id": "region_art_0028_01",
+        "modality": "ocr"
+      },
+      "status": "completed",
+      "observation": {
+        "recognition_id": "recognition_160467e41185",
+        "region_id": "region_art_0028_01",
+        "modality": "ocr",
+        "engine": "fixture_ocr_v1",
+        "raw_output": "6.（4分）（2025·上海）在锐角三角形 \\(ABC\\) 中，\\(AB=AC\\)，\\(BC=8\\)，它的外接圆 \\(O\\) 的半径长为5。若点 \\(D\\) 是边 \\(BC\\) 的中点，以点 \\(D\\) 为圆心的圆和 \\(\\odot O\\) 相交，那么 \\(\\odot D\\) 的半径长可以是（ ）。\n\nA. 2\n\nB. 5\n\nC. 8\n\nD. 10",
+        "normalized_output": "6.（4分）（2025·上海）在锐角三角形 \\(ABC\\) 中，\\(AB=AC\\)，\\(BC=8\\)，它的外接圆 \\(O\\) 的半径长为5。若点 \\(D\\) 是边 \\(BC\\) 的中点，以点 \\(D\\) 为圆心的圆和 \\(\\odot O\\) 相交，那么 \\(\\odot D\\) 的半径长可以是（ ）。\n\nA. 2\n\nB. 5\n\nC. 8\n\nD. 10",
+        "confidence": 1.0,
+        "status": "completed"
+      },
+      "step_id": "step_0007"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_0a5550e89f06457cac747837",
+      "tool": "extract_editable_text",
+      "arguments": {
+        "region_id": "region_art_0028_01",
+        "include_latex": true
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0028_01",
+        "text": "6.（4分）（2025·上海）在锐角三角形 \\(ABC\\) 中，\\(AB=AC\\)，\\(BC=8\\)，它的外接圆 \\(O\\) 的半径长为5。若点 \\(D\\) 是边 \\(BC\\) 的中点，以点 \\(D\\) 为圆心的圆和 \\(\\odot O\\) 相交，那么 \\(\\odot D\\) 的半径长可以是（ ）。\n\nA. 2\n\nB. 5\n\nC. 8\n\nD. 10",
+        "format": "markdown",
+        "latex": "AB=AC;\\quad BC=8;\\quad R_O=5;\\quad D\\text{ is midpoint of }BC;\\quad \\odot D\\cap\\odot O\\ne\\varnothing"
+      },
+      "step_id": "step_0008"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_6235e201c70b4ca1b005f0e0",
+      "tool": "get_problem_context",
+      "arguments": {
+        "region_id": "region_art_0028_01"
+      },
+      "status": "completed",
+      "observation": {
+        "problem_id": "problem_0028_01",
+        "subject": "math",
+        "grade_band": "junior_high",
+        "statement": "6.（4分）（2025·上海）在锐角三角形 \\(ABC\\) 中，\\(AB=AC\\)，\\(BC=8\\)，它的外接圆 \\(O\\) 的半径长为5。若点 \\(D\\) 是边 \\(BC\\) 的中点，以点 \\(D\\) 为圆心的圆和 \\(\\odot O\\) 相交，那么 \\(\\odot D\\) 的半径长可以是（ ）。\n\nA. 2\n\nB. 5\n\nC. 8\n\nD. 10",
+        "latex": "AB=AC;\\quad BC=8;\\quad R_O=5;\\quad D\\text{ is midpoint of }BC;\\quad \\odot D\\cap\\odot O\\ne\\varnothing",
+        "topic": "geometry.isosceles_triangle_circumcircle_tangent_circles",
+        "question_type": "multiple_choice",
+        "has_diagram": 1,
+        "question_no": "6",
+        "region_id": "region_art_0028_01"
+      },
+      "step_id": "step_0009"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_2dd0d6e6066c40889d3ffcde",
+      "tool": "assess_content_completeness",
+      "arguments": {
+        "region_id": "region_art_0028_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0028_01",
+        "is_complete": true,
+        "missing_parts": [],
+        "confidence": 1.0,
+        "needs_user_action": false
+      },
+      "step_id": "step_0010"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Content is complete. Let me analyze the diagram and knowledge points.",
+        "tool_calls": [
+          {
+            "id": "call_abaad14bd60c4ee481be7ae4",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "analyze_diagram",
+              "arguments": "{\"region_id\": \"region_art_0028_01\"}"
+            }
+          },
+          {
+            "id": "call_cb95c1a7b4be4481a51ea2d7",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "analyze_problem_knowledge",
+              "arguments": "{\"region_id\": \"region_art_0028_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 2860,
+        "total_tokens": 2962,
+        "completion_tokens": 102,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1743.5251999995671,
+      "request_id": "34c535617b8d4162ab5a29c5969a80ff",
+      "step_id": "step_0011"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_abaad14bd60c4ee481be7ae4",
+      "tool": "analyze_diagram",
+      "arguments": {
+        "region_id": "region_art_0028_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0028_01",
+        "has_diagram": true,
+        "diagram_type": "geometry",
+        "entities": [],
+        "relations": [],
+        "description": "题目标注表确认存在数学图形；当前 Fixture 未提供独立的图形实体、空间关系或像素级几何测量标注。",
+        "status": "metadata_only"
+      },
+      "step_id": "step_0012"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_cb95c1a7b4be4481a51ea2d7",
+      "tool": "analyze_problem_knowledge",
+      "arguments": {
+        "region_id": "region_art_0028_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0028_01",
+        "problem_id": "problem_0028_01",
+        "subject": "math",
+        "grade_band": "junior_high",
+        "question_type": "multiple_choice",
+        "knowledge_points": [
+          "geometry.isosceles_triangle_circumcircle_tangent_circles",
+          "两圆位置关系",
+          "圆心距"
+        ],
+        "has_diagram": true,
+        "analysis_basis": "normalized_metadata"
+      },
+      "step_id": "step_0013"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Now let me solve the problem.\n\n**Setup:** Isosceles triangle $ABC$ with $AB=AC$, $BC=8$, circumradius $R=5$. $D$ is the midpoint of $BC$.\n\n**Step 1 — Locate the circumcenter $O$.** Since $AB=AC$, the perpendicular bisector of $BC$ passes through $A$ and $O$. So $O$ lies on line $AD$, with $BD=DC=4$.\n\n**Step 2 — Find $OD$.** In right triangle $OBD$: $OB=R=5$, $BD=4$, so\n$$OD=\\sqrt{OB^2-BD^2}=\\sqrt{25-16}=3.$$\n\n**Step 3 — Find $AD$.** Since the triangle is acute, $O$ lies inside the triangle, so $A$ and $O$ are on the same side of $BC$:\n$$AD=AO+OD=5+3=8.$$\n(Check: $AB=\\sqrt{AD^2+BD^2}=\\sqrt{64+16}=\\sqrt{80}=4\\sqrt5$, and $\\sin B=\\frac{AD}{AB}=\\frac{8}{4\\sqrt5}=\\frac{2}{\\sqrt5}$, giving $R=\\frac{AC}{2\\sin B}=\\frac{4\\sqrt5}{2\\cdot 2/\\sqrt5}=\\frac{4\\sqrt5\\cdot\\sqrt5}{4}=5$. ✓)\n\n**Step 4 — Condition for the two circles to intersect.** The distance between centers is $OD=3$. Two circles with radii $r$ (circle $D$) and $5$ (circle $O$) intersect iff\n$$|r-5|<3<r+5.$$\n- $3<r+5$ always holds for $r>0$.\n- $|r-5|<3 \\Rightarrow 2<r<8$.\n\n**Step 5 — Check options.** $r\\in(2,8)$: A. $2$ ✗ (boundary, tangent internally); B. $5$ ✓; C. $8$ ✗ (boundary, tangent externally); D. $10$ ✗.",
+        "tool_calls": [
+          {
+            "id": "call_1566ef5b869a4c8289ad1213",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "submit_solution",
+              "arguments": "{\"region_id\": \"region_art_0028_01\", \"final_answer\": \"B（⊙D 的半径长可以是 5）\", \"reasoning\": \"1. 由 AB=AC 知 △ABC 关于 AD 对称，故外接圆圆心 O 在 AD 所在直线上，且 D 为 BC 中点，BD=DC=4。\\n2. 在 Rt△OBD 中，OB=R=5，BD=4，得 OD=√(5²−4²)=3。\\n3. 因三角形为锐角三角形，O 在三角形内部，A、O 在 BC 同侧，故 AD=AO+OD=5+3=8。\\n4. 两圆相交的充要条件是圆心距 d 满足 |r−R|<d<r+R，这里 d=OD=3，R=5，即 |r−5|<3<r+5。\\n   由 3<r+5 恒成立（r>0）；由 |r−5|<3 得 2<r<8。\\n5. 逐项检验：A. r=2 不满足（内切，不相交）；B. r=5 满足 2<5<8；C. r=8 不满足（外切）；D. r=10 不满足。\\n所以 ⊙D 的半径长可以是 5，选 B。\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3161,
+        "total_tokens": 3977,
+        "completion_tokens": 816,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 15748.174800013658,
+      "request_id": "9c56e63248bc4d8881e8e6bba80b810d",
+      "step_id": "step_0014"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_1566ef5b869a4c8289ad1213",
+      "tool": "submit_solution",
+      "arguments": {
+        "region_id": "region_art_0028_01",
+        "final_answer": "B（⊙D 的半径长可以是 5）",
+        "reasoning": "1. 由 AB=AC 知 △ABC 关于 AD 对称，故外接圆圆心 O 在 AD 所在直线上，且 D 为 BC 中点，BD=DC=4。\n2. 在 Rt△OBD 中，OB=R=5，BD=4，得 OD=√(5²−4²)=3。\n3. 因三角形为锐角三角形，O 在三角形内部，A、O 在 BC 同侧，故 AD=AO+OD=5+3=8。\n4. 两圆相交的充要条件是圆心距 d 满足 |r−R|<d<r+R，这里 d=OD=3，R=5，即 |r−5|<3<r+5。\n   由 3<r+5 恒成立（r>0）；由 |r−5|<3 得 2<r<8。\n5. 逐项检验：A. r=2 不满足（内切，不相交）；B. r=5 满足 2<5<8；C. r=8 不满足（外切）；D. r=10 不满足。\n所以 ⊙D 的半径长可以是 5，选 B。"
+      },
+      "status": "completed",
+      "observation": {
+        "submission_id": "submission_ae554ae8302b",
+        "region_id": "region_art_0028_01",
+        "final_answer": "B（⊙D 的半径长可以是 5）",
+        "reasoning": "1. 由 AB=AC 知 △ABC 关于 AD 对称，故外接圆圆心 O 在 AD 所在直线上，且 D 为 BC 中点，BD=DC=4。\n2. 在 Rt△OBD 中，OB=R=5，BD=4，得 OD=√(5²−4²)=3。\n3. 因三角形为锐角三角形，O 在三角形内部，A、O 在 BC 同侧，故 AD=AO+OD=5+3=8。\n4. 两圆相交的充要条件是圆心距 d 满足 |r−R|<d<r+R，这里 d=OD=3，R=5，即 |r−5|<3<r+5。\n   由 3<r+5 恒成立（r>0）；由 |r−5|<3 得 2<r<8。\n5. 逐项检验：A. r=2 不满足（内切，不相交）；B. r=5 满足 2<5<8；C. r=8 不满足（外切）；D. r=10 不满足。\n所以 ⊙D 的半径长可以是 5，选 B。",
+        "status": "submitted"
+      },
+      "step_id": "step_0015"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "已完成图片处理，结果如下。\n\n## 一、学习材料基本信息\n- 文件：`28.png`（669×90 像素，窄条状截图）\n- 图片 ID：`art_0028`；题目区域数：**1 个**\n- 学科/学段：数学 / 初中；题型：选择题；题号：第 6 题（4 分）\n- 来源标注：（2025·上海）\n\n## 二、题目整理（可编辑文本）\n> **6.（4分）（2025·上海）** 在锐角三角形 $ABC$ 中，$AB=AC$，$BC=8$，它的外接圆 $O$ 的半径长为 5。若点 $D$ 是边 $BC$ 的中点，以点 $D$ 为圆心的圆和 $\\odot O$ 相交，那么 $\\odot D$ 的半径长可以是（ ）。\n> A. 2　　B. 5　　C. 8　　D. 10\n\n图片中仅此一道题，无需拆分。\n\n## 三、数学表达式识别\n$AB=AC$；$BC=8$；$R_{\\odot O}=5$；$D$ 为 $BC$ 中点；条件为 $\\odot D$ 与 $\\odot O$ 相交。\n\n## 四、知识点分析\n- 等腰三角形的对称性（外心在对称轴上）\n- 垂径定理 / 勾股定理求圆心距\n- **两圆位置关系**：相交的判定条件 $|r_1-r_2|<d<r_1+r_2$\n- 锐角三角形外心在形内\n\n## 五、图形的作用与已知关系\n题目配有几何图形（元数据确认存在，但未提供像素级标注）。图形的作用是帮助定位：等腰三角形中 $AD$ 既是中线又是对称轴，外心 $O$ 落在 $AD$ 上；$D$ 为 $BC$ 中点给出 $BD=DC=4$，从而可在 $Rt\\triangle OBD$ 中用勾股定理求 $OD$。关键已知关系：$OB=5$、$BD=4$、$OD\\perp BC$。\n\n## 六、解答\n\n**求圆心距：** 由 $AB=AC$ 知 $O$ 在 $AD$ 上。在 $Rt\\triangle OBD$ 中，\n$$OD=\\sqrt{OB^2-BD^2}=\\sqrt{5^2-4^2}=3.$$\n\n**两圆相交条件：** 圆心距 $d=OD=3$，半径分别为 $r$ 与 $5$，需\n$$|r-5|<3<r+5 \\;\\Rightarrow\\; 2<r<8.$$\n\n**检验选项：** A. $2$（内切，不相交）✗；B. $5$ ✓；C. $8$（外切）✗；D. $10$ ✗。\n\n**答案：B**（$\\odot D$ 的半径长可以是 5）。\n\n（附验证：$AD=AO+OD=5+3=8$，则 $AB=\\sqrt{8^2+4^2}=4\\sqrt5$，$\\sin B=\\frac{8}{4\\sqrt5}=\\frac{2}{\\sqrt5}$，$R=\\frac{AC}{2\\sin B}=5$，与题设一致。）"
+      },
+      "usage": {
+        "prompt_tokens": 4330,
+        "total_tokens": 5080,
+        "completion_tokens": 750,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 14778.521800006274,
+      "request_id": "5d9d4cb87bdc4175b407af88caf7750f",
+      "step_id": "step_0016"
+    }
+  ],
+  "final_submission": {
+    "region_art_0028_01": {
+      "submission_id": "submission_ae554ae8302b",
+      "region_id": "region_art_0028_01",
+      "final_answer": "B（⊙D 的半径长可以是 5）",
+      "reasoning": "1. 由 AB=AC 知 △ABC 关于 AD 对称，故外接圆圆心 O 在 AD 所在直线上，且 D 为 BC 中点，BD=DC=4。\n2. 在 Rt△OBD 中，OB=R=5，BD=4，得 OD=√(5²−4²)=3。\n3. 因三角形为锐角三角形，O 在三角形内部，A、O 在 BC 同侧，故 AD=AO+OD=5+3=8。\n4. 两圆相交的充要条件是圆心距 d 满足 |r−R|<d<r+R，这里 d=OD=3，R=5，即 |r−5|<3<r+5。\n   由 3<r+5 恒成立（r>0）；由 |r−5|<3 得 2<r<8。\n5. 逐项检验：A. r=2 不满足（内切，不相交）；B. r=5 满足 2<5<8；C. r=8 不满足（外切）；D. r=10 不满足。\n所以 ⊙D 的半径长可以是 5，选 B。",
+      "status": "submitted"
+    }
+  },
+  "evaluation": {
+    "type": "submission",
+    "expected_regions": 1,
+    "submitted_regions": 1,
+    "all_answers_correct": false,
+    "results": [
+      {
+        "submission_id": "submission_ae554ae8302b",
+        "region_id": "region_art_0028_01",
+        "problem_id": "problem_0028_01",
+        "answer_correct": false,
+        "reasoning_present": true,
+        "task_completed": false,
+        "reward": 0.0
+      }
+    ],
+    "rubric_check": {
+      "required_tools_complete": false,
+      "missing_tools": [
+        "get_artifact_problem_contexts"
+      ],
+      "missing_regions": {},
+      "submission_required": true,
+      "submission_complete": true,
+      "all_answers_correct": false,
+      "duplicate_regions": [],
+      "forbidden_submission": false,
+      "passed": false
+    }
+  },
+  "usage": {
+    "total_tokens": 16982,
+    "prompt_tokens": 14924,
+    "completion_tokens": 2058,
+    "reasoning_tokens": 0
+  },
+  "status": "incomplete",
+  "termination_reason": "rubric_incomplete",
+  "errors": []
+}

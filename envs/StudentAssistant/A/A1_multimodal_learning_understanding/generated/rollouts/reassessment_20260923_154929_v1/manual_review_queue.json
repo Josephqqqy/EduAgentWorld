@@ -1,0 +1,83 @@
+[
+  {
+    "task_id": "task_a1_000005",
+    "source_trajectory": "task_a1_000005.json",
+    "automated_status": "needs_review",
+    "human_decision": "incorrect",
+    "reviewer": "qy",
+    "evidence": "problem_0029_01：(1)b=-4,c=4、(2)①CD/PQ=3 均正确。模型推理分别算出 a=-1/3 时为 3/5、a=-3 时为 sqrt(17)/17，但 final_answer 的(2)②仅写 sqrt(17)/17，并错误地把两种图形的正弦值再比较后取较小者。",
+    "notes": "标准答案写为“sqrt(17)/17 or 3/5”，解题步骤却要求分类保留两种值。需由人工确定仅在推理中列出两值、最终只提交其中一值是否可接受。"
+  },
+  {
+    "task_id": "task_a1_000012",
+    "source_trajectory": "task_a1_000012.json",
+    "automated_status": "needs_review",
+    "human_decision": "correct",
+    "reviewer": "qy",
+    "evidence": "problem_0026_01：题面约 1.8 万人，出租车占 100%-60%-15%-15%=10%，得约 1800 人。提交“约 1800 人（选择出租车）”，与标准答案 1800 一致。",
+    "notes": "括号中的文字是单位/说明，旧解析器未识别这一表达。"
+  },
+  {
+    "task_id": "task_a1_000013",
+    "source_trajectory": "task_a1_000013.json",
+    "automated_status": "needs_review",
+    "human_decision": "incorrect",
+    "reviewer": "qy",
+    "evidence": "problem_0018_01：标准选项 BC；final_answer 开头明确提交“正确选项：B、C、D”。推理末尾虽修正为 BC，但提交答案仍多选 D；D 在 c=d=0 时 AC·AD=1，不成立。",
+    "notes": "最终提交与推理自相矛盾，以 final_answer 的明确选项为准。"
+  },
+  {
+    "task_id": "task_a1_000014",
+    "source_trajectory": "task_a1_000014.json",
+    "automated_status": "needs_review",
+    "human_decision": "correct",
+    "reviewer": "qy",
+    "evidence": "problem_0006_01：题面只求最值。由条件得 f=x²+2y²+sqrt(2)xy，在 x²+2y²=4 上令 x=2cos t、y=sqrt(2)sin t，f=4+2sin(2t)，最大值 6、最小值 2；提交的 f_max=6、f_min=2 相符。",
+    "notes": "答案用 f_max/f_min 的 LaTeX 记法，旧最值文本解析器未识别。"
+  },
+  {
+    "task_id": "task_a1_000017",
+    "source_trajectory": "task_a1_000017.json",
+    "automated_status": "needs_review",
+    "human_decision": "incorrect",
+    "reviewer": "qy",
+    "evidence": "problem_0009_01：标准 s=21/16、x_max=-3/(4*cuberoot(4))。final_answer 提交 s=9/16、x_max=-9/16，两个小问均不符；推理中弧长实际算得 21/16，却在提交时写成 9/16。x(y)=-1/(2y²)-y⁴/16 的导数在 y=-cuberoot(2) 为零，区间内最大值不是 y=-1 的 -9/16。",
+    "notes": "最终答案两处错误，推理和提交亦有冲突。"
+  },
+  {
+    "task_id": "task_a1_000018",
+    "source_trajectory": "task_a1_000018.json",
+    "automated_status": "needs_review",
+    "human_decision": "incorrect",
+    "reviewer": "qy",
+    "evidence": "problem_0029_01：(1)b=-4,c=4、(2)①CD/PQ=3 正确；final_answer 的(2)②为 2sqrt(5)/5，推理末尾又改称 sqrt(5)/5，均不在标准的 sqrt(17)/17 或 3/5 中。推理把 DQ 当作腰并取 a=-1/2；按四边形 C-D-P-Q 的顺序，腰应为 DP、QC，对应 a=-1/3 或 -3。",
+    "notes": "最终答案错误，且推理使用了错误的梯形边序。"
+  },
+  {
+    "task_id": "task_a1_000019",
+    "source_trajectory": "task_a1_000019.json",
+    "automated_status": "needs_review",
+    "human_decision": "incorrect",
+    "reviewer": "qy",
+    "evidence": "problem_0029_01：前两小问正确；(2)②提交 sqrt(5)/5，理由是 a=0 时 DQ 水平。但 C-D-P-Q 顺序的腰为 DP、QC，a=0 并非所需直角梯形；合法的 a=-1/3 或 -3 分别给 3/5、sqrt(17)/17。",
+    "notes": "末小问对四边形边序理解有误。"
+  },
+  {
+    "task_id": "task_a1_000023",
+    "source_trajectory": "task_a1_000023.json",
+    "automated_status": "needs_review",
+    "human_decision": "correct",
+    "reviewer": "qy",
+    "evidence": "problem_0013_01：由递推式同乘 n(n+1)，得到 (n+1)a_(n+1)-na_n=1，且 a_1=3，所以 na_n=n+2，满足(1)证明。逐项求导 f'(-2)=sum_(k=1)^m (k+2)(-2)^(k-1)=[7-(3m+7)(-2)^m]/9，与标准式一致；m=1、2 代入也吻合。",
+    "notes": "提交了证明与结果；旧复合字符串比较器未解析多小问。"
+  },
+  {
+    "task_id": "task_a1_000030",
+    "source_trajectory": "task_a1_000030.json",
+    "automated_status": "needs_review",
+    "human_decision": "incorrect",
+    "reviewer": "qy",
+    "evidence": "problem_0018_01：标准选项 BC；提交“B（CD≥sqrt(3)）”，漏选 C。设 AB 为 x 轴、C=(c,2,0)、D=(d,1/2,sqrt(3)/2)，AB⊥CD 给 c=d，此时 CD 与平面 ABD 的法向量平行，故 C 正确。模型以 CD·法向量非零为由否定 C，判据用反。",
+    "notes": "多选题漏选正确选项 C。"
+  }
+]

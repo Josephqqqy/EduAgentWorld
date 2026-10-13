@@ -1,0 +1,509 @@
+{
+  "trajectory_id": "traj_48fd9859be9c4578b0123884c811dbdc",
+  "task_id": "task_a1_000013",
+  "model": {
+    "name": "DeepSeek-V4.1-Flash"
+  },
+  "task": {
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；整理成可编辑的文本；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0018",
+      "fixture_path": "raw/assets/18.jpg"
+    }
+  },
+  "steps": [
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I'll start by registering the uploaded image and examining its basic information.",
+        "tool_calls": [
+          {
+            "id": "call_8cd11d859e6c4814aa155c71",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "upload_artifact",
+              "arguments": "{\"user_id\": \"student_task_user\", \"fixture_path\": \"raw/assets/18.jpg\"}"
+            }
+          },
+          {
+            "id": "call_0dbc08487e844adca96a636a",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "get_artifact",
+              "arguments": "{\"artifact_id\": \"art_0018\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1228,
+        "total_tokens": 1338,
+        "completion_tokens": 110,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 2663.412000052631,
+      "request_id": "646d98a5c38741dbbda0f2877c5560a9",
+      "step_id": "step_0001"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_8cd11d859e6c4814aa155c71",
+      "tool": "upload_artifact",
+      "arguments": {
+        "user_id": "student_task_user",
+        "fixture_path": "raw/assets/18.jpg"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0018",
+        "user_id": "student_task_user",
+        "file_name": "18.jpg",
+        "media_type": "image",
+        "storage_path": "F:\\CODE\\AgentWorld2\\envs\\StudentAssistant\\A\\A1_multimodal_learning_understanding\\raw\\assets\\18.jpg",
+        "content_hash": "sha256:23469592b5fbb948af9d6c8fd133a5ab6692116fe21d036f9d866696aa7ab0a2",
+        "size_bytes": 1727622,
+        "width": 3876,
+        "height": 1284,
+        "status": "uploaded"
+      },
+      "step_id": "step_0002"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_0dbc08487e844adca96a636a",
+      "tool": "get_artifact",
+      "arguments": {
+        "artifact_id": "art_0018"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0018",
+        "user_id": "student_task_user",
+        "file_name": "18.jpg",
+        "media_type": "image",
+        "storage_path": "F:\\CODE\\AgentWorld2\\envs\\StudentAssistant\\A\\A1_multimodal_learning_understanding\\raw\\assets\\18.jpg",
+        "content_hash": "sha256:23469592b5fbb948af9d6c8fd133a5ab6692116fe21d036f9d866696aa7ab0a2",
+        "size_bytes": 1727622,
+        "width": 3876,
+        "height": 1284,
+        "status": "uploaded"
+      },
+      "step_id": "step_0003"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Now let me list the problem regions in the image.",
+        "tool_calls": [
+          {
+            "id": "call_9feece6efced462499499e41",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "list_artifact_regions",
+              "arguments": "{\"artifact_id\": \"art_0018\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1653,
+        "total_tokens": 1708,
+        "completion_tokens": 55,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1555.6097000371665,
+      "request_id": "6c56e7b743c647ae871ac6dbbdc59f57",
+      "step_id": "step_0004"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_9feece6efced462499499e41",
+      "tool": "list_artifact_regions",
+      "arguments": {
+        "artifact_id": "art_0018"
+      },
+      "status": "completed",
+      "observation": [
+        {
+          "region_id": "region_art_0018_01",
+          "artifact_id": "art_0018",
+          "region_index": 1,
+          "region_type": "question",
+          "bbox_json": null,
+          "bbox_status": "not_annotated",
+          "confidence": null,
+          "status": "confirmed"
+        }
+      ],
+      "step_id": "step_0005"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Let me get the problem context and content for this region.",
+        "tool_calls": [
+          {
+            "id": "call_76f4413c885146058d2dd102",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "get_problem_context",
+              "arguments": "{\"region_id\": \"region_art_0018_01\"}"
+            }
+          },
+          {
+            "id": "call_5c4f491ec1fe46ea92081065",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "recognize_content",
+              "arguments": "{\"region_id\": \"region_art_0018_01\", \"modality\": \"ocr\"}"
+            }
+          },
+          {
+            "id": "call_6394c3d1f69c474baa3ee208",
+            "index": 2,
+            "type": "function",
+            "function": {
+              "name": "extract_editable_text",
+              "arguments": "{\"region_id\": \"region_art_0018_01\", \"include_latex\": true}"
+            }
+          },
+          {
+            "id": "call_3c79cb2a2a434f6fa74f1824",
+            "index": 3,
+            "type": "function",
+            "function": {
+              "name": "assess_content_completeness",
+              "arguments": "{\"region_id\": \"region_art_0018_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1785,
+        "total_tokens": 1997,
+        "completion_tokens": 212,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 4475.2483000047505,
+      "request_id": "b897c26773f6412d820b6574ec93058c",
+      "step_id": "step_0006"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_76f4413c885146058d2dd102",
+      "tool": "get_problem_context",
+      "arguments": {
+        "region_id": "region_art_0018_01"
+      },
+      "status": "error",
+      "error": {
+        "type": "ValueError",
+        "message": "Real OCR required for region: region_art_0018_01"
+      },
+      "step_id": "step_0007"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_5c4f491ec1fe46ea92081065",
+      "tool": "recognize_content",
+      "arguments": {
+        "region_id": "region_art_0018_01",
+        "modality": "ocr"
+      },
+      "status": "completed",
+      "observation": {
+        "recognition_id": "recognition_89bcf91cd025",
+        "region_id": "region_art_0018_01",
+        "modality": "ocr",
+        "engine": "vision_model_ocr",
+        "raw_output": "{\"provider\": \"vision_model\", \"model\": \"DeepSeek-V4.1-Flash\", \"text\": \"[UNK]\\n10. 在空间中，$A,B$为两个定点，动点$C$到直线$AB$的距离为2，动点$D$到直线$AB$的距离为\\n1. 若二面角$C-AB-D$为$60^\\\\circ$，则\\nA. $\\\\angle CAD \\\\geq 60^\\\\circ$\\nB. $CD \\\\geq \\\\sqrt{3}$\\nC. 当$AB \\\\perp CD$时，$CD \\\\perp$平面$ABD$\\nD. 当$AB \\\\perp$平面$ACD$时，$AC \\\\perp AD$\"}",
+        "normalized_output": "[UNK]\n10. 在空间中，$A,B$为两个定点，动点$C$到直线$AB$的距离为2，动点$D$到直线$AB$的距离为\n1. 若二面角$C-AB-D$为$60^\\circ$，则\nA. $\\angle CAD \\geq 60^\\circ$\nB. $CD \\geq \\sqrt{3}$\nC. 当$AB \\perp CD$时，$CD \\perp$平面$ABD$\nD. 当$AB \\perp$平面$ACD$时，$AC \\perp AD$",
+        "confidence": null,
+        "status": "completed"
+      },
+      "step_id": "step_0008"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_6394c3d1f69c474baa3ee208",
+      "tool": "extract_editable_text",
+      "arguments": {
+        "region_id": "region_art_0018_01",
+        "include_latex": true
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0018_01",
+        "text": "[UNK]\n10. 在空间中，$A,B$为两个定点，动点$C$到直线$AB$的距离为2，动点$D$到直线$AB$的距离为\n1. 若二面角$C-AB-D$为$60^\\circ$，则\nA. $\\angle CAD \\geq 60^\\circ$\nB. $CD \\geq \\sqrt{3}$\nC. 当$AB \\perp CD$时，$CD \\perp$平面$ABD$\nD. 当$AB \\perp$平面$ACD$时，$AC \\perp AD$",
+        "format": "markdown"
+      },
+      "step_id": "step_0009"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_3c79cb2a2a434f6fa74f1824",
+      "tool": "assess_content_completeness",
+      "arguments": {
+        "region_id": "region_art_0018_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0018_01",
+        "is_complete": null,
+        "missing_parts": [
+          "OCR uncertain content"
+        ],
+        "confidence": null,
+        "needs_user_action": true,
+        "status": "requires_visual_review"
+      },
+      "step_id": "step_0010"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Let me analyze the diagram and knowledge points, and get the full problem contexts.",
+        "tool_calls": [
+          {
+            "id": "call_68a7cd6d9fd94ab28518321f",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "analyze_diagram",
+              "arguments": "{\"region_id\": \"region_art_0018_01\"}"
+            }
+          },
+          {
+            "id": "call_2279fd5e8d664f8d844c8481",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "analyze_problem_knowledge",
+              "arguments": "{\"region_id\": \"region_art_0018_01\"}"
+            }
+          },
+          {
+            "id": "call_076a5f4a703d4fb6b60fdf50",
+            "index": 2,
+            "type": "function",
+            "function": {
+              "name": "get_artifact_problem_contexts",
+              "arguments": "{\"artifact_id\": \"art_0018\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 2674,
+        "total_tokens": 2816,
+        "completion_tokens": 142,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 3263.8298999518156,
+      "request_id": "4e2e65ea1b4b40678acf596a02fd49c6",
+      "step_id": "step_0011"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_68a7cd6d9fd94ab28518321f",
+      "tool": "analyze_diagram",
+      "arguments": {
+        "region_id": "region_art_0018_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0018_01",
+        "has_diagram": null,
+        "diagram_type": null,
+        "entities": [],
+        "relations": [],
+        "description": "",
+        "status": "visual_analysis_unavailable"
+      },
+      "step_id": "step_0012"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_2279fd5e8d664f8d844c8481",
+      "tool": "analyze_problem_knowledge",
+      "arguments": {
+        "region_id": "region_art_0018_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0018_01",
+        "problem_id": "problem_0018_01",
+        "subject": "math",
+        "grade_band": "high_school",
+        "question_type": null,
+        "knowledge_points": [],
+        "has_diagram": null,
+        "analysis_basis": "ocr_text_only_no_verified_metadata"
+      },
+      "step_id": "step_0013"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_076a5f4a703d4fb6b60fdf50",
+      "tool": "get_artifact_problem_contexts",
+      "arguments": {
+        "artifact_id": "art_0018"
+      },
+      "status": "completed",
+      "observation": [
+        {
+          "problem_id": "problem_0018_01",
+          "subject": "math",
+          "grade_band": "high_school",
+          "statement": "[UNK]\n10. 在空间中，$A,B$为两个定点，动点$C$到直线$AB$的距离为2，动点$D$到直线$AB$的距离为\n1. 若二面角$C-AB-D$为$60^\\circ$，则\nA. $\\angle CAD \\geq 60^\\circ$\nB. $CD \\geq \\sqrt{3}$\nC. 当$AB \\perp CD$时，$CD \\perp$平面$ABD$\nD. 当$AB \\perp$平面$ACD$时，$AC \\perp AD$",
+          "latex": null,
+          "topic": null,
+          "question_type": null,
+          "has_diagram": null,
+          "question_no": "10",
+          "region_id": "region_art_0018_01"
+        }
+      ],
+      "step_id": "step_0014"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "The image contains a single problem (a multiple-choice question, number 10). Let me work through the geometry carefully.\n\n**Setup:** A, B are fixed points. Point C has distance 2 from line AB; point D has distance 1 from line AB. The dihedral angle C–AB–D is 60°.\n\nLet me set up coordinates. Let AB be the x-axis. Let the foot of perpendicular from C to AB be P, and from D to AB be Q. Then CP = 2, DQ = 1, and CP ⊥ AB, DQ ⊥ AB. The dihedral angle C–AB–D is the angle between the half-planes containing C and D, measured in the plane perpendicular to AB. So the angle between CP and DQ (as vectors perpendicular to AB) is 60°.\n\nLet me verify each option:\n\n**Option B: CD ≥ √3**\n\nDecompose $\\vec{CD} = \\vec{QP} + \\vec{PD} - \\vec{PC}$... more carefully: $\\vec{CD} = \\vec{CQ} + \\vec{QD}$ where... Let me use: $\\vec{CD} = \\vec{CP} + \\vec{PQ} + \\vec{QD}$.\n\n- $\\vec{CP}$ is perpendicular to AB, magnitude 2.\n- $\\vec{QD}$ is perpendicular to AB, magnitude 1.\n- $\\vec{PQ}$ is along AB.\n\nThe angle between $\\vec{CP}$ and $\\vec{QD}$: both perpendicular to AB. The dihedral angle is 60°, so the angle between the perpendicular components is 60°.\n\n$|\\vec{CD}|^2 = |\\vec{CP}|^2 + |\\vec{PQ}|^2 + |\\vec{QD}|^2 + 2\\vec{CP}\\cdot\\vec{QD}$ (cross terms with PQ vanish since PQ ⊥ both).\n\n$= 4 + |PQ|^2 + 1 + 2(2)(1)\\cos 60° = 5 + |PQ|^2 + 2 = 7 + |PQ|^2 \\geq 7$.\n\nSo $CD \\geq \\sqrt{7} > \\sqrt{3}$. **B is true.**\n\n**Option A: ∠CAD ≥ 60°**\n\nThis depends on positions of P, Q along AB. Let me test with P = Q (both feet at same point). Then C and D are at distance 2 and 1 from AB, in a plane perpendicular to AB, with angle 60° between them.\n\nTake AB along x-axis, P=Q=origin. C = (0, 2, 0), D = (0, 1·cos60°, 1·sin60°) = (0, 0.5, √3/2).\n\n$\\vec{AC} = (0,2,0) - A$, $\\vec{AD} = (0,0.5,√3/2) - A$. Let A = (a,0,0).\n\n$\\vec{AC} = (-a, 2, 0)$, $\\vec{AD} = (-a, 0.5, √3/2)$.\n\n$\\cos\\angle CAD = \\frac{a^2 + 1 + 0}{\\sqrt{a^2+4}\\sqrt{a^2+1}}$.\n\nAs $a \\to \\infty$: $\\to \\frac{a^2}{a^2} = 1$, so angle → 0°. So ∠CAD can be less than 60°. **A is false.**\n\n**Option C: When AB ⊥ CD, is CD ⊥ plane ABD?**\n\n$\\vec{CD} = \\vec{CP} + \\vec{PQ} + \\vec{QD}$. AB ⊥ CD means the component of CD along AB is zero, i.e., PQ = 0, so P = Q.\n\nFor CD ⊥ plane ABD, we need CD ⊥ AB (given) and CD ⊥ DQ (or CD ⊥ some line in plane ABD through D). Plane ABD contains AB and DQ. CD ⊥ AB ✓. Need CD ⊥ DQ.\n\nWith P=Q: $\\vec{CD} = \\vec{QD} - \\vec{CP}$ (since PQ=0). $\\vec{CD}\\cdot\\vec{QD} = |QD|^2 - \\vec{CP}\\cdot\\vec{QD} = 1 - 2\\cos60° = 1 - 1 = 0$. \n\nSo CD ⊥ DQ indeed. Thus CD ⊥ plane ABD. **C is true.**\n\n**Option D: When AB ⊥ plane ACD, is AC ⊥ AD?**\n\nAB ⊥ plane ACD means AB ⊥ AC and AB ⊥ AD. AB ⊥ AC means A is the foot of perpendicular from C, i.e., P = A. Similarly AB ⊥ AD means Q = A. So P = Q = A.\n\nThen C = (0,2,0), D = (0, 0.5, √3/2) with A at origin. $\\vec{AC} = (0,2,0)$, $\\vec{AD} = (0,0.5,√3/2)$. $\\vec{AC}\\cdot\\vec{AD} = 1 \\neq 0$. So AC is not ⊥ AD. **D is false.**\n\nLet me double-check option D's condition more carefully. AB ⊥ plane ACD requires AB perpendicular to two intersecting lines in plane ACD. Since A, C, D are in the plane, AB ⊥ AC and AB ⊥ AD. AB ⊥ AC ⟺ A is the foot from C ⟺ P = A. AB ⊥ AD ⟺ Q = A. So P = Q = A, giving the computation above: AC·AD = 2·0.5 = 1 ≠ 0, so AC not ⊥ AD. D is false.\n\nLet me submit the solution.",
+        "tool_calls": [
+          {
+            "id": "call_67de210310d14ea79e58763e",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "submit_solution",
+              "arguments": "{\"region_id\": \"region_art_0018_01\", \"final_answer\": \"正确选项：B、C\\n\\n题目：在空间中，A、B 为两个定点，动点 C 到直线 AB 的距离为 2，动点 D 到直线 AB 的距离为 1。若二面角 C–AB–D 为 60°，则（　）\\nA. ∠CAD ≥ 60°\\nB. CD ≥ √3\\nC. 当 AB ⊥ CD 时，CD ⊥ 平面 ABD\\nD. 当 AB ⊥ 平面 ACD 时，AC ⊥ AD\\n\\n答案：BC\", \"reasoning\": \"建立坐标系：以直线 AB 为 x 轴。设 C 在 AB 上的垂足为 P，D 在 AB 上的垂足为 Q，则 CP = 2，DQ = 1，且 CP ⊥ AB，DQ ⊥ AB。二面角 C–AB–D 即垂直于 AB 的平面内 CP 与 DQ 的夹角，为 60°。\\n\\n向量分解：CD→ = CP→ + PQ→ + QD→，其中 CP→、QD→ 都垂直于 AB，PQ→ 沿 AB 方向，故 PQ→ 与 CP→、QD→ 均垂直。\\n\\nB 项：|CD|² = |CP|² + |PQ|² + |QD|² + 2·CP→·QD→ = 4 + |PQ|² + 1 + 2·2·1·cos60° = 5 + |PQ|² + 2 = 7 + |PQ|² ≥ 7，所以 CD ≥ √7 > √3，B 正确。\\n\\nA 项：取 P = Q（两垂足重合），令 A 在 AB 上距 P 为 a。取 C = (0,2,0)，D = (0, 0.5, √3/2)，A = (a,0,0)。则 cos∠CAD = (a²+1)/(√(a²+4)·√(a²+1))，当 a → ∞ 时趋于 1，∠CAD → 0° < 60°，故 A 错误。\\n\\nC 项：AB ⊥ CD 意味着 CD 沿 AB 方向的分量为 0，即 PQ = 0，故 P = Q。此时 CD→ = QD→ − CP→，计算 CD→·QD→ = |QD|² − CP→·QD→ = 1 − 2cos60° = 1 − 1 = 0，即 CD ⊥ DQ。又 CD ⊥ AB，而 AB 与 DQ 是平面 ABD 内两条相交直线，故 CD ⊥ 平面 ABD，C 正确。\\n\\nD 项：AB ⊥ 平面 ACD 需 AB ⊥ AC 且 AB ⊥ AD，即 A 同时是 C、D 的垂足，故 P = Q = A。此时 AC→ = (0,2,0)，AD→ = (0,0.5,√3/2)，AC→·AD→ = 1 ≠ 0，故 AC 不垂直于 AD，D 错误。\\n\\n综上，正确选项为 B、C。\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3190,
+        "total_tokens": 5225,
+        "completion_tokens": 2035,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 55094.61899998132,
+      "request_id": "3e930fbee61548df9d28705afe5618c2",
+      "step_id": "step_0015"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_67de210310d14ea79e58763e",
+      "tool": "submit_solution",
+      "arguments": {
+        "region_id": "region_art_0018_01",
+        "final_answer": "正确选项：B、C\n\n题目：在空间中，A、B 为两个定点，动点 C 到直线 AB 的距离为 2，动点 D 到直线 AB 的距离为 1。若二面角 C–AB–D 为 60°，则（　）\nA. ∠CAD ≥ 60°\nB. CD ≥ √3\nC. 当 AB ⊥ CD 时，CD ⊥ 平面 ABD\nD. 当 AB ⊥ 平面 ACD 时，AC ⊥ AD\n\n答案：BC",
+        "reasoning": "建立坐标系：以直线 AB 为 x 轴。设 C 在 AB 上的垂足为 P，D 在 AB 上的垂足为 Q，则 CP = 2，DQ = 1，且 CP ⊥ AB，DQ ⊥ AB。二面角 C–AB–D 即垂直于 AB 的平面内 CP 与 DQ 的夹角，为 60°。\n\n向量分解：CD→ = CP→ + PQ→ + QD→，其中 CP→、QD→ 都垂直于 AB，PQ→ 沿 AB 方向，故 PQ→ 与 CP→、QD→ 均垂直。\n\nB 项：|CD|² = |CP|² + |PQ|² + |QD|² + 2·CP→·QD→ = 4 + |PQ|² + 1 + 2·2·1·cos60° = 5 + |PQ|² + 2 = 7 + |PQ|² ≥ 7，所以 CD ≥ √7 > √3，B 正确。\n\nA 项：取 P = Q（两垂足重合），令 A 在 AB 上距 P 为 a。取 C = (0,2,0)，D = (0, 0.5, √3/2)，A = (a,0,0)。则 cos∠CAD = (a²+1)/(√(a²+4)·√(a²+1))，当 a → ∞ 时趋于 1，∠CAD → 0° < 60°，故 A 错误。\n\nC 项：AB ⊥ CD 意味着 CD 沿 AB 方向的分量为 0，即 PQ = 0，故 P = Q。此时 CD→ = QD→ − CP→，计算 CD→·QD→ = |QD|² − CP→·QD→ = 1 − 2cos60° = 1 − 1 = 0，即 CD ⊥ DQ。又 CD ⊥ AB，而 AB 与 DQ 是平面 ABD 内两条相交直线，故 CD ⊥ 平面 ABD，C 正确。\n\nD 项：AB ⊥ 平面 ACD 需 AB ⊥ AC 且 AB ⊥ AD，即 A 同时是 C、D 的垂足，故 P = Q = A。此时 AC→ = (0,2,0)，AD→ = (0,0.5,√3/2)，AC→·AD→ = 1 ≠ 0，故 AC 不垂直于 AD，D 错误。\n\n综上，正确选项为 B、C。"
+      },
+      "status": "completed",
+      "observation": {
+        "submission_id": "submission_3c87205a6c4d",
+        "region_id": "region_art_0018_01",
+        "final_answer": "正确选项：B、C\n\n题目：在空间中，A、B 为两个定点，动点 C 到直线 AB 的距离为 2，动点 D 到直线 AB 的距离为 1。若二面角 C–AB–D 为 60°，则（　）\nA. ∠CAD ≥ 60°\nB. CD ≥ √3\nC. 当 AB ⊥ CD 时，CD ⊥ 平面 ABD\nD. 当 AB ⊥ 平面 ACD 时，AC ⊥ AD\n\n答案：BC",
+        "reasoning": "建立坐标系：以直线 AB 为 x 轴。设 C 在 AB 上的垂足为 P，D 在 AB 上的垂足为 Q，则 CP = 2，DQ = 1，且 CP ⊥ AB，DQ ⊥ AB。二面角 C–AB–D 即垂直于 AB 的平面内 CP 与 DQ 的夹角，为 60°。\n\n向量分解：CD→ = CP→ + PQ→ + QD→，其中 CP→、QD→ 都垂直于 AB，PQ→ 沿 AB 方向，故 PQ→ 与 CP→、QD→ 均垂直。\n\nB 项：|CD|² = |CP|² + |PQ|² + |QD|² + 2·CP→·QD→ = 4 + |PQ|² + 1 + 2·2·1·cos60° = 5 + |PQ|² + 2 = 7 + |PQ|² ≥ 7，所以 CD ≥ √7 > √3，B 正确。\n\nA 项：取 P = Q（两垂足重合），令 A 在 AB 上距 P 为 a。取 C = (0,2,0)，D = (0, 0.5, √3/2)，A = (a,0,0)。则 cos∠CAD = (a²+1)/(√(a²+4)·√(a²+1))，当 a → ∞ 时趋于 1，∠CAD → 0° < 60°，故 A 错误。\n\nC 项：AB ⊥ CD 意味着 CD 沿 AB 方向的分量为 0，即 PQ = 0，故 P = Q。此时 CD→ = QD→ − CP→，计算 CD→·QD→ = |QD|² − CP→·QD→ = 1 − 2cos60° = 1 − 1 = 0，即 CD ⊥ DQ。又 CD ⊥ AB，而 AB 与 DQ 是平面 ABD 内两条相交直线，故 CD ⊥ 平面 ABD，C 正确。\n\nD 项：AB ⊥ 平面 ACD 需 AB ⊥ AC 且 AB ⊥ AD，即 A 同时是 C、D 的垂足，故 P = Q = A。此时 AC→ = (0,2,0)，AD→ = (0,0.5,√3/2)，AC→·AD→ = 1 ≠ 0，故 AC 不垂直于 AD，D 错误。\n\n综上，正确选项为 B、C。",
+        "status": "submitted"
+      },
+      "step_id": "step_0016"
+    }
+  ],
+  "final_submission": {
+    "region_art_0018_01": {
+      "submission_id": "submission_3c87205a6c4d",
+      "region_id": "region_art_0018_01",
+      "final_answer": "正确选项：B、C\n\n题目：在空间中，A、B 为两个定点，动点 C 到直线 AB 的距离为 2，动点 D 到直线 AB 的距离为 1。若二面角 C–AB–D 为 60°，则（　）\nA. ∠CAD ≥ 60°\nB. CD ≥ √3\nC. 当 AB ⊥ CD 时，CD ⊥ 平面 ABD\nD. 当 AB ⊥ 平面 ACD 时，AC ⊥ AD\n\n答案：BC",
+      "reasoning": "建立坐标系：以直线 AB 为 x 轴。设 C 在 AB 上的垂足为 P，D 在 AB 上的垂足为 Q，则 CP = 2，DQ = 1，且 CP ⊥ AB，DQ ⊥ AB。二面角 C–AB–D 即垂直于 AB 的平面内 CP 与 DQ 的夹角，为 60°。\n\n向量分解：CD→ = CP→ + PQ→ + QD→，其中 CP→、QD→ 都垂直于 AB，PQ→ 沿 AB 方向，故 PQ→ 与 CP→、QD→ 均垂直。\n\nB 项：|CD|² = |CP|² + |PQ|² + |QD|² + 2·CP→·QD→ = 4 + |PQ|² + 1 + 2·2·1·cos60° = 5 + |PQ|² + 2 = 7 + |PQ|² ≥ 7，所以 CD ≥ √7 > √3，B 正确。\n\nA 项：取 P = Q（两垂足重合），令 A 在 AB 上距 P 为 a。取 C = (0,2,0)，D = (0, 0.5, √3/2)，A = (a,0,0)。则 cos∠CAD = (a²+1)/(√(a²+4)·√(a²+1))，当 a → ∞ 时趋于 1，∠CAD → 0° < 60°，故 A 错误。\n\nC 项：AB ⊥ CD 意味着 CD 沿 AB 方向的分量为 0，即 PQ = 0，故 P = Q。此时 CD→ = QD→ − CP→，计算 CD→·QD→ = |QD|² − CP→·QD→ = 1 − 2cos60° = 1 − 1 = 0，即 CD ⊥ DQ。又 CD ⊥ AB，而 AB 与 DQ 是平面 ABD 内两条相交直线，故 CD ⊥ 平面 ABD，C 正确。\n\nD 项：AB ⊥ 平面 ACD 需 AB ⊥ AC 且 AB ⊥ AD，即 A 同时是 C、D 的垂足，故 P = Q = A。此时 AC→ = (0,2,0)，AD→ = (0,0.5,√3/2)，AC→·AD→ = 1 ≠ 0，故 AC 不垂直于 AD，D 错误。\n\n综上，正确选项为 B、C。",
+      "status": "submitted"
+    }
+  },
+  "evaluation": {
+    "type": "submission",
+    "expected_regions": 1,
+    "submitted_regions": 1,
+    "all_answers_correct": true,
+    "results": [
+      {
+        "submission_id": "submission_3c87205a6c4d",
+        "region_id": "region_art_0018_01",
+        "problem_id": "problem_0018_01",
+        "answer_correct": true,
+        "verification_status": "correct",
+        "verification_method": "legacy_rules",
+        "verification": {
+          "status": "correct",
+          "score": 1.0,
+          "match_method": "legacy_rules",
+          "needs_review": false,
+          "part_results": [],
+          "missing_parts": [],
+          "diagnostics": []
+        },
+        "needs_review": false,
+        "reasoning_present": true,
+        "task_completed": true,
+        "reward": 1.0
+      }
+    ],
+    "rubric_check": {
+      "required_tools_complete": true,
+      "missing_tools": [],
+      "missing_regions": {},
+      "submission_required": true,
+      "submission_complete": true,
+      "submission_policy": "required",
+      "submission_policy_compliant": true,
+      "all_answers_correct": true,
+      "answer_needs_review": false,
+      "answer_incorrect": false,
+      "invalid_reference": false,
+      "duplicate_regions": [],
+      "forbidden_submission": false,
+      "acceptable_tool_path_matched": true,
+      "acceptable_tool_path_index": 0,
+      "reward_breakdown": {
+        "answer_reward": 1.0,
+        "reasoning_reward": 1.0,
+        "tool_path_reward": 1.0,
+        "submission_policy_penalty": 0.0,
+        "duplicate_submission_penalty": 0.0,
+        "acceptable_path_penalty": 0.0,
+        "total_reward": 3.0
+      },
+      "passed": true
+    }
+  },
+  "usage": {
+    "total_tokens": 13084,
+    "prompt_tokens": 10530,
+    "completion_tokens": 2554,
+    "reasoning_tokens": 0
+  },
+  "status": "completed",
+  "termination_reason": "required_submissions_completed",
+  "errors": [],
+  "ocr": {
+    "mode": "real",
+    "provider": "vision_model",
+    "model": "DeepSeek-V4.1-Flash"
+  }
+}

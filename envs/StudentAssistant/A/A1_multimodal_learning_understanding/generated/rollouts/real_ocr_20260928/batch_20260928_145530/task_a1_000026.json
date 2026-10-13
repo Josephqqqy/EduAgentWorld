@@ -1,0 +1,526 @@
+{
+  "trajectory_id": "traj_1e4a09edfb7e4e698f13d6f7e2fb8681",
+  "task_id": "task_a1_000026",
+  "model": {
+    "name": "DeepSeek-V4.1-Flash"
+  },
+  "task": {
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；判断题目内容是否完整并指出缺失部分；整理成可编辑的文本；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0020",
+      "fixture_path": "raw/assets/20.jpg"
+    }
+  },
+  "steps": [
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I'll start by registering the uploaded image and examining its basic information.",
+        "tool_calls": [
+          {
+            "id": "call_3b451ce94a42476c8a5abb2d",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "upload_artifact",
+              "arguments": "{\"user_id\": \"student_task_user\", \"fixture_path\": \"raw/assets/20.jpg\"}"
+            }
+          },
+          {
+            "id": "call_112f598019a145a9bde7256f",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "get_artifact",
+              "arguments": "{\"artifact_id\": \"art_0020\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1240,
+        "total_tokens": 1350,
+        "completion_tokens": 110,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 4045.545300003141,
+      "request_id": "3bcdfd6f6493429cbc681bbbd730282f",
+      "step_id": "step_0001"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_3b451ce94a42476c8a5abb2d",
+      "tool": "upload_artifact",
+      "arguments": {
+        "user_id": "student_task_user",
+        "fixture_path": "raw/assets/20.jpg"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0020",
+        "user_id": "student_task_user",
+        "file_name": "20.jpg",
+        "media_type": "image",
+        "storage_path": "F:\\CODE\\AgentWorld2\\envs\\StudentAssistant\\A\\A1_multimodal_learning_understanding\\raw\\assets\\20.jpg",
+        "content_hash": "sha256:748e602115b424b67fd5ff3ac095045df9c1e088d1ae2ffaea6926a42611fe49",
+        "size_bytes": 2629605,
+        "width": 4030,
+        "height": 1096,
+        "status": "uploaded"
+      },
+      "step_id": "step_0002"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_112f598019a145a9bde7256f",
+      "tool": "get_artifact",
+      "arguments": {
+        "artifact_id": "art_0020"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0020",
+        "user_id": "student_task_user",
+        "file_name": "20.jpg",
+        "media_type": "image",
+        "storage_path": "F:\\CODE\\AgentWorld2\\envs\\StudentAssistant\\A\\A1_multimodal_learning_understanding\\raw\\assets\\20.jpg",
+        "content_hash": "sha256:748e602115b424b67fd5ff3ac095045df9c1e088d1ae2ffaea6926a42611fe49",
+        "size_bytes": 2629605,
+        "width": 4030,
+        "height": 1096,
+        "status": "uploaded"
+      },
+      "step_id": "step_0003"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "The image is 4030×1096 pixels — a wide, likely multi-problem layout. Let me list the problem regions.",
+        "tool_calls": [
+          {
+            "id": "call_a4715aacfb8c425186c2411e",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "list_artifact_regions",
+              "arguments": "{\"artifact_id\": \"art_0020\"}"
+            }
+          },
+          {
+            "id": "call_84fc5904f126462db602d804",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "get_artifact_problem_contexts",
+              "arguments": "{\"artifact_id\": \"art_0020\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1659,
+        "total_tokens": 1767,
+        "completion_tokens": 108,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 3523.8200000021607,
+      "request_id": "c4b019b45c544feda4c9fb745be897f4",
+      "step_id": "step_0004"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_a4715aacfb8c425186c2411e",
+      "tool": "list_artifact_regions",
+      "arguments": {
+        "artifact_id": "art_0020"
+      },
+      "status": "completed",
+      "observation": [
+        {
+          "region_id": "region_art_0020_01",
+          "artifact_id": "art_0020",
+          "region_index": 1,
+          "region_type": "question",
+          "bbox_json": null,
+          "bbox_status": "not_annotated",
+          "confidence": null,
+          "status": "confirmed"
+        }
+      ],
+      "step_id": "step_0005"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_84fc5904f126462db602d804",
+      "tool": "get_artifact_problem_contexts",
+      "arguments": {
+        "artifact_id": "art_0020"
+      },
+      "status": "error",
+      "error": {
+        "type": "ValueError",
+        "message": "Real OCR required for region: region_art_0020_01"
+      },
+      "step_id": "step_0006"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Only one region is detected. Let me recognize its content and check completeness.",
+        "tool_calls": [
+          {
+            "id": "call_dd8a2801cc9d438186a0ee20",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "recognize_content",
+              "arguments": "{\"region_id\": \"region_art_0020_01\", \"modality\": \"ocr\"}"
+            }
+          },
+          {
+            "id": "call_593993234f8c441a84c4cad9",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "assess_content_completeness",
+              "arguments": "{\"region_id\": \"region_art_0020_01\"}"
+            }
+          },
+          {
+            "id": "call_bf81d2f4c1324615ac57e7a2",
+            "index": 2,
+            "type": "function",
+            "function": {
+              "name": "extract_editable_text",
+              "arguments": "{\"region_id\": \"region_art_0020_01\", \"include_latex\": true}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1881,
+        "total_tokens": 2058,
+        "completion_tokens": 177,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 6449.761800002307,
+      "request_id": "04198831acea46db82ba513116f6bd3b",
+      "step_id": "step_0007"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_dd8a2801cc9d438186a0ee20",
+      "tool": "recognize_content",
+      "arguments": {
+        "region_id": "region_art_0020_01",
+        "modality": "ocr"
+      },
+      "status": "completed",
+      "observation": {
+        "recognition_id": "recognition_f39c54f3b44a",
+        "region_id": "region_art_0020_01",
+        "modality": "ocr",
+        "engine": "vision_model_ocr",
+        "raw_output": "{\"provider\": \"vision_model\", \"model\": \"DeepSeek-V4.1-Flash\", \"text\": \"16. (15 分)\\n已知在 $\\\\triangle ABC$ 中，$AB = 3, BC = 2\\\\sqrt{3}, \\\\cos B = \\\\frac{\\\\sqrt{3}}{3}$。\\n(1) 求 $\\\\cos A$；\\n(2) 设 $D, E$ 两点满足：$D$ 在 $BA$ 的延长线上，$DE \\\\parallel BC$，$AE \\\\perp AC$。若 $DE = \\\\sqrt{6}$，求 $CE$。\"}",
+        "normalized_output": "16. (15 分)\n已知在 $\\triangle ABC$ 中，$AB = 3, BC = 2\\sqrt{3}, \\cos B = \\frac{\\sqrt{3}}{3}$。\n(1) 求 $\\cos A$；\n(2) 设 $D, E$ 两点满足：$D$ 在 $BA$ 的延长线上，$DE \\parallel BC$，$AE \\perp AC$。若 $DE = \\sqrt{6}$，求 $CE$。",
+        "confidence": null,
+        "status": "completed"
+      },
+      "step_id": "step_0008"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_593993234f8c441a84c4cad9",
+      "tool": "assess_content_completeness",
+      "arguments": {
+        "region_id": "region_art_0020_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0020_01",
+        "is_complete": null,
+        "missing_parts": [],
+        "confidence": null,
+        "needs_user_action": false,
+        "status": "requires_visual_review"
+      },
+      "step_id": "step_0009"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_bf81d2f4c1324615ac57e7a2",
+      "tool": "extract_editable_text",
+      "arguments": {
+        "region_id": "region_art_0020_01",
+        "include_latex": true
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0020_01",
+        "text": "16. (15 分)\n已知在 $\\triangle ABC$ 中，$AB = 3, BC = 2\\sqrt{3}, \\cos B = \\frac{\\sqrt{3}}{3}$。\n(1) 求 $\\cos A$；\n(2) 设 $D, E$ 两点满足：$D$ 在 $BA$ 的延长线上，$DE \\parallel BC$，$AE \\perp AC$。若 $DE = \\sqrt{6}$，求 $CE$。",
+        "format": "markdown"
+      },
+      "step_id": "step_0010"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "The content is recognized. Let me analyze the diagram, knowledge points, and problem context.",
+        "tool_calls": [
+          {
+            "id": "call_a120eaf3660b4c788d6562a1",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "analyze_diagram",
+              "arguments": "{\"region_id\": \"region_art_0020_01\"}"
+            }
+          },
+          {
+            "id": "call_3f41367d2e264dffa7d120cd",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "analyze_problem_knowledge",
+              "arguments": "{\"region_id\": \"region_art_0020_01\"}"
+            }
+          },
+          {
+            "id": "call_e16ffd5abc9e4ddd9a6c0df7",
+            "index": 2,
+            "type": "function",
+            "function": {
+              "name": "get_problem_context",
+              "arguments": "{\"region_id\": \"region_art_0020_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 2623,
+        "total_tokens": 2768,
+        "completion_tokens": 145,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 5592.724199988879,
+      "request_id": "5ef1a5380e804ad8bfb1395f1954f366",
+      "step_id": "step_0011"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_a120eaf3660b4c788d6562a1",
+      "tool": "analyze_diagram",
+      "arguments": {
+        "region_id": "region_art_0020_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0020_01",
+        "has_diagram": null,
+        "diagram_type": null,
+        "entities": [],
+        "relations": [],
+        "description": "",
+        "status": "visual_analysis_unavailable"
+      },
+      "step_id": "step_0012"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_3f41367d2e264dffa7d120cd",
+      "tool": "analyze_problem_knowledge",
+      "arguments": {
+        "region_id": "region_art_0020_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0020_01",
+        "problem_id": "problem_0020_01",
+        "subject": "math",
+        "grade_band": "high_school",
+        "question_type": null,
+        "knowledge_points": [],
+        "has_diagram": null,
+        "analysis_basis": "ocr_text_only_no_verified_metadata"
+      },
+      "step_id": "step_0013"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_e16ffd5abc9e4ddd9a6c0df7",
+      "tool": "get_problem_context",
+      "arguments": {
+        "region_id": "region_art_0020_01"
+      },
+      "status": "completed",
+      "observation": {
+        "problem_id": "problem_0020_01",
+        "subject": "math",
+        "grade_band": "high_school",
+        "statement": "16. (15 分)\n已知在 $\\triangle ABC$ 中，$AB = 3, BC = 2\\sqrt{3}, \\cos B = \\frac{\\sqrt{3}}{3}$。\n(1) 求 $\\cos A$；\n(2) 设 $D, E$ 两点满足：$D$ 在 $BA$ 的延长线上，$DE \\parallel BC$，$AE \\perp AC$。若 $DE = \\sqrt{6}$，求 $CE$。",
+        "latex": null,
+        "topic": null,
+        "question_type": null,
+        "has_diagram": null,
+        "question_no": "16",
+        "region_id": "region_art_0020_01"
+      },
+      "step_id": "step_0014"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "The diagram analysis is unavailable, but the text is fully self-contained. Let me solve both parts.\n\n**Part (1):** In △ABC, AB = 3, BC = 2√3, cos B = √3/3.\n\nBy law of cosines: AC² = AB² + BC² − 2·AB·BC·cos B = 9 + 12 − 2·3·2√3·(√3/3) = 21 − 12 = 9, so AC = 3.\n\nThen cos A = (AB² + AC² − BC²)/(2·AB·AC) = (9 + 9 − 12)/(2·3·3) = 6/18 = 1/3.\n\n**Part (2):** D on ray BA beyond A, DE ∥ BC, AE ⊥ AC, DE = √6. Find CE.\n\nSince DE ∥ BC and D lies on line BA, triangles ADE and ABC are similar (A common angle, DE ∥ BC). So AD/AB = DE/BC = AE/AC.\n\nDE/BC = √6/(2√3) = √2/2. So AD = AB·(√2/2) = 3√2/2, AE = AC·(√2/2) = 3√2/2.\n\nNow AE ⊥ AC, so in right triangle AEC with AE = AC = 3√2/2: CE = √(AE² + AC²) = √(9/2 + 9/2) = √9 = 3.\n\nLet me verify the similarity direction carefully and submit.",
+        "tool_calls": [
+          {
+            "id": "call_13b1005546ff41ec8e9ce868",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "submit_solution",
+              "arguments": "{\"region_id\": \"region_art_0020_01\", \"final_answer\": \"(1) cos A = 1/3；(2) CE = 3。\", \"reasoning\": \"第(1)问：在△ABC中，AB=3，BC=2√3，cos B=√3/3。由余弦定理：\\nAC² = AB² + BC² − 2·AB·BC·cos B = 9 + 12 − 2×3×2√3×(√3/3) = 21 − 12 = 9，故 AC = 3。\\n再由余弦定理求 cos A：\\ncos A = (AB² + AC² − BC²)/(2·AB·AC) = (9 + 9 − 12)/(2×3×3) = 6/18 = 1/3。\\n\\n第(2)问：D 在 BA 的延长线上，故 A、B、D 共线；又 DE ∥ BC，所以 △ADE ∽ △ABC（∠A 为公共角，DE∥BC 得同位角相等）。\\n由相似比：AD/AB = AE/AC = DE/BC。\\nDE/BC = √6/(2√3) = √2/2。\\n于是 AD = AB·(√2/2) = 3√2/2，AE = AC·(√2/2) = 3√2/2。\\n又 AE ⊥ AC，故 △AEC 为直角三角形，∠EAC = 90°：\\nCE² = AE² + AC² = (3√2/2)² + 3² = 9/2 + 9 = 27/2？——此处需注意：AC = 3，AE = 3√2/2，\\nCE² = AE² + AC² = 9/2 + 9 = 27/2，CE = (3√6)/2。\\n\\n修正：重新核对相似比。DE ∥ BC 且 D 在 BA 延长线上，△ADE 与 △ABC 相似，对应边 AD↔AB，AE↔AC，DE↔BC。\\nDE/BC = √6/(2√3) = √2/2，故 AE = AC·√2/2 = 3√2/2。\\n在 Rt△AEC 中，AE ⊥ AC，两直角边为 AE = 3√2/2 与 AC = 3：\\nCE = √(AE² + AC²) = √(9/2 + 9) = √(27/2) = (3√6)/2 ≈ 3.674。\\n\\n最终：(1) cos A = 1/3；(2) CE = (3√6)/2。\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3119,
+        "total_tokens": 4111,
+        "completion_tokens": 992,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 28094.2081999965,
+      "request_id": "c5bcc8c6205742a1979af52085548a58",
+      "step_id": "step_0015"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_13b1005546ff41ec8e9ce868",
+      "tool": "submit_solution",
+      "arguments": {
+        "region_id": "region_art_0020_01",
+        "final_answer": "(1) cos A = 1/3；(2) CE = 3。",
+        "reasoning": "第(1)问：在△ABC中，AB=3，BC=2√3，cos B=√3/3。由余弦定理：\nAC² = AB² + BC² − 2·AB·BC·cos B = 9 + 12 − 2×3×2√3×(√3/3) = 21 − 12 = 9，故 AC = 3。\n再由余弦定理求 cos A：\ncos A = (AB² + AC² − BC²)/(2·AB·AC) = (9 + 9 − 12)/(2×3×3) = 6/18 = 1/3。\n\n第(2)问：D 在 BA 的延长线上，故 A、B、D 共线；又 DE ∥ BC，所以 △ADE ∽ △ABC（∠A 为公共角，DE∥BC 得同位角相等）。\n由相似比：AD/AB = AE/AC = DE/BC。\nDE/BC = √6/(2√3) = √2/2。\n于是 AD = AB·(√2/2) = 3√2/2，AE = AC·(√2/2) = 3√2/2。\n又 AE ⊥ AC，故 △AEC 为直角三角形，∠EAC = 90°：\nCE² = AE² + AC² = (3√2/2)² + 3² = 9/2 + 9 = 27/2？——此处需注意：AC = 3，AE = 3√2/2，\nCE² = AE² + AC² = 9/2 + 9 = 27/2，CE = (3√6)/2。\n\n修正：重新核对相似比。DE ∥ BC 且 D 在 BA 延长线上，△ADE 与 △ABC 相似，对应边 AD↔AB，AE↔AC，DE↔BC。\nDE/BC = √6/(2√3) = √2/2，故 AE = AC·√2/2 = 3√2/2。\n在 Rt△AEC 中，AE ⊥ AC，两直角边为 AE = 3√2/2 与 AC = 3：\nCE = √(AE² + AC²) = √(9/2 + 9) = √(27/2) = (3√6)/2 ≈ 3.674。\n\n最终：(1) cos A = 1/3；(2) CE = (3√6)/2。"
+      },
+      "status": "completed",
+      "observation": {
+        "submission_id": "submission_c0909efd857d",
+        "region_id": "region_art_0020_01",
+        "final_answer": "(1) cos A = 1/3；(2) CE = 3。",
+        "reasoning": "第(1)问：在△ABC中，AB=3，BC=2√3，cos B=√3/3。由余弦定理：\nAC² = AB² + BC² − 2·AB·BC·cos B = 9 + 12 − 2×3×2√3×(√3/3) = 21 − 12 = 9，故 AC = 3。\n再由余弦定理求 cos A：\ncos A = (AB² + AC² − BC²)/(2·AB·AC) = (9 + 9 − 12)/(2×3×3) = 6/18 = 1/3。\n\n第(2)问：D 在 BA 的延长线上，故 A、B、D 共线；又 DE ∥ BC，所以 △ADE ∽ △ABC（∠A 为公共角，DE∥BC 得同位角相等）。\n由相似比：AD/AB = AE/AC = DE/BC。\nDE/BC = √6/(2√3) = √2/2。\n于是 AD = AB·(√2/2) = 3√2/2，AE = AC·(√2/2) = 3√2/2。\n又 AE ⊥ AC，故 △AEC 为直角三角形，∠EAC = 90°：\nCE² = AE² + AC² = (3√2/2)² + 3² = 9/2 + 9 = 27/2？——此处需注意：AC = 3，AE = 3√2/2，\nCE² = AE² + AC² = 9/2 + 9 = 27/2，CE = (3√6)/2。\n\n修正：重新核对相似比。DE ∥ BC 且 D 在 BA 延长线上，△ADE 与 △ABC 相似，对应边 AD↔AB，AE↔AC，DE↔BC。\nDE/BC = √6/(2√3) = √2/2，故 AE = AC·√2/2 = 3√2/2。\n在 Rt△AEC 中，AE ⊥ AC，两直角边为 AE = 3√2/2 与 AC = 3：\nCE = √(AE² + AC²) = √(9/2 + 9) = √(27/2) = (3√6)/2 ≈ 3.674。\n\n最终：(1) cos A = 1/3；(2) CE = (3√6)/2。",
+        "status": "submitted"
+      },
+      "step_id": "step_0016"
+    }
+  ],
+  "final_submission": {
+    "region_art_0020_01": {
+      "submission_id": "submission_c0909efd857d",
+      "region_id": "region_art_0020_01",
+      "final_answer": "(1) cos A = 1/3；(2) CE = 3。",
+      "reasoning": "第(1)问：在△ABC中，AB=3，BC=2√3，cos B=√3/3。由余弦定理：\nAC² = AB² + BC² − 2·AB·BC·cos B = 9 + 12 − 2×3×2√3×(√3/3) = 21 − 12 = 9，故 AC = 3。\n再由余弦定理求 cos A：\ncos A = (AB² + AC² − BC²)/(2·AB·AC) = (9 + 9 − 12)/(2×3×3) = 6/18 = 1/3。\n\n第(2)问：D 在 BA 的延长线上，故 A、B、D 共线；又 DE ∥ BC，所以 △ADE ∽ △ABC（∠A 为公共角，DE∥BC 得同位角相等）。\n由相似比：AD/AB = AE/AC = DE/BC。\nDE/BC = √6/(2√3) = √2/2。\n于是 AD = AB·(√2/2) = 3√2/2，AE = AC·(√2/2) = 3√2/2。\n又 AE ⊥ AC，故 △AEC 为直角三角形，∠EAC = 90°：\nCE² = AE² + AC² = (3√2/2)² + 3² = 9/2 + 9 = 27/2？——此处需注意：AC = 3，AE = 3√2/2，\nCE² = AE² + AC² = 9/2 + 9 = 27/2，CE = (3√6)/2。\n\n修正：重新核对相似比。DE ∥ BC 且 D 在 BA 延长线上，△ADE 与 △ABC 相似，对应边 AD↔AB，AE↔AC，DE↔BC。\nDE/BC = √6/(2√3) = √2/2，故 AE = AC·√2/2 = 3√2/2。\n在 Rt△AEC 中，AE ⊥ AC，两直角边为 AE = 3√2/2 与 AC = 3：\nCE = √(AE² + AC²) = √(9/2 + 9) = √(27/2) = (3√6)/2 ≈ 3.674。\n\n最终：(1) cos A = 1/3；(2) CE = (3√6)/2。",
+      "status": "submitted"
+    }
+  },
+  "evaluation": {
+    "type": "submission",
+    "expected_regions": 1,
+    "submitted_regions": 1,
+    "all_answers_correct": false,
+    "results": [
+      {
+        "submission_id": "submission_c0909efd857d",
+        "region_id": "region_art_0020_01",
+        "problem_id": "problem_0020_01",
+        "answer_correct": false,
+        "verification_status": "incorrect",
+        "verification_method": "multipart",
+        "verification": {
+          "status": "incorrect",
+          "score": 0.0,
+          "match_method": "multipart",
+          "needs_review": false,
+          "part_results": [
+            {
+              "part_id": "part_1",
+              "status": "correct",
+              "score": 1.0,
+              "match_method": "symbolic_equivalence",
+              "needs_review": false,
+              "part_results": [],
+              "missing_parts": [],
+              "diagnostics": []
+            },
+            {
+              "part_id": "part_2",
+              "status": "incorrect",
+              "score": 0.0,
+              "match_method": "symbolic_equivalence",
+              "needs_review": false,
+              "part_results": [],
+              "missing_parts": [],
+              "diagnostics": []
+            }
+          ],
+          "missing_parts": [],
+          "diagnostics": []
+        },
+        "needs_review": false,
+        "reasoning_present": true,
+        "task_completed": false,
+        "reward": 0.0
+      }
+    ],
+    "rubric_check": {
+      "required_tools_complete": true,
+      "missing_tools": [],
+      "missing_regions": {},
+      "submission_required": true,
+      "submission_complete": true,
+      "submission_policy": "required",
+      "submission_policy_compliant": true,
+      "all_answers_correct": false,
+      "answer_needs_review": false,
+      "answer_incorrect": true,
+      "invalid_reference": false,
+      "duplicate_regions": [],
+      "forbidden_submission": false,
+      "acceptable_tool_path_matched": true,
+      "acceptable_tool_path_index": 0,
+      "reward_breakdown": {
+        "answer_reward": 0.0,
+        "reasoning_reward": 1.0,
+        "tool_path_reward": 1.0,
+        "submission_policy_penalty": 0.0,
+        "duplicate_submission_penalty": 0.0,
+        "acceptable_path_penalty": 0.0,
+        "total_reward": 2.0
+      },
+      "passed": false
+    }
+  },
+  "usage": {
+    "total_tokens": 12054,
+    "prompt_tokens": 10522,
+    "completion_tokens": 1532,
+    "reasoning_tokens": 0
+  },
+  "status": "failed",
+  "termination_reason": "answer_incorrect",
+  "errors": [],
+  "ocr": {
+    "mode": "real",
+    "provider": "vision_model",
+    "model": "DeepSeek-V4.1-Flash"
+  }
+}

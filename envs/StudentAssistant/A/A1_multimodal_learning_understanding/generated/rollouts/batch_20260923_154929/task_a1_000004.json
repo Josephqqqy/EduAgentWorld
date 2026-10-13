@@ -1,0 +1,481 @@
+{
+  "trajectory_id": "traj_cbf4abcb80964cfc831fcaf7d05b72d3",
+  "task_id": "task_a1_000004",
+  "model": {
+    "name": "DeepSeek-V4.1-Flash"
+  },
+  "task": {
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；确认学习材料的基本信息；区分图片中包含的各道题目；识别题目内容和数学表达式；判断题目内容是否完整并指出缺失部分；结合题目类型和上下文进行理解；说明题目中数学图形的作用和已知关系；分析涉及的知识点；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0008",
+      "fixture_path": "raw/assets/8.png"
+    }
+  },
+  "steps": [
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I'll start by registering the uploaded image and examining its basic information.",
+        "tool_calls": [
+          {
+            "id": "call_abaaabc9091f4f58ba051b78",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "upload_artifact",
+              "arguments": "{\"user_id\": \"student_task_user\", \"fixture_path\": \"raw/assets/8.png\"}"
+            }
+          },
+          {
+            "id": "call_6cee44dd21b34861b64c0ad5",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "get_artifact",
+              "arguments": "{\"artifact_id\": \"art_0008\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1239,
+        "total_tokens": 1349,
+        "completion_tokens": 110,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1915.9384000231512,
+      "request_id": "7bb3e662e5b0488ab1002e9ba349e3a9",
+      "step_id": "step_0001"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_abaaabc9091f4f58ba051b78",
+      "tool": "upload_artifact",
+      "arguments": {
+        "user_id": "student_task_user",
+        "fixture_path": "raw/assets/8.png"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0008",
+        "user_id": null,
+        "file_name": "8.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/8.png",
+        "content_hash": "sha256:2db6deb63be0e141d45ffde31b8d9428a2151078589f493eda517e7cc799db9f",
+        "size_bytes": 55553,
+        "width": 733,
+        "height": 188,
+        "status": "uploaded"
+      },
+      "step_id": "step_0002"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_6cee44dd21b34861b64c0ad5",
+      "tool": "get_artifact",
+      "arguments": {
+        "artifact_id": "art_0008"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0008",
+        "user_id": null,
+        "file_name": "8.png",
+        "media_type": "image",
+        "storage_path": "raw/assets/8.png",
+        "content_hash": "sha256:2db6deb63be0e141d45ffde31b8d9428a2151078589f493eda517e7cc799db9f",
+        "size_bytes": 55553,
+        "width": 733,
+        "height": 188,
+        "status": "uploaded"
+      },
+      "step_id": "step_0003"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Now let me list the problem regions in the image.",
+        "tool_calls": [
+          {
+            "id": "call_103a7e1d4f244e789f7df1dd",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "list_artifact_regions",
+              "arguments": "{\"artifact_id\": \"art_0008\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1594,
+        "total_tokens": 1649,
+        "completion_tokens": 55,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1008.5786000126973,
+      "request_id": "3a2c30c4b83b497db285b232933c94bb",
+      "step_id": "step_0004"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_103a7e1d4f244e789f7df1dd",
+      "tool": "list_artifact_regions",
+      "arguments": {
+        "artifact_id": "art_0008"
+      },
+      "status": "completed",
+      "observation": [
+        {
+          "region_id": "region_art_0008_01",
+          "artifact_id": "art_0008",
+          "region_index": 1,
+          "region_type": "question",
+          "bbox_json": null,
+          "bbox_status": "not_annotated",
+          "confidence": null,
+          "status": "confirmed"
+        }
+      ],
+      "step_id": "step_0005"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "There's one region. Let me get its content and context.",
+        "tool_calls": [
+          {
+            "id": "call_94611e9a8aeb44a99eb10daf",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "recognize_content",
+              "arguments": "{\"region_id\": \"region_art_0008_01\", \"modality\": \"ocr\"}"
+            }
+          },
+          {
+            "id": "call_5b80d87a7594475cb95ff0bd",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "extract_editable_text",
+              "arguments": "{\"region_id\": \"region_art_0008_01\", \"include_latex\": true}"
+            }
+          },
+          {
+            "id": "call_5fddd7f3af654622bd38a880",
+            "index": 2,
+            "type": "function",
+            "function": {
+              "name": "get_problem_context",
+              "arguments": "{\"region_id\": \"region_art_0008_01\"}"
+            }
+          },
+          {
+            "id": "call_0a3506fe84fb48e693ab81ba",
+            "index": 3,
+            "type": "function",
+            "function": {
+              "name": "assess_content_completeness",
+              "arguments": "{\"region_id\": \"region_art_0008_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1726,
+        "total_tokens": 1939,
+        "completion_tokens": 213,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 3361.7007000138983,
+      "request_id": "cd614c87e69e4a69a494e48e10e6c599",
+      "step_id": "step_0006"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_94611e9a8aeb44a99eb10daf",
+      "tool": "recognize_content",
+      "arguments": {
+        "region_id": "region_art_0008_01",
+        "modality": "ocr"
+      },
+      "status": "completed",
+      "observation": {
+        "recognition_id": "recognition_0fa69fb30209",
+        "region_id": "region_art_0008_01",
+        "modality": "ocr",
+        "engine": "fixture_ocr_v1",
+        "raw_output": "7. 设 \\(f(x)\\) 是 \\([0,1]\\) 上单调增加的连续函数，则（ ）。\n\n（A）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\ge\\int_0^1f(x)e^{-x^2}\\,dx\n\\]\n\n（B）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\le\\int_0^1f(x)e^{-x^2}\\,dx\n\\]\n\n（C）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\ge\\int_0^1f(x)\\,dx\n\\]\n\n（D）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\le\\int_0^1f(x)\\,dx\n\\]",
+        "normalized_output": "7. 设 \\(f(x)\\) 是 \\([0,1]\\) 上单调增加的连续函数，则（ ）。\n\n（A）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\ge\\int_0^1f(x)e^{-x^2}\\,dx\n\\]\n\n（B）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\le\\int_0^1f(x)e^{-x^2}\\,dx\n\\]\n\n（C）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\ge\\int_0^1f(x)\\,dx\n\\]\n\n（D）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\le\\int_0^1f(x)\\,dx\n\\]",
+        "confidence": 1.0,
+        "status": "completed"
+      },
+      "step_id": "step_0007"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_5b80d87a7594475cb95ff0bd",
+      "tool": "extract_editable_text",
+      "arguments": {
+        "region_id": "region_art_0008_01",
+        "include_latex": true
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0008_01",
+        "text": "7. 设 \\(f(x)\\) 是 \\([0,1]\\) 上单调增加的连续函数，则（ ）。\n\n（A）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\ge\\int_0^1f(x)e^{-x^2}\\,dx\n\\]\n\n（B）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\le\\int_0^1f(x)e^{-x^2}\\,dx\n\\]\n\n（C）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\ge\\int_0^1f(x)\\,dx\n\\]\n\n（D）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\le\\int_0^1f(x)\\,dx\n\\]",
+        "format": "markdown",
+        "latex": "f\\text{ is increasing on }[0,1];\\quad a=\\int_0^1e^{-t^2}\\,dt;\\quad \\int_0^a f(x)\\,dx;\\quad \\int_0^1f(x)e^{-x^2}\\,dx"
+      },
+      "step_id": "step_0008"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_5fddd7f3af654622bd38a880",
+      "tool": "get_problem_context",
+      "arguments": {
+        "region_id": "region_art_0008_01"
+      },
+      "status": "completed",
+      "observation": {
+        "problem_id": "problem_0008_01",
+        "subject": "math",
+        "grade_band": "postgraduate",
+        "statement": "7. 设 \\(f(x)\\) 是 \\([0,1]\\) 上单调增加的连续函数，则（ ）。\n\n（A）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\ge\\int_0^1f(x)e^{-x^2}\\,dx\n\\]\n\n（B）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\le\\int_0^1f(x)e^{-x^2}\\,dx\n\\]\n\n（C）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\ge\\int_0^1f(x)\\,dx\n\\]\n\n（D）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\le\\int_0^1f(x)\\,dx\n\\]",
+        "latex": "f\\text{ is increasing on }[0,1];\\quad a=\\int_0^1e^{-t^2}\\,dt;\\quad \\int_0^a f(x)\\,dx;\\quad \\int_0^1f(x)e^{-x^2}\\,dx",
+        "topic": "calculus.integral_inequalities",
+        "question_type": "multiple_choice",
+        "has_diagram": 0,
+        "question_no": "7",
+        "region_id": "region_art_0008_01"
+      },
+      "step_id": "step_0009"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_0a3506fe84fb48e693ab81ba",
+      "tool": "assess_content_completeness",
+      "arguments": {
+        "region_id": "region_art_0008_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0008_01",
+        "is_complete": true,
+        "missing_parts": [],
+        "confidence": 1.0,
+        "needs_user_action": false
+      },
+      "step_id": "step_0010"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Let me analyze the knowledge points and diagram info.",
+        "tool_calls": [
+          {
+            "id": "call_01d49c9312e6439bb8e527f6",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "analyze_problem_knowledge",
+              "arguments": "{\"region_id\": \"region_art_0008_01\"}"
+            }
+          },
+          {
+            "id": "call_ca321f031d644910aefdc43b",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "analyze_diagram",
+              "arguments": "{\"region_id\": \"region_art_0008_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3300,
+        "total_tokens": 3399,
+        "completion_tokens": 99,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1696.063800016418,
+      "request_id": "980b6da1447f4d61899fe89fd79de510",
+      "step_id": "step_0011"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_01d49c9312e6439bb8e527f6",
+      "tool": "analyze_problem_knowledge",
+      "arguments": {
+        "region_id": "region_art_0008_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0008_01",
+        "problem_id": "problem_0008_01",
+        "subject": "math",
+        "grade_band": "postgraduate",
+        "question_type": "multiple_choice",
+        "knowledge_points": [
+          "calculus.integral_inequalities",
+          "单调函数积分不等式",
+          "权重比较"
+        ],
+        "has_diagram": false,
+        "analysis_basis": "normalized_metadata"
+      },
+      "step_id": "step_0012"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_ca321f031d644910aefdc43b",
+      "tool": "analyze_diagram",
+      "arguments": {
+        "region_id": "region_art_0008_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0008_01",
+        "has_diagram": false,
+        "diagram_type": null,
+        "entities": [],
+        "relations": [],
+        "description": "",
+        "status": "no_diagram"
+      },
+      "step_id": "step_0013"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Now let me solve the problem.\n\n**Setup:** Let $a = \\int_0^1 e^{-t^2}\\,dt$. Since $e^{-t^2}$ is decreasing on $[0,1]$ with $e^{-t^2} \\le 1$, we have $0 < a < 1$.\n\n**Key comparison:** For $x \\in [0,1]$, compare $e^{-x^2}$ with the constant $a$:\n- $e^{-x^2}$ is decreasing, so $e^{-x^2} \\ge e^{-1} \\approx 0.368$.\n- $a = \\int_0^1 e^{-t^2}dt$ is the average of $e^{-x^2}$ over $[0,1]$.\n\nActually the crucial fact: $\\int_0^a f(x)\\,dx$ vs $\\int_0^1 f(x)e^{-x^2}dx$. Note $\\int_0^1 e^{-x^2}dx = a$, so $e^{-x^2}$ is a probability-like weight with total mass $a$ on $[0,1]$.\n\nLet me verify: since $f$ is increasing, $\\int_0^a f(x)dx \\le a f(a)$... Let me use the substitution approach.",
+        "tool_calls": [
+          {
+            "id": "call_9189a7262ce94190b7a44692",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "submit_solution",
+              "arguments": "{\"region_id\": \"region_art_0008_01\", \"final_answer\": \"（A）\", \"reasoning\": \"记 a = ∫₀¹ e^{-t²} dt。由于 e^{-t²} 在 [0,1] 上单调递减且 0<e^{-t²}≤1，故 0<a<1。\\n\\n关键观察：∫₀¹ e^{-x²} dx = a，即 e^{-x²} 在 [0,1] 上的总积分为 a。\\n\\n比较 ∫₀^a f(x)dx 与 ∫₀¹ f(x)e^{-x²}dx。作变量替换 x = φ(u)，使 e^{-x²} 的\\\"权重\\\"转化为区间长度。更直接地，考虑函数 g(x)=e^{-x²} 在 [0,1] 上递减，其反函数存在。令 x = h(s) 为 e^{-x²}=s 的解，则 ∫₀¹ f(x)e^{-x²}dx = ∫_{e^{-1}}^{1} f(h(s))·s·|h'(s)| ds，而 ∫₀^a f(x)dx = ∫₀^a f(x)dx。\\n\\n更简洁的证明：由于 f 单调增加，对任意 x∈[0,1]，f(x) ≤ f(1)。且 e^{-x²} 递减。\\n\\n利用积分中值/单调性：设 F(x)=∫₀^x f(t)dt，F 为凸函数（因 f 递增）。由 Jensen 不等式，对权重 e^{-x²}/a（在 [0,1] 上归一化，总质量 1）：\\n(1/a)∫₀¹ F'(x)·... \\n\\n改用直接比较：对 x∈[0,1]，e^{-x²} ≥ e^{-1}。而 a = ∫₀¹ e^{-t²}dt。由于 e^{-t²} 递减，a < 1（因为 e^{-t²}<1 除端点外）。\\n\\n核心不等式：对递增的 f，∫₀^a f(x)dx 与 ∫₀¹ f(x)e^{-x²}dx 的比较等价于比较\\\"分布\\\"。e^{-x²} 在 [0,1] 上的分布偏向 0（因为递减），而均匀分布在 [0,a] 上。由于 f 递增，权重越偏向 0，积分越小。\\n\\n严格地：令 μ 为 [0,1] 上密度 e^{-x²}/a 的概率测度，ν 为 [0,a] 上均匀分布的概率测度（密度 1/a）。两者总质量均为 a。由于 e^{-x²} 递减，μ 随机占优于 ν（μ 把更多质量放在小 x 处），即对递增 f，∫f dμ ≤ ∫f dν，故 ∫₀¹ f(x)e^{-x²}dx ≤ ∫₀^a f(x)dx。\\n\\n因此 ∫₀^a f(x)dx ≥ ∫₀¹ f(x)e^{-x²}dx，即选项 (A) 成立，(B) 错误。\\n\\n对 (C)(D)：∫₀^a f(x)dx ≤ ∫₀¹ f(x)dx 因 a<1 且 f≥0（f 递增，若 f 可取负值则不一定，但通常 f 递增连续，取 f(x)=x 验证：∫₀^a x dx = a²/2，∫₀¹ x dx=1/2，a²/2<1/2，故 ≤ 成立）。但 (C) 说 ≥ 显然错误（a<1 时区间更短）。所以 (D) 在 f≥0 时成立，但题目未限定 f≥0，且 (A) 是必然成立的更强结论。\\n\\n综上，正确选项为 (A)。\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 3562,
+        "total_tokens": 4729,
+        "completion_tokens": 1167,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 17482.22889995668,
+      "request_id": "d7281dd20da64a07bc475ee78bcf9fa3",
+      "step_id": "step_0014"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_9189a7262ce94190b7a44692",
+      "tool": "submit_solution",
+      "arguments": {
+        "region_id": "region_art_0008_01",
+        "final_answer": "（A）",
+        "reasoning": "记 a = ∫₀¹ e^{-t²} dt。由于 e^{-t²} 在 [0,1] 上单调递减且 0<e^{-t²}≤1，故 0<a<1。\n\n关键观察：∫₀¹ e^{-x²} dx = a，即 e^{-x²} 在 [0,1] 上的总积分为 a。\n\n比较 ∫₀^a f(x)dx 与 ∫₀¹ f(x)e^{-x²}dx。作变量替换 x = φ(u)，使 e^{-x²} 的\"权重\"转化为区间长度。更直接地，考虑函数 g(x)=e^{-x²} 在 [0,1] 上递减，其反函数存在。令 x = h(s) 为 e^{-x²}=s 的解，则 ∫₀¹ f(x)e^{-x²}dx = ∫_{e^{-1}}^{1} f(h(s))·s·|h'(s)| ds，而 ∫₀^a f(x)dx = ∫₀^a f(x)dx。\n\n更简洁的证明：由于 f 单调增加，对任意 x∈[0,1]，f(x) ≤ f(1)。且 e^{-x²} 递减。\n\n利用积分中值/单调性：设 F(x)=∫₀^x f(t)dt，F 为凸函数（因 f 递增）。由 Jensen 不等式，对权重 e^{-x²}/a（在 [0,1] 上归一化，总质量 1）：\n(1/a)∫₀¹ F'(x)·... \n\n改用直接比较：对 x∈[0,1]，e^{-x²} ≥ e^{-1}。而 a = ∫₀¹ e^{-t²}dt。由于 e^{-t²} 递减，a < 1（因为 e^{-t²}<1 除端点外）。\n\n核心不等式：对递增的 f，∫₀^a f(x)dx 与 ∫₀¹ f(x)e^{-x²}dx 的比较等价于比较\"分布\"。e^{-x²} 在 [0,1] 上的分布偏向 0（因为递减），而均匀分布在 [0,a] 上。由于 f 递增，权重越偏向 0，积分越小。\n\n严格地：令 μ 为 [0,1] 上密度 e^{-x²}/a 的概率测度，ν 为 [0,a] 上均匀分布的概率测度（密度 1/a）。两者总质量均为 a。由于 e^{-x²} 递减，μ 随机占优于 ν（μ 把更多质量放在小 x 处），即对递增 f，∫f dμ ≤ ∫f dν，故 ∫₀¹ f(x)e^{-x²}dx ≤ ∫₀^a f(x)dx。\n\n因此 ∫₀^a f(x)dx ≥ ∫₀¹ f(x)e^{-x²}dx，即选项 (A) 成立，(B) 错误。\n\n对 (C)(D)：∫₀^a f(x)dx ≤ ∫₀¹ f(x)dx 因 a<1 且 f≥0（f 递增，若 f 可取负值则不一定，但通常 f 递增连续，取 f(x)=x 验证：∫₀^a x dx = a²/2，∫₀¹ x dx=1/2，a²/2<1/2，故 ≤ 成立）。但 (C) 说 ≥ 显然错误（a<1 时区间更短）。所以 (D) 在 f≥0 时成立，但题目未限定 f≥0，且 (A) 是必然成立的更强结论。\n\n综上，正确选项为 (A)。"
+      },
+      "status": "completed",
+      "observation": {
+        "submission_id": "submission_6148a60d8706",
+        "region_id": "region_art_0008_01",
+        "final_answer": "（A）",
+        "reasoning": "记 a = ∫₀¹ e^{-t²} dt。由于 e^{-t²} 在 [0,1] 上单调递减且 0<e^{-t²}≤1，故 0<a<1。\n\n关键观察：∫₀¹ e^{-x²} dx = a，即 e^{-x²} 在 [0,1] 上的总积分为 a。\n\n比较 ∫₀^a f(x)dx 与 ∫₀¹ f(x)e^{-x²}dx。作变量替换 x = φ(u)，使 e^{-x²} 的\"权重\"转化为区间长度。更直接地，考虑函数 g(x)=e^{-x²} 在 [0,1] 上递减，其反函数存在。令 x = h(s) 为 e^{-x²}=s 的解，则 ∫₀¹ f(x)e^{-x²}dx = ∫_{e^{-1}}^{1} f(h(s))·s·|h'(s)| ds，而 ∫₀^a f(x)dx = ∫₀^a f(x)dx。\n\n更简洁的证明：由于 f 单调增加，对任意 x∈[0,1]，f(x) ≤ f(1)。且 e^{-x²} 递减。\n\n利用积分中值/单调性：设 F(x)=∫₀^x f(t)dt，F 为凸函数（因 f 递增）。由 Jensen 不等式，对权重 e^{-x²}/a（在 [0,1] 上归一化，总质量 1）：\n(1/a)∫₀¹ F'(x)·... \n\n改用直接比较：对 x∈[0,1]，e^{-x²} ≥ e^{-1}。而 a = ∫₀¹ e^{-t²}dt。由于 e^{-t²} 递减，a < 1（因为 e^{-t²}<1 除端点外）。\n\n核心不等式：对递增的 f，∫₀^a f(x)dx 与 ∫₀¹ f(x)e^{-x²}dx 的比较等价于比较\"分布\"。e^{-x²} 在 [0,1] 上的分布偏向 0（因为递减），而均匀分布在 [0,a] 上。由于 f 递增，权重越偏向 0，积分越小。\n\n严格地：令 μ 为 [0,1] 上密度 e^{-x²}/a 的概率测度，ν 为 [0,a] 上均匀分布的概率测度（密度 1/a）。两者总质量均为 a。由于 e^{-x²} 递减，μ 随机占优于 ν（μ 把更多质量放在小 x 处），即对递增 f，∫f dμ ≤ ∫f dν，故 ∫₀¹ f(x)e^{-x²}dx ≤ ∫₀^a f(x)dx。\n\n因此 ∫₀^a f(x)dx ≥ ∫₀¹ f(x)e^{-x²}dx，即选项 (A) 成立，(B) 错误。\n\n对 (C)(D)：∫₀^a f(x)dx ≤ ∫₀¹ f(x)dx 因 a<1 且 f≥0（f 递增，若 f 可取负值则不一定，但通常 f 递增连续，取 f(x)=x 验证：∫₀^a x dx = a²/2，∫₀¹ x dx=1/2，a²/2<1/2，故 ≤ 成立）。但 (C) 说 ≥ 显然错误（a<1 时区间更短）。所以 (D) 在 f≥0 时成立，但题目未限定 f≥0，且 (A) 是必然成立的更强结论。\n\n综上，正确选项为 (A)。",
+        "status": "submitted"
+      },
+      "step_id": "step_0015"
+    }
+  ],
+  "final_submission": {
+    "region_art_0008_01": {
+      "submission_id": "submission_6148a60d8706",
+      "region_id": "region_art_0008_01",
+      "final_answer": "（A）",
+      "reasoning": "记 a = ∫₀¹ e^{-t²} dt。由于 e^{-t²} 在 [0,1] 上单调递减且 0<e^{-t²}≤1，故 0<a<1。\n\n关键观察：∫₀¹ e^{-x²} dx = a，即 e^{-x²} 在 [0,1] 上的总积分为 a。\n\n比较 ∫₀^a f(x)dx 与 ∫₀¹ f(x)e^{-x²}dx。作变量替换 x = φ(u)，使 e^{-x²} 的\"权重\"转化为区间长度。更直接地，考虑函数 g(x)=e^{-x²} 在 [0,1] 上递减，其反函数存在。令 x = h(s) 为 e^{-x²}=s 的解，则 ∫₀¹ f(x)e^{-x²}dx = ∫_{e^{-1}}^{1} f(h(s))·s·|h'(s)| ds，而 ∫₀^a f(x)dx = ∫₀^a f(x)dx。\n\n更简洁的证明：由于 f 单调增加，对任意 x∈[0,1]，f(x) ≤ f(1)。且 e^{-x²} 递减。\n\n利用积分中值/单调性：设 F(x)=∫₀^x f(t)dt，F 为凸函数（因 f 递增）。由 Jensen 不等式，对权重 e^{-x²}/a（在 [0,1] 上归一化，总质量 1）：\n(1/a)∫₀¹ F'(x)·... \n\n改用直接比较：对 x∈[0,1]，e^{-x²} ≥ e^{-1}。而 a = ∫₀¹ e^{-t²}dt。由于 e^{-t²} 递减，a < 1（因为 e^{-t²}<1 除端点外）。\n\n核心不等式：对递增的 f，∫₀^a f(x)dx 与 ∫₀¹ f(x)e^{-x²}dx 的比较等价于比较\"分布\"。e^{-x²} 在 [0,1] 上的分布偏向 0（因为递减），而均匀分布在 [0,a] 上。由于 f 递增，权重越偏向 0，积分越小。\n\n严格地：令 μ 为 [0,1] 上密度 e^{-x²}/a 的概率测度，ν 为 [0,a] 上均匀分布的概率测度（密度 1/a）。两者总质量均为 a。由于 e^{-x²} 递减，μ 随机占优于 ν（μ 把更多质量放在小 x 处），即对递增 f，∫f dμ ≤ ∫f dν，故 ∫₀¹ f(x)e^{-x²}dx ≤ ∫₀^a f(x)dx。\n\n因此 ∫₀^a f(x)dx ≥ ∫₀¹ f(x)e^{-x²}dx，即选项 (A) 成立，(B) 错误。\n\n对 (C)(D)：∫₀^a f(x)dx ≤ ∫₀¹ f(x)dx 因 a<1 且 f≥0（f 递增，若 f 可取负值则不一定，但通常 f 递增连续，取 f(x)=x 验证：∫₀^a x dx = a²/2，∫₀¹ x dx=1/2，a²/2<1/2，故 ≤ 成立）。但 (C) 说 ≥ 显然错误（a<1 时区间更短）。所以 (D) 在 f≥0 时成立，但题目未限定 f≥0，且 (A) 是必然成立的更强结论。\n\n综上，正确选项为 (A)。",
+      "status": "submitted"
+    }
+  },
+  "evaluation": {
+    "type": "submission",
+    "expected_regions": 1,
+    "submitted_regions": 1,
+    "all_answers_correct": false,
+    "results": [
+      {
+        "submission_id": "submission_6148a60d8706",
+        "region_id": "region_art_0008_01",
+        "problem_id": "problem_0008_01",
+        "answer_correct": false,
+        "verification_status": "incorrect",
+        "verification_method": "choice",
+        "verification": {
+          "status": "incorrect",
+          "score": 0.0,
+          "match_method": "choice",
+          "needs_review": false,
+          "part_results": [],
+          "missing_parts": [],
+          "diagnostics": []
+        },
+        "needs_review": false,
+        "reasoning_present": true,
+        "task_completed": false,
+        "reward": 0.0
+      }
+    ],
+    "rubric_check": {
+      "required_tools_complete": true,
+      "missing_tools": [],
+      "missing_regions": {},
+      "submission_required": true,
+      "submission_complete": true,
+      "submission_policy": "required",
+      "submission_policy_compliant": true,
+      "all_answers_correct": false,
+      "answer_needs_review": false,
+      "answer_incorrect": true,
+      "invalid_reference": false,
+      "duplicate_regions": [],
+      "forbidden_submission": false,
+      "acceptable_tool_path_matched": true,
+      "acceptable_tool_path_index": 0,
+      "reward_breakdown": {
+        "answer_reward": 0.0,
+        "reasoning_reward": 1.0,
+        "tool_path_reward": 1.0,
+        "submission_policy_penalty": 0.0,
+        "duplicate_submission_penalty": 0.0,
+        "acceptable_path_penalty": 0.0,
+        "total_reward": 2.0
+      },
+      "passed": false
+    }
+  },
+  "usage": {
+    "total_tokens": 13065,
+    "prompt_tokens": 11421,
+    "completion_tokens": 1644,
+    "reasoning_tokens": 0
+  },
+  "status": "failed",
+  "termination_reason": "answer_incorrect",
+  "errors": []
+}

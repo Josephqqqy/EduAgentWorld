@@ -1,0 +1,194 @@
+{
+  "source": "generated/tasks_seed_42.json",
+  "run_directory": "generated\\rollouts\\batch_20260921_191022",
+  "total": 30,
+  "counts": {
+    "completed": 2,
+    "incomplete": 16,
+    "failed": 12,
+    "error": 0,
+    "other": 0
+  },
+  "tasks": [
+    {
+      "task_id": "task_a1_000001",
+      "status": "failed",
+      "termination_reason": "forbidden_submission",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000001.json"
+    },
+    {
+      "task_id": "task_a1_000002",
+      "status": "completed",
+      "termination_reason": "required_tools_completed",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000002.json"
+    },
+    {
+      "task_id": "task_a1_000003",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000003.json"
+    },
+    {
+      "task_id": "task_a1_000004",
+      "status": "failed",
+      "termination_reason": "answer_incorrect",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000004.json"
+    },
+    {
+      "task_id": "task_a1_000005",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000005.json"
+    },
+    {
+      "task_id": "task_a1_000006",
+      "status": "failed",
+      "termination_reason": "duplicate_submission",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000006.json"
+    },
+    {
+      "task_id": "task_a1_000007",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000007.json"
+    },
+    {
+      "task_id": "task_a1_000008",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000008.json"
+    },
+    {
+      "task_id": "task_a1_000009",
+      "status": "completed",
+      "termination_reason": "required_tools_completed",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000009.json"
+    },
+    {
+      "task_id": "task_a1_000010",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000010.json"
+    },
+    {
+      "task_id": "task_a1_000011",
+      "status": "failed",
+      "termination_reason": "forbidden_submission",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000011.json"
+    },
+    {
+      "task_id": "task_a1_000012",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000012.json"
+    },
+    {
+      "task_id": "task_a1_000013",
+      "status": "failed",
+      "termination_reason": "answer_incorrect",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000013.json"
+    },
+    {
+      "task_id": "task_a1_000014",
+      "status": "failed",
+      "termination_reason": "answer_incorrect",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000014.json"
+    },
+    {
+      "task_id": "task_a1_000015",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000015.json"
+    },
+    {
+      "task_id": "task_a1_000016",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000016.json"
+    },
+    {
+      "task_id": "task_a1_000017",
+      "status": "failed",
+      "termination_reason": "answer_incorrect",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000017.json"
+    },
+    {
+      "task_id": "task_a1_000018",
+      "status": "failed",
+      "termination_reason": "answer_incorrect",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000018.json"
+    },
+    {
+      "task_id": "task_a1_000019",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000019.json"
+    },
+    {
+      "task_id": "task_a1_000020",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000020.json"
+    },
+    {
+      "task_id": "task_a1_000021",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000021.json"
+    },
+    {
+      "task_id": "task_a1_000022",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000022.json"
+    },
+    {
+      "task_id": "task_a1_000023",
+      "status": "failed",
+      "termination_reason": "answer_incorrect",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000023.json"
+    },
+    {
+      "task_id": "task_a1_000024",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000024.json"
+    },
+    {
+      "task_id": "task_a1_000025",
+      "status": "failed",
+      "termination_reason": "answer_incorrect",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000025.json"
+    },
+    {
+      "task_id": "task_a1_000026",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000026.json"
+    },
+    {
+      "task_id": "task_a1_000027",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000027.json"
+    },
+    {
+      "task_id": "task_a1_000028",
+      "status": "failed",
+      "termination_reason": "answer_incorrect",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000028.json"
+    },
+    {
+      "task_id": "task_a1_000029",
+      "status": "failed",
+      "termination_reason": "forbidden_submission",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000029.json"
+    },
+    {
+      "task_id": "task_a1_000030",
+      "status": "incomplete",
+      "termination_reason": "rubric_incomplete",
+      "trajectory": "generated\\rollouts\\batch_20260921_191022\\task_a1_000030.json"
+    }
+  ]
+}

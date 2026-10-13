@@ -1,0 +1,464 @@
+{
+  "trajectory_id": "traj_88c7c5d10975454287b28020a431a096",
+  "task_id": "task_a1_000013",
+  "model": {
+    "name": "DeepSeek-V4.1-Flash"
+  },
+  "task": {
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；整理成可编辑的文本；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0018",
+      "fixture_path": "raw/assets/18.jpg"
+    }
+  },
+  "steps": [
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I'll start by registering the uploaded image and examining its basic information.",
+        "tool_calls": [
+          {
+            "id": "call_968dbc5ebd8843358337f98c",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "upload_artifact",
+              "arguments": "{\"user_id\": \"student_task_user\", \"fixture_path\": \"raw/assets/18.jpg\"}"
+            }
+          },
+          {
+            "id": "call_cac4256cbf614478b636cbbe",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "get_artifact",
+              "arguments": "{\"artifact_id\": \"art_0018\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1228,
+        "total_tokens": 1338,
+        "completion_tokens": 110,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1911.9822999928147,
+      "request_id": "905cd6ef628541c2a6076a25b6eb9156",
+      "step_id": "step_0001"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_968dbc5ebd8843358337f98c",
+      "tool": "upload_artifact",
+      "arguments": {
+        "user_id": "student_task_user",
+        "fixture_path": "raw/assets/18.jpg"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0018",
+        "user_id": "student_task_user",
+        "file_name": "18.jpg",
+        "media_type": "image",
+        "storage_path": "F:\\CODE\\AgentWorld2\\envs\\StudentAssistant\\A\\A1_multimodal_learning_understanding\\raw\\assets\\18.jpg",
+        "content_hash": "sha256:23469592b5fbb948af9d6c8fd133a5ab6692116fe21d036f9d866696aa7ab0a2",
+        "size_bytes": 1727622,
+        "width": 3876,
+        "height": 1284,
+        "status": "uploaded"
+      },
+      "step_id": "step_0002"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_cac4256cbf614478b636cbbe",
+      "tool": "get_artifact",
+      "arguments": {
+        "artifact_id": "art_0018"
+      },
+      "status": "completed",
+      "observation": {
+        "artifact_id": "art_0018",
+        "user_id": "student_task_user",
+        "file_name": "18.jpg",
+        "media_type": "image",
+        "storage_path": "F:\\CODE\\AgentWorld2\\envs\\StudentAssistant\\A\\A1_multimodal_learning_understanding\\raw\\assets\\18.jpg",
+        "content_hash": "sha256:23469592b5fbb948af9d6c8fd133a5ab6692116fe21d036f9d866696aa7ab0a2",
+        "size_bytes": 1727622,
+        "width": 3876,
+        "height": 1284,
+        "status": "uploaded"
+      },
+      "step_id": "step_0003"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "Image registered. Now let me list the problem regions in the image.",
+        "tool_calls": [
+          {
+            "id": "call_f4063642313b4ed38ac2577f",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "list_artifact_regions",
+              "arguments": "{\"artifact_id\": \"art_0018\"}"
+            }
+          },
+          {
+            "id": "call_2a508e294bee42eea433d54d",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "get_artifact_problem_contexts",
+              "arguments": "{\"artifact_id\": \"art_0018\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1653,
+        "total_tokens": 1748,
+        "completion_tokens": 95,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 1604.989100014791,
+      "request_id": "1211110c5d4f4c63b107e77e6c7e4c16",
+      "step_id": "step_0004"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_f4063642313b4ed38ac2577f",
+      "tool": "list_artifact_regions",
+      "arguments": {
+        "artifact_id": "art_0018"
+      },
+      "status": "completed",
+      "observation": [
+        {
+          "region_id": "region_art_0018_01",
+          "artifact_id": "art_0018",
+          "region_index": 1,
+          "region_type": "question",
+          "bbox_json": null,
+          "bbox_status": "not_annotated",
+          "confidence": null,
+          "status": "confirmed"
+        }
+      ],
+      "step_id": "step_0005"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_2a508e294bee42eea433d54d",
+      "tool": "get_artifact_problem_contexts",
+      "arguments": {
+        "artifact_id": "art_0018"
+      },
+      "status": "completed",
+      "observation": [
+        {
+          "problem_id": "problem_0018_01",
+          "subject": "math",
+          "grade_band": "high_school",
+          "statement": "10. 空间中A、B为定点，动点C到直线AB的距离为2，动点D到直线AB的距离为1。若二面角C−AB−D为60°，则（ ）。\n\nA. ∠CAD≥60°\nB. CD≥√3\nC. 当AB⊥CD时，CD⊥平面ABD\nD. 当AB⊥平面ACD时，AC⊥AD",
+          "latex": "d(C,AB)=2; d(D,AB)=1; dihedral angle C−AB−D=60°",
+          "topic": "solid_geometry.distance_dihedral_angle",
+          "question_type": "multiple_choice",
+          "has_diagram": 0,
+          "question_no": "10",
+          "region_id": "region_art_0018_01"
+        }
+      ],
+      "step_id": "step_0006"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "The image contains a single problem. Let me examine its content in detail.",
+        "tool_calls": [
+          {
+            "id": "call_835090cd678049a2836817ac",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "recognize_content",
+              "arguments": "{\"region_id\": \"region_art_0018_01\", \"modality\": \"ocr\"}"
+            }
+          },
+          {
+            "id": "call_bccf84b6e8a04a388a9f312f",
+            "index": 1,
+            "type": "function",
+            "function": {
+              "name": "extract_editable_text",
+              "arguments": "{\"region_id\": \"region_art_0018_01\", \"include_latex\": true}"
+            }
+          },
+          {
+            "id": "call_f7950da492a947e7a7d1771d",
+            "index": 2,
+            "type": "function",
+            "function": {
+              "name": "assess_content_completeness",
+              "arguments": "{\"region_id\": \"region_art_0018_01\"}"
+            }
+          },
+          {
+            "id": "call_db0c51dd4acc4df3ab34b918",
+            "index": 3,
+            "type": "function",
+            "function": {
+              "name": "analyze_problem_knowledge",
+              "arguments": "{\"region_id\": \"region_art_0018_01\"}"
+            }
+          },
+          {
+            "id": "call_9becbb9f1f224f0ebdb3da8d",
+            "index": 4,
+            "type": "function",
+            "function": {
+              "name": "analyze_diagram",
+              "arguments": "{\"region_id\": \"region_art_0018_01\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 2044,
+        "total_tokens": 2301,
+        "completion_tokens": 257,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 3986.666199984029,
+      "request_id": "0a19f9f868334bba858f0aed107d085a",
+      "step_id": "step_0007"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_835090cd678049a2836817ac",
+      "tool": "recognize_content",
+      "arguments": {
+        "region_id": "region_art_0018_01",
+        "modality": "ocr"
+      },
+      "status": "completed",
+      "observation": {
+        "recognition_id": "recognition_bc486cd01f8e",
+        "region_id": "region_art_0018_01",
+        "modality": "ocr",
+        "engine": "fixture_ocr_v1",
+        "raw_output": "10. 空间中A、B为定点，动点C到直线AB的距离为2，动点D到直线AB的距离为1。若二面角C−AB−D为60°，则（ ）。\n\nA. ∠CAD≥60°\nB. CD≥√3\nC. 当AB⊥CD时，CD⊥平面ABD\nD. 当AB⊥平面ACD时，AC⊥AD",
+        "normalized_output": "10. 空间中A、B为定点，动点C到直线AB的距离为2，动点D到直线AB的距离为1。若二面角C−AB−D为60°，则（ ）。\n\nA. ∠CAD≥60°\nB. CD≥√3\nC. 当AB⊥CD时，CD⊥平面ABD\nD. 当AB⊥平面ACD时，AC⊥AD",
+        "confidence": 1.0,
+        "status": "completed"
+      },
+      "step_id": "step_0008"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_bccf84b6e8a04a388a9f312f",
+      "tool": "extract_editable_text",
+      "arguments": {
+        "region_id": "region_art_0018_01",
+        "include_latex": true
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0018_01",
+        "text": "10. 空间中A、B为定点，动点C到直线AB的距离为2，动点D到直线AB的距离为1。若二面角C−AB−D为60°，则（ ）。\n\nA. ∠CAD≥60°\nB. CD≥√3\nC. 当AB⊥CD时，CD⊥平面ABD\nD. 当AB⊥平面ACD时，AC⊥AD",
+        "format": "markdown",
+        "latex": "d(C,AB)=2; d(D,AB)=1; dihedral angle C−AB−D=60°"
+      },
+      "step_id": "step_0009"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_f7950da492a947e7a7d1771d",
+      "tool": "assess_content_completeness",
+      "arguments": {
+        "region_id": "region_art_0018_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0018_01",
+        "is_complete": true,
+        "missing_parts": [],
+        "confidence": 1.0,
+        "needs_user_action": false
+      },
+      "step_id": "step_0010"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_db0c51dd4acc4df3ab34b918",
+      "tool": "analyze_problem_knowledge",
+      "arguments": {
+        "region_id": "region_art_0018_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0018_01",
+        "problem_id": "problem_0018_01",
+        "subject": "math",
+        "grade_band": "high_school",
+        "question_type": "multiple_choice",
+        "knowledge_points": [
+          "solid_geometry.distance_dihedral_angle",
+          "二面角",
+          "空间距离"
+        ],
+        "has_diagram": false,
+        "analysis_basis": "normalized_metadata"
+      },
+      "step_id": "step_0011"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_9becbb9f1f224f0ebdb3da8d",
+      "tool": "analyze_diagram",
+      "arguments": {
+        "region_id": "region_art_0018_01"
+      },
+      "status": "completed",
+      "observation": {
+        "region_id": "region_art_0018_01",
+        "has_diagram": false,
+        "diagram_type": null,
+        "entities": [],
+        "relations": [],
+        "description": "",
+        "status": "no_diagram"
+      },
+      "step_id": "step_0012"
+    },
+    {
+      "type": "model",
+      "message": {
+        "role": "assistant",
+        "content": "I have all the information. Let me work through the problem carefully.\n\n**Setup:** Let line AB be the x-axis. Since C is at distance 2 from AB and D at distance 1, write the perpendicular foot coordinates. Put A at origin, AB along x-axis. Let C = (c, 2cos α, 2sin α), D = (d, cos β, sin β) where the perpendicular components have lengths 2 and 1. The dihedral angle C−AB−D is the angle between the half-planes containing C and D, i.e., the angle between the perpendicular components (0, 2cos α, 2sin α) and (0, cos β, sin β) is 60°.\n\nLet me verify each option.",
+        "tool_calls": [
+          {
+            "id": "call_fa26180800ae440eb2672b93",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "submit_solution",
+              "arguments": "{\"region_id\": \"region_art_0018_01\", \"final_answer\": \"正确选项：B、C、D（A 错误）。\\n\\n【可编辑文本】\\n10. 空间中 A、B 为定点，动点 C 到直线 AB 的距离为 2，动点 D 到直线 AB 的距离为 1。若二面角 C−AB−D 为 60°，则（ ）。\\nA. ∠CAD ≥ 60°\\nB. CD ≥ √3\\nC. 当 AB⊥CD 时，CD⊥平面 ABD\\nD. 当 AB⊥平面 ACD 时，AC⊥AD\", \"reasoning\": \"【建模】以直线 AB 为 x 轴，A 为原点。设 C、D 在垂直于 AB 的平面内的投影分量分别为向量 u、v，则 |u|=2，|v|=1。二面角 C−AB−D 即 u 与 v 的夹角，故 u·v = 2·1·cos60° = 1。可设 C=(c, u)，D=(d, v)，其中 u=(2,0)（取 u 沿 y 轴），v=(1·cos60°, 1·sin60°)=(1/2, √3/2)。\\n\\n【A 选项】∠CAD 是向量 AC=(c,u) 与 AD=(d,v) 的夹角。由于 c、d 可任意取（C、D 沿 AB 方向自由移动），当 c=d 很大时，AC 与 AD 几乎同向，∠CAD→0°<60°。故 A 错误。\\n\\n【B 选项】CD² = (c−d)² + |u−v|²。|u−v|² = |u|²+|v|²−2u·v = 4+1−2 = 3。故 CD² = (c−d)² + 3 ≥ 3，即 CD ≥ √3。B 正确。\\n\\n【C 选项】AB⊥CD 意味着 CD 的 x 分量为 0，即 c=d，此时 CD = u−v，位于垂直于 AB 的平面内。又 CD 与 AB 垂直，而 AB 与平面 ABD 内两条相交直线 AB、AD 都垂直（CD⊥AB 已知，且 CD 在垂直平面内与 AD 的关系：CD·AD = (u−v)·(d,v) = (u−v)·v = u·v−|v|² = 1−1 = 0，故 CD⊥AD）。于是 CD 垂直于平面 ABD 内两条相交直线 AB、AD，所以 CD⊥平面 ABD。C 正确。\\n\\n【D 选项】AB⊥平面 ACD 意味着 AB 垂直于平面 ACD 内所有直线，特别 AB⊥AC 且 AB⊥AD，即 AC、AD 的 x 分量均为 0，故 c=d=0，此时 AC=u，AD=v。则 AC·AD = u·v = 1 ≠ 0，但需判断 AC⊥AD 是否成立：AC·AD = 1 ≠ 0，说明 AC 与 AD 不垂直？需重新核对——当 c=d=0 时 AC=u=(2,0)，AD=v=(1/2,√3/2)，AC·AD = 2·(1/2)+0 = 1 ≠ 0，故 AC 与 AD 不垂直，D 似乎错误。但注意 AB⊥平面 ACD 时，C、D 的 x 分量必须为 0，此时 AC、AD 都在垂直平面内，夹角恰为二面角 60°，故 AC 与 AD 夹角为 60°，不垂直。重新审视：题目 D 说\\\"当 AB⊥平面 ACD 时，AC⊥AD\\\"。由 AB⊥平面 ACD 得 AB⊥AC、AB⊥AD，即 c=d=0，此时 ∠CAD = 60°（即二面角），AC 与 AD 不垂直，故 D 错误。\\n\\n【修正结论】经严格计算：A 错误（∠CAD 可趋于 0°）；B 正确（CD≥√3）；C 正确；D 错误（此时 ∠CAD=60°，AC 不垂直于 AD）。\\n\\n因此正确选项为 B、C。\"}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 2942,
+        "total_tokens": 4097,
+        "completion_tokens": 1155,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "latency_ms": 17307.204300013836,
+      "request_id": "62ca037cc94d4c81b03d94f3b1aa13ab",
+      "step_id": "step_0013"
+    },
+    {
+      "type": "tool",
+      "call_id": "call_fa26180800ae440eb2672b93",
+      "tool": "submit_solution",
+      "arguments": {
+        "region_id": "region_art_0018_01",
+        "final_answer": "正确选项：B、C、D（A 错误）。\n\n【可编辑文本】\n10. 空间中 A、B 为定点，动点 C 到直线 AB 的距离为 2，动点 D 到直线 AB 的距离为 1。若二面角 C−AB−D 为 60°，则（ ）。\nA. ∠CAD ≥ 60°\nB. CD ≥ √3\nC. 当 AB⊥CD 时，CD⊥平面 ABD\nD. 当 AB⊥平面 ACD 时，AC⊥AD",
+        "reasoning": "【建模】以直线 AB 为 x 轴，A 为原点。设 C、D 在垂直于 AB 的平面内的投影分量分别为向量 u、v，则 |u|=2，|v|=1。二面角 C−AB−D 即 u 与 v 的夹角，故 u·v = 2·1·cos60° = 1。可设 C=(c, u)，D=(d, v)，其中 u=(2,0)（取 u 沿 y 轴），v=(1·cos60°, 1·sin60°)=(1/2, √3/2)。\n\n【A 选项】∠CAD 是向量 AC=(c,u) 与 AD=(d,v) 的夹角。由于 c、d 可任意取（C、D 沿 AB 方向自由移动），当 c=d 很大时，AC 与 AD 几乎同向，∠CAD→0°<60°。故 A 错误。\n\n【B 选项】CD² = (c−d)² + |u−v|²。|u−v|² = |u|²+|v|²−2u·v = 4+1−2 = 3。故 CD² = (c−d)² + 3 ≥ 3，即 CD ≥ √3。B 正确。\n\n【C 选项】AB⊥CD 意味着 CD 的 x 分量为 0，即 c=d，此时 CD = u−v，位于垂直于 AB 的平面内。又 CD 与 AB 垂直，而 AB 与平面 ABD 内两条相交直线 AB、AD 都垂直（CD⊥AB 已知，且 CD 在垂直平面内与 AD 的关系：CD·AD = (u−v)·(d,v) = (u−v)·v = u·v−|v|² = 1−1 = 0，故 CD⊥AD）。于是 CD 垂直于平面 ABD 内两条相交直线 AB、AD，所以 CD⊥平面 ABD。C 正确。\n\n【D 选项】AB⊥平面 ACD 意味着 AB 垂直于平面 ACD 内所有直线，特别 AB⊥AC 且 AB⊥AD，即 AC、AD 的 x 分量均为 0，故 c=d=0，此时 AC=u，AD=v。则 AC·AD = u·v = 1 ≠ 0，但需判断 AC⊥AD 是否成立：AC·AD = 1 ≠ 0，说明 AC 与 AD 不垂直？需重新核对——当 c=d=0 时 AC=u=(2,0)，AD=v=(1/2,√3/2)，AC·AD = 2·(1/2)+0 = 1 ≠ 0，故 AC 与 AD 不垂直，D 似乎错误。但注意 AB⊥平面 ACD 时，C、D 的 x 分量必须为 0，此时 AC、AD 都在垂直平面内，夹角恰为二面角 60°，故 AC 与 AD 夹角为 60°，不垂直。重新审视：题目 D 说\"当 AB⊥平面 ACD 时，AC⊥AD\"。由 AB⊥平面 ACD 得 AB⊥AC、AB⊥AD，即 c=d=0，此时 ∠CAD = 60°（即二面角），AC 与 AD 不垂直，故 D 错误。\n\n【修正结论】经严格计算：A 错误（∠CAD 可趋于 0°）；B 正确（CD≥√3）；C 正确；D 错误（此时 ∠CAD=60°，AC 不垂直于 AD）。\n\n因此正确选项为 B、C。"
+      },
+      "status": "completed",
+      "observation": {
+        "submission_id": "submission_b34d1dbb950f",
+        "region_id": "region_art_0018_01",
+        "final_answer": "正确选项：B、C、D（A 错误）。\n\n【可编辑文本】\n10. 空间中 A、B 为定点，动点 C 到直线 AB 的距离为 2，动点 D 到直线 AB 的距离为 1。若二面角 C−AB−D 为 60°，则（ ）。\nA. ∠CAD ≥ 60°\nB. CD ≥ √3\nC. 当 AB⊥CD 时，CD⊥平面 ABD\nD. 当 AB⊥平面 ACD 时，AC⊥AD",
+        "reasoning": "【建模】以直线 AB 为 x 轴，A 为原点。设 C、D 在垂直于 AB 的平面内的投影分量分别为向量 u、v，则 |u|=2，|v|=1。二面角 C−AB−D 即 u 与 v 的夹角，故 u·v = 2·1·cos60° = 1。可设 C=(c, u)，D=(d, v)，其中 u=(2,0)（取 u 沿 y 轴），v=(1·cos60°, 1·sin60°)=(1/2, √3/2)。\n\n【A 选项】∠CAD 是向量 AC=(c,u) 与 AD=(d,v) 的夹角。由于 c、d 可任意取（C、D 沿 AB 方向自由移动），当 c=d 很大时，AC 与 AD 几乎同向，∠CAD→0°<60°。故 A 错误。\n\n【B 选项】CD² = (c−d)² + |u−v|²。|u−v|² = |u|²+|v|²−2u·v = 4+1−2 = 3。故 CD² = (c−d)² + 3 ≥ 3，即 CD ≥ √3。B 正确。\n\n【C 选项】AB⊥CD 意味着 CD 的 x 分量为 0，即 c=d，此时 CD = u−v，位于垂直于 AB 的平面内。又 CD 与 AB 垂直，而 AB 与平面 ABD 内两条相交直线 AB、AD 都垂直（CD⊥AB 已知，且 CD 在垂直平面内与 AD 的关系：CD·AD = (u−v)·(d,v) = (u−v)·v = u·v−|v|² = 1−1 = 0，故 CD⊥AD）。于是 CD 垂直于平面 ABD 内两条相交直线 AB、AD，所以 CD⊥平面 ABD。C 正确。\n\n【D 选项】AB⊥平面 ACD 意味着 AB 垂直于平面 ACD 内所有直线，特别 AB⊥AC 且 AB⊥AD，即 AC、AD 的 x 分量均为 0，故 c=d=0，此时 AC=u，AD=v。则 AC·AD = u·v = 1 ≠ 0，但需判断 AC⊥AD 是否成立：AC·AD = 1 ≠ 0，说明 AC 与 AD 不垂直？需重新核对——当 c=d=0 时 AC=u=(2,0)，AD=v=(1/2,√3/2)，AC·AD = 2·(1/2)+0 = 1 ≠ 0，故 AC 与 AD 不垂直，D 似乎错误。但注意 AB⊥平面 ACD 时，C、D 的 x 分量必须为 0，此时 AC、AD 都在垂直平面内，夹角恰为二面角 60°，故 AC 与 AD 夹角为 60°，不垂直。重新审视：题目 D 说\"当 AB⊥平面 ACD 时，AC⊥AD\"。由 AB⊥平面 ACD 得 AB⊥AC、AB⊥AD，即 c=d=0，此时 ∠CAD = 60°（即二面角），AC 与 AD 不垂直，故 D 错误。\n\n【修正结论】经严格计算：A 错误（∠CAD 可趋于 0°）；B 正确（CD≥√3）；C 正确；D 错误（此时 ∠CAD=60°，AC 不垂直于 AD）。\n\n因此正确选项为 B、C。",
+        "status": "submitted"
+      },
+      "step_id": "step_0014"
+    }
+  ],
+  "final_submission": {
+    "region_art_0018_01": {
+      "submission_id": "submission_b34d1dbb950f",
+      "region_id": "region_art_0018_01",
+      "final_answer": "正确选项：B、C、D（A 错误）。\n\n【可编辑文本】\n10. 空间中 A、B 为定点，动点 C 到直线 AB 的距离为 2，动点 D 到直线 AB 的距离为 1。若二面角 C−AB−D 为 60°，则（ ）。\nA. ∠CAD ≥ 60°\nB. CD ≥ √3\nC. 当 AB⊥CD 时，CD⊥平面 ABD\nD. 当 AB⊥平面 ACD 时，AC⊥AD",
+      "reasoning": "【建模】以直线 AB 为 x 轴，A 为原点。设 C、D 在垂直于 AB 的平面内的投影分量分别为向量 u、v，则 |u|=2，|v|=1。二面角 C−AB−D 即 u 与 v 的夹角，故 u·v = 2·1·cos60° = 1。可设 C=(c, u)，D=(d, v)，其中 u=(2,0)（取 u 沿 y 轴），v=(1·cos60°, 1·sin60°)=(1/2, √3/2)。\n\n【A 选项】∠CAD 是向量 AC=(c,u) 与 AD=(d,v) 的夹角。由于 c、d 可任意取（C、D 沿 AB 方向自由移动），当 c=d 很大时，AC 与 AD 几乎同向，∠CAD→0°<60°。故 A 错误。\n\n【B 选项】CD² = (c−d)² + |u−v|²。|u−v|² = |u|²+|v|²−2u·v = 4+1−2 = 3。故 CD² = (c−d)² + 3 ≥ 3，即 CD ≥ √3。B 正确。\n\n【C 选项】AB⊥CD 意味着 CD 的 x 分量为 0，即 c=d，此时 CD = u−v，位于垂直于 AB 的平面内。又 CD 与 AB 垂直，而 AB 与平面 ABD 内两条相交直线 AB、AD 都垂直（CD⊥AB 已知，且 CD 在垂直平面内与 AD 的关系：CD·AD = (u−v)·(d,v) = (u−v)·v = u·v−|v|² = 1−1 = 0，故 CD⊥AD）。于是 CD 垂直于平面 ABD 内两条相交直线 AB、AD，所以 CD⊥平面 ABD。C 正确。\n\n【D 选项】AB⊥平面 ACD 意味着 AB 垂直于平面 ACD 内所有直线，特别 AB⊥AC 且 AB⊥AD，即 AC、AD 的 x 分量均为 0，故 c=d=0，此时 AC=u，AD=v。则 AC·AD = u·v = 1 ≠ 0，但需判断 AC⊥AD 是否成立：AC·AD = 1 ≠ 0，说明 AC 与 AD 不垂直？需重新核对——当 c=d=0 时 AC=u=(2,0)，AD=v=(1/2,√3/2)，AC·AD = 2·(1/2)+0 = 1 ≠ 0，故 AC 与 AD 不垂直，D 似乎错误。但注意 AB⊥平面 ACD 时，C、D 的 x 分量必须为 0，此时 AC、AD 都在垂直平面内，夹角恰为二面角 60°，故 AC 与 AD 夹角为 60°，不垂直。重新审视：题目 D 说\"当 AB⊥平面 ACD 时，AC⊥AD\"。由 AB⊥平面 ACD 得 AB⊥AC、AB⊥AD，即 c=d=0，此时 ∠CAD = 60°（即二面角），AC 与 AD 不垂直，故 D 错误。\n\n【修正结论】经严格计算：A 错误（∠CAD 可趋于 0°）；B 正确（CD≥√3）；C 正确；D 错误（此时 ∠CAD=60°，AC 不垂直于 AD）。\n\n因此正确选项为 B、C。",
+      "status": "submitted"
+    }
+  },
+  "evaluation": {
+    "type": "submission",
+    "expected_regions": 1,
+    "submitted_regions": 1,
+    "all_answers_correct": false,
+    "results": [
+      {
+        "submission_id": "submission_b34d1dbb950f",
+        "region_id": "region_art_0018_01",
+        "problem_id": "problem_0018_01",
+        "answer_correct": null,
+        "verification_status": "needs_review",
+        "verification_method": "choice",
+        "verification": {
+          "status": "needs_review",
+          "score": null,
+          "match_method": "choice",
+          "needs_review": true,
+          "part_results": [],
+          "missing_parts": [],
+          "diagnostics": []
+        },
+        "needs_review": true,
+        "reasoning_present": true,
+        "task_completed": false,
+        "reward": null
+      }
+    ],
+    "rubric_check": {
+      "required_tools_complete": true,
+      "missing_tools": [],
+      "missing_regions": {},
+      "submission_required": true,
+      "submission_complete": true,
+      "submission_policy": "required",
+      "submission_policy_compliant": true,
+      "all_answers_correct": false,
+      "answer_needs_review": true,
+      "answer_incorrect": false,
+      "invalid_reference": false,
+      "duplicate_regions": [],
+      "forbidden_submission": false,
+      "acceptable_tool_path_matched": true,
+      "acceptable_tool_path_index": 0,
+      "reward_breakdown": {
+        "answer_reward": null,
+        "reasoning_reward": 1.0,
+        "tool_path_reward": 1.0,
+        "submission_policy_penalty": 0.0,
+        "duplicate_submission_penalty": 0.0,
+        "acceptable_path_penalty": 0.0,
+        "total_reward": null
+      },
+      "passed": false
+    }
+  },
+  "usage": {
+    "total_tokens": 9484,
+    "prompt_tokens": 7867,
+    "completion_tokens": 1617,
+    "reasoning_tokens": 0
+  },
+  "status": "needs_review",
+  "termination_reason": "answer_equivalence_uncertain",
+  "errors": []
+}
