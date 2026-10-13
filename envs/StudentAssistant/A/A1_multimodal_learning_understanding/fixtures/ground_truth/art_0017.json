@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0017",
+    "file_name":  "17.jpg",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0017_01",
+                                 "question_no":  "8",
+                                 "statement":  "8. 0\u003cα\u003cπ，cos(α/2)=√5/5，则 sin(α−π/4)=（ ）。\n\nA. √2/10\nB. √2/5\nC. 3√2/10\nD. 7√2/10",
+                                 "latex":  "0\u003cα\u003cπ; cos(α/2)=√5/5; sin(α−π/4)",
+                                 "subject":  "math",
+                                 "grade_band":  "high_school",
+                                 "exam_type":  "college_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "national",
+                                 "paper_variant":  "paper-II",
+                                 "topic":  "trigonometric_functions.half_angle",
+                                 "question_type":  "multiple_choice",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

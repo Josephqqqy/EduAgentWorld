@@ -1,0 +1,4442 @@
+[
+  {
+    "task_id": "task_a1_000001",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；确认学习材料的基本信息；区分图片中包含的各道题目；整理成可编辑的文本；判断题目内容是否完整并指出缺失部分；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系。",
+    "arguments": {
+      "artifact_id": "art_0021",
+      "fixture_path": "raw/assets/21.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "get_artifact",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "assess_content_completeness",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "analyze_diagram"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "upload_artifact",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "get_artifact_problem_contexts",
+      "analyze_problem_knowledge",
+      "analyze_diagram",
+      "get_artifact",
+      "assess_content_completeness",
+      "upload_artifact",
+      "list_artifact_regions",
+      "get_problem_context",
+      "upload_artifact",
+      "list_artifact_regions"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/21.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "extract_editable_text",
+        "assess_content_completeness",
+        "get_problem_context",
+        "analyze_problem_knowledge",
+        "analyze_diagram"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "forbidden",
+      "min_steps": 7,
+      "answer_must_not_be_exposed": true
+    }
+  },
+  {
+    "task_id": "task_a1_000002",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；确认学习材料的基本信息；区分图片中包含的各道题目；判断题目内容是否完整并指出缺失部分；整理成可编辑的文本；识别题目内容和数学表达式；分析涉及的知识点；说明题目中数学图形的作用和已知关系。",
+    "arguments": {
+      "artifact_id": "art_0012",
+      "fixture_path": "raw/assets/12.jpg"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "get_artifact",
+      "list_artifact_regions",
+      "assess_content_completeness",
+      "extract_editable_text",
+      "recognize_content",
+      "recognize_content",
+      "recognize_content",
+      "analyze_problem_knowledge",
+      "analyze_diagram"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "assess_content_completeness",
+      "extract_editable_text",
+      "recognize_content",
+      "analyze_problem_knowledge",
+      "get_artifact_problem_contexts",
+      "get_artifact",
+      "assess_content_completeness",
+      "recognize_content",
+      "extract_editable_text",
+      "analyze_diagram",
+      "get_artifact",
+      "extract_editable_text",
+      "recognize_content"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/12.jpg"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "formula"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "vision"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_010",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_011",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "assess_content_completeness",
+        "extract_editable_text",
+        "recognize_content",
+        "analyze_problem_knowledge",
+        "analyze_diagram"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "forbidden",
+      "min_steps": 7,
+      "answer_must_not_be_exposed": true
+    }
+  },
+  {
+    "task_id": "task_a1_000003",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；判断题目内容是否完整并指出缺失部分；结合题目类型和上下文进行理解；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0010",
+      "fixture_path": "raw/assets/10.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "recognize_content",
+      "assess_content_completeness",
+      "get_problem_context",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "get_problem_context",
+      "submit_solution",
+      "get_artifact_problem_contexts",
+      "get_problem_context",
+      "submit_solution",
+      "recognize_content",
+      "get_problem_context",
+      "submit_solution",
+      "get_problem_context",
+      "submit_solution",
+      "assess_content_completeness",
+      "get_artifact_problem_contexts",
+      "upload_artifact",
+      "list_artifact_regions"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/10.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "recognize_content",
+        "assess_content_completeness",
+        "get_problem_context",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 5,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000004",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；确认学习材料的基本信息；区分图片中包含的各道题目；识别题目内容和数学表达式；判断题目内容是否完整并指出缺失部分；结合题目类型和上下文进行理解；说明题目中数学图形的作用和已知关系；分析涉及的知识点；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0008",
+      "fixture_path": "raw/assets/8.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "get_artifact",
+      "list_artifact_regions",
+      "recognize_content",
+      "assess_content_completeness",
+      "get_problem_context",
+      "analyze_diagram",
+      "analyze_problem_knowledge",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "submit_solution",
+      "analyze_diagram",
+      "analyze_problem_knowledge",
+      "recognize_content",
+      "assess_content_completeness",
+      "analyze_problem_knowledge",
+      "list_artifact_regions",
+      "assess_content_completeness",
+      "get_artifact_problem_contexts",
+      "analyze_problem_knowledge",
+      "get_problem_context",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "get_problem_context"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/8.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_010",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "recognize_content",
+        "assess_content_completeness",
+        "get_problem_context",
+        "analyze_diagram",
+        "analyze_problem_knowledge",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 8,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000005",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；整理成可编辑的文本；结合题目类型和上下文进行理解；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0029",
+      "fixture_path": "raw/assets/29.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "get_problem_context",
+      "analyze_diagram",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "get_artifact",
+      "extract_editable_text",
+      "submit_solution",
+      "get_problem_context",
+      "analyze_diagram",
+      "get_problem_context",
+      "submit_solution",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "upload_artifact",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "list_artifact_regions",
+      "submit_solution"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/29.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "extract_editable_text",
+        "get_problem_context",
+        "analyze_diagram",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 6,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000006",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；整理成可编辑的文本；结合题目类型和上下文进行理解；说明题目中数学图形的作用和已知关系；分析涉及的知识点；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0005",
+      "fixture_path": "raw/assets/5.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "recognize_content",
+      "extract_editable_text",
+      "get_problem_context",
+      "analyze_diagram",
+      "analyze_problem_knowledge",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "get_problem_context",
+      "submit_solution",
+      "get_problem_context",
+      "list_artifact_regions",
+      "recognize_content",
+      "analyze_diagram",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "extract_editable_text",
+      "get_problem_context",
+      "extract_editable_text",
+      "submit_solution"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/5.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "recognize_content",
+        "extract_editable_text",
+        "get_problem_context",
+        "analyze_diagram",
+        "analyze_problem_knowledge",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 7,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000007",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；判断题目内容是否完整并指出缺失部分；整理成可编辑的文本；识别题目内容和数学表达式；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0024",
+      "fixture_path": "raw/assets/24.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "assess_content_completeness",
+      "extract_editable_text",
+      "recognize_content",
+      "analyze_diagram",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "assess_content_completeness",
+      "get_artifact",
+      "upload_artifact",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "submit_solution",
+      "extract_editable_text",
+      "upload_artifact",
+      "recognize_content",
+      "submit_solution",
+      "assess_content_completeness",
+      "submit_solution",
+      "analyze_diagram",
+      "upload_artifact"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/24.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "assess_content_completeness",
+        "extract_editable_text",
+        "recognize_content",
+        "analyze_diagram",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 7,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000008",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；整理成可编辑的文本；结合题目类型和上下文进行理解；分析涉及的知识点；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0021",
+      "fixture_path": "raw/assets/21.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "recognize_content",
+      "extract_editable_text",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "get_artifact",
+      "analyze_problem_knowledge",
+      "get_artifact_problem_contexts",
+      "submit_solution",
+      "recognize_content",
+      "extract_editable_text",
+      "get_artifact",
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "analyze_problem_knowledge",
+      "submit_solution",
+      "get_artifact_problem_contexts",
+      "get_problem_context",
+      "get_artifact"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/21.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "recognize_content",
+        "extract_editable_text",
+        "get_problem_context",
+        "analyze_problem_knowledge",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 7,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000009",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：区分图片中包含的各道题目；判断题目内容是否完整并指出缺失部分；结合题目类型和上下文进行理解；说明题目中数学图形的作用和已知关系；分析涉及的知识点。",
+    "arguments": {
+      "artifact_id": "art_0010",
+      "fixture_path": "raw/assets/10.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "list_artifact_regions",
+      "assess_content_completeness",
+      "get_problem_context",
+      "analyze_diagram",
+      "analyze_problem_knowledge"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "list_artifact_regions",
+      "analyze_diagram",
+      "get_problem_context",
+      "list_artifact_regions",
+      "analyze_problem_knowledge",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "assess_content_completeness",
+      "upload_artifact",
+      "list_artifact_regions",
+      "upload_artifact",
+      "analyze_problem_knowledge",
+      "analyze_diagram",
+      "analyze_problem_knowledge"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/10.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "assess_content_completeness",
+        "get_problem_context",
+        "analyze_diagram",
+        "analyze_problem_knowledge"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "forbidden",
+      "min_steps": 5,
+      "answer_must_not_be_exposed": true
+    }
+  },
+  {
+    "task_id": "task_a1_000010",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；确认学习材料的基本信息；区分图片中包含的各道题目；整理成可编辑的文本；判断题目内容是否完整并指出缺失部分；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0007",
+      "fixture_path": "raw/assets/7.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "get_artifact",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "assess_content_completeness",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "analyze_diagram",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "assess_content_completeness",
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "submit_solution",
+      "analyze_problem_knowledge",
+      "assess_content_completeness",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "submit_solution",
+      "get_artifact",
+      "get_problem_context",
+      "analyze_diagram"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/7.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_010",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "extract_editable_text",
+        "assess_content_completeness",
+        "get_problem_context",
+        "analyze_problem_knowledge",
+        "analyze_diagram",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 8,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000011",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；确认学习材料的基本信息；区分图片中包含的各道题目；整理成可编辑的文本；判断题目内容是否完整并指出缺失部分；结合题目类型和上下文进行理解；分析涉及的知识点。",
+    "arguments": {
+      "artifact_id": "art_0001",
+      "fixture_path": "raw/assets/1.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "get_artifact",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "assess_content_completeness",
+      "get_problem_context",
+      "analyze_problem_knowledge"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "analyze_problem_knowledge",
+      "get_artifact_problem_contexts",
+      "analyze_problem_knowledge",
+      "get_artifact_problem_contexts",
+      "extract_editable_text",
+      "get_artifact_problem_contexts",
+      "extract_editable_text",
+      "analyze_problem_knowledge",
+      "extract_editable_text",
+      "list_artifact_regions",
+      "get_artifact",
+      "upload_artifact",
+      "assess_content_completeness",
+      "get_problem_context"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/1.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "extract_editable_text",
+        "assess_content_completeness",
+        "get_problem_context",
+        "analyze_problem_knowledge"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "forbidden",
+      "min_steps": 6,
+      "answer_must_not_be_exposed": true
+    }
+  },
+  {
+    "task_id": "task_a1_000012",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；判断题目内容是否完整并指出缺失部分；整理成可编辑的文本；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0026",
+      "fixture_path": "raw/assets/26.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "recognize_content",
+      "assess_content_completeness",
+      "extract_editable_text",
+      "analyze_diagram",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "submit_solution",
+      "analyze_diagram",
+      "upload_artifact",
+      "list_artifact_regions",
+      "analyze_diagram",
+      "list_artifact_regions",
+      "recognize_content",
+      "submit_solution",
+      "assess_content_completeness",
+      "extract_editable_text",
+      "analyze_diagram"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/26.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "recognize_content",
+        "assess_content_completeness",
+        "extract_editable_text",
+        "analyze_diagram",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 7,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000013",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；整理成可编辑的文本；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0018",
+      "fixture_path": "raw/assets/18.jpg"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "recognize_content",
+      "extract_editable_text",
+      "recognize_content",
+      "analyze_problem_knowledge",
+      "analyze_diagram",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "recognize_content",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "extract_editable_text",
+      "recognize_content",
+      "analyze_problem_knowledge",
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "analyze_diagram",
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "submit_solution",
+      "get_artifact",
+      "list_artifact_regions"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/18.jpg"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "formula"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_010",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "recognize_content",
+        "extract_editable_text",
+        "analyze_problem_knowledge",
+        "analyze_diagram",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 7,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000014",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：区分图片中包含的各道题目；整理成可编辑的文本；判断题目内容是否完整并指出缺失部分；识别题目内容和数学表达式；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0006",
+      "fixture_path": "raw/assets/6.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "assess_content_completeness",
+      "recognize_content",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "analyze_diagram",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "extract_editable_text",
+      "assess_content_completeness",
+      "recognize_content",
+      "extract_editable_text",
+      "submit_solution",
+      "extract_editable_text",
+      "analyze_problem_knowledge",
+      "get_problem_context",
+      "upload_artifact",
+      "submit_solution",
+      "analyze_diagram",
+      "submit_solution",
+      "analyze_problem_knowledge",
+      "analyze_diagram"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/6.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "extract_editable_text",
+        "assess_content_completeness",
+        "recognize_content",
+        "get_problem_context",
+        "analyze_problem_knowledge",
+        "analyze_diagram",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 8,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000015",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0016",
+      "fixture_path": "raw/assets/16.jpg"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "recognize_content",
+      "recognize_content",
+      "recognize_content",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "analyze_diagram",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "recognize_content",
+      "get_problem_context",
+      "submit_solution",
+      "analyze_problem_knowledge",
+      "list_artifact_regions",
+      "upload_artifact",
+      "recognize_content",
+      "analyze_problem_knowledge",
+      "analyze_diagram",
+      "recognize_content",
+      "analyze_diagram",
+      "get_artifact_problem_contexts",
+      "submit_solution",
+      "get_problem_context"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/16.jpg"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "formula"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "vision"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_010",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "recognize_content",
+        "get_problem_context",
+        "analyze_problem_knowledge",
+        "analyze_diagram",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 6,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000016",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；判断题目内容是否完整并指出缺失部分；整理成可编辑的文本；结合题目类型和上下文进行理解；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0020",
+      "fixture_path": "raw/assets/20.jpg"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "recognize_content",
+      "assess_content_completeness",
+      "extract_editable_text",
+      "get_problem_context",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "get_artifact",
+      "recognize_content",
+      "submit_solution",
+      "assess_content_completeness",
+      "extract_editable_text",
+      "get_artifact_problem_contexts",
+      "upload_artifact",
+      "get_problem_context",
+      "get_artifact_problem_contexts",
+      "submit_solution",
+      "get_artifact",
+      "submit_solution",
+      "upload_artifact",
+      "get_artifact"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/20.jpg"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "recognize_content",
+        "assess_content_completeness",
+        "extract_editable_text",
+        "get_problem_context",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 7,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000017",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；整理成可编辑的文本；判断题目内容是否完整并指出缺失部分；识别题目内容和数学表达式；结合题目类型和上下文进行理解；分析涉及的知识点；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0009",
+      "fixture_path": "raw/assets/9.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "assess_content_completeness",
+      "recognize_content",
+      "recognize_content",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "get_artifact",
+      "analyze_problem_knowledge",
+      "extract_editable_text",
+      "submit_solution",
+      "assess_content_completeness",
+      "extract_editable_text",
+      "upload_artifact",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "get_problem_context",
+      "recognize_content",
+      "extract_editable_text",
+      "get_artifact_problem_contexts",
+      "recognize_content"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/9.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "formula"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_010",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_011",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "extract_editable_text",
+        "assess_content_completeness",
+        "recognize_content",
+        "get_problem_context",
+        "analyze_problem_knowledge",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 8,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000018",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：区分图片中包含的各道题目；识别题目内容和数学表达式；整理成可编辑的文本；结合题目类型和上下文进行理解；说明题目中数学图形的作用和已知关系；分析涉及的知识点；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0029",
+      "fixture_path": "raw/assets/29.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "list_artifact_regions",
+      "recognize_content",
+      "recognize_content",
+      "extract_editable_text",
+      "get_problem_context",
+      "analyze_diagram",
+      "analyze_problem_knowledge",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "recognize_content",
+      "analyze_diagram",
+      "recognize_content",
+      "extract_editable_text",
+      "analyze_diagram",
+      "upload_artifact",
+      "extract_editable_text",
+      "submit_solution",
+      "analyze_problem_knowledge",
+      "upload_artifact",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "submit_solution",
+      "analyze_diagram"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/29.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "formula"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "recognize_content",
+        "extract_editable_text",
+        "get_problem_context",
+        "analyze_diagram",
+        "analyze_problem_knowledge",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 7,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000019",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；确认学习材料的基本信息；区分图片中包含的各道题目；整理成可编辑的文本；判断题目内容是否完整并指出缺失部分；识别题目内容和数学表达式；结合题目类型和上下文进行理解；说明题目中数学图形的作用和已知关系；分析涉及的知识点；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0029",
+      "fixture_path": "raw/assets/29.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "get_artifact",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "assess_content_completeness",
+      "recognize_content",
+      "recognize_content",
+      "get_problem_context",
+      "analyze_diagram",
+      "analyze_problem_knowledge",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "assess_content_completeness",
+      "extract_editable_text",
+      "recognize_content",
+      "submit_solution",
+      "analyze_diagram",
+      "assess_content_completeness",
+      "get_artifact_problem_contexts",
+      "get_problem_context",
+      "submit_solution",
+      "get_artifact",
+      "analyze_problem_knowledge",
+      "recognize_content"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/29.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "formula"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_010",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_011",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_012",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "extract_editable_text",
+        "assess_content_completeness",
+        "recognize_content",
+        "get_problem_context",
+        "analyze_diagram",
+        "analyze_problem_knowledge",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 9,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000020",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；判断题目内容是否完整并指出缺失部分；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0001",
+      "fixture_path": "raw/assets/1.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "recognize_content",
+      "recognize_content",
+      "assess_content_completeness",
+      "recognize_content",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "analyze_diagram",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "get_artifact",
+      "get_problem_context",
+      "recognize_content",
+      "get_artifact_problem_contexts",
+      "analyze_problem_knowledge",
+      "list_artifact_regions",
+      "analyze_diagram",
+      "recognize_content",
+      "get_problem_context",
+      "submit_solution",
+      "analyze_diagram",
+      "get_artifact",
+      "assess_content_completeness",
+      "recognize_content"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/1.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "formula"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "vision"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_010",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_011",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_012",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "recognize_content",
+        "assess_content_completeness",
+        "get_problem_context",
+        "analyze_problem_knowledge",
+        "analyze_diagram",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 8,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000021",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；判断题目内容是否完整并指出缺失部分；结合题目类型和上下文进行理解；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0014",
+      "fixture_path": "raw/assets/14.jpg"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "recognize_content",
+      "assess_content_completeness",
+      "get_problem_context",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "list_artifact_regions",
+      "recognize_content",
+      "submit_solution",
+      "get_artifact",
+      "assess_content_completeness",
+      "get_artifact_problem_contexts",
+      "get_problem_context",
+      "get_artifact",
+      "submit_solution",
+      "get_problem_context",
+      "list_artifact_regions",
+      "upload_artifact",
+      "list_artifact_regions",
+      "get_problem_context"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/14.jpg"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "recognize_content",
+        "assess_content_completeness",
+        "get_problem_context",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 6,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000022",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；区分图片中包含的各道题目；整理成可编辑的文本；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系。",
+    "arguments": {
+      "artifact_id": "art_0030",
+      "fixture_path": "raw/assets/30.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "analyze_diagram"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "get_artifact",
+      "extract_editable_text",
+      "analyze_problem_knowledge",
+      "analyze_diagram",
+      "analyze_problem_knowledge",
+      "analyze_diagram",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "get_artifact",
+      "analyze_diagram",
+      "analyze_problem_knowledge",
+      "extract_editable_text",
+      "get_problem_context",
+      "list_artifact_regions"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/30.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "extract_editable_text",
+        "get_problem_context",
+        "analyze_problem_knowledge",
+        "analyze_diagram"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "forbidden",
+      "min_steps": 6,
+      "answer_must_not_be_exposed": true
+    }
+  },
+  {
+    "task_id": "task_a1_000023",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；判断题目内容是否完整并指出缺失部分；整理成可编辑的文本；说明题目中数学图形的作用和已知关系；分析涉及的知识点；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0013",
+      "fixture_path": "raw/assets/13.jpg"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "recognize_content",
+      "assess_content_completeness",
+      "extract_editable_text",
+      "recognize_content",
+      "analyze_diagram",
+      "analyze_problem_knowledge",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "list_artifact_regions",
+      "recognize_content",
+      "analyze_diagram",
+      "list_artifact_regions",
+      "assess_content_completeness",
+      "list_artifact_regions",
+      "submit_solution",
+      "get_artifact_problem_contexts",
+      "extract_editable_text",
+      "get_artifact_problem_contexts",
+      "analyze_problem_knowledge",
+      "recognize_content",
+      "list_artifact_regions",
+      "analyze_diagram"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/13.jpg"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "formula"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_010",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "recognize_content",
+        "assess_content_completeness",
+        "extract_editable_text",
+        "analyze_diagram",
+        "analyze_problem_knowledge",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 7,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000024",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：区分图片中包含的各道题目；整理成可编辑的文本；识别题目内容和数学表达式；结合题目类型和上下文进行理解；说明题目中数学图形的作用和已知关系；分析涉及的知识点；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0021",
+      "fixture_path": "raw/assets/21.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "recognize_content",
+      "get_problem_context",
+      "analyze_diagram",
+      "analyze_problem_knowledge",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "analyze_diagram",
+      "analyze_problem_knowledge",
+      "list_artifact_regions",
+      "analyze_problem_knowledge",
+      "extract_editable_text",
+      "recognize_content",
+      "analyze_diagram",
+      "list_artifact_regions",
+      "upload_artifact",
+      "list_artifact_regions",
+      "extract_editable_text",
+      "analyze_problem_knowledge",
+      "submit_solution",
+      "list_artifact_regions"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/21.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "extract_editable_text",
+        "recognize_content",
+        "get_problem_context",
+        "analyze_diagram",
+        "analyze_problem_knowledge",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 7,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000025",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；区分图片中包含的各道题目；判断题目内容是否完整并指出缺失部分；识别题目内容和数学表达式；整理成可编辑的文本；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0017",
+      "fixture_path": "raw/assets/17.jpg"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "assess_content_completeness",
+      "recognize_content",
+      "recognize_content",
+      "extract_editable_text",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "analyze_diagram",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "assess_content_completeness",
+      "get_artifact_problem_contexts",
+      "submit_solution",
+      "recognize_content",
+      "upload_artifact",
+      "analyze_problem_knowledge",
+      "recognize_content",
+      "get_problem_context",
+      "submit_solution",
+      "upload_artifact",
+      "get_problem_context",
+      "extract_editable_text",
+      "analyze_diagram",
+      "extract_editable_text"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/17.jpg"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "formula"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_010",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_011",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "assess_content_completeness",
+        "recognize_content",
+        "extract_editable_text",
+        "get_problem_context",
+        "analyze_problem_knowledge",
+        "analyze_diagram",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 8,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000026",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；判断题目内容是否完整并指出缺失部分；整理成可编辑的文本；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0020",
+      "fixture_path": "raw/assets/20.jpg"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "assess_content_completeness",
+      "extract_editable_text",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "analyze_diagram",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "get_artifact",
+      "analyze_problem_knowledge",
+      "list_artifact_regions",
+      "get_artifact",
+      "assess_content_completeness",
+      "extract_editable_text",
+      "analyze_diagram",
+      "get_problem_context",
+      "submit_solution",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "assess_content_completeness",
+      "submit_solution",
+      "analyze_problem_knowledge"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/20.jpg"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_010",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "assess_content_completeness",
+        "extract_editable_text",
+        "get_problem_context",
+        "analyze_problem_knowledge",
+        "analyze_diagram",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 8,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000027",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；确认学习材料的基本信息；区分图片中包含的各道题目；识别题目内容和数学表达式；整理成可编辑的文本；判断题目内容是否完整并指出缺失部分；结合题目类型和上下文进行理解；分析涉及的知识点；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0010",
+      "fixture_path": "raw/assets/10.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "get_artifact",
+      "list_artifact_regions",
+      "recognize_content",
+      "extract_editable_text",
+      "recognize_content",
+      "assess_content_completeness",
+      "recognize_content",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "list_artifact_regions",
+      "analyze_problem_knowledge",
+      "get_artifact_problem_contexts",
+      "recognize_content",
+      "extract_editable_text",
+      "recognize_content",
+      "assess_content_completeness",
+      "recognize_content",
+      "get_artifact",
+      "assess_content_completeness",
+      "submit_solution",
+      "get_problem_context",
+      "submit_solution",
+      "get_problem_context"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/10.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "formula"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "vision"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_010",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_011",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_012",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "recognize_content",
+        "extract_editable_text",
+        "assess_content_completeness",
+        "get_problem_context",
+        "analyze_problem_knowledge",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 8,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000028",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；整理成可编辑的文本；判断题目内容是否完整并指出缺失部分；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0010",
+      "fixture_path": "raw/assets/10.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "recognize_content",
+      "recognize_content",
+      "extract_editable_text",
+      "recognize_content",
+      "assess_content_completeness",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "analyze_diagram",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "recognize_content",
+      "analyze_problem_knowledge",
+      "recognize_content",
+      "extract_editable_text",
+      "analyze_diagram",
+      "get_problem_context",
+      "recognize_content",
+      "assess_content_completeness",
+      "get_artifact_problem_contexts",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "submit_solution",
+      "get_artifact_problem_contexts",
+      "analyze_diagram"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/10.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "formula"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "vision"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_010",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_011",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_012",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "recognize_content",
+        "extract_editable_text",
+        "assess_content_completeness",
+        "get_problem_context",
+        "analyze_problem_knowledge",
+        "analyze_diagram",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 8,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000029",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：逐题整理图片中的全部题目；区分图片中包含的各道题目；判断题目内容是否完整并指出缺失部分；整理成可编辑的文本；识别题目内容和数学表达式；结合题目类型和上下文进行理解；说明题目中数学图形的作用和已知关系；分析涉及的知识点；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0021",
+      "fixture_path": "raw/assets/21.png"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "assess_content_completeness",
+      "extract_editable_text",
+      "recognize_content",
+      "recognize_content",
+      "get_problem_context",
+      "analyze_diagram",
+      "analyze_problem_knowledge",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "assess_content_completeness",
+      "get_problem_context",
+      "extract_editable_text",
+      "analyze_diagram",
+      "get_artifact_problem_contexts",
+      "analyze_problem_knowledge",
+      "list_artifact_regions",
+      "recognize_content",
+      "upload_artifact",
+      "list_artifact_regions",
+      "get_problem_context",
+      "submit_solution",
+      "upload_artifact",
+      "recognize_content"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/21.png"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "extract_editable_text",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "extract_editable_text",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "formula"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_010",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_011",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "assess_content_completeness",
+        "extract_editable_text",
+        "recognize_content",
+        "get_problem_context",
+        "analyze_diagram",
+        "analyze_problem_knowledge",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 8,
+      "answer_must_not_be_exposed": false
+    }
+  },
+  {
+    "task_id": "task_a1_000030",
+    "environment": "A1_multimodal_learning_understanding",
+    "instruction": "请处理我上传的数学题图片：确认学习材料的基本信息；逐题整理图片中的全部题目；区分图片中包含的各道题目；识别题目内容和数学表达式；判断题目内容是否完整并指出缺失部分；结合题目类型和上下文进行理解；分析涉及的知识点；说明题目中数学图形的作用和已知关系；分别给出答案和必要的推理过程。",
+    "arguments": {
+      "artifact_id": "art_0018",
+      "fixture_path": "raw/assets/18.jpg"
+    },
+    "tool_sequence": [
+      "upload_artifact",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "list_artifact_regions",
+      "recognize_content",
+      "assess_content_completeness",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "analyze_diagram",
+      "submit_solution"
+    ],
+    "raw_walk": [
+      "upload_artifact",
+      "get_problem_context",
+      "analyze_problem_knowledge",
+      "recognize_content",
+      "assess_content_completeness",
+      "get_artifact",
+      "get_artifact_problem_contexts",
+      "submit_solution",
+      "analyze_diagram",
+      "analyze_problem_knowledge",
+      "analyze_diagram",
+      "list_artifact_regions",
+      "analyze_problem_knowledge",
+      "get_artifact_problem_contexts",
+      "assess_content_completeness"
+    ],
+    "execution_plan": [
+      {
+        "call_id": "call_001",
+        "tool": "upload_artifact",
+        "arguments": {
+          "user_id": "student_task_user",
+          "fixture_path": "raw/assets/18.jpg"
+        },
+        "save_as": "upload"
+      },
+      {
+        "call_id": "call_002",
+        "tool": "get_artifact",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "artifact"
+      },
+      {
+        "call_id": "call_003",
+        "tool": "get_artifact_problem_contexts",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "problems"
+      },
+      {
+        "call_id": "call_004",
+        "tool": "list_artifact_regions",
+        "arguments": {
+          "artifact_id": "$upload.artifact_id"
+        },
+        "save_as": "regions"
+      },
+      {
+        "call_id": "call_005",
+        "tool": "recognize_content",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "modality": "ocr"
+        },
+        "save_as": "recognize_content",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_006",
+        "tool": "assess_content_completeness",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "assess_content_completeness",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_007",
+        "tool": "get_problem_context",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "get_problem_context",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_008",
+        "tool": "analyze_problem_knowledge",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_problem_knowledge",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_009",
+        "tool": "analyze_diagram",
+        "arguments": {
+          "region_id": "$item.region_id"
+        },
+        "save_as": "analyze_diagram",
+        "for_each": "$regions"
+      },
+      {
+        "call_id": "call_010",
+        "tool": "submit_solution",
+        "arguments": {
+          "region_id": "$item.region_id",
+          "final_answer": "$agent.final_answer",
+          "reasoning": "$agent.reasoning"
+        },
+        "save_as": "submit_solution",
+        "for_each": "$regions"
+      }
+    ],
+    "difficulty": "complex",
+    "rubric": {
+      "required_tools": [
+        "get_artifact",
+        "recognize_content",
+        "assess_content_completeness",
+        "get_problem_context",
+        "analyze_problem_knowledge",
+        "analyze_diagram",
+        "submit_solution"
+      ],
+      "acceptable_tool_paths": [
+        [
+          "list_artifact_regions"
+        ],
+        [
+          "get_artifact_problem_contexts"
+        ]
+      ],
+      "submission_policy": "required",
+      "min_steps": 8,
+      "answer_must_not_be_exposed": false
+    }
+  }
+]

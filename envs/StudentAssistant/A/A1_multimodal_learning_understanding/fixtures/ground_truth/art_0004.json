@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0004",
+    "file_name":  "4.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0004_01",
+                                 "question_no":  "33",
+                                 "statement":  "33. 设 \\(u(x,y)=f(x)+g(y)\\) 具有二阶连续偏导数，且满足\n\\[\n\\left[1+\\left(\\frac{\\partial u}{\\partial y}\\right)^2\\right]\\frac{\\partial^2u}{\\partial x^2}\n-2\\frac{\\partial u}{\\partial x}\\frac{\\partial u}{\\partial y}\\frac{\\partial^2u}{\\partial x\\partial y}\n+\\left[1+\\left(\\frac{\\partial u}{\\partial x}\\right)^2\\right]\\frac{\\partial^2u}{\\partial y^2}=0.\n\\]\n又已知 \\(f\u0027\u0027(x)\\ne0\\)，求 \\(u=u(x,y)\\) 的表达式。",
+                                 "latex":  "u(x,y)=f(x)+g(y);\\quad [1+u_y^2]u_{xx}-2u_xu_yu_{xy}+[1+u_x^2]u_{yy}=0;\\quad f\u0027\u0027(x)\\ne0",
+                                 "subject":  "math",
+                                 "grade_band":  "postgraduate",
+                                 "exam_type":  "postgraduate_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "national",
+                                 "paper_variant":  "Mathematics-II",
+                                 "topic":  "partial_differential_equations.variable_separation",
+                                 "question_type":  "constructed_response",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

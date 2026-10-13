@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0029",
+    "file_name":  "29.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0029_01",
+                                 "question_no":  "24",
+                                 "statement":  "24.（12分）（2025·上海）在平面直角坐标系 \\(xOy\\) 中，抛物线 \\(y=x^2+bx+c\\) 经过点 \\(A(1,1)\\) 和 \\(B(3,1)\\)，顶点为点 \\(P\\)，抛物线于 \\(y\\) 轴交于点 \\(C\\)。\n\n（1）求 \\(b\\) 和 \\(c\\) 的值；\n\n（2）另一条抛物线 \\(y=ax^2+mx+n\\ (a\\ne1)\\) 也经过点 \\(A(1,1)\\) 和 \\(B(3,1)\\)，顶点为点 \\(Q\\)，与 \\(y\\) 轴交于点 \\(D\\)。\n\n① 求 \\(\\frac{CD}{PQ}\\) 的值；\n\n② 当四边形 \\(CDPQ\\) 是直角梯形，求其最小内角的正弦值。",
+                                 "latex":  "y=x^2+bx+c;\\quad A(1,1);\\quad B(3,1);\\quad y=ax^2+mx+n;\\quad a\\ne1;\\quad \\frac{CD}{PQ}",
+                                 "subject":  "math",
+                                 "grade_band":  "junior_high",
+                                 "exam_type":  "high_school_entrance_exam",
+                                 "year":  "2025",
+                                 "region":  "Shanghai",
+                                 "paper_variant":  "main",
+                                 "topic":  "analytic_geometry.parabola_and_quadrilateral",
+                                 "question_type":  "constructed_response",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

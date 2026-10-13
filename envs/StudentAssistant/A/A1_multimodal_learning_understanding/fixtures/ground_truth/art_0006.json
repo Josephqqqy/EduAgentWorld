@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0006",
+    "file_name":  "6.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0006_01",
+                                 "question_no":  "34",
+                                 "statement":  "34. 设函数 \\(f(x,y)\\) 具有二阶连续偏导数，且满足\n\\[\nf(x,0)=x^2,\\qquad f\u0027_y(x,0)=\\sqrt2x,\\qquad f\u0027\u0027_{yy}(x,y)=4,\n\\]\n求 \\(f(x,y)\\) 在约束条件\n\\[\nx^2+2y^2=4\n\\]\n下的最大值与最小值。",
+                                 "latex":  "f(x,0)=x^2;\\quad f\u0027_y(x,0)=\\sqrt2x;\\quad f\u0027\u0027_{yy}(x,y)=4;\\quad x^2+2y^2=4",
+                                 "subject":  "math",
+                                 "grade_band":  "postgraduate",
+                                 "exam_type":  "postgraduate_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "national",
+                                 "paper_variant":  "Mathematics-II",
+                                 "topic":  "multivariable_calculus.constrained_extrema",
+                                 "question_type":  "constructed_response",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

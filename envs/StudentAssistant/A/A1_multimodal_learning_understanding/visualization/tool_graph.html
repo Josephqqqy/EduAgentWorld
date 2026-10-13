@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A1 工具依赖图</title>
+  <style>
+    :root {
+      --bg: #f3f6fa;
+      --panel: #ffffff;
+      --ink: #182235;
+      --muted: #657187;
+      --border: #d8e0ea;
+      --strong: #c9465a;
+      --weak: #397bb1;
+      --independent: #a8b3c1;
+      --node: #23618f;
+      --node-stroke: #153f60;
+      --selected: #df8a2d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    }
+
+    header {
+      padding: 20px 26px 15px;
+      border-bottom: 1px solid var(--border);
+      background: var(--panel);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      min-height: calc(100vh - 88px);
+    }
+
+    .workspace {
+      position: relative;
+      min-height: 680px;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(216, 224, 234, 0.42) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(216, 224, 234, 0.42) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 680px;
+      user-select: none;
+    }
+
+    .panel {
+      padding: 20px;
+      border-left: 1px solid var(--border);
+      background: var(--panel);
+    }
+
+    .control-group { margin-bottom: 22px; }
+
+    .control-group h2 {
+      margin: 0 0 10px;
+      font-size: 14px;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 10px 0;
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      padding: 9px 11px;
+      border: 1px solid #b8c7d8;
+      border-radius: 6px;
+      color: var(--ink);
+      background: #f8fafc;
+      cursor: pointer;
+    }
+
+    button:hover { background: #edf3f8; }
+
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 9px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .legend-line {
+      width: 31px;
+      height: 0;
+      border-top-style: solid;
+    }
+
+    .legend-line.independent { border-color: var(--independent); border-top-width: 1px; }
+    .legend-line.weak { border-color: var(--weak); border-top-width: 2px; }
+    .legend-line.strong { border-color: var(--strong); border-top-width: 3px; }
+
+    .details {
+      min-height: 120px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--muted);
+      background: #f8fafc;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .details strong { color: var(--ink); }
+    .empty { color: #8490a2; }
+
+    .edge {
+      fill: none;
+      cursor: pointer;
+      transition: opacity 120ms ease;
+    }
+
+    .edge.independent { stroke: var(--independent); stroke-width: 1; opacity: 0.22; }
+    .edge.weak { stroke: var(--weak); stroke-width: 2; opacity: 0.68; }
+    .edge.strong { stroke: var(--strong); stroke-width: 3; opacity: 0.84; }
+    .edge.hidden { display: none; }
+    .edge.selected { stroke: var(--selected); opacity: 1; }
+
+    .node-group { cursor: grab; }
+    .node-group.dragging { cursor: grabbing; }
+
+    .node {
+      fill: var(--node);
+      stroke: var(--node-stroke);
+      stroke-width: 2;
+    }
+
+    .node.selected {
+      fill: var(--selected);
+      stroke: #945711;
+    }
+
+    .node-label {
+      fill: var(--ink);
+      font-size: 12px;
+      text-anchor: middle;
+      pointer-events: none;
+    }
+
+    .node-id {
+      fill: var(--muted);
+      font-size: 9px;
+      text-anchor: middle;
+      pointer-events: none;
+    }
+
+    .tooltip {
+      position: fixed;
+      z-index: 5;
+      max-width: 270px;
+      padding: 10px 12px;
+      border: 1px solid #b8c7d8;
+      border-radius: 6px;
+      color: var(--ink);
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(24, 34, 53, 0.16);
+      font-size: 12px;
+      line-height: 1.55;
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(10px, 10px);
+    }
+
+    .error {
+      position: absolute;
+      inset: 24px;
+      display: grid;
+      place-items: center;
+      color: #96394a;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      .panel { border-top: 1px solid var(--border); border-left: 0; }
+      .workspace, svg { min-height: 620px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>A1 多模态学习理解环境工具依赖图</h1>
+    <p class="subtitle">工具图仅用于 Harness 的任务合成与分析，不属于 Agent 可见上下文。</p>
+  </header>
+
+  <main class="layout">
+    <section class="workspace">
+      <svg id="graph" viewBox="0 0 1000 720" role="img" aria-label="A1 工具依赖关系图">
+        <defs>
+          <marker id="arrow-independent" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#a8b3c1"></path>
+          </marker>
+          <marker id="arrow-weak" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#397bb1"></path>
+          </marker>
+          <marker id="arrow-strong" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#c9465a"></path>
+          </marker>
+        </defs>
+        <g id="edges"></g>
+        <g id="nodes"></g>
+      </svg>
+      <div class="error" id="error" hidden></div>
+    </section>
+
+    <aside class="panel">
+      <div class="control-group">
+        <h2>显示关系</h2>
+        <label><input type="checkbox" data-kind="strong" checked>强依赖（权重 3）</label>
+        <label><input type="checkbox" data-kind="weak" checked>弱依赖（权重 2）</label>
+        <label><input type="checkbox" data-kind="independent">独立关系（权重 1）</label>
+      </div>
+
+      <div class="control-group">
+        <button id="reset-layout" type="button">重新布局</button>
+      </div>
+
+      <div class="control-group">
+        <h2>图例</h2>
+        <div class="legend-row"><span class="legend-line strong"></span>强依赖，权重 3</div>
+        <div class="legend-row"><span class="legend-line weak"></span>弱依赖，权重 2</div>
+        <div class="legend-row"><span class="legend-line independent"></span>独立关系，权重 1</div>
+      </div>
+
+      <div class="control-group">
+        <h2>选中信息</h2>
+        <div class="details" id="details">
+          <span class="empty">悬停工具节点查看描述，点击节点或连线查看详细信息。</span>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <div class="tooltip" id="tooltip"></div>
+
+  <script>
+    const state = {
+      graph: null,
+      positions: new Map(),
+      selectedNode: null,
+      selectedEdge: null,
+      dragging: null,
+      visibleKinds: new Set(["strong", "weak"]),
+    };
+
+    const svg = document.getElementById("graph");
+    const edgesLayer = document.getElementById("edges");
+    const nodesLayer = document.getElementById("nodes");
+    const details = document.getElementById("details");
+    const tooltip = document.getElementById("tooltip");
+    const error = document.getElementById("error");
+
+    const escapeHtml = (value) => String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+
+    function emptyDetails() {
+      details.innerHTML = '<span class="empty">悬停工具节点查看描述，点击节点或连线查看详细信息。</span>';
+    }
+
+    function showTooltip(event, node) {
+      tooltip.innerHTML =
+        `<strong>${escapeHtml(node.label)}</strong><br>` +
+        `${escapeHtml(node.id)}<br>${escapeHtml(node.description)}`;
+      tooltip.style.left = `${event.clientX}px`;
+      tooltip.style.top = `${event.clientY}px`;
+      tooltip.style.opacity = "1";
+    }
+
+    function selectNode(node) {
+      state.selectedNode = node.id;
+      state.selectedEdge = null;
+      details.innerHTML =
+        `<strong>${escapeHtml(node.label)}</strong><br>` +
+        `${escapeHtml(node.id)}<br>${escapeHtml(node.description)}`;
+      render();
+    }
+
+    function selectEdge(edge) {
+      state.selectedEdge = edge;
+      state.selectedNode = null;
+      const source = state.graph.nodes.find((node) => node.id === edge.source);
+      const target = state.graph.nodes.find((node) => node.id === edge.target);
+      details.innerHTML =
+        `<strong>${escapeHtml(source.label)} → ${escapeHtml(target.label)}</strong><br>` +
+        `关系：${escapeHtml(edge.kind_label)}<br>` +
+        `权重：${escapeHtml(edge.weight)}<br>` +
+        `${escapeHtml(source.id)} → ${escapeHtml(target.id)}`;
+      render();
+    }
+
+    function initialPositions() {
+      const centerX = 500;
+      const centerY = 350;
+      const radiusX = 360;
+      const radiusY = 255;
+      state.positions = new Map();
+      state.graph.nodes.forEach((node, index) => {
+        const angle = -Math.PI / 2 + index * Math.PI * 2 / state.graph.nodes.length;
+        state.positions.set(node.id, {
+          x: centerX + Math.cos(angle) * radiusX,
+          y: centerY + Math.sin(angle) * radiusY,
+        });
+      });
+    }
+
+    function lineGeometry(edge) {
+      const source = state.positions.get(edge.source);
+      const target = state.positions.get(edge.target);
+      const dx = target.x - source.x;
+      const dy = target.y - source.y;
+      const distance = Math.max(1, Math.hypot(dx, dy));
+      const offset = 27;
+      return {
+        x1: source.x + dx / distance * offset,
+        y1: source.y + dy / distance * offset,
+        x2: target.x - dx / distance * offset,
+        y2: target.y - dy / distance * offset,
+      };
+    }
+
+    function renderEdges() {
+      edgesLayer.replaceChildren();
+      state.graph.edges.forEach((edge) => {
+        const geometry = lineGeometry(edge);
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        const hidden = state.visibleKinds.has(edge.kind) ? "" : " hidden";
+        const selected = state.selectedEdge === edge ? " selected" : "";
+        line.setAttribute("x1", geometry.x1);
+        line.setAttribute("y1", geometry.y1);
+        line.setAttribute("x2", geometry.x2);
+        line.setAttribute("y2", geometry.y2);
+        line.setAttribute("class", `edge ${edge.kind}${hidden}${selected}`);
+        line.setAttribute("marker-end", `url(#arrow-${edge.kind})`);
+        line.addEventListener("click", (event) => {
+          event.stopPropagation();
+          selectEdge(edge);
+        });
+        edgesLayer.appendChild(line);
+      });
+    }
+
+    function pointerPosition(event) {
+      const point = svg.createSVGPoint();
+      point.x = event.clientX;
+      point.y = event.clientY;
+      return point.matrixTransform(svg.getScreenCTM().inverse());
+    }
+
+    function renderNodes() {
+      nodesLayer.replaceChildren();
+      state.graph.nodes.forEach((node) => {
+        const position = state.positions.get(node.id);
+        const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        group.setAttribute("class", `node-group${state.dragging === node.id ? " dragging" : ""}`);
+        group.setAttribute("transform", `translate(${position.x} ${position.y})`);
+
+        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("r", "23");
+        circle.setAttribute("class", `node${state.selectedNode === node.id ? " selected" : ""}`);
+        group.appendChild(circle);
+
+        const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        label.setAttribute("y", "42");
+        label.setAttribute("class", "node-label");
+        label.textContent = node.label;
+        group.appendChild(label);
+
+        const id = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        id.setAttribute("y", "55");
+        id.setAttribute("class", "node-id");
+        id.textContent = node.id;
+        group.appendChild(id);
+
+        group.addEventListener("mouseenter", (event) => showTooltip(event, node));
+        group.addEventListener("mousemove", (event) => {
+          tooltip.style.left = `${event.clientX}px`;
+          tooltip.style.top = `${event.clientY}px`;
+        });
+        group.addEventListener("mouseleave", () => { tooltip.style.opacity = "0"; });
+        group.addEventListener("click", (event) => {
+          event.stopPropagation();
+          selectNode(node);
+        });
+        group.addEventListener("pointerdown", (event) => {
+          event.preventDefault();
+          state.dragging = node.id;
+          group.setPointerCapture(event.pointerId);
+        });
+        group.addEventListener("pointermove", (event) => {
+          if (state.dragging !== node.id) return;
+          const point = pointerPosition(event);
+          state.positions.set(node.id, {
+            x: Math.max(35, Math.min(965, point.x)),
+            y: Math.max(35, Math.min(685, point.y)),
+          });
+          render();
+        });
+        group.addEventListener("pointerup", () => {
+          state.dragging = null;
+          render();
+        });
+        nodesLayer.appendChild(group);
+      });
+    }
+
+    function render() {
+      if (!state.graph) return;
+      renderEdges();
+      renderNodes();
+    }
+
+    async function loadGraph() {
+      try {
+        const response = await fetch("tool_graph_data.json", { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        state.graph = await response.json();
+        initialPositions();
+        render();
+      } catch (cause) {
+        error.hidden = false;
+        error.innerHTML =
+          "无法读取 tool_graph_data.json。<br>" +
+          "请在环境目录启动本地服务：<br>" +
+          "<code>python -m http.server 8000</code>";
+        console.error(cause);
+      }
+    }
+
+    document.querySelectorAll("[data-kind]").forEach((input) => {
+      input.addEventListener("change", () => {
+        if (input.checked) state.visibleKinds.add(input.dataset.kind);
+        else state.visibleKinds.delete(input.dataset.kind);
+        render();
+      });
+    });
+
+    document.getElementById("reset-layout").addEventListener("click", () => {
+      initialPositions();
+      state.selectedNode = null;
+      state.selectedEdge = null;
+      emptyDetails();
+      render();
+    });
+
+    svg.addEventListener("click", () => {
+      state.selectedNode = null;
+      state.selectedEdge = null;
+      emptyDetails();
+      render();
+    });
+
+    loadGraph();
+  </script>
+</body>
+</html>

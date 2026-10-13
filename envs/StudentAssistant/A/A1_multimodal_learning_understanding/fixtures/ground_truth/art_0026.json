@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0026",
+    "file_name":  "26.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0026_01",
+                                 "question_no":  "15",
+                                 "statement":  "15.（4分）（2025·上海）某高铁站出站后有出租车、地铁、汽车、公交等出行方式，高铁站为调查各个出行方式的人流，先对2000人展开调查，结果如图所示。那么某日高铁站出站客流约为1.8万人，其中有约________人选择出租车。图中地铁占60%，汽车占15%，公交占15%。",
+                                 "latex":  "N_{sample}=2000;\\quad N_{total}=18000;\\quad p_{subway}=60\\%;\\quad p_{car}=15\\%;\\quad p_{bus}=15\\%;\\quad p_{taxi}=1-60\\%-15\\%-15\\%",
+                                 "subject":  "math",
+                                 "grade_band":  "junior_high",
+                                 "exam_type":  "high_school_entrance_exam",
+                                 "year":  "2025",
+                                 "region":  "Shanghai",
+                                 "paper_variant":  "main",
+                                 "topic":  "statistics.pie_chart_percentage",
+                                 "question_type":  "fill_blank",
+                                 "has_diagram":  true,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

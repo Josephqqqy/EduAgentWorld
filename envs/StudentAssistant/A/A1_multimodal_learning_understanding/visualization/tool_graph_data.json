@@ -1,0 +1,842 @@
+{
+  "title": "A1 多模态学习理解环境工具依赖图",
+  "nodes": [
+    {
+      "id": "upload_artifact",
+      "label": "上传学习材料",
+      "description": "上传学生提供的图片或 PDF 等学习素材"
+    },
+    {
+      "id": "get_artifact",
+      "label": "查询学习材料",
+      "description": "查询已上传学习材料的基本信息"
+    },
+    {
+      "id": "list_artifact_regions",
+      "label": "列出题目区域",
+      "description": "识别一张图片中包含的题目区域"
+    },
+    {
+      "id": "recognize_content",
+      "label": "识别题目内容",
+      "description": "识别题目文字、数学表达式和结构化内容"
+    },
+    {
+      "id": "extract_editable_text",
+      "label": "导出可编辑文本",
+      "description": "将题目整理为 Markdown 和 LaTeX 等可编辑文本"
+    },
+    {
+      "id": "assess_content_completeness",
+      "label": "判断题目完整性",
+      "description": "判断题目内容是否完整，并指出可能缺失的部分"
+    },
+    {
+      "id": "get_problem_context",
+      "label": "获取单题上下文",
+      "description": "获取某道题的规范化题目、元数据和解题上下文"
+    },
+    {
+      "id": "get_artifact_problem_contexts",
+      "label": "获取图片全部题目",
+      "description": "按题目区域顺序获取一张图片中的全部题目上下文"
+    },
+    {
+      "id": "analyze_diagram",
+      "label": "分析数学图形",
+      "description": "分析题目中的数学图形及其已知关系"
+    },
+    {
+      "id": "analyze_problem_knowledge",
+      "label": "分析知识点",
+      "description": "分析题目涉及的主题和解法关联知识点"
+    },
+    {
+      "id": "submit_solution",
+      "label": "提交题目解答",
+      "description": "提交某道题的最终答案和推理过程"
+    }
+  ],
+  "edges": [
+    {
+      "source": "upload_artifact",
+      "target": "get_artifact",
+      "kind": "strong",
+      "kind_label": "强依赖",
+      "weight": 3
+    },
+    {
+      "source": "upload_artifact",
+      "target": "list_artifact_regions",
+      "kind": "strong",
+      "kind_label": "强依赖",
+      "weight": 3
+    },
+    {
+      "source": "upload_artifact",
+      "target": "recognize_content",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "upload_artifact",
+      "target": "extract_editable_text",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "upload_artifact",
+      "target": "assess_content_completeness",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "upload_artifact",
+      "target": "get_problem_context",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "upload_artifact",
+      "target": "get_artifact_problem_contexts",
+      "kind": "strong",
+      "kind_label": "强依赖",
+      "weight": 3
+    },
+    {
+      "source": "upload_artifact",
+      "target": "analyze_diagram",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "upload_artifact",
+      "target": "analyze_problem_knowledge",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "upload_artifact",
+      "target": "submit_solution",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact",
+      "target": "upload_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact",
+      "target": "list_artifact_regions",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact",
+      "target": "recognize_content",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact",
+      "target": "extract_editable_text",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact",
+      "target": "assess_content_completeness",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact",
+      "target": "get_problem_context",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact",
+      "target": "get_artifact_problem_contexts",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact",
+      "target": "analyze_diagram",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact",
+      "target": "analyze_problem_knowledge",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact",
+      "target": "submit_solution",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "list_artifact_regions",
+      "target": "upload_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "list_artifact_regions",
+      "target": "get_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "list_artifact_regions",
+      "target": "recognize_content",
+      "kind": "strong",
+      "kind_label": "强依赖",
+      "weight": 3
+    },
+    {
+      "source": "list_artifact_regions",
+      "target": "extract_editable_text",
+      "kind": "strong",
+      "kind_label": "强依赖",
+      "weight": 3
+    },
+    {
+      "source": "list_artifact_regions",
+      "target": "assess_content_completeness",
+      "kind": "strong",
+      "kind_label": "强依赖",
+      "weight": 3
+    },
+    {
+      "source": "list_artifact_regions",
+      "target": "get_problem_context",
+      "kind": "strong",
+      "kind_label": "强依赖",
+      "weight": 3
+    },
+    {
+      "source": "list_artifact_regions",
+      "target": "get_artifact_problem_contexts",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "list_artifact_regions",
+      "target": "analyze_diagram",
+      "kind": "strong",
+      "kind_label": "强依赖",
+      "weight": 3
+    },
+    {
+      "source": "list_artifact_regions",
+      "target": "analyze_problem_knowledge",
+      "kind": "strong",
+      "kind_label": "强依赖",
+      "weight": 3
+    },
+    {
+      "source": "list_artifact_regions",
+      "target": "submit_solution",
+      "kind": "strong",
+      "kind_label": "强依赖",
+      "weight": 3
+    },
+    {
+      "source": "recognize_content",
+      "target": "upload_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "recognize_content",
+      "target": "get_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "recognize_content",
+      "target": "list_artifact_regions",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "recognize_content",
+      "target": "extract_editable_text",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "recognize_content",
+      "target": "assess_content_completeness",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "recognize_content",
+      "target": "get_problem_context",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "recognize_content",
+      "target": "get_artifact_problem_contexts",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "recognize_content",
+      "target": "analyze_diagram",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "recognize_content",
+      "target": "analyze_problem_knowledge",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "recognize_content",
+      "target": "submit_solution",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "extract_editable_text",
+      "target": "upload_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "extract_editable_text",
+      "target": "get_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "extract_editable_text",
+      "target": "list_artifact_regions",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "extract_editable_text",
+      "target": "recognize_content",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "extract_editable_text",
+      "target": "assess_content_completeness",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "extract_editable_text",
+      "target": "get_problem_context",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "extract_editable_text",
+      "target": "get_artifact_problem_contexts",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "extract_editable_text",
+      "target": "analyze_diagram",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "extract_editable_text",
+      "target": "analyze_problem_knowledge",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "extract_editable_text",
+      "target": "submit_solution",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "assess_content_completeness",
+      "target": "upload_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "assess_content_completeness",
+      "target": "get_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "assess_content_completeness",
+      "target": "list_artifact_regions",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "assess_content_completeness",
+      "target": "recognize_content",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "assess_content_completeness",
+      "target": "extract_editable_text",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "assess_content_completeness",
+      "target": "get_problem_context",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "assess_content_completeness",
+      "target": "get_artifact_problem_contexts",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "assess_content_completeness",
+      "target": "analyze_diagram",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "assess_content_completeness",
+      "target": "analyze_problem_knowledge",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "assess_content_completeness",
+      "target": "submit_solution",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_problem_context",
+      "target": "upload_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_problem_context",
+      "target": "get_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_problem_context",
+      "target": "list_artifact_regions",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_problem_context",
+      "target": "recognize_content",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "get_problem_context",
+      "target": "extract_editable_text",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_problem_context",
+      "target": "assess_content_completeness",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_problem_context",
+      "target": "get_artifact_problem_contexts",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_problem_context",
+      "target": "analyze_diagram",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "get_problem_context",
+      "target": "analyze_problem_knowledge",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "get_problem_context",
+      "target": "submit_solution",
+      "kind": "strong",
+      "kind_label": "强依赖",
+      "weight": 3
+    },
+    {
+      "source": "get_artifact_problem_contexts",
+      "target": "upload_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact_problem_contexts",
+      "target": "get_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact_problem_contexts",
+      "target": "list_artifact_regions",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact_problem_contexts",
+      "target": "recognize_content",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact_problem_contexts",
+      "target": "extract_editable_text",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact_problem_contexts",
+      "target": "assess_content_completeness",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact_problem_contexts",
+      "target": "get_problem_context",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact_problem_contexts",
+      "target": "analyze_diagram",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact_problem_contexts",
+      "target": "analyze_problem_knowledge",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "get_artifact_problem_contexts",
+      "target": "submit_solution",
+      "kind": "strong",
+      "kind_label": "强依赖",
+      "weight": 3
+    },
+    {
+      "source": "analyze_diagram",
+      "target": "upload_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "analyze_diagram",
+      "target": "get_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "analyze_diagram",
+      "target": "list_artifact_regions",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "analyze_diagram",
+      "target": "recognize_content",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "analyze_diagram",
+      "target": "extract_editable_text",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "analyze_diagram",
+      "target": "assess_content_completeness",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "analyze_diagram",
+      "target": "get_problem_context",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "analyze_diagram",
+      "target": "get_artifact_problem_contexts",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "analyze_diagram",
+      "target": "analyze_problem_knowledge",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "analyze_diagram",
+      "target": "submit_solution",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "analyze_problem_knowledge",
+      "target": "upload_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "analyze_problem_knowledge",
+      "target": "get_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "analyze_problem_knowledge",
+      "target": "list_artifact_regions",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "analyze_problem_knowledge",
+      "target": "recognize_content",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "analyze_problem_knowledge",
+      "target": "extract_editable_text",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "analyze_problem_knowledge",
+      "target": "assess_content_completeness",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "analyze_problem_knowledge",
+      "target": "get_problem_context",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "analyze_problem_knowledge",
+      "target": "get_artifact_problem_contexts",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "analyze_problem_knowledge",
+      "target": "analyze_diagram",
+      "kind": "weak",
+      "kind_label": "弱依赖",
+      "weight": 2
+    },
+    {
+      "source": "analyze_problem_knowledge",
+      "target": "submit_solution",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "submit_solution",
+      "target": "upload_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "submit_solution",
+      "target": "get_artifact",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "submit_solution",
+      "target": "list_artifact_regions",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "submit_solution",
+      "target": "recognize_content",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "submit_solution",
+      "target": "extract_editable_text",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "submit_solution",
+      "target": "assess_content_completeness",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "submit_solution",
+      "target": "get_problem_context",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "submit_solution",
+      "target": "get_artifact_problem_contexts",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "submit_solution",
+      "target": "analyze_diagram",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    },
+    {
+      "source": "submit_solution",
+      "target": "analyze_problem_knowledge",
+      "kind": "independent",
+      "kind_label": "独立关系",
+      "weight": 1
+    }
+  ],
+  "edge_kind_labels": {
+    "independent": "独立关系",
+    "weak": "弱依赖",
+    "strong": "强依赖"
+  },
+  "edge_weight_legend": {
+    "1": "独立关系",
+    "2": "弱依赖",
+    "3": "强依赖"
+  }
+}

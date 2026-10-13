@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0015",
+    "file_name":  "15.jpg",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0015_01",
+                                 "question_no":  "15",
+                                 "statement":  "15. 已知 f(x)=cos(2x+φ)，0≤φ\u003cπ，f(0)=1/2。（1）求φ；（2）g(x)=f(x)+f(x−π/6)，求值域和单调区间。",
+                                 "latex":  "f(x)=cos(2x+φ); 0≤φ\u003cπ; f(0)=1/2; g(x)=f(x)+f(x−π/6)",
+                                 "subject":  "math",
+                                 "grade_band":  "high_school",
+                                 "exam_type":  "college_entrance_exam",
+                                 "year":  "unknown",
+                                 "region":  "national",
+                                 "paper_variant":  "unknown",
+                                 "topic":  "trigonometric_functions.periodicity_and_range",
+                                 "question_type":  "constructed_response",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

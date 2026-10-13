@@ -1,0 +1,186 @@
+{
+  "root_theme": "education_assistant",
+  "first_tier_themes": [
+    "StudentAssistant",
+    "TeacherAssistant"
+  ],
+  "student_second_tier_themes": {
+    "A": "A_学习内容获取与表达",
+    "B": "B_练习作业与实验",
+    "C": "C_考试升学与学科素养",
+    "D": "D_学习诊断与规划",
+    "E": "E_学习资料与知识管理",
+    "F": "F_综合素养与学校支持"
+  },
+  "environment_count": 49,
+  "shared_entities": [
+    "student_id",
+    "subject_id",
+    "grade_band",
+    "knowledge_point_id",
+    "source_id",
+    "problem_id",
+    "course_id"
+  ],
+  "environments": [
+    {
+      "id": "A1_multimodal_learning_understanding",
+      "group": "A",
+      "name": "多模态学习理解"
+    },
+    {
+      "id": "A2_concept_learning",
+      "group": "A",
+      "name": "知识点与概念学习"
+    },
+    {
+      "id": "A3_speech_reading_and_speaking",
+      "group": "A",
+      "name": "语音、朗读与口语训练"
+    },
+    {
+      "id": "A4_writing_and_expression",
+      "group": "A",
+      "name": "写作与表达指导"
+    },
+    {
+      "id": "B1_interactive_practice",
+      "group": "B",
+      "name": "互动练习与即时反馈"
+    },
+    {
+      "id": "B2_adaptive_practice",
+      "group": "B",
+      "name": "自适应练习"
+    },
+    {
+      "id": "B3_homework_assistance",
+      "group": "B",
+      "name": "作业理解与提交检查"
+    },
+    {
+      "id": "B4_experiment_and_scientific_inquiry",
+      "group": "B",
+      "name": "实验探究与科学实践"
+    },
+    {
+      "id": "C1_exam_preparation",
+      "group": "C",
+      "name": "考试备考"
+    },
+    {
+      "id": "C2_school_and_major_guidance",
+      "group": "C",
+      "name": "升学与专业选择"
+    },
+    {
+      "id": "C3_subject_literacy_and_scenario_inquiry",
+      "group": "C",
+      "name": "学科素养与情境探究"
+    },
+    {
+      "id": "C4_exam_integrity_and_safe_tutoring",
+      "group": "C",
+      "name": "考试诚信与安全辅导"
+    },
+    {
+      "id": "D1_instant_learning_feedback",
+      "group": "D",
+      "name": "即时学习反馈"
+    },
+    {
+      "id": "D2_learning_diagnosis",
+      "group": "D",
+      "name": "学习状态诊断"
+    },
+    {
+      "id": "D3_personal_study_planning",
+      "group": "D",
+      "name": "个性化学习计划"
+    },
+    {
+      "id": "D4_learning_habit_and_risk_support",
+      "group": "D",
+      "name": "学习习惯与风险支持"
+    },
+    {
+      "id": "E1_student_resource_search",
+      "group": "E",
+      "name": "学习资料搜索与核验"
+    },
+    {
+      "id": "E2_personal_knowledge_management",
+      "group": "E",
+      "name": "个人知识库与错题管理"
+    },
+    {
+      "id": "E3_vocabulary_and_memory_review",
+      "group": "E",
+      "name": "词汇与记忆复习"
+    },
+    {
+      "id": "E4_learning_artifact_organization",
+      "group": "E",
+      "name": "学习成果整理"
+    },
+    {
+      "id": "F1_student_coursework_and_deadlines",
+      "group": "F",
+      "name": "课程、作业与截止时间管理"
+    },
+    {
+      "id": "F2_mental_health_and_emotional_support",
+      "group": "F",
+      "name": "心理健康与情绪支持"
+    },
+    {
+      "id": "F3_safety_law_and_civic_education",
+      "group": "F",
+      "name": "安全、法治与公民教育"
+    },
+    {
+      "id": "F4_campus_life_and_student_services",
+      "group": "F",
+      "name": "校园生活与学生服务"
+    },
+    {
+      "id": "F5_practical_learning_and_growth_portfolio",
+      "group": "F",
+      "name": "综合实践与成长档案"
+    }
+  ],
+  "teacher_second_tier_themes": {
+    "A": "A_教学内容与资源",
+    "B": "B_备课与课程设计",
+    "C": "C_作业测验与评价",
+    "D": "D_学情分析与教学干预",
+    "E": "E_班级与教学管理",
+    "F": "F_教师专业发展与学校事务"
+  },
+  "teacher_environment_ids": [
+    "A1_teacher_resource_search",
+    "A2_item_bank_and_paper_management",
+    "A3_lesson_material_generation",
+    "A4_multimodal_teaching_resource_processing",
+    "B1_curriculum_and_lesson_design",
+    "B2_classroom_activity_design",
+    "B3_differentiated_instruction",
+    "B4_experiment_project_design",
+    "C1_assignment_authoring_and_collection",
+    "C2_automated_grading_and_process_assessment",
+    "C3_assessment_assembly_and_publishing",
+    "C4_rubric_and_feedback_generation",
+    "D1_class_learning_analytics",
+    "D2_knowledge_error_diagnosis",
+    "D3_student_grouping_and_risk_detection",
+    "D4_intervention_tracking",
+    "E1_class_course_and_roster_management",
+    "E2_attendance_and_engagement",
+    "E3_school_family_communication",
+    "E4_teaching_progress_and_quality",
+    "F1_teacher_collaboration_and_research",
+    "F2_teacher_training_and_development",
+    "F3_teaching_portfolio",
+    "F4_school_policy_and_administration"
+  ]
+}

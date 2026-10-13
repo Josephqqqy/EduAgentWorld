@@ -1,0 +1,277 @@
+﻿"artifact_id","region_index","file_name","object_type","subject","grade_band","exam_type","year","region","paper_variant","question_no","topic","question_type","region_count","has_diagram","statement","latex","match_type","problem_id","requires_confirmation","annotation_status","notes"
+"art_0001","1","1.png","question","math","postgraduate","postgraduate_entrance_exam","2026","national","Mathematics-II","7","multivariable_calculus.double_integral_riemann_sum","multiple_choice","1","false","7. 设函数 \(f(x,y)\) 在区域
+\[
+D=\{(x,y)\mid 0\le x\le 1,\ 0\le y\le 1\}
+\]
+上连续，且 \(f(x,y)=f(y,x)\)，则
+\[
+\iint_D f(x,y)\,dx\,dy=(\quad).
+\]
+
+（A）
+\[
+2\lim_{n\to\infty}\sum_{i=1}^{n}\sum_{j=n+1-i}^{n}
+f\left(\frac{i}{n},\frac{j}{n}\right)\frac{1}{n^2}
+\]
+
+（B）
+\[
+\frac{1}{2}\lim_{n\to\infty}\sum_{i=1}^{n}\sum_{j=1}^{n}
+f\left(\frac{i}{n},\frac{j}{n}\right)\frac{1}{n^2}
+\]
+
+（C）
+\[
+2\lim_{n\to\infty}\sum_{i=1}^{2n}\sum_{j=1}^{2n+1-i}
+f\left(\frac{i}{2n},\frac{j}{2n}\right)\frac{1}{n^2}
+\]
+
+（D）
+\[
+\frac{1}{2}\lim_{n\to\infty}\sum_{i=1}^{2n}\sum_{j=1}^{i}
+f\left(\frac{i}{2n},\frac{j}{2n}\right)\frac{1}{n^2}
+\]","D=\{(x,y)\mid 0\le x\le 1,\ 0\le y\le 1\};\quad f(x,y)=f(y,x);\quad \iint_D f(x,y)\,dx\,dy","","problem_0001_01","false","verified","题干、选项、核心公式及分类已人工复核。"
+"art_0002","1","2.png","question","math","postgraduate","postgraduate_entrance_exam","2026","national","Mathematics-II","21","differential_equations.second_order_nonlinear","constructed_response","1","false","21.（本题满分12分）求微分方程
+\[
+x^2y''-2xy'-(y')^2=0\quad(x>2)
+\]
+满足条件
+\[
+y\big|_{x=3}=\frac12,\qquad y'\big|_{x=3}=-9
+\]
+的解。","x^2y''-2xy'-(y')^2=0;\quad x>2;\quad y|_{x=3}=\frac12;\quad y'|_{x=3}=-9","","problem_0002_01","false","verified","题干、选项、核心公式及分类已人工复核。"
+"art_0003","1","3.png","question","math","postgraduate","postgraduate_entrance_exam","2025","national","Mathematics-II","18","calculus.limits_and_differentiability","proof_and_calculation","1","false","18.（本题满分12分）
+
+设函数 \(f(x)\) 在 \(x=0\) 处连续，且
+\[
+\lim_{x\to0}\frac{xf(x)-e^{2\sin x}+1}{\ln(1+x)+\ln(1-x)}=-3,
+\]
+证明 \(f(x)\) 在 \(x=0\) 处可导，并求 \(f'(0)\)。","\lim_{x\to0}\frac{xf(x)-e^{2\sin x}+1}{\ln(1+x)+\ln(1-x)}=-3;\quad f'(0)","","problem_0003_01","false","verified","题干、选项、核心公式及分类已人工复核。"
+"art_0004","1","4.png","question","math","postgraduate","postgraduate_entrance_exam","2026","national","Mathematics-II","33","partial_differential_equations.variable_separation","constructed_response","1","false","33. 设 \(u(x,y)=f(x)+g(y)\) 具有二阶连续偏导数，且满足
+\[
+\left[1+\left(\frac{\partial u}{\partial y}\right)^2\right]\frac{\partial^2u}{\partial x^2}
+-2\frac{\partial u}{\partial x}\frac{\partial u}{\partial y}\frac{\partial^2u}{\partial x\partial y}
++\left[1+\left(\frac{\partial u}{\partial x}\right)^2\right]\frac{\partial^2u}{\partial y^2}=0.
+\]
+又已知 \(f''(x)\ne0\)，求 \(u=u(x,y)\) 的表达式。","u(x,y)=f(x)+g(y);\quad [1+u_y^2]u_{xx}-2u_xu_yu_{xy}+[1+u_x^2]u_{yy}=0;\quad f''(x)\ne0","","problem_0004_01","false","verified","题干、选项、核心公式及分类已人工复核。"
+"art_0005","1","5.png","question","math","postgraduate","postgraduate_entrance_exam","2026","national","Mathematics-II","26","multivariable_calculus.double_integral","constructed_response","1","false","26. 设平面区域
+\[
+D=\{(x,y)\mid |x|+|y|\le1\},
+\]
+求
+\[
+\iint_D e^{\frac{|y|}{|x|+|y|}}\,d\sigma.
+\]","D=\{(x,y)\mid |x|+|y|\le1\};\quad \iint_D e^{\frac{|y|}{|x|+|y|}}\,d\sigma","","problem_0005_01","false","verified","题干、选项、核心公式及分类已人工复核。"
+"art_0006","1","6.png","question","math","postgraduate","postgraduate_entrance_exam","2026","national","Mathematics-II","34","multivariable_calculus.constrained_extrema","constructed_response","1","false","34. 设函数 \(f(x,y)\) 具有二阶连续偏导数，且满足
+\[
+f(x,0)=x^2,\qquad f'_y(x,0)=\sqrt2x,\qquad f''_{yy}(x,y)=4,
+\]
+求 \(f(x,y)\) 在约束条件
+\[
+x^2+2y^2=4
+\]
+下的最大值与最小值。","f(x,0)=x^2;\quad f'_y(x,0)=\sqrt2x;\quad f''_{yy}(x,y)=4;\quad x^2+2y^2=4","","problem_0006_01","false","verified","题干、选项、核心公式及分类已人工复核。"
+"art_0007","1","7.png","question","math","postgraduate","postgraduate_entrance_exam","2026","national","Mathematics-II","4","multivariable_calculus.center_of_mass","multiple_choice","1","false","4. 设有半圆形板
+\[
+x^2+y^2\le a^2\quad(y\ge0),
+\]
+它在点 \(P(x,y)\) 的密度与点 \(P\) 到原点的距离成正比，则半圆形板的重心坐标为（ ）。
+
+（A）\(\left(0,\frac{\pi a}{3}\right)\)
+
+（B）\(\left(0,\frac{\pi a}{2}\right)\)
+
+（C）\(\left(0,\frac{4a}{3\pi}\right)\)
+
+（D）\(\left(0,\frac{3a}{2\pi}\right)\)","x^2+y^2\le a^2;\quad y\ge0;\quad \rho(P)\propto \sqrt{x^2+y^2}","","problem_0007_01","false","verified","题干、选项、核心公式及分类已人工复核。"
+"art_0008","1","8.png","question","math","postgraduate","postgraduate_entrance_exam","2026","national","Mathematics-II","7","calculus.integral_inequalities","multiple_choice","1","false","7. 设 \(f(x)\) 是 \([0,1]\) 上单调增加的连续函数，则（ ）。
+
+（A）
+\[
+\int_0^{\int_0^1 e^{-t^2}\,dt}f(x)\,dx\ge\int_0^1f(x)e^{-x^2}\,dx
+\]
+
+（B）
+\[
+\int_0^{\int_0^1 e^{-t^2}\,dt}f(x)\,dx\le\int_0^1f(x)e^{-x^2}\,dx
+\]
+
+（C）
+\[
+\int_0^{\int_0^1 e^{-t^2}\,dt}f(x)\,dx\ge\int_0^1f(x)\,dx
+\]
+
+（D）
+\[
+\int_0^{\int_0^1 e^{-t^2}\,dt}f(x)\,dx\le\int_0^1f(x)\,dx
+\]","f\text{ is increasing on }[0,1];\quad a=\int_0^1e^{-t^2}\,dt;\quad \int_0^a f(x)\,dx;\quad \int_0^1f(x)e^{-x^2}\,dx","","problem_0008_01","false","verified","题干、选项、核心公式及分类已人工复核。"
+"art_0009","1","9.png","question","math","postgraduate","postgraduate_entrance_exam","2026","national","Mathematics-II","21","calculus.arc_length_and_extrema","constructed_response","1","false","21. 设函数 \(x=x(y)\) 满足
+\[
+y=\int\frac{4y^3}{4-y^6}\,dx,
+\]
+\(L\) 为曲线 \(x=x(y)\ (-2\le y\le-1)\)，且
+\[
+x(-1)=-\frac9{16}.
+\]
+记 \(L\) 的长度为 \(s\)。求：
+
+（1）\(s\)；
+
+（2）\(x\) 的最大值。","y=\int\frac{4y^3}{4-y^6}\,dx;\quad -2\le y\le-1;\quad x(-1)=-\frac9{16}","","problem_0009_01","false","verified","题干、选项、核心公式及分类已人工复核。"
+"art_0010","1","10.png","question","math","postgraduate","postgraduate_entrance_exam","2026","national","Mathematics-II","13","calculus.improper_integrals","multiple_choice","1","false","13. 设非负函数 \(f(x)\) 在 \([0,+\infty)\) 上具有有界导数，给出以下四个命题：
+
+① 若
+\[
+\int_0^{+\infty}f^2(x)\,dx
+\]
+收敛，则
+\[
+\int_0^{+\infty}f(x)\,dx
+\]
+收敛；
+
+② 若
+\[
+\int_0^{+\infty}f(x)\,dx
+\]
+收敛，则
+\[
+\int_0^{+\infty}f^2(x)\,dx
+\]
+收敛；
+
+③ 若
+\[
+\lim_{x\to+\infty}x^2f(x)
+\]
+存在，则
+\[
+\int_0^{+\infty}f(x)\,dx
+\]
+收敛；
+
+④ 若
+\[
+\int_0^{+\infty}f(x)\,dx
+\]
+收敛，则
+\[
+\lim_{x\to+\infty}x^2f(x)
+\]
+存在。
+
+其中，真命题的个数为（ ）。
+
+（A）1　（B）2　（C）3　（D）4","f(x)\ge0;\quad f'\text{ bounded on }[0,+\infty);\quad \int_0^{+\infty}f(x)\,dx;\quad \int_0^{+\infty}f^2(x)\,dx;\quad \lim_{x\to+\infty}x^2f(x)","","problem_0010_01","false","verified","题干、选项、核心公式及分类已人工复核。"
+"art_0011","1","11.jpg","question","math","high_school","college_entrance_exam","2025","Shanghai","main","18","solid_geometry.cone_surface_area_and_parallel_planes","proof_and_calculation","1","true","18.（第1小题满分6分，第2小题满分8分）如图，P是圆锥的顶点，O是底面圆心，AB是底面直径，且AB=2。\n\n（1）若直线PA与圆锥底面的所成角为\(\frac{\pi}{3}\)，求圆锥的侧面积；\n\n（2）已知Q是母线PA的中点，点C、D在底面圆周上，且弧CD的长为\(\frac{\pi}{3}\)，CD\parallel AB。设点M在线段OC上。证明：直线QM\parallel平面PBD。","AB=2;\quad \angle(PA,\text{底面})=\frac{\pi}{3};\quad Q\text{ is midpoint of }PA;\quad C,D\text{ on base circle};\quad \overset{\frown}{CD}=\frac{\pi}{3};\quad CD\parallel AB;\quad M\in OC;\quad QM\parallel\text{平面 }PBD","","problem_0011_01","true","verified","题干、图形、核心条件及分类已人工复核。"
+"art_0012","1","12.jpg","question","math","high_school","college_entrance_exam","2025","Shanghai","main","8","algebra.inequality","fill_blank","3","false","8. 设 \(a,b>0\)，且 \(a+\frac{1}{b}=1\)，求 \(b+\frac{1}{a}\) 的最小值。","a,b>0;\quad a+\frac{1}{b}=1;\quad b+\frac{1}{a}","","problem_0012_01","false","verified","题干、公式、图形条件及分类已人工复核。"
+"art_0012","2","12.jpg","question","math","high_school","college_entrance_exam","2025","Shanghai","main","9","combinatorics.restricted_permutations","fill_blank","3","false","9. 4 个家长和 2 个儿童排队，头尾均为家长，求不同排列数。","4\text{ parents};\quad 2\text{ children};\quad \text{both ends are parents}","","problem_0012_02","false","verified","题干、公式、图形条件及分类已人工复核。"
+"art_0012","3","12.jpg","question","math","high_school","college_entrance_exam","2025","Shanghai","main","10","complex_numbers.locus_and_distance","fill_blank","3","false","10. 已知 \(z^2=(\overline z)^2\)，\(|z|\le1\)，求 \(|z-2-3i|\) 的最小值。","z^2=(\overline z)^2;\quad |z|\le1;\quad |z-2-3i|","","problem_0012_03","false","verified","题干、公式、图形条件及分类已人工复核。"
+"art_0013","1","13.jpg","question","math","high_school","college_entrance_exam","2025","national","paper-I","16","sequences.arithmetic_sequence_and_derivative","proof_and_calculation","1","false","16.（15分）数列{a_n}满足 a_1=3，a_{n+1}/n=a_n/(n+1)+1/[n(n+1)]。（1）证明{na_n}为等差数列；（2）f(x)=a_1x+a_2x^2+⋯+a_mx^m，求 f′(−2)。","a_1=3; a_{n+1}/n=a_n/(n+1)+1/[n(n+1)]; f(x)=Σa_kx^k; f′(−2)","","problem_0013_01","false","verified","题干、公式、图形条件及分类已人工复核。"
+"art_0014","1","14.jpg","question","math","high_school","college_entrance_exam","2025","national","paper-I","14","probability.mathematical_expectation","fill_blank","1","false","14. 一个箱子里有5个球，标号1～5，有放回取三次，记至少取出一次的球的个数为X，求E(X)。","5 labeled balls; with replacement 3 times; X=number of distinct balls; E(X)","","problem_0014_01","false","verified","题干、公式、图形条件及分类已人工复核。"
+"art_0015","1","15.jpg","question","math","high_school","college_entrance_exam","unknown","national","unknown","15","trigonometric_functions.periodicity_and_range","constructed_response","1","false","15. 已知 f(x)=cos(2x+φ)，0≤φ<π，f(0)=1/2。（1）求φ；（2）g(x)=f(x)+f(x−π/6)，求值域和单调区间。","f(x)=cos(2x+φ); 0≤φ<π; f(0)=1/2; g(x)=f(x)+f(x−π/6)","","problem_0015_01","false","verified","题干、公式、图形条件及分类已人工复核。"
+"art_0016","1","16.jpg","question","math","high_school","college_entrance_exam","unknown","national","unknown","11","analytic_geometry.hyperbola","multiple_choice","1","false","11. 双曲线C：x²/a²−y²/b²=1（a,b>0）的左、右焦点分别是F₁、F₂，左、右顶点分别为A₁、A₂。以F₁F₂为直径的圆与曲线C的一条渐近线交于M、N两点，且∠NA₁M=5π/6，则（ ）。
+
+A. ∠A₁MA₂=π/6
+B. |MA₁|=2|MA₂|
+C. C的离心率为√13
+D. 当a=√2时，四边形NA₁MA₂的面积为8√3","x²/a²−y²/b²=1; a,b>0; ∠NA₁M=5π/6; e=c/a","","problem_0016_01","false","verified","题干、公式、图形条件及分类已人工复核。"
+"art_0017","1","17.jpg","question","math","high_school","college_entrance_exam","2026","national","paper-II","8","trigonometric_functions.half_angle","multiple_choice","1","false","8. 0<α<π，cos(α/2)=√5/5，则 sin(α−π/4)=（ ）。
+
+A. √2/10
+B. √2/5
+C. 3√2/10
+D. 7√2/10","0<α<π; cos(α/2)=√5/5; sin(α−π/4)","","problem_0017_01","false","verified","题干、公式、图形条件及分类已人工复核。"
+"art_0018","1","18.jpg","question","math","high_school","college_entrance_exam","2026","national","paper-II","10","solid_geometry.distance_dihedral_angle","multiple_choice","1","false","10. 空间中A、B为定点，动点C到直线AB的距离为2，动点D到直线AB的距离为1。若二面角C−AB−D为60°，则（ ）。
+
+A. ∠CAD≥60°
+B. CD≥√3
+C. 当AB⊥CD时，CD⊥平面ABD
+D. 当AB⊥平面ACD时，AC⊥AD","d(C,AB)=2; d(D,AB)=1; dihedral angle C−AB−D=60°","","problem_0018_01","false","verified","题干、公式、图形条件及分类已人工复核。"
+"art_0019","1","19.jpg","question","math","high_school","college_entrance_exam","2026","national","paper-II","5","analytic_geometry.parabola_focus","multiple_choice","1","false","5. 抛物线C₁:y²=2p₁x（p₁>0）和C₂:x²=2p₂y（p₂>0）均经过点(4,8)，则C₁的焦点与C₂的焦点之间的距离为（ ）。
+
+A. 12
+B. 4√5
+C. 6
+D. √65/2","y²=2p₁x; x²=2p₂y; (4,8) on both","","problem_0019_01","false","verified","题干、公式、图形条件及分类已人工复核。"
+"art_0020","1","20.jpg","question","math","high_school","college_entrance_exam","2026","Shanghai","main","16","trigonometry.triangle_solution","constructed_response","1","false","16. 在△ABC中AB=3，BC=2√3，cosB=√3/3。（1）求cosA；（2）D在BA延长线上，DE∥BC，AE⊥AC，DE=√6，求CE。","AB=3; BC=2√3; cosB=√3/3; DE∥BC; AE⊥AC; DE=√6","","problem_0020_01","false","verified","题干、公式、图形条件及分类已人工复核。"
+"art_0021","1","21.png","question","math","junior_high","high_school_entrance_exam","2026","Shanghai","main","12","algebra.inverse_proportion","fill_blank","1","false","12. 点 \(A(m,n)\) 与点 \(B(3,4)\) 在同一条反比例函数
+\[
+y=\frac{k}{x}
+\]
+上，若 \(0<m<3\)，则 \(n\) 的取值范围是________。","y=\frac{k}{x};\quad A(m,n);\quad B(3,4);\quad 0<m<3","","problem_0021_01","false","verified","题干、选项或子问、核心公式及分类已人工复核。"
+"art_0022","1","22.png","question","math","junior_high","high_school_entrance_exam","2026","Shanghai","main","20","geometry.similar_triangles_and_trigonometry","constructed_response","1","true","20.（本题共10分）
+
+如图，小明正在确认大楼是否安全，规定
+\[
+\frac{h}{d}<\frac18
+\]
+即为安全。
+
+（1）当 \(d=100\) 米时，\(h\) 至少小于多少米？
+
+（2）若测 \(AB\) 长为 \(a\)，\(BC\) 长为 \(b\)，仰角为 \(\theta\)，求 \(\frac{h}{d}\)（用含有 \(a、b、h\) 的代数式表示）。","\frac{h}{d}<\frac18;\quad d=100;\quad AB=a;\quad BC=b;\quad \angle ABC=\theta","","problem_0022_01","false","verified","题干、选项或子问、核心公式及分类已人工复核。"
+"art_0023","1","23.png","question","math","junior_high","high_school_entrance_exam","2026","Shanghai","main","23","analytic_geometry.parabola_and_tangent","constructed_response","1","false","23.（本题13分）
+
+有抛物线 \(y=ax^2+bx+c\)，其对称轴与 \(x\) 轴相交于 \(A\)。将 \(A\) 向右平移1个单位得点 \(B\)。点 \(C\) 与点 \(B\) 的横坐标相同，且点 \(C\) 的纵坐标为 \(2a\)，则 \(C\) 点是抛物线的“派生点”，直线 \(AC\) 称为该抛物线的“派生直线”。
+
+（1）若抛物线的解析式为 \(y=2x^2-c\)（\(c\) 为常数），求其派生直线的表达式；
+
+（2）已知抛物线的派生点为点 \(C\)，抛物线与其派生直线 \(y=2x-6\) 的公共点为 \(P(1,m)\)，点 \(Q(7,n)\) 为派生直线上一点，求 \(\frac{CP}{CQ}\) 的值，并判断点 \(Q\) 是否在该抛物线上。","y=ax^2+bx+c;\quad y=2x^2-c;\quad y=2x-6;\quad P(1,m);\quad Q(7,n);\quad \frac{CP}{CQ}","","problem_0023_01","false","verified","题干、选项或子问、核心公式及分类已人工复核。"
+"art_0024","1","24.png","question","math","junior_high","high_school_entrance_exam","2026","Shanghai","main","6","geometry.square_symmetry_and_perimeter","multiple_choice","1","true","6. 如图，在正方形 \(ABCD\) 中，\(E\) 是 \(AB\) 上一点（不与 \(A、B\) 重合），过点 \(E\) 作 \(EM\parallel BD\)，交 \(AD\) 于点 \(M\)，作 \(E、M\) 关于 \(BD\) 的对称点 \(F、G\)，联结 \(EF、MG\) 交 \(BD\) 于点 \(P、H\)。下列说法正确的是（ ）。
+
+① 四边形 \(EFGM\) 周长是定值；
+
+② 四边形 \(EPHM\) 周长是定值。
+
+A. ①、②均正确
+
+B. ①正确②错误
+
+C. ②正确①错误
+
+D. ①、②均错误","ABCD\text{ is a square};\quad E\in AB;\quad EM\parallel BD;\quad F=\operatorname{Ref}_{BD}(E);\quad G=\operatorname{Ref}_{BD}(M)","","problem_0024_01","false","verified","题干、选项或子问、核心公式及分类已人工复核。"
+"art_0025","1","25.png","question","math","junior_high","high_school_entrance_exam","2026","Shanghai","main","24","geometry.circle_similarity_and_ratio","proof_and_calculation","1","true","24.（本题15分）
+
+如图，在 \(\odot O\) 中，\(AE\) 为直径，弦 \(AB=CD\)，点 \(D\) 在弧 \(AB\) 上，\(AB、CD\) 交于点 \(P\)。
+
+（1）连接 \(OP\)。
+
+① 求证：\(\angle APO=\angle CPO\)；
+
+② 连接 \(OB\) 交 \(PC\) 于 \(H\)。若 \(PB=1,\ AE=4,\ OP=OH\)，求 \(PH\) 的长。
+
+（2）连接 \(AC、PE\) 交于 \(Q\)，满足 \(PQ=EQ\)。点 \(F\) 在线段 \(AP\) 上，且 \(PF=4AF\)，\(\angle PFE=\angle POQ\)，求 \(\frac{PQ}{AQ}\)。","AE\text{ is a diameter};\quad AB=CD;\quad \angle APO=\angle CPO;\quad PB=1;\quad AE=4;\quad OP=OH;\quad PQ=EQ;\quad PF=4AF;\quad \angle PFE=\angle POQ;\quad \frac{PQ}{AQ}","","problem_0025_01","false","verified","题干、选项或子问、核心公式及分类已人工复核。"
+"art_0026","1","26.png","question","math","junior_high","high_school_entrance_exam","2025","Shanghai","main","15","statistics.pie_chart_percentage","fill_blank","1","true","15.（4分）（2025·上海）某高铁站出站后有出租车、地铁、汽车、公交等出行方式，高铁站为调查各个出行方式的人流，先对2000人展开调查，结果如图所示。那么某日高铁站出站客流约为1.8万人，其中有约________人选择出租车。图中地铁占60%，汽车占15%，公交占15%。","N_{sample}=2000;\quad N_{total}=18000;\quad p_{subway}=60\%;\quad p_{car}=15\%;\quad p_{bus}=15\%;\quad p_{taxi}=1-60\%-15\%-15\%","","problem_0026_01","false","verified","题干、选项或子问、核心公式及分类已人工复核。"
+"art_0027","1","27.png","question","math","junior_high","high_school_entrance_exam","2025","Shanghai","main","10","algebra.quadratic_equation_discriminant","fill_blank","1","false","10.（4分）（2025·上海）一元二次方程
+\[
+2x^2+x+m=0
+\]
+没有实数根，那么 \(m\) 的取值范围是________。","2x^2+x+m=0;\quad \Delta=1-8m<0","","problem_0027_01","false","verified","题干、选项或子问、核心公式及分类已人工复核。"
+"art_0028","1","28.png","question","math","junior_high","high_school_entrance_exam","2025","Shanghai","main","6","geometry.isosceles_triangle_circumcircle_tangent_circles","multiple_choice","1","true","6.（4分）（2025·上海）在锐角三角形 \(ABC\) 中，\(AB=AC\)，\(BC=8\)，它的外接圆 \(O\) 的半径长为5。若点 \(D\) 是边 \(BC\) 的中点，以点 \(D\) 为圆心的圆和 \(\odot O\) 相交，那么 \(\odot D\) 的半径长可以是（ ）。
+
+A. 2
+
+B. 5
+
+C. 8
+
+D. 10","AB=AC;\quad BC=8;\quad R_O=5;\quad D\text{ is midpoint of }BC;\quad \odot D\cap\odot O\ne\varnothing","","problem_0028_01","false","verified","题干、选项或子问、核心公式及分类已人工复核。"
+"art_0029","1","29.png","question","math","junior_high","high_school_entrance_exam","2025","Shanghai","main","24","analytic_geometry.parabola_and_quadrilateral","constructed_response","1","false","24.（12分）（2025·上海）在平面直角坐标系 \(xOy\) 中，抛物线 \(y=x^2+bx+c\) 经过点 \(A(1,1)\) 和 \(B(3,1)\)，顶点为点 \(P\)，抛物线于 \(y\) 轴交于点 \(C\)。
+
+（1）求 \(b\) 和 \(c\) 的值；
+
+（2）另一条抛物线 \(y=ax^2+mx+n\ (a\ne1)\) 也经过点 \(A(1,1)\) 和 \(B(3,1)\)，顶点为点 \(Q\)，与 \(y\) 轴交于点 \(D\)。
+
+① 求 \(\frac{CD}{PQ}\) 的值；
+
+② 当四边形 \(CDPQ\) 是直角梯形，求其最小内角的正弦值。","y=x^2+bx+c;\quad A(1,1);\quad B(3,1);\quad y=ax^2+mx+n;\quad a\ne1;\quad \frac{CD}{PQ}","","problem_0029_01","false","verified","题干、选项或子问、核心公式及分类已人工复核。"
+"art_0030","1","30.png","question","math","junior_high","high_school_entrance_exam","2025","Shanghai","main","25","geometry.parallelogram_congruence_and_area","proof_and_calculation","1","true","25.（14分）（2025·上海）如图1，平行四边形 \(ABCD\) 中，点 \(E、F\) 分别是边 \(BC、CD\) 上的点。
+
+（1）若 \(E\) 是 \(BC\) 中点：
+
+① 如图1，若 \(AE=EF\)，求证：\(\angle BAE=\angle EFC\)；
+
+② 如图2，若 \(CF=DF\)，联结 \(BF\) 交 \(AE\) 于 \(G\)，求 \(S_{\triangle BEG}:S_{\triangle AEF}\) 的值；
+
+（2）如图3，若 \(AB=3,\ AD=5,\ CF=1,\ \angle AEB=\angle AFE=\angle EFC\)，求 \(AF\) 的长。","ABCD\text{ is a parallelogram};\quad E\in BC;\quad F\in CD;\quad AE=EF;\quad \angle BAE=\angle EFC;\quad CF=DF;\quad S_{\triangle BEG}:S_{\triangle AEF};\quad AB=3;\quad AD=5;\quad CF=1;\quad \angle AEB=\angle AFE=\angle EFC","","problem_0030_01","false","verified","题干、选项或子问、核心公式及分类已人工复核。"

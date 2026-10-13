@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0010",
+    "file_name":  "10.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0010_01",
+                                 "question_no":  "13",
+                                 "statement":  "13. 设非负函数 \\(f(x)\\) 在 \\([0,+\\infty)\\) 上具有有界导数，给出以下四个命题：\n\n① 若\n\\[\n\\int_0^{+\\infty}f^2(x)\\,dx\n\\]\n收敛，则\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛；\n\n② 若\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛，则\n\\[\n\\int_0^{+\\infty}f^2(x)\\,dx\n\\]\n收敛；\n\n③ 若\n\\[\n\\lim_{x\\to+\\infty}x^2f(x)\n\\]\n存在，则\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛；\n\n④ 若\n\\[\n\\int_0^{+\\infty}f(x)\\,dx\n\\]\n收敛，则\n\\[\n\\lim_{x\\to+\\infty}x^2f(x)\n\\]\n存在。\n\n其中，真命题的个数为（ ）。\n\n（A）1　（B）2　（C）3　（D）4",
+                                 "latex":  "f(x)\\ge0;\\quad f\u0027\\text{ bounded on }[0,+\\infty);\\quad \\int_0^{+\\infty}f(x)\\,dx;\\quad \\int_0^{+\\infty}f^2(x)\\,dx;\\quad \\lim_{x\\to+\\infty}x^2f(x)",
+                                 "subject":  "math",
+                                 "grade_band":  "postgraduate",
+                                 "exam_type":  "postgraduate_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "national",
+                                 "paper_variant":  "Mathematics-II",
+                                 "topic":  "calculus.improper_integrals",
+                                 "question_type":  "multiple_choice",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

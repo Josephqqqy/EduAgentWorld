@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0011",
+    "file_name":  "11.jpg",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0011_01",
+                                 "question_no":  "18",
+                                 "statement":  "18.（第1小题满分6分，第2小题满分8分）如图，P是圆锥的顶点，O是底面圆心，AB是底面直径，且AB=2。\\n\\n（1）若直线PA与圆锥底面的所成角为\\(\\frac{\\pi}{3}\\)，求圆锥的侧面积；\\n\\n（2）已知Q是母线PA的中点，点C、D在底面圆周上，且弧CD的长为\\(\\frac{\\pi}{3}\\)，CD\\parallel AB。设点M在线段OC上。证明：直线QM\\parallel平面PBD。",
+                                 "latex":  "AB=2;\\quad \\angle(PA,\\text{底面})=\\frac{\\pi}{3};\\quad Q\\text{ is midpoint of }PA;\\quad C,D\\text{ on base circle};\\quad \\overset{\\frown}{CD}=\\frac{\\pi}{3};\\quad CD\\parallel AB;\\quad M\\in OC;\\quad QM\\parallel\\text{平面 }PBD",
+                                 "subject":  "math",
+                                 "grade_band":  "high_school",
+                                 "exam_type":  "college_entrance_exam",
+                                 "year":  "2025",
+                                 "region":  "Shanghai",
+                                 "paper_variant":  "main",
+                                 "topic":  "solid_geometry.cone_surface_area_and_parallel_planes",
+                                 "question_type":  "proof_and_calculation",
+                                 "has_diagram":  true,
+                                 "requires_confirmation":  true,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

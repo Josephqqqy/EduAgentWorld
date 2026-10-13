@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0001",
+    "file_name":  "1.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0001_01",
+                                 "question_no":  "7",
+                                 "statement":  "7. 设函数 \\(f(x,y)\\) 在区域\n\\[\nD=\\{(x,y)\\mid 0\\le x\\le 1,\\ 0\\le y\\le 1\\}\n\\]\n上连续，且 \\(f(x,y)=f(y,x)\\)，则\n\\[\n\\iint_D f(x,y)\\,dx\\,dy=(\\quad).\n\\]\n\n（A）\n\\[\n2\\lim_{n\\to\\infty}\\sum_{i=1}^{n}\\sum_{j=n+1-i}^{n}\nf\\left(\\frac{i}{n},\\frac{j}{n}\\right)\\frac{1}{n^2}\n\\]\n\n（B）\n\\[\n\\frac{1}{2}\\lim_{n\\to\\infty}\\sum_{i=1}^{n}\\sum_{j=1}^{n}\nf\\left(\\frac{i}{n},\\frac{j}{n}\\right)\\frac{1}{n^2}\n\\]\n\n（C）\n\\[\n2\\lim_{n\\to\\infty}\\sum_{i=1}^{2n}\\sum_{j=1}^{2n+1-i}\nf\\left(\\frac{i}{2n},\\frac{j}{2n}\\right)\\frac{1}{n^2}\n\\]\n\n（D）\n\\[\n\\frac{1}{2}\\lim_{n\\to\\infty}\\sum_{i=1}^{2n}\\sum_{j=1}^{i}\nf\\left(\\frac{i}{2n},\\frac{j}{2n}\\right)\\frac{1}{n^2}\n\\]",
+                                 "latex":  "D=\\{(x,y)\\mid 0\\le x\\le 1,\\ 0\\le y\\le 1\\};\\quad f(x,y)=f(y,x);\\quad \\iint_D f(x,y)\\,dx\\,dy",
+                                 "subject":  "math",
+                                 "grade_band":  "postgraduate",
+                                 "exam_type":  "postgraduate_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "national",
+                                 "paper_variant":  "Mathematics-II",
+                                 "topic":  "multivariable_calculus.double_integral_riemann_sum",
+                                 "question_type":  "multiple_choice",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

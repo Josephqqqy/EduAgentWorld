@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0007",
+    "file_name":  "7.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0007_01",
+                                 "question_no":  "4",
+                                 "statement":  "4. 设有半圆形板\n\\[\nx^2+y^2\\le a^2\\quad(y\\ge0),\n\\]\n它在点 \\(P(x,y)\\) 的密度与点 \\(P\\) 到原点的距离成正比，则半圆形板的重心坐标为（ ）。\n\n（A）\\(\\left(0,\\frac{\\pi a}{3}\\right)\\)\n\n（B）\\(\\left(0,\\frac{\\pi a}{2}\\right)\\)\n\n（C）\\(\\left(0,\\frac{4a}{3\\pi}\\right)\\)\n\n（D）\\(\\left(0,\\frac{3a}{2\\pi}\\right)\\)",
+                                 "latex":  "x^2+y^2\\le a^2;\\quad y\\ge0;\\quad \\rho(P)\\propto \\sqrt{x^2+y^2}",
+                                 "subject":  "math",
+                                 "grade_band":  "postgraduate",
+                                 "exam_type":  "postgraduate_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "national",
+                                 "paper_variant":  "Mathematics-II",
+                                 "topic":  "multivariable_calculus.center_of_mass",
+                                 "question_type":  "multiple_choice",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

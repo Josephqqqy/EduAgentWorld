@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0016",
+    "file_name":  "16.jpg",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0016_01",
+                                 "question_no":  "11",
+                                 "statement":  "11. 双曲线C：x²/a²−y²/b²=1（a,b\u003e0）的左、右焦点分别是F₁、F₂，左、右顶点分别为A₁、A₂。以F₁F₂为直径的圆与曲线C的一条渐近线交于M、N两点，且∠NA₁M=5π/6，则（ ）。\n\nA. ∠A₁MA₂=π/6\nB. |MA₁|=2|MA₂|\nC. C的离心率为√13\nD. 当a=√2时，四边形NA₁MA₂的面积为8√3",
+                                 "latex":  "x²/a²−y²/b²=1; a,b\u003e0; ∠NA₁M=5π/6; e=c/a",
+                                 "subject":  "math",
+                                 "grade_band":  "high_school",
+                                 "exam_type":  "college_entrance_exam",
+                                 "year":  "unknown",
+                                 "region":  "national",
+                                 "paper_variant":  "unknown",
+                                 "topic":  "analytic_geometry.hyperbola",
+                                 "question_type":  "multiple_choice",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

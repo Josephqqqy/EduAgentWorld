@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0023",
+    "file_name":  "23.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0023_01",
+                                 "question_no":  "23",
+                                 "statement":  "23.（本题13分）\n\n有抛物线 \\(y=ax^2+bx+c\\)，其对称轴与 \\(x\\) 轴相交于 \\(A\\)。将 \\(A\\) 向右平移1个单位得点 \\(B\\)。点 \\(C\\) 与点 \\(B\\) 的横坐标相同，且点 \\(C\\) 的纵坐标为 \\(2a\\)，则 \\(C\\) 点是抛物线的“派生点”，直线 \\(AC\\) 称为该抛物线的“派生直线”。\n\n（1）若抛物线的解析式为 \\(y=2x^2-c\\)（\\(c\\) 为常数），求其派生直线的表达式；\n\n（2）已知抛物线的派生点为点 \\(C\\)，抛物线与其派生直线 \\(y=2x-6\\) 的公共点为 \\(P(1,m)\\)，点 \\(Q(7,n)\\) 为派生直线上一点，求 \\(\\frac{CP}{CQ}\\) 的值，并判断点 \\(Q\\) 是否在该抛物线上。",
+                                 "latex":  "y=ax^2+bx+c;\\quad y=2x^2-c;\\quad y=2x-6;\\quad P(1,m);\\quad Q(7,n);\\quad \\frac{CP}{CQ}",
+                                 "subject":  "math",
+                                 "grade_band":  "junior_high",
+                                 "exam_type":  "high_school_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "Shanghai",
+                                 "paper_variant":  "main",
+                                 "topic":  "analytic_geometry.parabola_and_tangent",
+                                 "question_type":  "constructed_response",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

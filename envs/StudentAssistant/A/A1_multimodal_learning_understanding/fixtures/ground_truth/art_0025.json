@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0025",
+    "file_name":  "25.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0025_01",
+                                 "question_no":  "24",
+                                 "statement":  "24.（本题15分）\n\n如图，在 \\(\\odot O\\) 中，\\(AE\\) 为直径，弦 \\(AB=CD\\)，点 \\(D\\) 在弧 \\(AB\\) 上，\\(AB、CD\\) 交于点 \\(P\\)。\n\n（1）连接 \\(OP\\)。\n\n① 求证：\\(\\angle APO=\\angle CPO\\)；\n\n② 连接 \\(OB\\) 交 \\(PC\\) 于 \\(H\\)。若 \\(PB=1,\\ AE=4,\\ OP=OH\\)，求 \\(PH\\) 的长。\n\n（2）连接 \\(AC、PE\\) 交于 \\(Q\\)，满足 \\(PQ=EQ\\)。点 \\(F\\) 在线段 \\(AP\\) 上，且 \\(PF=4AF\\)，\\(\\angle PFE=\\angle POQ\\)，求 \\(\\frac{PQ}{AQ}\\)。",
+                                 "latex":  "AE\\text{ is a diameter};\\quad AB=CD;\\quad \\angle APO=\\angle CPO;\\quad PB=1;\\quad AE=4;\\quad OP=OH;\\quad PQ=EQ;\\quad PF=4AF;\\quad \\angle PFE=\\angle POQ;\\quad \\frac{PQ}{AQ}",
+                                 "subject":  "math",
+                                 "grade_band":  "junior_high",
+                                 "exam_type":  "high_school_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "Shanghai",
+                                 "paper_variant":  "main",
+                                 "topic":  "geometry.circle_similarity_and_ratio",
+                                 "question_type":  "proof_and_calculation",
+                                 "has_diagram":  true,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

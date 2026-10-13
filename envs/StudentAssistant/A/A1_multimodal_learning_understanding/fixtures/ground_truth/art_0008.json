@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0008",
+    "file_name":  "8.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0008_01",
+                                 "question_no":  "7",
+                                 "statement":  "7. 设 \\(f(x)\\) 是 \\([0,1]\\) 上单调增加的连续函数，则（ ）。\n\n（A）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\ge\\int_0^1f(x)e^{-x^2}\\,dx\n\\]\n\n（B）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\le\\int_0^1f(x)e^{-x^2}\\,dx\n\\]\n\n（C）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\ge\\int_0^1f(x)\\,dx\n\\]\n\n（D）\n\\[\n\\int_0^{\\int_0^1 e^{-t^2}\\,dt}f(x)\\,dx\\le\\int_0^1f(x)\\,dx\n\\]",
+                                 "latex":  "f\\text{ is increasing on }[0,1];\\quad a=\\int_0^1e^{-t^2}\\,dt;\\quad \\int_0^a f(x)\\,dx;\\quad \\int_0^1f(x)e^{-x^2}\\,dx",
+                                 "subject":  "math",
+                                 "grade_band":  "postgraduate",
+                                 "exam_type":  "postgraduate_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "national",
+                                 "paper_variant":  "Mathematics-II",
+                                 "topic":  "calculus.integral_inequalities",
+                                 "question_type":  "multiple_choice",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

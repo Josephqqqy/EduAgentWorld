@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0021",
+    "file_name":  "21.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0021_01",
+                                 "question_no":  "12",
+                                 "statement":  "12. 点 \\(A(m,n)\\) 与点 \\(B(3,4)\\) 在同一条反比例函数\n\\[\ny=\\frac{k}{x}\n\\]\n上，若 \\(0\u003cm\u003c3\\)，则 \\(n\\) 的取值范围是________。",
+                                 "latex":  "y=\\frac{k}{x};\\quad A(m,n);\\quad B(3,4);\\quad 0\u003cm\u003c3",
+                                 "subject":  "math",
+                                 "grade_band":  "junior_high",
+                                 "exam_type":  "high_school_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "Shanghai",
+                                 "paper_variant":  "main",
+                                 "topic":  "algebra.inverse_proportion",
+                                 "question_type":  "fill_blank",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

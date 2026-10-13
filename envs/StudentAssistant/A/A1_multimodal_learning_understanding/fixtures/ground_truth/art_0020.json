@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0020",
+    "file_name":  "20.jpg",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0020_01",
+                                 "question_no":  "16",
+                                 "statement":  "16. 在△ABC中AB=3，BC=2√3，cosB=√3/3。（1）求cosA；（2）D在BA延长线上，DE∥BC，AE⊥AC，DE=√6，求CE。",
+                                 "latex":  "AB=3; BC=2√3; cosB=√3/3; DE∥BC; AE⊥AC; DE=√6",
+                                 "subject":  "math",
+                                 "grade_band":  "high_school",
+                                 "exam_type":  "college_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "Shanghai",
+                                 "paper_variant":  "main",
+                                 "topic":  "trigonometry.triangle_solution",
+                                 "question_type":  "constructed_response",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0030",
+    "file_name":  "30.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0030_01",
+                                 "question_no":  "25",
+                                 "statement":  "25.（14分）（2025·上海）如图1，平行四边形 \\(ABCD\\) 中，点 \\(E、F\\) 分别是边 \\(BC、CD\\) 上的点。\n\n（1）若 \\(E\\) 是 \\(BC\\) 中点：\n\n① 如图1，若 \\(AE=EF\\)，求证：\\(\\angle BAE=\\angle EFC\\)；\n\n② 如图2，若 \\(CF=DF\\)，联结 \\(BF\\) 交 \\(AE\\) 于 \\(G\\)，求 \\(S_{\\triangle BFG}:S_{\\triangle AEF}\\) 的值；\n\n（2）如图3，若 \\(AB=3,\\ AD=5,\\ CF=1,\\ \\angle AEB=\\angle AFE=\\angle EFC\\)，求 \\(AF\\) 的长。",
+                                 "latex":  "ABCD\\text{ is a parallelogram};\\quad E\\in BC;\\quad F\\in CD;\\quad AE=EF;\\quad \\angle BAE=\\angle EFC;\\quad CF=DF;\\quad S_{\\triangle BFG}:S_{\\triangle AEF};\\quad AB=3;\\quad AD=5;\\quad CF=1;\\quad \\angle AEB=\\angle AFE=\\angle EFC",
+                                 "subject":  "math",
+                                 "grade_band":  "junior_high",
+                                 "exam_type":  "high_school_entrance_exam",
+                                 "year":  "2025",
+                                 "region":  "Shanghai",
+                                 "paper_variant":  "main",
+                                 "topic":  "geometry.parallelogram_congruence_and_area",
+                                 "question_type":  "proof_and_calculation",
+                                 "has_diagram":  true,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

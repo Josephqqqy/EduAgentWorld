@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0019",
+    "file_name":  "19.jpg",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0019_01",
+                                 "question_no":  "5",
+                                 "statement":  "5. 抛物线C₁:y²=2p₁x（p₁>0）和C₂:x²=2p₂y（p₂>0）均经过点(4,8)，则C₁的焦点与C₂的焦点之间的距离为（ ）。\n\nA. 12\nB. 4√5\nC. 6\nD. √65/2",
+                                 "latex":  "y²=2p₁x; x²=2p₂y; (4,8) on both",
+                                 "subject":  "math",
+                                 "grade_band":  "high_school",
+                                 "exam_type":  "college_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "national",
+                                 "paper_variant":  "paper-II",
+                                 "topic":  "analytic_geometry.parabola_focus",
+                                 "question_type":  "multiple_choice",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

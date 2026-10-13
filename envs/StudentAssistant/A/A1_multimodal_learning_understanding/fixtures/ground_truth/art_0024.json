@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0024",
+    "file_name":  "24.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0024_01",
+                                 "question_no":  "6",
+                                 "statement":  "6. 如图，在正方形 \\(ABCD\\) 中，\\(E\\) 是 \\(AB\\) 上一点（不与 \\(A、B\\) 重合），过点 \\(E\\) 作 \\(EM\\parallel BD\\)，交 \\(AD\\) 于点 \\(M\\)，作 \\(E、M\\) 关于 \\(BD\\) 的对称点 \\(F、G\\)，联结 \\(EF、MG\\) 交 \\(BD\\) 于点 \\(P、H\\)。下列说法正确的是（ ）。\n\n① 四边形 \\(EFGM\\) 周长是定值；\n\n② 四边形 \\(EPHM\\) 周长是定值。\n\nA. ①、②均正确\n\nB. ①正确②错误\n\nC. ②正确①错误\n\nD. ①、②均错误",
+                                 "latex":  "ABCD\\text{ is a square};\\quad E\\in AB;\\quad EM\\parallel BD;\\quad F=\\operatorname{Ref}_{BD}(E);\\quad G=\\operatorname{Ref}_{BD}(M)",
+                                 "subject":  "math",
+                                 "grade_band":  "junior_high",
+                                 "exam_type":  "high_school_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "Shanghai",
+                                 "paper_variant":  "main",
+                                 "topic":  "geometry.square_symmetry_and_perimeter",
+                                 "question_type":  "multiple_choice",
+                                 "has_diagram":  true,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

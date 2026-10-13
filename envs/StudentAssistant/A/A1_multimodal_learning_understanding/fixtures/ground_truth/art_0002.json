@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0002",
+    "file_name":  "2.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0002_01",
+                                 "question_no":  "21",
+                                 "statement":  "21.（本题满分12分）求微分方程\n\\[\nx^2y\u0027\u0027-2xy\u0027-(y\u0027)^2=0\\quad(x\u003e2)\n\\]\n满足条件\n\\[\ny\\big|_{x=3}=\\frac12,\\qquad y\u0027\\big|_{x=3}=-9\n\\]\n的解。",
+                                 "latex":  "x^2y\u0027\u0027-2xy\u0027-(y\u0027)^2=0;\\quad x\u003e2;\\quad y|_{x=3}=\\frac12;\\quad y\u0027|_{x=3}=-9",
+                                 "subject":  "math",
+                                 "grade_band":  "postgraduate",
+                                 "exam_type":  "postgraduate_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "national",
+                                 "paper_variant":  "Mathematics-II",
+                                 "topic":  "differential_equations.second_order_nonlinear",
+                                 "question_type":  "constructed_response",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

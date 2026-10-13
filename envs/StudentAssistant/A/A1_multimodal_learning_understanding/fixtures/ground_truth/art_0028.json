@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0028",
+    "file_name":  "28.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0028_01",
+                                 "question_no":  "6",
+                                 "statement":  "6.（4分）（2025·上海）在锐角三角形 \\(ABC\\) 中，\\(AB=AC\\)，\\(BC=8\\)，它的外接圆 \\(O\\) 的半径长为5。若点 \\(D\\) 是边 \\(BC\\) 的中点，以点 \\(D\\) 为圆心的圆和 \\(\\odot O\\) 相交，那么 \\(\\odot D\\) 的半径长可以是（ ）。\n\nA. 2\n\nB. 5\n\nC. 8\n\nD. 10",
+                                 "latex":  "AB=AC;\\quad BC=8;\\quad R_O=5;\\quad D\\text{ is midpoint of }BC;\\quad \\odot D\\cap\\odot O\\ne\\varnothing",
+                                 "subject":  "math",
+                                 "grade_band":  "junior_high",
+                                 "exam_type":  "high_school_entrance_exam",
+                                 "year":  "2025",
+                                 "region":  "Shanghai",
+                                 "paper_variant":  "main",
+                                 "topic":  "geometry.isosceles_triangle_circumcircle_tangent_circles",
+                                 "question_type":  "multiple_choice",
+                                 "has_diagram":  true,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

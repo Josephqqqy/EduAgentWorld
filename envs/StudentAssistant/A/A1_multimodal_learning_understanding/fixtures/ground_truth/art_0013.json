@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0013",
+    "file_name":  "13.jpg",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0013_01",
+                                 "question_no":  "16",
+                                 "statement":  "16.（15分）数列{a_n}满足 a_1=3，a_{n+1}/n=a_n/(n+1)+1/[n(n+1)]。（1）证明{na_n}为等差数列；（2）f(x)=a_1x+a_2x^2+⋯+a_mx^m，求 f′(−2)。",
+                                 "latex":  "a_1=3; a_{n+1}/n=a_n/(n+1)+1/[n(n+1)]; f(x)=Σa_kx^k; f′(−2)",
+                                 "subject":  "math",
+                                 "grade_band":  "high_school",
+                                 "exam_type":  "college_entrance_exam",
+                                 "year":  "2025",
+                                 "region":  "national",
+                                 "paper_variant":  "paper-I",
+                                 "topic":  "sequences.arithmetic_sequence_and_derivative",
+                                 "question_type":  "proof_and_calculation",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

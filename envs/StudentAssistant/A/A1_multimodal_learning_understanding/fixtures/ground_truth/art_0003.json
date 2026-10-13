@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0003",
+    "file_name":  "3.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0003_01",
+                                 "question_no":  "18",
+                                 "statement":  "18.（本题满分12分）\n\n设函数 \\(f(x)\\) 在 \\(x=0\\) 处连续，且\n\\[\n\\lim_{x\\to0}\\frac{xf(x)-e^{2\\sin x}+1}{\\ln(1+x)+\\ln(1-x)}=-3,\n\\]\n证明 \\(f(x)\\) 在 \\(x=0\\) 处可导，并求 \\(f\u0027(0)\\)。",
+                                 "latex":  "\\lim_{x\\to0}\\frac{xf(x)-e^{2\\sin x}+1}{\\ln(1+x)+\\ln(1-x)}=-3;\\quad f\u0027(0)",
+                                 "subject":  "math",
+                                 "grade_band":  "postgraduate",
+                                 "exam_type":  "postgraduate_entrance_exam",
+                                 "year":  "2025",
+                                 "region":  "national",
+                                 "paper_variant":  "Mathematics-II",
+                                 "topic":  "calculus.limits_and_differentiability",
+                                 "question_type":  "proof_and_calculation",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

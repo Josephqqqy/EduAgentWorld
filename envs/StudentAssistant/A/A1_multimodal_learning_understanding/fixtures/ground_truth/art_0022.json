@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0022",
+    "file_name":  "22.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0022_01",
+                                 "question_no":  "20",
+                                 "statement":  "20.（本题共10分）\n\n如图，小明正在确认大楼是否安全，规定\n\\[\n\\frac{h}{d}\u003c\\frac18\n\\]\n即为安全。\n\n（1）当 \\(d=100\\) 米时，\\(h\\) 至少小于多少米？\n\n（2）若测 \\(AB\\) 长为 \\(a\\)，\\(BC\\) 长为 \\(b\\)，仰角为 \\(\\theta\\)，求 \\(\\frac{h}{d}\\)（用含有 \\(a、b、h\\) 的代数式表示）。",
+                                 "latex":  "\\frac{h}{d}\u003c\\frac18;\\quad d=100;\\quad AB=a;\\quad BC=b;\\quad \\angle ABC=\\theta",
+                                 "subject":  "math",
+                                 "grade_band":  "junior_high",
+                                 "exam_type":  "high_school_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "Shanghai",
+                                 "paper_variant":  "main",
+                                 "topic":  "geometry.similar_triangles_and_trigonometry",
+                                 "question_type":  "constructed_response",
+                                 "has_diagram":  true,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

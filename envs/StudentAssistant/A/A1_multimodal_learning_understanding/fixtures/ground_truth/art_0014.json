@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0014",
+    "file_name":  "14.jpg",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0014_01",
+                                 "question_no":  "14",
+                                 "statement":  "14. 一个箱子里有5个球，标号1～5，有放回取三次，记至少取出一次的球的个数为X，求E(X)。",
+                                 "latex":  "5 labeled balls; with replacement 3 times; X=number of distinct balls; E(X)",
+                                 "subject":  "math",
+                                 "grade_band":  "high_school",
+                                 "exam_type":  "college_entrance_exam",
+                                 "year":  "2025",
+                                 "region":  "national",
+                                 "paper_variant":  "paper-I",
+                                 "topic":  "probability.mathematical_expectation",
+                                 "question_type":  "fill_blank",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

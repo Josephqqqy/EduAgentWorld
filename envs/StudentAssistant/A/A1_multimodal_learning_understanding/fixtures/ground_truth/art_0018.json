@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0018",
+    "file_name":  "18.jpg",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0018_01",
+                                 "question_no":  "10",
+                                 "statement":  "10. 空间中A、B为定点，动点C到直线AB的距离为2，动点D到直线AB的距离为1。若二面角C−AB−D为60°，则（ ）。\n\nA. ∠CAD≥60°\nB. CD≥√3\nC. 当AB⊥CD时，CD⊥平面ABD\nD. 当AB⊥平面ACD时，AC⊥AD",
+                                 "latex":  "d(C,AB)=2; d(D,AB)=1; dihedral angle C−AB−D=60°",
+                                 "subject":  "math",
+                                 "grade_band":  "high_school",
+                                 "exam_type":  "college_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "national",
+                                 "paper_variant":  "paper-II",
+                                 "topic":  "solid_geometry.distance_dihedral_angle",
+                                 "question_type":  "multiple_choice",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}

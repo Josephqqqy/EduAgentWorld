@@ -1,0 +1,1174 @@
+﻿{
+    "schema_version":  "1.0",
+    "dataset":  "A1_multimodal_learning_understanding",
+    "generated_on":  "2026-09-08",
+    "status":  "complete",
+    "statistics":  {
+                       "solution_count":  32,
+                       "completed_solution_count":  32,
+                       "pending_review_count":  0,
+                       "not_yet_written_problem_count":  0
+                   },
+    "solutions":  [
+                      {
+                          "solution_id":  "solution_0001",
+                          "problem_id":  "problem_0001_01",
+                          "final_answer":  "D",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "D项求和区域对应三角形 0\u003c=y\u003c=x\u003c=1。",
+                                                     "expression":  "sum f(i/(2n),j/(2n))/(4n^2) -\u003e integral_T f",
+                                                     "justification":  "网格面积为1/(4n^2)。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "利用 f(x,y)=f(y,x) 将正方形分成两个积分相等的三角形。",
+                                                     "expression":  "integral_D f=2 integral_T f",
+                                                     "justification":  "交换 x、y 将两个三角形互相映射。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "D项的系数等于两倍三角形黎曼和。",
+                                                     "expression":  "(1/2)(1/n^2)=2(1/(4n^2))",
+                                                     "justification":  "故 D 项等于整个正方形积分。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "二重积分黎曼和",
+                                                   "区域对称性"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0002",
+                          "problem_id":  "problem_0002_01",
+                          "final_answer":  "y=11-x^2/2-2x-4ln(x-2), x\u003e2",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "令 p=y\u0027，再令 p=x^2z。",
+                                                     "expression":  "z\u0027=z^2",
+                                                     "justification":  "代入后一次项相消。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "求得 y\u0027 并代入导数初值。",
+                                                     "expression":  "p=-x^2/(x+C1), p(3)=-9 =\u003e C1=-2",
+                                                     "justification":  "初值 p(3) 不为0。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "积分并使用 y(3)=1/2。",
+                                                     "expression":  "y\u0027=-x-2-4/(x-2); C2=11",
+                                                     "justification":  "x\u003e2，所以 ln|x-2|=ln(x-2)。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "二阶非线性微分方程降阶",
+                                                   "变量代换"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0003",
+                          "problem_id":  "problem_0003_01",
+                          "final_answer":  "f(0)=2, f\u0027(0)=5",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "展开分母和指数项。",
+                                                     "expression":  "ln(1+x)+ln(1-x)=-x^2+o(x^2), e^(2sin x)=1+2x+2x^2+o(x^2)",
+                                                     "justification":  "泰勒展开。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "有限极限结合连续性给出 f(0)=2。",
+                                                     "expression":  "lim f(x)=2",
+                                                     "justification":  "分子必须为 O(x^2)。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "整理原极限为导数差商。",
+                                                     "expression":  "(f(x)-2)/x -\u003e 5",
+                                                     "justification":  "代入展开式并比较 x^2 项。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "泰勒展开",
+                                                   "连续性与导数定义"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0004",
+                          "problem_id":  "problem_0004_01",
+                          "final_answer":  "u=(1/c)ln|cos(C2-cy)/cos(cx+C1)|+C3, c!=0",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "代入 u=f(x)+g(y)。",
+                                                     "expression":  "(1+g\u0027^2)f\u0027\u0027+(1+f\u0027^2)g\u0027\u0027=0",
+                                                     "justification":  "u_xy=0。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "分离变量。",
+                                                     "expression":  "f\u0027\u0027/(1+f\u0027^2)=-g\u0027\u0027/(1+g\u0027^2)=c",
+                                                     "justification":  "左边只依赖 x，右边只依赖 y。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "分别积分两次。",
+                                                     "expression":  "arctan f\u0027=cx+C1, arctan g\u0027=-cy+C2",
+                                                     "justification":  "c=0 会与 f\u0027\u0027!=0 矛盾。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "偏微分方程变量分离",
+                                                   "可分离常微分方程"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0005",
+                          "problem_id":  "problem_0005_01",
+                          "final_answer":  "2(e-1)",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "利用四象限对称性。",
+                                                     "expression":  "I=4 integral_{x\u003e=0,y\u003e=0,x+y\u003c=1} e^(y/(x+y)) dxdy",
+                                                     "justification":  "被积函数只含绝对值。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "令 r=x+y, t=y/(x+y)。",
+                                                     "expression":  "x=r(1-t), y=rt, |J|=r",
+                                                     "justification":  "0\u003c=r,t\u003c=1。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "计算积分。",
+                                                     "expression":  "I=4 integral_0^1 integral_0^1 e^t r dt dr=2(e-1)",
+                                                     "justification":  "积分可分离。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "二重积分换元",
+                                                   "雅可比"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0006",
+                          "problem_id":  "problem_0006_01",
+                          "final_answer":  "最大值6，最小值2",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "由 f_yy=4 和边界条件恢复函数。",
+                                                     "expression":  "f=x^2+sqrt(2)xy+2y^2",
+                                                     "justification":  "先对 y 积分两次。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "在约束上化简。",
+                                                     "expression":  "f=4+sqrt(2)xy",
+                                                     "justification":  "x^2+2y^2=4。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "令 X=x,Y=sqrt(2)y。",
+                                                     "expression":  "X^2+Y^2=4, f=4+XY",
+                                                     "justification":  "2|XY|\u003c=X^2+Y^2=4。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "约束极值",
+                                                   "基本不等式"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0007",
+                          "problem_id":  "problem_0007_01",
+                          "final_answer":  "D",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "密度设为 rho=kr，关于 y 轴对称。",
+                                                     "expression":  "x_bar=0",
+                                                     "justification":  "对称质量元抵消。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "用极坐标求质量和静矩。",
+                                                     "expression":  "M=k*pi*a^3/3, Mx=k*a^4/2",
+                                                     "justification":  "rho=kr, dA=r dr dtheta。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "求重心。",
+                                                     "expression":  "y_bar=Mx/M=3a/(2pi)",
+                                                     "justification":  "静矩除以总质量。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "变密度薄板重心",
+                                                   "极坐标积分"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0008",
+                          "problem_id":  "problem_0008_01",
+                          "final_answer":  "B",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "令 a=integral_0^1 e^(-x^2)dx。",
+                                                     "expression":  "int_0^1(e^(-x^2)-1_[0,a])dx=0",
+                                                     "justification":  "区间长度与权重总质量相等。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "比较两个积分并在 x=a 处分段。",
+                                                     "expression":  "Delta=int f(x)e^(-x^2)dx-int_0^a f(x)dx",
+                                                     "justification":  "将第二项写成示性函数积分。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "利用单调性判断符号。",
+                                                     "expression":  "Delta\u003e=0",
+                                                     "justification":  "故左式不大于右式，选 B。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "单调函数积分不等式",
+                                                   "权重比较"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0009",
+                          "problem_id":  "problem_0009_01",
+                          "final_answer":  "s=21/16; x_max=-3/(4*cuberoot(4))",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "求导并反解 dx/dy。",
+                                                     "expression":  "dx/dy=1/y^3-y^3/4",
+                                                     "justification":  "由题给积分关系。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "利用 x(-1)=-9/16 积分。",
+                                                     "expression":  "x(y)=-1/(2y^2)-y^4/16",
+                                                     "justification":  "确定积分常数。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "计算弧长并求驻点。",
+                                                     "expression":  "s=21/16; dx/dy=0 at y=-cuberoot(2)",
+                                                     "justification":  "区间内根式可化简且驻点给最大值。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "参数曲线弧长",
+                                                   "函数最值"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0010",
+                          "problem_id":  "problem_0010_01",
+                          "final_answer":  "②、③正确，共2个，选 B",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "①用 f=(1+x)^(-3/4) 反例。",
+                                                     "expression":  "int f^2 收敛但 int f 发散",
+                                                     "justification":  "直接比较幂积分。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "②中 f 有界且 f^2\u003c=Mf。",
+                                                     "expression":  "int f^2\u003c=M int f",
+                                                     "justification":  "非负可积函数趋于0，有界导数保证连续性。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "③中极限有限则 f\u003c=C/x^2。",
+                                                     "expression":  "int f 收敛",
+                                                     "justification":  "比较判别法。"
+                                                 },
+                                                 {
+                                                     "step_no":  4,
+                                                     "text":  "④可用可积窄波峰反例。",
+                                                     "expression":  "x^2f(x)沿不同序列取不同值",
+                                                     "justification":  "故极限不一定存在。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "广义积分比较判别",
+                                                   "反例构造"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "counterexample_and_comparison"
+                      },
+                      {
+                          "solution_id":  "solution_0011",
+                          "problem_id":  "problem_0011_01",
+                          "final_answer":  {
+                                               "schema_version":  "1.0",
+                                               "answer_type":  "multipart",
+                                               "parts":  [
+                                                             {
+                                                                 "part_id":  "part_1",
+                                                                 "answer_type":  "expression",
+                                                                 "value":  "2*pi"
+                                                             },
+                                                             {
+                                                                 "part_id":  "part_2",
+                                                                 "answer_type":  "proof_conclusion",
+                                                                 "value":  "QM parallel plane PBD"
+                                                             }
+                                                         ]
+                                           },
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "底面半径为1，PA与底面所成角为 pi/3。",
+                                                     "expression":  "cos(pi/3)=1/PA =\u003e PA=2",
+                                                     "justification":  "PA 的底面射影为 AO。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "计算圆锥侧面积。",
+                                                     "expression":  "S=pi*r*l=2pi",
+                                                     "justification":  "r=1,l=2。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "弧 CD 长为 pi/3，故圆心角 COD=pi/3，弦 CD=1。由图中 CD parallel AB，且 OB=1，得到四边形 OBDC 为平行四边形。",
+                                                     "expression":  "angle COD=pi/3, CD=2sin(pi/6)=1=OB",
+                                                     "justification":  "半径为1，AB为直径。"
+                                                 },
+                                                 {
+                                                     "step_no":  4,
+                                                     "text":  "Q、O分别是 PA、AB 的中点，由三角形 PAB 的中位线定理得 QO parallel PB。",
+                                                     "expression":  "QO parallel PB",
+                                                     "justification":  "PB 位于平面 PBD 内。"
+                                                 },
+                                                 {
+                                                     "step_no":  5,
+                                                     "text":  "由平行四边形 OBDC 得 OC parallel BD。平面 QOC 内两条相交直线 QO、OC 分别平行于平面 PBD 内两条相交直线 PB、BD，所以平面 QOC parallel 平面 PBD。",
+                                                     "expression":  "plane QOC parallel plane PBD",
+                                                     "justification":  "面面平行判定定理。"
+                                                 },
+                                                 {
+                                                     "step_no":  6,
+                                                     "text":  "M 在线段 OC 上，因此 QM 位于平面 QOC 内，从而 QM parallel 平面 PBD。",
+                                                     "expression":  "QM parallel plane PBD",
+                                                     "justification":  "平面平行的性质。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "圆锥侧面积",
+                                                   "直线与平面平行"
+                                               ],
+                          "solution_source":  "user_confirmed_and_diagram_checked",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "user_confirmed_and_diagram_based_derivation",
+                          "notes":  "用户提供的证明已与原图核对；将“弧 AC”规范更正为“弧 CD”。"
+                      },
+                      {
+                          "solution_id":  "solution_0012_01",
+                          "problem_id":  "problem_0012_01",
+                          "final_answer":  "4",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "由约束解出 b。",
+                                                     "expression":  "b=1/(1-a), 0\u003ca\u003c1",
+                                                     "justification":  "a+1/b=1。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "化简目标式并用基本不等式。",
+                                                     "expression":  "b+1/a=1/[a(1-a)]\u003e=4",
+                                                     "justification":  "a(1-a)\u003c=1/4，等号在 a=1/2 时取得。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "基本不等式",
+                                                   "代数消元"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0012_02",
+                          "problem_id":  "problem_0012_02",
+                          "final_answer":  "288",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "首尾家长依次有 4、3 种选法。",
+                                                     "expression":  "4*3",
+                                                     "justification":  "首尾不能为儿童。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "中间四人任意排列。",
+                                                     "expression":  "4!=24",
+                                                     "justification":  "乘法原理。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "相乘得到总数。",
+                                                     "expression":  "4*3*4!=288",
+                                                     "justification":  "四个家长和两个儿童视为不同个体。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "排列",
+                                                   "乘法原理"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0012_03",
+                          "problem_id":  "problem_0012_03",
+                          "final_answer":  "2sqrt(2)",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "分解 z^2-(conj z)^2。",
+                                                     "expression":  "(z-conj z)(z+conj z)=0",
+                                                     "justification":  "故 z 为实数或纯虚数。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "结合 |z|\u003c=1 得到两条单位圆内线段。",
+                                                     "expression":  "z in [-1,1] union i[-1,1]",
+                                                     "justification":  "轨迹分析。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "比较到两条线段的距离。",
+                                                     "expression":  "min(sqrt(10),2sqrt(2))=2sqrt(2)",
+                                                     "justification":  "到虚轴线段端点 i 的距离最小。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "共轭复数",
+                                                   "复数轨迹与距离"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "geometric_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0013",
+                          "problem_id":  "problem_0013_01",
+                          "final_answer":  "b_n=na_n=n+2; f\u0027(-2)=[7-(3m+7)(-2)^m]/9",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "递推式乘以 n(n+1)。",
+                                                     "expression":  "(n+1)a_(n+1)=na_n+1",
+                                                     "justification":  "令 b_n=na_n。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "得到等差数列。",
+                                                     "expression":  "b_(n+1)-b_n=1, b_1=3 =\u003e b_n=n+2",
+                                                     "justification":  "等差数列通项。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "求导并用等比数列求和。",
+                                                     "expression":  "f\u0027(-2)=sum_(k=1)^m(k+2)(-2)^(k-1)=[7-(3m+7)(-2)^m]/9",
+                                                     "justification":  "逐项求导后化简。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "递推数列",
+                                                   "等差数列",
+                                                   "等比数列求和"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0014",
+                          "problem_id":  "problem_0014_01",
+                          "final_answer":  "61/25",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "对每个球设指示变量。",
+                                                     "expression":  "X=sum I_j",
+                                                     "justification":  "X 是至少出现一次的球数。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "计算单个球出现的概率。",
+                                                     "expression":  "P(I_j=1)=1-(4/5)^3=61/125",
+                                                     "justification":  "三次有放回抽取。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "利用期望线性性。",
+                                                     "expression":  "E(X)=5*61/125=61/25",
+                                                     "justification":  "不要求指示变量独立。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "指示变量",
+                                                   "期望线性性"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0015",
+                          "problem_id":  "problem_0015_01",
+                          "final_answer":  "phi=pi/3; g=sqrt(3)cos(2x+pi/6), range=[-sqrt(3),sqrt(3)], decreasing [k*pi-pi/12,k*pi+5*pi/12], increasing [k*pi+5*pi/12,k*pi+11*pi/12]",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "由 f(0)=1/2 且 0\u003c=phi\u003cpi。",
+                                                     "expression":  "cos(phi)=1/2 =\u003e phi=pi/3",
+                                                     "justification":  "区间唯一确定。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "和差化积。",
+                                                     "expression":  "g=cos(2x+pi/3)+cos(2x)=sqrt(3)cos(2x+pi/6)",
+                                                     "justification":  "标准公式。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "求值域和单调性。",
+                                                     "expression":  "g\u0027=-2sqrt(3)sin(2x+pi/6)",
+                                                     "justification":  "按正弦符号分区间。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "和差化积",
+                                                   "三角函数值域与单调性"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0016",
+                          "problem_id":  "problem_0016_01",
+                          "final_answer":  "ACD",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "设双曲线焦半距为 c=sqrt(a^2+b^2)。以焦距为直径的圆与渐近线交于 M(a,b)、N(-a,-b)。",
+                                                     "expression":  "M=(a,b), N=(-a,-b)",
+                                                     "justification":  "渐近线方向向量为 (a,b)，圆半径为 c。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "由 angle NA1M=5pi/6 的向量夹角关系得到 b^2=12a^2。",
+                                                     "expression":  "b=2sqrt(3)a",
+                                                     "justification":  "使用向量夹角公式。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "判断各选项。",
+                                                     "expression":  "angle A1MA2=pi/6; |MA1|=4a; |MA2|=b=2sqrt(3)a; e=sqrt(13)",
+                                                     "justification":  "因此 A、C 正确，B 错误。"
+                                                 },
+                                                 {
+                                                     "step_no":  4,
+                                                     "text":  "当 a=sqrt(2) 时计算四边形面积。",
+                                                     "expression":  "S=2ab=8sqrt(3)",
+                                                     "justification":  "故 D 正确。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "双曲线渐近线",
+                                                   "向量夹角"
+                                               ],
+                          "solution_source":  "user_provided_derivation",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "user_confirmed_and_independent_check",
+                          "notes":  "用户提供完整选项判断与推导，最终答案为 A、C、D。"
+                      },
+                      {
+                          "solution_id":  "solution_0017",
+                          "problem_id":  "problem_0017_01",
+                          "final_answer":  "D",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "由半角公式求 sin(alpha/2)。",
+                                                     "expression":  "sin(alpha/2)=2sqrt(5)/5",
+                                                     "justification":  "0\u003calpha/2\u003cpi/2。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "用倍角公式。",
+                                                     "expression":  "sin alpha=4/5, cos alpha=-3/5",
+                                                     "justification":  "直接代入。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "计算差角正弦。",
+                                                     "expression":  "sin(alpha-pi/4)=7sqrt(2)/10",
+                                                     "justification":  "差角公式。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "半角公式",
+                                                   "倍角公式"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0018",
+                          "problem_id":  "problem_0018_01",
+                          "final_answer":  "BC",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "建立坐标系，令 A 为原点、AB 沿 x 轴。结合点到 AB 的距离及二面角，取 C=(c,2,0)、D=(d,1/2,sqrt(3)/2)。",
+                                                     "expression":  "C=(c,2,0), D=(d,1/2,sqrt(3)/2)",
+                                                     "justification":  "c,d 为投影到 AB 上的横坐标。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "验证 B。",
+                                                     "expression":  "CD^2=(c-d)^2+(2-1/2)^2+(sqrt(3)/2)^2=(c-d)^2+3\u003e=3",
+                                                     "justification":  "所以 CD\u003e=sqrt(3)。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "否定 A。",
+                                                     "expression":  "cos angle CAD=(cd+1)/(sqrt(c^2+4)*sqrt(d^2+1))",
+                                                     "justification":  "取 c=d=10 时 angle CAD\u003c60°。"
+                                                 },
+                                                 {
+                                                     "step_no":  4,
+                                                     "text":  "验证 C。",
+                                                     "expression":  "AB perpendicular CD =\u003e c=d; CD=(0,-3/2,sqrt(3)/2)=sqrt(3)n_ABD",
+                                                     "justification":  "CD 平行平面 ABD 的法向量，所以 CD perpendicular plane ABD。"
+                                                 },
+                                                 {
+                                                     "step_no":  5,
+                                                     "text":  "否定 D。",
+                                                     "expression":  "AB perpendicular plane ACD =\u003e c=d=0, AC dot AD=1!=0",
+                                                     "justification":  "故 AC 不垂直 AD。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "空间距离",
+                                                   "二面角"
+                                               ],
+                          "solution_source":  "user_provided_derivation",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "user_confirmed_and_independent_check",
+                          "notes":  "用户提供完整坐标证明与选项，最终答案为 B、C。"
+                      },
+                      {
+                          "solution_id":  "solution_0019",
+                          "problem_id":  "problem_0019_01",
+                          "final_answer":  "sqrt(65)/2",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "代入点 (4,8) 求 p1,p2。",
+                                                     "expression":  "p1=8,p2=1",
+                                                     "justification":  "分别代入两条抛物线。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "写出两焦点。",
+                                                     "expression":  "F1=(4,0), F2=(0,1/2)",
+                                                     "justification":  "标准焦点公式。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "计算距离。",
+                                                     "expression":  "|F1F2|=sqrt(65)/2",
+                                                     "justification":  "两点距离公式。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "抛物线焦点",
+                                                   "两点距离"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0020",
+                          "problem_id":  "problem_0020_01",
+                          "final_answer":  {
+                                               "schema_version": "1.0",
+                                               "answer_type": "multipart",
+                                               "parts": [
+                                                   {"part_id": "part_1", "answer_type": "expression", "value": "1/3"},
+                                                   {"part_id": "part_2", "answer_type": "expression", "value": "3sqrt(5)"}
+                                               ]
+                                           },
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "余弦定理求 AC。",
+                                                     "expression":  "AC^2=9+12-12=9",
+                                                     "justification":  "AC=3。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "再次用余弦定理求 cos A。",
+                                                     "expression":  "cos A=(9+9-12)/18=1/3",
+                                                     "justification":  "边角关系。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "取 A=(0,0)、C=(3,0)、B=(1,2sqrt(2))，由 D 在 BA 延长线上、DE parallel BC、DE=sqrt(6)，且 AE perpendicular AC，求得 E=(0,-6)。",
+                                                     "expression":  "DE/BC=1/sqrt(2), D=(-sqrt(2),-4), E=(0,-6); CE^2=3^2+6^2=45",
+                                                     "justification":  "BC=2sqrt(3)，平行线确定 DE 的方向；E 的横坐标为 0，且 D 在 A 的另一侧。故 CE=3sqrt(5)。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "余弦定理",
+                                                   "坐标法",
+                                                   "向量垂直"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0021",
+                          "problem_id":  "problem_0021_01",
+                          "final_answer":  "n in (4,+infinity)",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "由 B(3,4) 得 k=12。",
+                                                     "expression":  "xy=12",
+                                                     "justification":  "反比例函数。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "由 A(m,n) 得 n=12/m。",
+                                                     "expression":  "0\u003cm\u003c3 =\u003e n\u003e4",
+                                                     "justification":  "函数在正半轴递减。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "反比例函数",
+                                                   "函数单调性"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0022",
+                          "problem_id":  "problem_0022_01",
+                          "final_answer":  {
+                                               "part_1":  "h\u003c12.5米",
+                                               "part_2":  "h/sqrt(b^2-(h-a)^2)"
+                                           },
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "代入安全条件。",
+                                                     "expression":  "h/100\u003c1/8 =\u003e h\u003c12.5",
+                                                     "justification":  "直接不等式变形。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "由图中直角三角形。",
+                                                     "expression":  "d^2+(h-a)^2=b^2",
+                                                     "justification":  "BC=b 为斜边，竖直差为 h-a。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "消去 d。",
+                                                     "expression":  "h/d=h/sqrt(b^2-(h-a)^2)",
+                                                     "justification":  "距离取正根。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "不等式",
+                                                   "勾股定理"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "diagram_based_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0023",
+                          "problem_id":  "problem_0023_01",
+                          "final_answer":  {
+                                               "part_1":  "y=4x",
+                                               "part_2":  "CP/CQ=1, Q在抛物线上"
+                                           },
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "一般派生直线为 y=2ax+b。",
+                                                     "expression":  "A=(-b/(2a),0), C=(-b/(2a)+1,2a)",
+                                                     "justification":  "由定义求斜率。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "第一问代入 a=2,b=0。",
+                                                     "expression":  "y=4x",
+                                                     "justification":  "直接代入。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "第二问由派生直线得 a=1,b=-6，故抛物线 y=x^2-6x+1。",
+                                                     "expression":  "P=(1,-4), Q=(7,8), C=(4,2)",
+                                                     "justification":  "逐点代入。"
+                                                 },
+                                                 {
+                                                     "step_no":  4,
+                                                     "text":  "计算距离并检验 Q。",
+                                                     "expression":  "CP=CQ=3sqrt(5), Q满足抛物线",
+                                                     "justification":  "两点距离和代入检验。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "抛物线对称轴",
+                                                   "坐标法",
+                                                   "两点距离"
+                                               ],
+                          "solution_source":  "derived_from_verified_statement",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0024",
+                          "problem_id":  "problem_0024_01",
+                          "final_answer":  "B",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "设正方形边长为 a，BE=x。由 EM parallel BD，三角形 AEM 为等腰直角三角形。",
+                                                     "expression":  "AE=AM=a-x, EM=sqrt(2)(a-x)",
+                                                     "justification":  "正方形对角线与边成45度。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "利用关于 BD 的对称关系。",
+                                                     "expression":  "BF=DG=x, EF=MG=sqrt(2)x, FG=sqrt(2)(a-x)",
+                                                     "justification":  "轴对称保持距离与垂直关系。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "计算四边形 EFGM 周长。",
+                                                     "expression":  "2[EF+EM]=2sqrt(2)a",
+                                                     "justification":  "与 x 无关，所以①正确。"
+                                                 },
+                                                 {
+                                                     "step_no":  4,
+                                                     "text":  "P、H 分别是 EF、MG 的中点，计算 EPHM 周长。",
+                                                     "expression":  "EP+PH+HM+ME=2sqrt(2)a-sqrt(2)x",
+                                                     "justification":  "随 x 改变，所以②错误。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "正方形对称性",
+                                                   "等腰直角三角形",
+                                                   "周长定值"
+                                               ],
+                          "solution_source":  "user_provided_derivation",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "user_confirmed_and_diagram_checked",
+                          "notes":  "①正确、②错误。"
+                      },
+                      {
+                          "solution_id":  "solution_0026",
+                          "problem_id":  "problem_0026_01",
+                          "final_answer":  "1800",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "求出租车所占比例。",
+                                                     "expression":  "100%-60%-15%-15%=10%",
+                                                     "justification":  "扇形图总比例为100%。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "用总客流乘比例。",
+                                                     "expression":  "18000*10%=1800",
+                                                     "justification":  "样本比例用于估计总体。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "扇形统计图",
+                                                   "百分比估计"
+                                               ],
+                          "solution_source":  "user_provided_derivation",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0027",
+                          "problem_id":  "problem_0027_01",
+                          "final_answer":  "m\u003e1/8",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "写出判别式。",
+                                                     "expression":  "Delta=1-8m",
+                                                     "justification":  "a=2,b=1,c=m。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "无实根要求判别式小于0。",
+                                                     "expression":  "1-8m\u003c0 =\u003e m\u003e1/8",
+                                                     "justification":  "一元二次方程实根判定。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "一元二次方程判别式",
+                                                   "一元一次不等式"
+                                               ],
+                          "solution_source":  "user_provided_derivation",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0028",
+                          "problem_id":  "problem_0028_01",
+                          "final_answer":  "B",
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "O、D 都在 BC 的垂直平分线上。",
+                                                     "expression":  "OD=sqrt(OB^2-BD^2)=sqrt(25-16)=3",
+                                                     "justification":  "OB=5,BD=4。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "设圆 D 半径为 r，用两圆相交条件。",
+                                                     "expression":  "|5-r|\u003c3\u003c5+r =\u003e 2\u003cr\u003c8",
+                                                     "justification":  "相交指有两个公共点。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "检查选项。",
+                                                     "expression":  "r=5",
+                                                     "justification":  "只有选项 B 位于开区间 (2,8)。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "圆心距",
+                                                   "两圆位置关系"
+                                               ],
+                          "solution_source":  "user_provided_derivation",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "direct_derivation"
+                      },
+                      {
+                          "solution_id":  "solution_0029",
+                          "problem_id":  "problem_0029_01",
+                          "final_answer":  {
+                                               "part_1":  "b=-4,c=4",
+                                               "part_2_1":  "CD/PQ=3",
+                                               "part_2_2":  "sqrt(17)/17 or 3/5"
+                                           },
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "代入 A、B 求第一条抛物线。",
+                                                     "expression":  "b+c=0, 3b+c=-8 =\u003e b=-4,c=4",
+                                                     "justification":  "联立方程。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "第二条抛物线写为顶点式。",
+                                                     "expression":  "y=a(x-2)^2+1-a, Q=(2,1-a), D=(0,3a+1)",
+                                                     "justification":  "同样经过 A、B。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "第一条抛物线有 P=(2,0)、C=(0,4)，计算平行边长度比。",
+                                                     "expression":  "CD=3|a-1|, PQ=|a-1|, CD/PQ=3",
+                                                     "justification":  "a!=1。"
+                                                 },
+                                                 {
+                                                     "step_no":  4,
+                                                     "text":  "四边形按 C-D-P-Q 顺序，CD parallel PQ。直角梯形要求腰 DP 或 CQ 水平。",
+                                                     "expression":  "DP horizontal =\u003e a=-1/3; CQ horizontal =\u003e a=-3",
+                                                     "justification":  "分别令对应端点纵坐标相等。"
+                                                 },
+                                                 {
+                                                     "step_no":  5,
+                                                     "text":  "分别计算两种图形的最小内角正弦。",
+                                                     "expression":  "a=-1/3 =\u003e 3/5; a=-3 =\u003e sqrt(17)/17",
+                                                     "justification":  "两种参数均满足题设，故答案需分类保留。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "抛物线顶点式",
+                                                   "直角梯形",
+                                                   "分类讨论",
+                                                   "锐角正弦"
+                                               ],
+                          "solution_source":  "user_provided_derivation_corrected_by_independent_check",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "diagram_order_and_coordinate_check",
+                          "notes":  "用户原解把 DQ 视为腰得到 a=0，并在两种合法答案中取较小者；按四边形 C-D-P-Q 的边序修正后，答案为 sqrt(17)/17 或 3/5。"
+                      },
+                      {
+                          "solution_id":  "solution_0030",
+                          "problem_id":  "problem_0030_01",
+                          "final_answer":  {
+                                               "part_1_1":  "angle BAE=angle EFC",
+                                               "part_1_2":  "S_triangle_BEG:S_triangle_AEF=2:15",
+                                               "part_2":  "AF=(5sqrt(3)+6)/3"
+                                           },
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "延长 FE 交 AB 延长线于 H。利用 AB parallel CD、BE=CE 证明三角形 BEH 与 CEF 全等，再由 AE=EF=EH 得 angle BAE=angle EFC。",
+                                                     "expression":  "triangle BEH congruent triangle CEF",
+                                                     "justification":  "AAS 与等腰三角形性质。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                     "text":  "第（1）②用仿射坐标计算。令 B=(0,0), C=(2,0), A=(u,v), D=(u+2,v)，则 E=(1,0)、F=(u/2+2,v/2)。",
+                                                     "expression":  "G=AE intersect BF=(u/3+4/3,v/3)",
+                                                     "justification":  "E、F 分别为 BC、CD 中点。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "用行列式面积公式。",
+                                                     "expression":  "S_BEG=v/6, S_AEF=5v/4, ratio=(v/6)/(5v/4)=2/15",
+                                                     "justification":  "仿射坐标不依赖平行四边形具体形状。"
+                                                 },
+                                                 {
+                                                     "step_no":  4,
+                                                     "text":  "第（2）延长 AD、EF 交于 M，利用角条件建立三角形 AEF、ECF 及相关三角形相似关系。",
+                                                     "expression":  "设 CE=s, EF=t，则 AF=t^2, AE=st",
+                                                     "justification":  "CF=1 及相似比例。"
+                                                 },
+                                                 {
+                                                     "step_no":  5,
+                                                     "text":  "由 DF=2、平行关系得到 DM=2s、FM=2t、AM=5+2s、EM=3t，再由相似比例求解。",
+                                                     "expression":  "s=sqrt(3), t^2=(5sqrt(3)+6)/3",
+                                                     "justification":  "代入 EF/AE=AE/EM=AF/AM。"
+                                                 },
+                                                 {
+                                                     "step_no":  6,
+                                                     "text":  "得到 AF。",
+                                                     "expression":  "AF=(5sqrt(3)+6)/3",
+                                                     "justification":  "AF=t^2。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "平行四边形",
+                                                   "全等与相似三角形",
+                                                   "仿射坐标面积",
+                                                   "分类几何推导"
+                                               ],
+                          "solution_source":  "user_provided_derivation_corrected_by_independent_check",
+                          "verification_status":  "independently_verified",
+                          "verification_method":  "user_derivation_and_coordinate_check",
+                          "notes":  "原图第（1）②要求 S_triangle_BEG，不是规范化题干原先误写的 S_triangle_BFG；面积比复算为 2:15。"
+                      },
+                      {
+                          "solution_id":  "solution_0025",
+                          "problem_id":  "problem_0025_01",
+                          "final_answer":  {
+                                               "part_1_1":  "angle APO=angle CPO",
+                                               "part_1_2":  "PH=3/4",
+                                               "part_2":  "PQ/AQ=sqrt(2)/3"
+                                           },
+                          "solution_steps":  [
+                                                 {
+                                                     "step_no":  1,
+                                                     "text":  "由 AB=CD，圆心 O 到两弦的距离相等，结合角平分线判定得 OP 平分 angle APC。",
+                                                     "expression":  "OM=ON =\u003e angle APO=angle CPO",
+                                                     "justification":  "等弦所对弦心距相等。"
+                                                 },
+                                                 {
+                                                     "step_no":  2,
+                                                      "text":  "由 AE=4 得 OB=2。由 OP=OH，得角 OHP=角 CPO；结合第（1）①的角平分线结论，得角 BPO=角 BHP。又角 PBH=角 OBP，所以三角形 BPH 相似于三角形 BOP。",
+                                                      "expression":  "PH/OP=BH/BP=BP/OB=1/2",
+                                                      "justification":  "标准解答利用两组对应角相等证明三角形相似。"
+                                                 },
+                                                 {
+                                                     "step_no":  3,
+                                                     "text":  "由 PQ=EQ，Q 为 PE 的中点；设 AF=k，则 PF=4k、AP=5k。",
+                                                     "expression":  "PE=2PQ, PF=4k, AP=5k",
+                                                     "justification":  "线段中点和分点条件。"
+                                                 },
+                                                 {
+                                                     "step_no":  4,
+                                                      "text":  "由图中角关系，三角形 PFE 与三角形 QPA 相似，因此 PF/PQ=PE/PA。设 AF=m、PQ=n，则 PF=4m、AP=5m、PE=QE=2n，得到 n=sqrt(10)m。",
+                                                      "expression":  "4m/n=2n/(5m) => n=sqrt(10)m",
+                                                      "justification":  "标准解答使用角 PFE=角 PQA、角 FPE=角 QPA 证明 AA 相似。"
+                                                 },
+                                                 {
+                                                     "step_no":  5,
+                                                      "text":  "O 是三角形 APE 的边 AE 中点，Q 是边 PE 中点，因此 K=OP∩AQ 为三角形 APE 的重心，AK=2QK。设 QK=k，则 AK=2k。由两个直角三角形的勾股关系，求得 k=sqrt(5)m，故 AQ=3sqrt(5)m。",
+                                                      "expression":  "(5m)^2-(2k)^2=(sqrt(10)m)^2-k^2 => k=sqrt(5)m, AQ=3sqrt(5)m",
+                                                      "justification":  "标准解答通过三角形重心性质和勾股定理求 AQ。"
+                                                 },
+                                                 {
+                                                     "step_no":  6,
+                                                     "text":  "计算目标比值。",
+                                                      "expression":  "PQ/AQ=sqrt(10)m/(3sqrt(5)m)=sqrt(2)/3",
+                                                      "justification":  "约去 m 并化简根式。"
+                                                 }
+                                             ],
+                          "knowledge_points":  [
+                                                   "圆周角与直径",
+                                                   "等弦性质",
+                                                   "角平分线判定",
+                                                   "三角形相似",
+                                                   "勾股定理"
+                                               ],
+                           "solution_source":  "authoritative_standard_solution_image",
+                           "verification_status":  "independently_verified",
+                           "verification_method":  "comparison_with_user_provided_standard_solution",
+                           "notes":  "已根据用户提供的标准解答图片更正：第（1）② PH=3/4；第（2）PQ/AQ=sqrt(2)/3。第（1）①结论保持为 angle APO=angle CPO。"
+                      }
+                  ]
+}

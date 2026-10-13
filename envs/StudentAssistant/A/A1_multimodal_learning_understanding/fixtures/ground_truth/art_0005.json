@@ -1,0 +1,31 @@
+﻿{
+    "ground_truth_version":  "1.0",
+    "artifact_id":  "art_0005",
+    "file_name":  "5.png",
+    "media_type":  "image",
+    "expected_region_count":  1,
+    "expected_regions":  [
+                             {
+                                 "region_index":  1,
+                                 "region_type":  "question",
+                                 "bbox":  null,
+                                 "bbox_status":  "not_annotated",
+                                 "problem_id":  "problem_0005_01",
+                                 "question_no":  "26",
+                                 "statement":  "26. 设平面区域\n\\[\nD=\\{(x,y)\\mid |x|+|y|\\le1\\},\n\\]\n求\n\\[\n\\iint_D e^{\\frac{|y|}{|x|+|y|}}\\,d\\sigma.\n\\]",
+                                 "latex":  "D=\\{(x,y)\\mid |x|+|y|\\le1\\};\\quad \\iint_D e^{\\frac{|y|}{|x|+|y|}}\\,d\\sigma",
+                                 "subject":  "math",
+                                 "grade_band":  "postgraduate",
+                                 "exam_type":  "postgraduate_entrance_exam",
+                                 "year":  "2026",
+                                 "region":  "national",
+                                 "paper_variant":  "Mathematics-II",
+                                 "topic":  "multivariable_calculus.double_integral",
+                                 "question_type":  "constructed_response",
+                                 "has_diagram":  false,
+                                 "requires_confirmation":  false,
+                                 "annotation_status":  "verified"
+                             }
+                         ],
+    "notes":  "Generated from verified problem_annotations.csv. Bounding boxes are not annotated yet."
+}
